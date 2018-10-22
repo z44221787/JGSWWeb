@@ -1,0 +1,34 @@
+/*--清除浏览器默认样式--*/
+html, body {font-size:12px;font-family:Tahoma, Helvetica, Arial, '微软雅黑','Microsoft YaHei', sans-serif;scrollbar-face-color: #F6F6F6;scrollbar-highlight-color: #FFFFFF;scrollbar-shadow-color: #CCCCCC;scrollbar-3dlight-color:#CCCCCC;scrollbar-arrow-color:#330000;scrollbar-track-color:#F6F6F6;scrollbar-darkshadow-color:#FFFFFF;}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote {margin:0;padding:0;}
+fieldset, img {border:none;}
+address, caption, cite, code, dfn, em, th, var {font-style:normal;font-weight:normal;}
+li {list-style:none;}
+caption, th {text-align:left;}
+h1, h2, h3, h4, h5, h6 {font-size:100%;}
+h1 {font-size:18px;}
+h2 {font-size:16px;}
+h3 {font-size:14px;}
+q:before, q:after {content:'';}
+abbr, acronym {border:none;font-variant:normal;}
+sup {vertical-align:text-top;}
+sub {vertical-align:text-bottom;}
+input, button, textarea, select {font-family:inherit;font-size:inherit;font-weight:inherit;}
+input, button, textarea, select {*font-size:100%;}
+select, input, button, textarea {font:100% Tahoma, Helvetica, Arial, sans-serif;}
+table {font-size:inherit;font:100%;}
+pre, code, kbd, samp, tt {font-family:'Courier New', Courier, monospace;}
+/**
+ * 默认情况下，small的字号比默认小，这里reset掉，抹平差异
+ * 对于中文默认为12px时，让small也12px非常有必要。小于12px的中文字很难识别
+ */
+small {font-size:100%;}
+abbr, acronym {border-bottom:1px dotted;cursor:help;}
+ins {text-decoration:overline;}
+del {text-decoration:line-through;}
+hr {color:#D1D7DC;background-color:#D1D7DC;border:none;	height:1px;}
+/* 让非ie浏览器默认也显示垂直滚动条，防止因滚动条引起的闪烁等 */
+html {/*min-height:101%; 这个方法不好，不是想要的效果 */
+    overflow-y:scroll; /* 在opera下会同时触发水平滚动条，但考虑opera的用户数，也就可以忽略了 *//*overflow:-moz-scrollbars-vertical; 这个方法只针对firefox
+    overflow-x:auto; 上面一行会将overflow-x干掉，因此这里重设回来
+    ref:http://developer.mozilla.org/en/docs/Mozilla_CSS_Extensions#overflow */}

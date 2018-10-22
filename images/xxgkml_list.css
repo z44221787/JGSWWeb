@@ -1,0 +1,66 @@
+﻿
+a:hover{text-decoration: none;}
+.table tr th td tb{ border:1px solid ##c6e2f7;}
+.fl{float: left;}
+.fr{float: right;}
+.clear{clear: both;}
+.space01{height: 10px;font: 0px/0px SimSun;clear: both;}
+.tit{height: 40px;line-height: 40px;/* padding-left: 10px;*/border-bottom: 1px solid #ececec;}
+.tit img{float: left;margin: 10px 10px 0 15px;}
+.tit span{float: left;line-height: 40px;color: #fff;font-size: 18px;color: #069be5;/* border-bottom: 2px solid #d91517;*/padding: 0 10px;}
+.tit span i{background-color:#069be5;height:20px;width:5px;display:block;float:left;margin-top:10px;margin-right:10px;}
+.tit span i em{display:block;float:left;width:auto;}
+.tit span a{color: #fff;}
+.tb{width: 900px;margin-left: 20px;}
+.tb .t th{height: 40px;line-height: 40px;background-color: #ffffff;font-size: 14px;text-align: left;/* padding-left: 15px;*//* font-weight: normal;*//* margin-left: 1px;*/}
+.tb .c:hover{background-color: #e9f0f5;}
+.tb .c td{/* padding-left: 10px;*/font-size: 14px;line-height: 30px;border: 1px solid #c6e2f7;}
+.tb td.tn1{width: 200px;}
+.tb td.tn2{width: 185px;}
+.tb td.tn3{width: 510px;}
+.tb td.tn4{width: 110px;text-align: center;padding-left: 0;}
+.tb td.tn5{width: 100px;text-align: center;padding-left: 0;}
+.search-zfwj .zfnum{width: 155px;height: 30px;line-height: 30px;border: 1px solid #dfdfdf;font-size: 14px;padding-left: 30px;padding-right: 10px;background: url(../images/search-zf.png) no-repeat 10px center;float: left;margin-top: 4px;margin-right: 4px;}
+.search-zfwj .zftp{width: 70px;height: 32px;padding-left: 10px;font-size: 14px;border: 1px solid #dfdfdf;}
+.search-zfwj .sou{width: 60px;height: 32px;background-color: #069be5;border-radius: 5px;color: #fff;cursor: pointer;font-size: 16px;margin-right: 5px;border: 0px;}
+.ty-cont-gklb .tb{width: 98%;margin:0;position: relative;font-weight:normal;margin: 0 auto;}
+.ty-cont-gklb .tb .t th{color: #0868b1;}
+.ty-cont-gklb .tb tr.t{border: 1px solid #c6e2f7;}
+.ty-cont-gklb .tb .t th.th0{/* width: 52px;*/}
+.ty-cont-gklb .tb .t th.th1{/* width: 184px;*/border-left: 0px;}
+.ty-cont-gklb .tb .t th.th2{/* width: 154px;*/border-left: 0px;}
+.ty-cont-gklb .tb .t th.th3{/* width: 100px;*/border-left: 0px;}
+.ty-cont-gklb .tb .t th.th4{/* width: 338px;*/border-left: 0px;}
+.ty-cont-gklb .tb .t th.th5{/* width: 100px;*/border-left: 0px;}
+.ty-cont-gklb .tb .t th{border: 1px solid #c6e2f7; border-bottom: 0px;text-align: center;}
+.ty-cont-gklb .tb td.tn0{width: 54px;text-align: center;}
+.ty-cont-gklb .tb td.tn1{width: 180px;}
+.ty-cont-gklb .tb td.tn2{width: 159px;}
+.ty-cont-gklb .tb td.tn3{width: 103px;}
+.ty-cont-gklb .tb td.tn4{width: 338px;text-align: left;padding-left: 10px;}
+.ty-cont-gklb .tb td.tn5{width: 100px;/* text-align: left;*/}
+.ty-cont-gklb .c td{line-height: 36px;background: #FFFFFF;text-align: center;}
+.ty-cont-gklb .tdetail{position: absolute;width: 99%;/* height: 50px;*/background-color: #eff9ff;left: 0;top: 0;z-index: 1;/* border-radius: 10px;*/overflow: hidden;border: 1px solid #dddddd;}
+.ty-cont-gklb .tdetail span{width: auto;padding-left: 30px;font-size: 12px;line-height: 25px;color: white;display: block;float: left;}
+.xxgk .ty-conta{border-top: none;}
+.xxgk .t-gk{width: 900px;margin: 0 auto;}
+.xxgk .t-gk .ti{background-color: #e3f2fb;text-align: center;color: #006fbb;}
+.xxgk .t-gk .co{padding-left: 20px;}
+.xxgk .t-gk td{border: 1px solid #dfdfdf;line-height: 40px;}
+.xxgk .cc{padding-top:20px;}
+.ty-cont-gklb{position: relative;overflow: hidden;z-index: 0;min-height: 710px;}
+#searchRs{position: absolute;top: 10px;/* left: 20px;*/z-index: 15;width: 80%;height:200px;opacity: 0.8;background-color:#ffffff;padding: 40px;}
+.searching{z-index:22;position:relative;width:100%;height:200px;}
+.xxgkml_list{border:1px solid #dddddd;}
+.dqlm{background: url(../images/zfxxgkml_img02.png) left center no-repeat;padding-left: 25px;height: 40px;line-height: 40px;font-size: 14px;}
+.bg_tb{background: #c6e2f7;}
+.tbc ul{list-style:none;padding: 10px;margin:0;}
+.tbc li{float:left;line-height: 25px;list-style:none;padding:0;margin:0;height: 25px;  font-size:14px;}
+.tbc li.li01{width: 100px;text-align: left;font-weight: 900;}
+.tbc li.li02{width: 200px;text-align: left;}
+.tbc li.li03{width: 100px;text-align: left;font-weight: 900;}
+.tbc li.li04{width: 200px;text-align: left;}
+.tbc li.li05{width: 800px;text-align: left;}
+
+
+
