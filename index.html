@@ -18,7 +18,7 @@
     //文档预加载完成操作
     $(function () {
       jQuery(".carousel-inner").find("div:first").addClass("active");
-    })
+    });
 
     function SetHome(obj, url) {
       try {
@@ -39,7 +39,7 @@
           alert('抱歉，您所使用的浏览器无法完成此操作。\n\n您需要手动将【' + url + '】设置为首页。');
         }
       }
-    }
+    };
 
 
     function AddFavorite(sURL, sTitle) {
@@ -56,11 +56,13 @@
           }
         }
       }
-    }
+    };
   </script>
 </head>
 
 <body>
+
+  <!-- 头部 -->
   <div class="head">
     <div class="top">
       <div class="topN">
@@ -430,13 +432,11 @@
                     <p><TRS_DOCUMENT FIELD="DOCABSTRACT" AUTOFORMAT="TRUE">新闻访谈摘要信息</TRS_DOCUMENT></p>
                     </div>
                 </TRS_DOCUMENTS>
-
                 <!-- <div class="HyxxDivIT">
                   <img src="images/IT01.jpg" />
                   <h4><a href="#">云南省机关事务管理局调研工作</a></h4>
                   <p>2月4日下午，云南省机关事务管理局等相关部门负责人到云南省公路路政管理总队学习了解无人机建设、使用情况，探讨我省水运在水上执法、航道巡查、海事取证、现场监管、应急救援等方面的可行性。</p>
                 </div> -->
-
 
               </div>
             </div>
@@ -499,6 +499,8 @@
       </div>
     </div>
   </div>
+  <!-- 头部 -->
+
   <div class="main">
     <div class="imgPlay">
       <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
