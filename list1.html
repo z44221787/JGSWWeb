@@ -54,6 +54,71 @@
     };
   </script>
 
+<!-- 分页js -->
+<script language="JavaScript">
+    function createPageHTML(_nPageCount, _nCurrIndex, _sPageName, _sPageExt) {
+        var pagefanye = _nCurrIndex / 10;
+        if (_nPageCount == null || _nPageCount <= 1) {
+            return;
+        }
+        var nCurrIndex = _nCurrIndex || 0;
+        var wenzis = "<font style='font-size:12px'>"; //文字样式
+        var shuzisc = "<font style='font-size:16px' color='red'>"; //数字颜色样式
+        var shuzis = "<font style='font-size:14px'>"; //数字样式
+        var ends = "</font>"; //文字样式
+        if (nCurrIndex == 0) {
+            document.write("&nbsp;" + wenzis + "首页" + ends + "&nbsp;");
+            document.write(wenzis + "上一页" + ends + "&nbsp;");
+            if (pagefanye < 1) {
+                document.write(shuzisc + "1" + ends + "&nbsp;");
+            }
+        } else {
+            document.write("&nbsp;<a href=\"" + _sPageName + "." + _sPageExt + "\" >" + wenzis + "首页" + ends +
+                "</a>&nbsp;");
+            if (nCurrIndex == 1) {
+                document.write("<a href=\"" + _sPageName + "." + _sPageExt + "\" >" + wenzis + "上一页" + ends +
+                    "</a>&nbsp;");
+            } else {
+                document.write("<a href=\"" + _sPageName + "_" + (nCurrIndex - 1) + "." + _sPageExt + "\" >" + wenzis +
+                    "上一页" + ends + "</a>&nbsp;");
+            }
+            if (pagefanye < 1) {
+                document.write("<a href=\"" + _sPageName + "." + _sPageExt + "\" >" + shuzis + "1" + ends +
+                    "</a>&nbsp;");
+            }
+        }
+        var j;
+        var h;
+        if (pagefanye < 1) {
+            j = 1;
+            h = 10;
+        } else {
+            j = Math.floor(pagefanye) * 10;
+            h = j + 10;
+        }
+        for (var i = j; i < (_nPageCount - h < 0 ? _nPageCount : h); i++) {
+            if (nCurrIndex == i) {
+                document.write(shuzisc + (i + 1) + ends + "&nbsp;");
+            } else {
+                document.write("<a href=\"" + _sPageName + "_" + i + "." + _sPageExt + "\">" + shuzis + (i + 1) + ends +
+                    "</a>&nbsp;");
+            }
+        }
+        if (nCurrIndex == (_nPageCount - 1)) {
+            document.write(wenzis + "下一页" + ends + "&nbsp;");
+            document.write(wenzis + "尾页" + ends + "&nbsp;");
+            document.write(wenzis + "&nbsp;共" + ends + shuzisc + _nPageCount + ends + wenzis + "页" + ends + "&nbsp;");
+        } else {
+            document.write("<a href=\"" + _sPageName + "_" + (nCurrIndex + 1) + "." + _sPageExt + "\" >" + wenzis +
+                "下一页" + ends + "</a>&nbsp;");
+            document.write("<a href=\"" + _sPageName + "_" + (_nPageCount - 1) + "." + _sPageExt + "\" >" + wenzis +
+                "尾页" + ends + "</a>&nbsp;");
+            document.write(wenzis + "&nbsp;共" + ends + shuzisc + _nPageCount + ends + wenzis + "页" + ends + "&nbsp;");
+        }
+    }
+</script>
+<!-- 分页js -->
+
 
  </head> 
  <body>
@@ -495,25 +560,26 @@
       </div>
     </div>
   </div>
-
   <!-- 头部 -->
 
 
   <div class="main"> 
    <ol class="breadcrumb"> 
-    <li><a href="#">首页</a></li> 
-    <li><a href="#">信息列表</a></li> 
-    <li class="active">综合新闻</li> 
+    <TRS_Curpage VALUE="&nbsp;/&nbsp;" ONLY="false" AUTOLINK="true" TARGET="_blank" CurrChnlNoLink="1" CurrChnlCls="active">
+       当前位置
+    </TRS_Curpage>
+<!-- <li><a href="#">首页</a></li>  <li><a href="#">信息列表</a></li> <li class="active">综合新闻</li>  -->
    </ol> 
    <div class="listL"> 
     <div class="GgBt">
-     <span>行业新闻</span>
+     <span>
+      <trs_channel id="OWNER" autolink="false">一级栏目</trs_channel>
+     </span>
     </div> 
     <ul class="listS"> 
-     <li><em class="glyphicon glyphicon-play"></em><a href="#">信息列表</a></li> 
-     <li><em class="glyphicon glyphicon-play"></em><a href="#">信息列表</a></li> 
-     <li><em class="glyphicon glyphicon-play"></em><a href="#">信息列表</a></li> 
-     <li><em class="glyphicon glyphicon-play"></em><a href="#">信息列表</a></li> 
+     <trs_channels id="OWNER" startpos="0">
+        <li><em class="glyphicon glyphicon-play"></em><trs_channel id="OWNER" autolink="true">二级栏目</trs_channel></li> 
+     </trs_channels>
     </ul> 
    </div> 
    <div class="listR"> 
@@ -523,29 +589,20 @@
      <a href="#" style="color:#036">More</a>
     </div> 
     <ul class="new02"> 
-     <li><a href="content.html">新闻列表标题名称标题名称.1% </a><span>03-05</span></li> 
-     <li><a href="content1.html">新闻列表标题名称标题名称</a><span>03-05</span></li> 
-     <li><a href="content2.html">新闻列表标题名称标题名称 提升水</a><span>03-05</span></li> 
-     <li><a href="#">新闻列表标题名称标题名称</a><span>03-05</span></li> 
-     <li><a href="#">新闻列表标题名称标题名称.1% </a><span>03-05</span></li> 
-     <li><a href="#">新闻列表标题名称标题名称</a><span>03-05</span></li> 
-     <li><a href="#">新闻列表标题名称标题名称.1% </a><span>03-05</span></li> 
-     <li><a href="#">新闻列表标题名称标题名称</a><span>03-05</span></li> 
-     <li><a href="#">新闻列表标题名称标题名称 提升水</a><span>03-05</span></li> 
-     <li><a href="#">新闻列表标题名称标题名称</a><span>03-05</span></li> 
-     <li><a href="#">新闻列表标题名称标题名称.1% </a><span>03-05</span></li> 
-     <li><a href="#">新闻列表标题名称标题名称</a><span>03-05</span></li> 
-     <li><a href="#">新闻列表标题名称标题名称.1% </a><span>03-05</span></li> 
-     <li><a href="#">新闻列表标题名称标题名称</a><span>03-05</span></li> 
-     <li><a href="#">新闻列表标题名称标题名称 提升水</a><span>03-05</span></li> 
-     <li><a href="#">新闻列表标题名称标题名称</a><span>03-05</span></li> 
-     <li><a href="#">新闻列表标题名称标题名称.1% </a><span>03-05</span></li> 
-     <li><a href="#">新闻列表标题名称标题名称</a><span>03-05</span></li> 
-     <li><a href="#">新闻列表标题名称标题名称.1% </a><span>03-05</span></li> 
-     <li><a href="#">新闻列表标题名称标题名称</a><span>03-05</span></li> 
+    <TRS_DOCUMENTS ID="OWNER"  PAGESIZE="18" AUTOMORE="FALSE">
+         <li>
+             <TRS_DOCUMENT FIELD="DOCTITLE" NUM="50" AUTOLINK="true"/>
+             <span><TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="MM-dd"/></span>
+         </li>              
+     </TRS_DOCUMENTS>
+
+     <!-- <li><a href="content.html">新闻列表标题名称标题名称.1% </a><span>03-05</span></li>  -->
     </ul> 
     <nav aria-label="Page navigation" class="listNav"> 
-     <ul class="pagination"> 
+    <script language="JavaScript">
+        createPageHTML(${PAGE_COUNT},${PAGE_INDEX},"${PAGE_NAME}","${PAGE_EXT}");
+      </script>
+     <!-- <ul class="pagination"> 
       <li> <a href="#" aria-label="Previous"> <span aria-hidden="true">&laquo;</span> </a> </li> 
       <li><a href="#">1</a></li> 
       <li><a href="#">2</a></li> 
@@ -553,10 +610,11 @@
       <li><a href="#">4</a></li> 
       <li><a href="#">5</a></li> 
       <li> <a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span> </a> </li> 
-     </ul> 
+     </ul>  -->
     </nav> 
    </div> 
   </div> 
+  <!-- 页脚位置 -->
   <div class="footer"> 
    <div class="footerN"> 
     <div class="fooerIconL"> 
@@ -573,6 +631,8 @@
      <span><img src="images/bgt.png" /></span> 
     </div> 
    </div> 
-  </div>  
+  </div> 
+  <!-- 页脚位置  -->
+
  </body>
 </html>
