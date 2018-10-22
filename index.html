@@ -400,16 +400,15 @@
               <div class="ZxfwDiv" style="width: 460px;">
                 <div class="NewBt">
                   <span>常见问题解答</span>
-                  <a href="#">更多</a>
+                  <a href="<TRS_CHANNEL ID='常见问题解答' FIELD='_RECURL'/>" target="_blank">更多</a>
                 </div>
                 <ul class="new02">
-                  <li><a href="#">新闻列表标题名称标题名称.2% </a><span>03-05</span></li>
-                  <li><a href="#">新闻列表标题名称标题名称</a><span>03-05</span></li>
-                  <li><a href="#">新闻列表标题名称标题名称 提升水</a><span>03-05</span></li>
-                  <li><a href="#">新闻列表标题名称标题名称</a><span>03-05</span></li>
-                  <li><a href="#">新闻列表标题名称标题名称.1% </a><span>03-05</span></li>
-                  <li><a href="#">新闻列表标题名称标题名称</a><span>03-05</span></li>
-                  <li><a href="#">新闻列表标题名称标题名称 提升水</a><span>03-05</span></li>
+                    <TRS_DOCUMENTS ID= "常见问题解答" NUM="7" STARTPOS="0" AUTOMORE="FALSE">
+                        <li>
+                          <TRS_DOCUMENT FIELD="DOCTITLE" NUM="32" AUTOLINK="TRUE" LINKALTTEXT="DOCTITLE"/>
+                          <span><TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="MM-dd"/></span>
+                        </li>
+                  </TRS_DOCUMENTS>
                 </ul>
                 <div class="xinx">
                   <ul>
@@ -422,18 +421,23 @@
               <div class="HdjlDR">
                 <div class="ZzjgDivBt">
                   <em class="glyphicon glyphicon-bookmark"></em>
-                  <a href="#">新闻访谈</a>
+                  <a href="<TRS_CHANNEL ID='新闻访谈' FIELD='_RECURL'/>" target="_blank">新闻访谈</a>
                 </div>
-                <div class="HyxxDivIT">
+                <TRS_DOCUMENT ID= "新闻访谈" NUM="2" STARTPOS="0" AUTOMORE="FALSE">
+                    <div class="HyxxDivIT">
+                    <TRS_APPENDIX INDEX="0" MODE="PIC"/>
+                    <h4><TRS_DOCUMENT FIELD="DOCTITLE"  NUM="28" AUTOLINK="TRUE" TARGET="_blank"/></h4>
+                    <p><TRS_DOCUMENT FIELD="DOCABSTRACT" AUTOFORMAT="TRUE">新闻访谈摘要信息</TRS_DOCUMENT></p>
+                    </div>
+                </TRS_DOCUMENTS>
+
+                <!-- <div class="HyxxDivIT">
                   <img src="images/IT01.jpg" />
                   <h4><a href="#">云南省机关事务管理局调研工作</a></h4>
                   <p>2月4日下午，云南省机关事务管理局等相关部门负责人到云南省公路路政管理总队学习了解无人机建设、使用情况，探讨我省水运在水上执法、航道巡查、海事取证、现场监管、应急救援等方面的可行性。</p>
-                </div>
-                <div class="HyxxDivIT">
-                  <img src="images/IT01.jpg" />
-                  <h4><a href="#">云南省机关事务管理局调研工作</a></h4>
-                  <p>2月4日下午，云南省机关事务管理局等相关部门负责人到云南省公路路政管理总队学习了解无人机建设、使用情况，探讨我省水运在水上执法、航道巡查、海事取证、现场监管、应急救援等方面的可行性。</p>
-                </div>
+                </div> -->
+
+
               </div>
             </div>
           </li>
