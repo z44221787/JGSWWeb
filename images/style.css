@@ -107,7 +107,7 @@ background-repeat:no-repeat;}
 .fooerIconL{width: 190px; float: left; margin-top: 20px;}
 .fooerIconR{width: 290px; float: right; margin-top: 10px; margin-top: 30px;}
 .content{text-align: center; background: #f6f6f6; padding: 10px 0px;}
-.content p{line-height: 25px; color: #555; margin: 10px 0px; font-size: 14px; text-indent: 2em; text-align: left; width: 90%; margin-left: 5%;}
+.content p{line-height: 25px; color: #555; margin: 10px 0px; font-size: 16px; text-indent: 2em; text-align: left; width: 90%; margin-left: 5%;}
 .contentSpan{text-align: center; padding:10px 0px;}
 .contentSpan em{margin: 0px 5px; font-weight: bold;}
 .contentSpan span{margin: 0px 10px; color: #555;}
@@ -144,7 +144,7 @@ color:#fff;
 .listL li em{font-size: 9px; color: #0b68a1; margin-right: 10px; position: relative; top: -1px;}
 .listR{width: 80%; float: right;}
 .listR .new02 li{border-bottom: none;}
-.listR .new02 li:nth-child(5n){border-bottom: 1px solid #ccc;}
+.listR .new02 li:nth-child(1n){border-bottom: 1px solid #ccc;}
 .listNav{clear: both; text-align: center;}
 .leadL{width: 200px; float: left; background: #96b8d4;}
 .leadL .leadImg{width: 180px; margin-top: 10px; margin-left: 10px;}
