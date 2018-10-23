@@ -266,54 +266,53 @@
               <div class="HyxxDiv" style="width: 600px;">
                 <div class="NewBt">
                   <span>管理入口</span>
-                  <a href="#">更多</a>
+                  <a href="<TRS_CHANNEL ID='管理入口' FIELD='_RECURL'/>" target="_blank">更多</a>
                 </div>
                 <div class="WsbsL" style="margin-bottom: 10px;">
                   <ul>
-                    <li><a href=""><em class="iconfont"></em><span>资产管理</span></a></li>
-                    <li><a href=""><em class="iconfont"></em><span>公务用车</span></a></li>
-                    <li><a href=""><em class="iconfont"></em><span>公共机构节能</span></a></li>
-                    <li><a href=""><em class="iconfont"></em><span>机关杂志</span></a></li>
-                    <li><a href=""><em class="iconfont"></em><span>综合会务管理</span></a></li>
+                    <li><a href="<TRS_CHANNEL ID='资产管理' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>资产管理</span></a></li>
+                    <li><a href="<TRS_CHANNEL ID='公务用车' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>公务用车</span></a></li>
+                    <li><a href="<TRS_CHANNEL ID='公共机构节能' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>公共机构节能</span></a></li>
+                    <li><a href="<TRS_CHANNEL ID='机关杂志' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>机关杂志</span></a></li>
+                    <li><a href="<TRS_CHANNEL ID='综合会务管理' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>综合会务管理</span></a></li>
                   </ul>
                 </div>
                 <div class="NewBt" style="clear: both;">
                   <span>应用接口</span>
-                  <a href="#">更多</a>
+                  <a href="<TRS_CHANNEL ID='应用接口' FIELD='_RECURL'/>" target="_blank">更多</a>
                 </div>
                 <div class="WsbsR" style="width: 600px; ">
                   <ul>
-                    <li><a href="#"><em class="iconfont"></em><span style="text-shadow:none;">应用平台应用平台应用平台应用平台应用平台应用平台应用平台入口</span></a></li>
-                    <li><a href="#"><em class="iconfont"></em><span style="text-shadow:none;">应用平台应用平台应用平台应用平台应用平台接口</span></a></li>
-                    <li><a href="#"><em class="iconfont"></em><span style="text-shadow:none;">预留系统预留系统预留系统预留系统入口</span></a></li>
-                    <li><a href="#"><em class="iconfont"></em><span style="text-shadow:none;">预留系统入口预留系统入口</span></a></li>
-                    <li><a href="#"><em class="iconfont"></em><span style="text-shadow:none;">应用平台入口预留系统入口</span></a></li>
-                    <li><a href="#"><em class="iconfont"></em><span style="text-shadow:none;">应用数据接口预留系统入口</span></a></li>
+                    <TRS_CHANNELS STARTPOS=1 ID="应用接口">
+                        <li><a href="<TRS_CHANNEL FIELD='_RECURL'/>"><em class="iconfont"></em><span style="text-shadow:none;"><TRS_CHANNEL AUTOLINK="false"  FIELD='CHNLDESC'/></span></a></li>
+                    </TRS_CHANNELS>
+                           <!-- <TRS_CHANNEL TARGET="_blank" autolink="TRUE" >应用接口子级栏目</TRS_CHANNEL> -->
+                    <!-- <li><a href="#"><em class="iconfont"></em><span style="text-shadow:none;">应用平台应用平台应用平台应用平台应用平台应用平台应用平台入口</span></a></li> -->
                   </ul>
                 </div>
               </div>
               <div class="HyxxDiv un" style="width: 520px;" id="bszl">
                 <div class="NewBt XxKbt">
-                  <span><a href="#">办事指南</a></span>
-                  <span><a href="#">资料下载</a></span>
+                  <span><a href="<TRS_CHANNEL ID='办事指南' FIELD='_RECURL'/>" target="_blank">办事指南</a></span>
+                  <span><a href="<TRS_CHANNEL ID='资料下载' FIELD='_RECURL'/>" target="_blank">资料下载</a></span>
                 </div>
                 <ul class="new02 XxKul" style="width:518px; height:250px;">
-                  <li><a href="#">新闻列表标题名称标题名称.1% </a><span>03-05</span></li>
-                  <li><a href="#">新闻列表标题名称标题名称</a><span>03-05</span></li>
-                  <li><a href="#">新闻列表标题名称标题名称 提升水</a><span>03-05</span></li>
-                  <li><a href="#">新闻列表标题名称标题名称</a><span>03-05</span></li>
-                  <li><a href="#">新闻列表标题名称标题名称.1% </a><span>03-05</span></li>
-                  <li><a href="#">新闻列表标题名称标题名称</a><span>03-05</span></li>
-                  <li><a href="#">新闻列表标题名称标题名称 提升水</a><span>03-05</span></li>
+                    <TRS_DOCUMENTS  ID="办事指南" NUM="7" STARTPOS="0" AUTOMORE="FALSE">
+                        <li>
+                            <TRS_DOCUMENT FIELD="DOCTITLE" NUM="32" AUTOLINK="TRUE"  TARGET="_blank"/>
+                            <span><TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="MM-dd"/></span>
+                        </li>
+                  </TRS_DOCUMENTS>
+                  <!-- <li><a href="#">新闻列表标题名称标题名称</a><span>03-05</span></li> -->
                 </ul>
                 <ul class="new02 XxKul" style="width:518px; height:250px;">
-                  <li><a href="#">新闻列表标题名称标题名称.2% </a><span>03-05</span></li>
-                  <li><a href="#">新闻列表标题名称标题名称</a><span>03-05</span></li>
-                  <li><a href="#">新闻列表标题名称标题名称 提升水</a><span>03-05</span></li>
-                  <li><a href="#">新闻列表标题名称标题名称</a><span>03-05</span></li>
-                  <li><a href="#">新闻列表标题名称标题名称.1% </a><span>03-05</span></li>
-                  <li><a href="#">新闻列表标题名称标题名称</a><span>03-05</span></li>
-                  <li><a href="#">新闻列表标题名称标题名称 提升水</a><span>03-05</span></li>
+                    <TRS_DOCUMENTS  ID="资料下载" NUM="7" STARTPOS="0" AUTOMORE="FALSE">
+                        <li>
+                            <TRS_DOCUMENT FIELD="DOCTITLE" NUM="32" AUTOLINK="TRUE"  TARGET="_blank"/>
+                            <span><TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="MM-dd"/></span>
+                        </li>
+                  </TRS_DOCUMENTS>
+                  <!-- <li><a href="#">新闻列表标题名称标题名称.2% </a><span>03-05</span></li> -->
                 </ul>
                 <div class="zwfwwsdt">
                   <a href="http://ynzwfw.yn.gov.cn/index.html?siteId=1" target="_blank"><img src="images/dt.jpg" width="520"
@@ -718,15 +717,15 @@
     <div class="Wsbs">
       <div class="NewBt">
         <em class="glyphicon glyphicon-bookmark"></em>
-        <span><a href="">事务管理</a></span>
+        <span><a href="<TRS_CHANNEL ID='事务管理' FIELD='_RECURL'/>" target="_blank">事务管理</a></span>
       </div>
       <div class="WsbsL">
         <ul>
-          <li><a href=""><em class="iconfont"></em><span>资产管理</span></a></li>
-          <li><a href=""><em class="iconfont"></em><span>公务用车</span></a></li>
-          <li><a href=""><em class="iconfont"></em><span>公共机构节能</span></a></li>
-          <li><a href=""><em class="iconfont"></em><span>机关杂志</span></a></li>
-          <li><a href=""><em class="iconfont"></em><span>综合会务管理</span></a></li>
+          <li><a href="<TRS_CHANNEL ID='资产管理' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>资产管理</span></a></li>
+          <li><a href="<TRS_CHANNEL ID='公务用车' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>公务用车</span></a></li>
+          <li><a href="<TRS_CHANNEL ID='公共机构节能' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>公共机构节能</span></a></li>
+          <li><a href="<TRS_CHANNEL ID='机关杂志' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>机关杂志</span></a></li>
+          <li><a href="<TRS_CHANNEL ID='综合会务管理' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>综合会务管理</span></a></li>
         </ul>
       </div>
       <div class="WsbsC">
@@ -734,9 +733,8 @@
       </div>
       <div class="WsbsR">
         <ul>
-          <li><a href="#"><em class="iconfont"></em><span>云南省公共机构节能服务平台</span></a></li>
-          <li><a href="#"><em class="iconfont"></em><span>应用数据接口</span></a></li>
-
+          <li><a href="<TRS_CHANNEL ID='云南省公共机构节能服务平台' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>云南省公共机构节能服务平台</span></a></li>
+          <li><a href="<TRS_CHANNEL ID='应用数据接口' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>应用数据接口</span></a></li>
         </ul>
       </div>
     </div>
