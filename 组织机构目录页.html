@@ -101,7 +101,7 @@
               <a href='<TRS_DOCUMENT FIELD="_RECURL"/>' target="_blank">
               <TRS_DOCUMENT FIELD="DOCTITLE" NUM="12" AUTOLINK="false" TARGET="_blank" />
               &nbsp;
-              <TRS_DOCUMENT FIELD="SUBDOCTITLE" AUTOFORMAT="true" AUTOFORMATTYPE="innerText" NUM="24"/>
+              <TRS_DOCUMENT FIELD="SUBDOCTITLE" AUTOFORMAT="true" AUTOFORMATTYPE="innerText" NUM="30"/>
              </a>
             </li>
           </TRS_DOCUMENTS>
@@ -113,15 +113,17 @@
         <div class="NewBt">
           <em class="glyphicon glyphicon-list"></em>
           <span>云管局概况及职责</span>
-          <a href='<TRS_DOCUMENT id="云管局概况及职责" FIELD="_RECURL" AUTOLINK="false"/>' target="_blank" style="color:#036">More</a>
+          <TRS_DOCUMENTS  ID="云管局概况及职责"  STARTPOS="0"  NUM="1" AUTOMORE="FALSE" where="WCMDOCUMENT.ATTACHPIC=1">
+              <a href='<TRS_DOCUMENT FIELD="_RECURL"/>' target="_blank" style="color:#036">More</a>
+          </TRS_DOCUMENTS>
         </div>
         <TRS_DOCUMENTS  ID="云管局概况及职责"  STARTPOS="0"  NUM="1" AUTOMORE="FALSE" where="WCMDOCUMENT.ATTACHPIC=1">
           <dt style="width:278px; height:242px; float:left; padding:14px 0 0 0;">
-                <TRS_APPENDIX INDEX="0" MODE="PIC" WIDTH="278" HEIGHT="242" autolink="false"/>
-               </dt>
-            <dt style=" font-size:16px; line-height:28px; padding:10px; float:right; width:310px; height:260px; font-weight:100; text-indent:24px; overflow:hidden;">
+                <TRS_APPENDIX INDEX="0" MODE="PIC" WIDTH="278" HEIGHT="242" autolink="true"/>
+          </dt>
+          <dt style=" font-size:16px; line-height:28px; padding:10px; float:right; width:310px; height:260px; font-weight:100; text-indent:24px; overflow:hidden;">
                 <TRS_DOCUMENT FIELD="DOCABSTRACT" AUTOFORMAT="TRUE" NUM="342"/>
-              </dt>
+          </dt>
          </TRS_DOCUMENTS> 
       </div>
 

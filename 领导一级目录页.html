@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>云南省机关事务管理局</title>
+    <link rel="stylesheet" type="text/css" href="images/clear.css" />
+    <link rel="stylesheet" type="text/css" href="images/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="images/style.css" />
+    <link rel="stylesheet" type="text/css" href="images/animate.min.css" />
+
+    <script type="text/javascript" src="images/jquery-1.11.1.js"></script>
+    <script type="text/javascript" src="images/bootstrap.min.js"></script>
+    <script type="text/javascript" src="images/web.js"></script>
+
+    <script language="JavaScript" type="text/javascript">
+        //文档预加载完成操作
+
+        function SetHome(obj, url) {
+            try {
+                obj.style.behavior = 'url(#default#homepage)';
+                obj.setHomePage(url);
+            } catch (e) {
+                if (window.netscape) {
+                    try {
+                        netscape.security.PrivilegeManager.enablePrivilege('UniversalXPConnect');
+                    } catch (e) {
+                        alert(
+                            '抱歉，此操作被浏览器拒绝！\n\n请在浏览器地址栏输入“about:config”并回车\n\n然后将[signed.applets.codebase_principal_support]的值设置为true，双击即可。'
+                        );
+                    }
+                    var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces
+                        .nsIPrefBranch);
+                    prefs.setCharPref('browser.startup.homepage', url);
+                } else {
+                    alert('抱歉，您所使用的浏览器无法完成此操作。\n\n您需要手动将【' + url + '】设置为首页。');
+                }
+            }
+        };
+
+
+        function AddFavorite(sURL, sTitle) {
+            try { //IE
+                window.external.addFavorite(sURL, sTitle);
+            } catch (e) {
+                try { //Firefox
+                    window.sidebar.addPanel(sTitle, sURL, "");
+                } catch (e) {
+                    try { //Chrome无法自动收藏，用创建快应用程序的捷方式来替代。
+                        createShortcut();
+                    } catch (e) {
+                        alert("您的浏览器不支持自动加入收藏，请使用浏览器菜单手动设置.");
+                    }
+                }
+            }
+        };
+    </script>
+
+    <!-- 分页js -->
+    <script language="JavaScript">
+        function createPageHTML(_nPageCount, _nCurrIndex, _sPageName, _sPageExt) {
+            var pagefanye = _nCurrIndex / 10;
+            if (_nPageCount == null || _nPageCount <= 1) {
+                return;
+            }
+            var nCurrIndex = _nCurrIndex || 0;
+            var wenzis = "<font style='font-size:12px'>"; //文字样式
+            var shuzisc = "<font style='font-size:16px' color='red'>"; //数字颜色样式
+            var shuzis = "<font style='font-size:14px'>"; //数字样式
+            var ends = "</font>"; //文字样式
+            if (nCurrIndex == 0) {
+                document.write("&nbsp;" + wenzis + "首页" + ends + "&nbsp;");
+                document.write(wenzis + "上一页" + ends + "&nbsp;");
+                if (pagefanye < 1) {
+                    document.write(shuzisc + "1" + ends + "&nbsp;");
+                }
+            } else {
+                document.write("&nbsp;<a href=\"" + _sPageName + "." + _sPageExt + "\" >" + wenzis + "首页" + ends +
+                    "</a>&nbsp;");
+                if (nCurrIndex == 1) {
+                    document.write("<a href=\"" + _sPageName + "." + _sPageExt + "\" >" + wenzis + "上一页" + ends +
+                        "</a>&nbsp;");
+                } else {
+                    document.write("<a href=\"" + _sPageName + "_" + (nCurrIndex - 1) + "." + _sPageExt + "\" >" + wenzis +
+                        "上一页" + ends + "</a>&nbsp;");
+                }
+                if (pagefanye < 1) {
+                    document.write("<a href=\"" + _sPageName + "." + _sPageExt + "\" >" + shuzis + "1" + ends +
+                        "</a>&nbsp;");
+                }
+            }
+            var j;
+            var h;
+            if (pagefanye < 1) {
+                j = 1;
+                h = 10;
+            } else {
+                j = Math.floor(pagefanye) * 10;
+                h = j + 10;
+            }
+            for (var i = j; i < (_nPageCount - h < 0 ? _nPageCount : h); i++) {
+                if (nCurrIndex == i) {
+                    document.write(shuzisc + (i + 1) + ends + "&nbsp;");
+                } else {
+                    document.write("<a href=\"" + _sPageName + "_" + i + "." + _sPageExt + "\">" + shuzis + (i + 1) + ends +
+                        "</a>&nbsp;");
+                }
+            }
+            if (nCurrIndex == (_nPageCount - 1)) {
+                document.write(wenzis + "下一页" + ends + "&nbsp;");
+                document.write(wenzis + "尾页" + ends + "&nbsp;");
+                document.write(wenzis + "&nbsp;共" + ends + shuzisc + _nPageCount + ends + wenzis + "页" + ends + "&nbsp;");
+            } else {
+                document.write("<a href=\"" + _sPageName + "_" + (nCurrIndex + 1) + "." + _sPageExt + "\" >" + wenzis +
+                    "下一页" + ends + "</a>&nbsp;");
+                document.write("<a href=\"" + _sPageName + "_" + (_nPageCount - 1) + "." + _sPageExt + "\" >" + wenzis +
+                    "尾页" + ends + "</a>&nbsp;");
+                document.write(wenzis + "&nbsp;共" + ends + shuzisc + _nPageCount + ends + wenzis + "页" + ends + "&nbsp;");
+            }
+        }
+    </script>
+    <!-- 分页js -->
+
+</head>
+
+<body>
+
+    <!-- 头部 -->
+    <TRS_TEMPLATE TEMPNAME="其他头部模板">
+        头部位置
+    </TRS_TEMPLATE>
+    <!-- 头部 -->
+
+    <div class="main">
+        <ol class="breadcrumb">
+            <TRS_Curpage VALUE="&nbsp;/&nbsp;" ONLY="false" AUTOLINK="true" TARGET="_blank" CurrChnlNoLink="true" CurrChnlCls="active">
+                当前位置
+            </TRS_Curpage>
+        </ol>
+        <div class="listL">
+            <div class="GgBt">
+                <span><trs_channel id="OWNER" autolink="false">当前栏目名称</trs_channel></span>
+            </div>
+            <ul class="listS">
+                <!-- 显示当前栏目下的领导名称 -->
+                <TRS_DOCUMENTS ID="OWNER" NUM="7" STARTPOS="0" AUTOMORE="FALSE">
+                   <li><em class="glyphicon glyphicon-play"></em>
+                    <a href='<TRS_DOCUMENT FIELD="_RECURL"/>' target="_blank">  
+                     <TRS_DOCUMENT FIELD="DOCTITLE" NUM="12" AUTOLINK="false" TARGET="_blank" />
+                    <!-- &nbsp;
+                    <TRS_DOCUMENT FIELD="SUBDOCTITLE" AUTOFORMAT="true" AUTOFORMATTYPE="innerText" NUM="30"/> -->
+                </a></li>
+               </TRS_DOCUMENTS>
+            </ul>
+        </div>
+        <div class="listR">
+        <TRS_DOCUMENTS ID="OWNER"  PAGESIZE="10" AUTOMORE="FALSE">
+                <div class="NewBt">
+                    <em class="glyphicon glyphicon-list"></em>
+                        <span>
+                          <TRS_DOCUMENT FIELD="DOCTITLE" AUTOLINK="false" TARGET="_blank" />
+                                &nbsp;
+                          <TRS_DOCUMENT FIELD="SUBDOCTITLE" AUTOFORMAT="true" AUTOFORMATTYPE="innerText"/>
+                        </span>
+                        <a href="<TRS_DOCUMENT FIELD='_RECURL'/>" target="_blank" style="color:#036">More</a>
+                    </div>
+                    <dd style=" font-size:16px; line-height:28px; padding:20px;">
+                        <em style=" border:1px solid #015293;color:#015293; padding:5px;">工作职责:</em>
+                        <TRS_DOCUMENT FIELD="DOCCONTENT" NUM="350" AUTOLINK="false" TARGET="_blank" />
+                    </dd>              
+         </TRS_DOCUMENTS>
+         <nav aria-label="Page navigation" class="listNav"> 
+           <script language="JavaScript">
+              createPageHTML(${PAGE_COUNT},${PAGE_INDEX},"${PAGE_NAME}","${PAGE_EXT}");
+         </script>
+         </nav>
+        </div>
+    </div>
+
+    <!-- 页面底部 -->
+    <TRS_TEMPLATE TEMPNAME="页脚位置模板">
+        页脚位置
+    </TRS_TEMPLATE>
+    <!-- 页面底部 -->
+
+</body>
+
+</html>
