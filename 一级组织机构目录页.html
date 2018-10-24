@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>云南省机关事务管理局</title>
+  <link rel="stylesheet" type="text/css" href="images/clear.css" />
+  <link rel="stylesheet" type="text/css" href="images/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="images/style.css" />
+  <link rel="stylesheet" type="text/css" href="images/animate.min.css" />
+
+  <script type="text/javascript" src="images/jquery-1.11.1.js"></script>
+  <script type="text/javascript" src="images/bootstrap.min.js"></script>
+  <script type="text/javascript" src="images/web.js"></script>
+
+  <script language="JavaScript" type="text/javascript">
+    //文档预加载完成操作
+
+    function SetHome(obj, url) {
+      try {
+        obj.style.behavior = 'url(#default#homepage)';
+        obj.setHomePage(url);
+      } catch (e) {
+        if (window.netscape) {
+          try {
+            netscape.security.PrivilegeManager.enablePrivilege('UniversalXPConnect');
+          } catch (e) {
+            alert(
+              '抱歉，此操作被浏览器拒绝！\n\n请在浏览器地址栏输入“about:config”并回车\n\n然后将[signed.applets.codebase_principal_support]的值设置为true，双击即可。'
+            );
+          }
+          var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces
+            .nsIPrefBranch);
+          prefs.setCharPref('browser.startup.homepage', url);
+        } else {
+          alert('抱歉，您所使用的浏览器无法完成此操作。\n\n您需要手动将【' + url + '】设置为首页。');
+        }
+      }
+    };
+
+
+    function AddFavorite(sURL, sTitle) {
+      try { //IE
+        window.external.addFavorite(sURL, sTitle);
+      } catch (e) {
+        try { //Firefox
+          window.sidebar.addPanel(sTitle, sURL, "");
+        } catch (e) {
+          try { //Chrome无法自动收藏，用创建快应用程序的捷方式来替代。
+            createShortcut();
+          } catch (e) {
+            alert("您的浏览器不支持自动加入收藏，请使用浏览器菜单手动设置.");
+          }
+        }
+      }
+    };
+  </script>
+
+</head>
+
+<body>
+  <!-- 头部 -->
+  <TRS_TEMPLATE TEMPNAME="其他头部模板">
+    头部位置
+  </TRS_TEMPLATE>
+  <!-- 头部 -->
+
+  <div class="main">
+    <ol class="breadcrumb">
+      <TRS_Curpage VALUE="&nbsp;/&nbsp;" ONLY="false" AUTOLINK="true" TARGET="_blank" CurrChnlNoLink="true" CurrChnlCls="active">
+        当前位置
+      </TRS_Curpage>
+    </ol>
+    <div class="listL">
+      <div class="GgBt">
+        <span>
+          <trs_channel id="OWNER" autolink="false">当前栏目名称</trs_channel>
+        </span>
+      </div>
+      <ul class="listS">
+        <!-- 下级栏目列表 -->
+        <trs_channels id="OWNER" startpos="0">
+          <li><em class="glyphicon glyphicon-play"></em>
+            <trs_channel id="OWNER" autolink="true">子级栏目名称</trs_channel>
+          </li>
+        </trs_channels>
+        <!-- 下级栏目列表 -->
+      </ul>
+    </div>
+    <div class="listR">
+      <div style="float:left; width:33.3%; height:329px;">
+        <div class="NewBt">
+          <em class="glyphicon glyphicon-list"></em>
+          <span>领导简介</span>
+          <a href='<trs_channel id="领导简介" FIELD="_RECURL"/>' target="_blank" style="color:#036">More</a>
+        </div>
+        <ul class="new02">
+          <!-- 显示新闻列表 -->
+          <TRS_DOCUMENTS ID="领导简介" NUM="7" STARTPOS="0" AUTOMORE="FALSE">
+            <li>
+              <a href='<TRS_DOCUMENT FIELD="_RECURL"/>' target="_blank">
+              <TRS_DOCUMENT FIELD="DOCTITLE" NUM="12" AUTOLINK="false" TARGET="_blank" />
+              &nbsp;
+              <TRS_DOCUMENT FIELD="SUBDOCTITLE" AUTOFORMAT="true" AUTOFORMATTYPE="innerText" NUM="24"/>
+             </a>
+            </li>
+          </TRS_DOCUMENTS>
+          <!-- 显示新闻列表 -->
+        </ul>
+      </div>
+
+      <div style="float: right; width:64%; height:329px;">
+        <div class="NewBt">
+          <em class="glyphicon glyphicon-list"></em>
+          <span>云管局概况及职责</span>
+          <a href='<TRS_DOCUMENT id="云管局概况及职责" FIELD="_RECURL" AUTOLINK="false"/>' target="_blank" style="color:#036">More</a>
+        </div>
+        <TRS_DOCUMENTS  ID="云管局概况及职责"  STARTPOS="0"  NUM="1" AUTOMORE="FALSE" where="WCMDOCUMENT.ATTACHPIC=1">
+          <dt style="width:278px; height:242px; float:left; padding:14px 0 0 0;">
+                <TRS_APPENDIX INDEX="0" MODE="PIC" WIDTH="278" HEIGHT="242" autolink="false"/>
+               </dt>
+            <dt style=" font-size:16px; line-height:28px; padding:10px; float:right; width:310px; height:260px; font-weight:100; text-indent:24px; overflow:hidden;">
+                <TRS_DOCUMENT FIELD="DOCABSTRACT" AUTOFORMAT="TRUE" NUM="342"/>
+              </dt>
+         </TRS_DOCUMENTS> 
+      </div>
+
+      <div style="float:left; width:33%; height:380px;">
+        <div class="NewBt">
+          <em class="glyphicon glyphicon-list"></em>
+          <span>机关处室</span>
+          <a href='<trs_channel id="机关处室" FIELD="_RECURL"/>' target="_blank" style="color:#036">More</a>
+        </div>
+        <ul class="new02">
+          <TRS_DOCUMENTS ID="机关处室" NUM="9" STARTPOS="0" AUTOMORE="FALSE">
+            <li>
+                  <TRS_DOCUMENT FIELD="DOCTITLE" NUM="30" AUTOLINK="TRUE" TARGET="_blank" />
+            </li>
+          </TRS_DOCUMENTS>
+        </ul>
+      </div>
+
+      <div style="float:left; width:33%; height:380px; margin-left:5px;">
+        <div class="NewBt">
+          <em class="glyphicon glyphicon-list"></em>
+          <span>所属单位</span>
+          <a href='<trs_channel id="所属单位" FIELD="_RECURL"/>' target="_blank" style="color:#036">More</a>
+        </div>
+        <ul class="new02">
+            <TRS_DOCUMENTS ID="所属单位" NUM="9" STARTPOS="0" AUTOMORE="FALSE">
+                <li>
+                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="30" AUTOLINK="TRUE" TARGET="_blank" />
+                </li>
+            </TRS_DOCUMENTS>
+        </ul>
+      </div>
+
+      <div style="float:right; width:33%; height:380px;">
+        <div class="NewBt">
+          <em class="glyphicon glyphicon-list"></em>
+          <span>下属集团</span>
+          <a href='<trs_channel id="管理局下属" FIELD="_RECURL"/>' target="_blank" style="color:#036">More</a>
+        </div>
+        <ul class="new02" style="padding-top:14px;">
+            <TRS_DOCUMENTS ID="管理局下属" NUM="2" STARTPOS="0" AUTOMORE="FALSE" where="WCMDOCUMENT.ATTACHPIC=1">
+              <li style="height:120px;">
+                <TRS_APPENDIX INDEX="0" MODE="PIC" WIDTH="287" HEIGHT="120" autolink="false"/>
+              </li>
+              <li>
+                  <TRS_DOCUMENT FIELD="DOCTITLE" NUM="28" AUTOLINK="TRUE" TARGET="_blank" />
+              </li>
+            </TRS_DOCUMENTS>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 页面底部 -->
+  <TRS_TEMPLATE TEMPNAME="页脚位置模板">
+    页脚位置
+  </TRS_TEMPLATE>
+  <!-- 页面底部 -->
+</body>
+
+</html>
