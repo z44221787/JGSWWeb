@@ -5,55 +5,14 @@
 <head>
   <title>云南省机关事务管理局</title>
   <link rel="stylesheet" type="text/css" href="images/clear.css" />
-  <link rel="stylesheet" type="text/css" href="images/bootstrap.min.css" />
+  <link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="images/style.css" />
   <link rel="stylesheet" type="text/css" href="images/animate.min.css" />
   <script type="text/javascript" src="images/jquery-1.11.1.js"></script>
   <script type="text/javascript" src="images/bootstrap.min.js"></script>
   <script type="text/javascript" src="images/web.js"></script>
 
-  <script language="JavaScript" type="text/javascript">
-    //文档预加载完成操作
-
-    function SetHome(obj, url) {
-      try {
-        obj.style.behavior = 'url(#default#homepage)';
-        obj.setHomePage(url);
-      } catch (e) {
-        if (window.netscape) {
-          try {
-            netscape.security.PrivilegeManager.enablePrivilege('UniversalXPConnect');
-          } catch (e) {
-            alert(
-              '抱歉，此操作被浏览器拒绝！\n\n请在浏览器地址栏输入“about:config”并回车\n\n然后将[signed.applets.codebase_principal_support]的值设置为true，双击即可。'
-            );
-          }
-          var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces
-            .nsIPrefBranch);
-          prefs.setCharPref('browser.startup.homepage', url);
-        } else {
-          alert('抱歉，您所使用的浏览器无法完成此操作。\n\n您需要手动将【' + url + '】设置为首页。');
-        }
-      }
-    };
-
-
-    function AddFavorite(sURL, sTitle) {
-      try { //IE
-        window.external.addFavorite(sURL, sTitle);
-      } catch (e) {
-        try { //Firefox
-          window.sidebar.addPanel(sTitle, sURL, "");
-        } catch (e) {
-          try { //Chrome无法自动收藏，用创建快应用程序的捷方式来替代。
-            createShortcut();
-          } catch (e) {
-            alert("您的浏览器不支持自动加入收藏，请使用浏览器菜单手动设置.");
-          }
-        }
-      }
-    };
-  </script>
+ 
 </head>
 
 <body>
@@ -79,8 +38,7 @@
           <TRS_Document FIELD="DOCSOURCE" AUTOCOLOR="true" AUTOLINK="false" LINKALT="false" AUTOFORMATTYPE="HTML">来源</TRS_Document>
         </span>
         <em>发布时间：</em><span>
-          <TRS_Document FIELD="DOCRELTIME" AUTOCOLOR="true" AUTOLINK="false" LINKALT="false" DATEFORMAT="yyyy-MM-dd HH:mm"
-            AUTOFORMATTYPE="HTML">日期</TRS_Document>
+          <TRS_Document FIELD="DOCRELTIME" AUTOCOLOR="true" AUTOLINK="false" LINKALT="false" DATEFORMAT="yyyy-MM-dd HH:mm"  AUTOFORMATTYPE="HTML">日期</TRS_Document>
         </span>
         <!-- <em>点浏览数：</em><span>515次</span> -->
       </div>
@@ -100,7 +58,6 @@
               document.write('<a href="' + myArray2[nn2] + '" target="_blank" class="body2">' + myappname[nn2] +
                 '</a><br/>');
             }
-
           }
         </script>
       </div>

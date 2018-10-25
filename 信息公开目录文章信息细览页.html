@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+
+<head>
+	<title>云南省机关事务管理局</title>
+	<link rel="stylesheet" type="text/css" href="images/clear.css" />
+	<link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="images/style.css" />
+	<link rel="stylesheet" type="text/css" href="images/animate.min.css" />
+	<script type="text/javascript" src="images/jquery-1.11.1.js"></script>
+	<script type="text/javascript" src="images/bootstrap.min.js"></script>
+	<script type="text/javascript" src="images/web.js"></script>
+
+	<script language="JavaScript" type="text/javascript">
+		//文档预加载完成操作
+
+		function SetHome(obj, url) {
+			try {
+				obj.style.behavior = 'url(#default#homepage)';
+				obj.setHomePage(url);
+			} catch (e) {
+				if (window.netscape) {
+					try {
+						netscape.security.PrivilegeManager.enablePrivilege('UniversalXPConnect');
+					} catch (e) {
+						alert(
+							'抱歉，此操作被浏览器拒绝！\n\n请在浏览器地址栏输入“about:config”并回车\n\n然后将[signed.applets.codebase_principal_support]的值设置为true，双击即可。'
+						);
+					}
+					var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces
+						.nsIPrefBranch);
+					prefs.setCharPref('browser.startup.homepage', url);
+				} else {
+					alert('抱歉，您所使用的浏览器无法完成此操作。\n\n您需要手动将【' + url + '】设置为首页。');
+				}
+			}
+		};
+
+
+		function AddFavorite(sURL, sTitle) {
+			try { //IE
+				window.external.addFavorite(sURL, sTitle);
+			} catch (e) {
+				try { //Firefox
+					window.sidebar.addPanel(sTitle, sURL, "");
+				} catch (e) {
+					try { //Chrome无法自动收藏，用创建快应用程序的捷方式来替代。
+						createShortcut();
+					} catch (e) {
+						alert("您的浏览器不支持自动加入收藏，请使用浏览器菜单手动设置.");
+					}
+				}
+			}
+		};
+	</script>
+
+	<style>
+		td{border:1px solid #ccc;}
+</style>
+
+</head>
+
+<body>
+
+	<!-- 头部 -->
+	<TRS_TEMPLATE TEMPNAME="其他头部模板">
+		头部位置
+	</TRS_TEMPLATE>
+	<!-- 头部 -->
+
+	<div class="main">
+		<ol class="breadcrumb">
+			<TRS_Curpage VALUE="&nbsp;/&nbsp;" ONLY="false" AUTOLINK="true" TARGET="_blank" CurrChnlNoLink="true" CurrChnlCls="active">
+				当前位置
+			</TRS_Curpage>
+		</ol>
+		<div class="listL">
+			<div class="GgBt"><span>
+					<trs_channel id="信息公开目录" autolink="false">一级栏目</trs_channel>
+				</span></div>
+			<ul class="listS">
+				<trs_channels id="信息公开目录" startpos="0">
+					<li><em class="glyphicon glyphicon-play"></em>
+						<trs_channel autolink="true">二级栏目</trs_channel>
+					</li>
+				</trs_channels>
+			</ul>
+		</div>
+		<div class="listR">
+			<div class="content">
+				<h3 class="text-center">
+					<TRS_Document FIELD="DOCTITLE" AUTOLINK="false" TARGET="_blank">文档标题</TRS_Document>
+				</h3>
+				<div class="contentSpan">
+					<em>文章来源：</em>
+					<span><TRS_Document FIELD="DOCSOURCE" AUTOCOLOR="true" AUTOLINK="false" LINKALT="false" AUTOFORMATTYPE="HTML">来源</TRS_Document></span>
+					<em>发布时间：</em>
+					<span><TRS_Document FIELD="DOCRELTIME" AUTOCOLOR="true" AUTOLINK="false" LINKALT="false" DATEFORMAT="yyyy-MM-dd HH:mm" AUTOFORMATTYPE="HTML">日期</TRS_Document></span>
+				</div>
+				<table width="90%" align="center" border="0" cellpadding="3" cellspacing="1" bgcolor="#C9C9C9" style=" font-size:15px; text-align:left; color:#F30; ">
+					<tbody>
+						<tr>
+							<td width="80" height="30" align="right" bgcolor="#FFFFFF"><strong>索 引 号：</strong></td>
+							<td width="275" bgcolor="#FFFFFF" style="padding-left: 5px;"><TRS_DOCUMENT FIELD="UNIT" /></td>
+							<td width="80" align="right" bgcolor="#FFFFFF"><strong>信息分类：</strong></td>
+							<td bgcolor="#FFFFFF" style="padding-left: 5px;" class="xxfl-1">
+									<TRS_DOCUMENT FIELD="MSTYPE" />
+							</td>
+						</tr>
+						<tr>
+							<td align="right" height="30" bgcolor="#FFFFFF"><strong>发布机构：</strong></td>
+							<td bgcolor="#FFFFFF" style="padding-left: 5px;">
+								<script type="text/javascript">
+									var str = "";
+									var str_1 = "<TRS_DOCUMENT FIELD='DEPARTMENT'/>";
+									if (str == "") {
+										document.write(str_1);
+									} else {
+										document.write(str);
+									}
+								</script>
+							</td>
+							<td align="right" bgcolor="#FFFFFF"><strong>生成日期：</strong></td>
+							<td bgcolor="#FFFFFF" style="padding-left: 5px;">
+								<TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="yyyy-MM-dd" />
+							</td>
+						</tr>
+						<tr>
+							<td align="right" bgcolor="#FFFFFF" height="30"><strong>文　　号：</strong></td>
+							<td bgcolor="#FFFFFF" style="padding-left: 5px;">
+									<TRS_DOCUMENT FIELD="WH" />
+							</td>
+							<td align="right" bgcolor="#FFFFFF"><strong>是否有效：</strong></td>
+							<td bgcolor="#FFFFFF" style="padding-left: 5px;">
+								<TRS_DOCUMENT FIELD="SFYX" />
+							</td>
+						</tr>
+						<tr>
+							<td width="80" align="right" bgcolor="#FFFFFF" height="30"><strong>名　　称：</strong></td>
+							<td bgcolor="#FFFFFF" colspan="3" style="padding-left: 5px;">
+								<TRS_DOCUMENT FIELD="DOCTITLE" NUM="50" AUTOLINK="false" />
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<TRS_Document FIELD="DOCHTMLCON">文档详细信息</TRS_Document>
+			</div>
+		</div>
+
+
+	</div>
+
+
+
+	<!-- 页面底部 -->
+	<TRS_TEMPLATE TEMPNAME="页脚位置模板">
+		页脚位置
+	</TRS_TEMPLATE>
+	<!-- 页面底部 -->
+
+</body>
+
+</html>
