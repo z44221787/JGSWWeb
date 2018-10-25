@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>云南省机关事务管理局</title>
+  <link rel="stylesheet" type="text/css" href="images/clear.css" />
+  <link rel="stylesheet" type="text/css" href="images/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="images/style.css" />
+  <link rel="stylesheet" type="text/css" href="images/animate.min.css" />
+  <script type="text/javascript" src="images/idangerous.swiper.min.js"></script>
+
+  <script type="text/javascript" src="images/jquery-1.11.1.js"></script>
+  <script type="text/javascript" src="images/bootstrap.min.js"></script>
+  <script type="text/javascript" src="images/web.js"></script>
+
+  <!-- 滚动图片js -->
+  <script language="JavaScript" type="text/javascript">
+    //文档预加载完成操作
+    $(function () {
+      jQuery(".carousel-inner").find("div:first").addClass("active");
+    });
+  </script>
+
+  <style>
+    .main {
+      width: 1200px;
+      margin: 2px auto;
+      position: relative;
+      text-align: left;
+      padding: 2px;
+      min-height: 500px;
+      margin-top: 5px;
+      background: #fff;
+    }
+
+    .imgPlay {
+      width: 690px;
+      height: 390px;
+      background: #eee;
+      float: left;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .imgPlay .carousel-control.left {
+      background: none;
+    }
+
+    .imgPlay .carousel-control.right {
+      background: none;
+    }
+
+    .imgPlay .carousel-caption {
+      width: 100%;
+      margin: 0px;
+      left: 0px;
+      padding-bottom: 0px;
+      bottom: 0px;
+    }
+
+    .imgPlay .carousel-caption p {
+      text-align: left;
+      background: #000;
+      background: rgba(90, 90, 90, 0.5);
+      height: 30px;
+      line-height: 30px;
+      margin: 0px;
+      text-indent: 1em;
+      font-size: 13px;
+    }
+
+    .imgPlay .carousel-indicators {
+      right: 90px;
+      bottom: 0px;
+      margin-bottom: 5px;
+      width: auto;
+      left: auto;
+      margin-left: auto;
+      z-index: 2;
+    }
+
+    .carousel-inner>.item>a>img,
+    .carousel-inner>.item>img {
+      width: 690px;
+      height: 390px;
+    }
+
+    .Hotnew {
+      width: 495px;
+      height: 390px;
+      background: #fff;
+      float: right;
+    }
+
+    .HotnewBt {
+      width: 100%;
+      height: 45px;
+      line-height: 45px;
+      border-bottom: 1px solid #ccc;
+      background-image: url(images/bt1bg.jpg);
+    }
+
+    .HotnewBt em {
+      padding: 0 0 0 10px;
+    }
+
+    .HotnewBt span {
+      color: #fff;
+      font-size: 18px;
+      padding: 0px 20px;
+    }
+
+    .HotnewBt a {
+      color: #fff;
+      font-size: 12px;
+      margin-right: 10px;
+      float: right;
+    }
+
+    .new02 {
+      color: #ccc;
+      padding-left: 20px;
+      clear: both;
+    }
+
+    .new02 li {
+      width: 100%;
+      height: 38px;
+      line-height: 38px;
+      list-style-type: disc;
+      border-bottom: 1px dotted #ccc;
+    }
+
+    .new02 li a {
+      font-size: 16px;
+      color: #444;
+      float: left;
+      display: block;
+      height: 35px;
+      overflow: hidden;
+    }
+
+    .new02 li span {
+      color: #888;
+      font-size: 12px;
+      float: right;
+      width: 35px;
+      overflow: hidden;
+      display: block;
+      margin-right: 5px;
+    }
+
+    .new03 {}
+
+    .new03 li {
+      line-height: 40px;
+      clear: both;
+      border-bottom: 1px dotted #ccc;
+      position: relative;
+      overflow: hidden;
+      margin: 8px 0px;
+    }
+
+    .new03 li.active {
+      border-bottom: none;
+      background: #ecf0f1;
+      display: inline-block;
+      height: 180px;
+    }
+
+    .new03 li.active a {
+      font-weight: bold;
+    }
+
+    .new03 li p {
+      line-height: 25px;
+      font-size: 12px;
+      margin: 15px 0px;
+      height: 50px;
+      clear: both;
+    }
+
+    .new03 li a {
+      color: #0d3f35;
+      font-size: 16px;
+      text-decoration: none;
+      float: left;
+      font-weight: bold;
+      text-indent: 1em;
+    }
+
+    .new03 li span {
+      float: right;
+      margin-right: 10px;
+      font-size: 13px;
+      color: #000;
+      position: relative;
+      top: 20px;
+      color: #e7475e;
+    }
+
+    .new03 li p span {
+      display: block;
+      float: left;
+      width: 60px;
+      height: 50px;
+      border-right: 1px solid #ccc;
+      top: 0px;
+      margin-right: 0px;
+    }
+
+    .new03 li p span i {
+      height: 30px;
+      line-height: 30px;
+      font-size: 20px;
+      font-weight: bold;
+      width: 100%;
+      text-align: center;
+      display: block;
+      color: #e7475e;
+      font-style: normal;
+    }
+
+    .new03 li p span b {
+      height: 20px;
+      line-height: 20px;
+      font-size: 12px;
+      font-weight: normal;
+      width: 100%;
+      text-align: center;
+      display: block;
+      color: #555;
+    }
+
+    .new03 li p span em {
+      height: 20px;
+      line-height: 20px;
+      font-size: 12px;
+      font-weight: normal;
+      width: 100%;
+      text-align: center;
+      display: block;
+      color: #555;
+    }
+
+    .new03 li p font {
+      text-align: justify;
+      display: block;
+      width: 400px;
+      height: 50px;
+      float: right;
+      margin-right: 15px;
+      position: relative;
+      overflow: hidden;
+      color: #999;
+      font-size: 13px;
+    }
+
+    .threeK {
+      width: 100%;
+      clear: both;
+      height: 90px;
+      margin-top: 10px;
+      position: relative;
+      overflow: hidden;
+      background: #eee;
+    }
+
+    .threeK ul {
+      display: inline-block;
+      position: absolute;
+      width: 8000px;
+      left: 0px;
+      top: 0px;
+      height: 90px;
+      position: absolute;
+      left: 0px;
+      top: 5px;
+    }
+
+    .threeK ul li {
+      width: 380px;
+      height: 80px;
+      line-height: 80px;
+      float: left;
+      margin: 0px 9px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .threeK ul li a {
+      color: #fff;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .threeK ul li img {
+      width: 380px;
+    }
+
+    .threeK span.prev {
+      width: 30px;
+      height: 80px;
+      background: #eee;
+      position: absolute;
+      left: 0px;
+      top: 5px;
+      z-index: 3;
+      border-radius: 5px 0px 0px 5px;
+    }
+
+    .threeK span.next {
+      width: 30px;
+      height: 80px;
+      background: #eee;
+      position: absolute;
+      right: 0px;
+      top: 5px;
+      z-index: 3;
+      border-radius: 0px 5px 5px 0px;
+    }
+
+    .threeK>span.prev,
+    .threeK>span.next {
+      background: rgba(220, 220, 220, 1);
+      line-height: 80px;
+      color: #555;
+      font-size: 20px;
+      text-align: center;
+    }
+
+    .threeK>span:hover {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 头部 -->
+  <TRS_TEMPLATE TEMPNAME="其他头部模板">
+    头部位置
+  </TRS_TEMPLATE>
+  <!-- 头部 -->
+
+  <div class="main" style="background:#FFF;">
+    <dd style="width:1200px; margin-bottom:8px;">
+      <img src="images/b-t1.jpg" />
+    </dd>
+    <div class="imgPlay">
+      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <!--Indicators-->
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"> </li>
+          <li data-target="#carousel-example-generic" data-slide-to="1"> </li>
+          <li data-target="#carousel-example-generic" data-slide-to="2"> </li>
+          <li data-target="#carousel-example-generic" data-slide-to="3"> </li>
+          <li data-target="#carousel-example-generic" data-slide-to="4"> </li>
+        </ol>
+        <!--Wrapper for slides-->
+        <div class="carousel-inner" role="listbox">
+          <TRS_DOCUMENTS ID="业务工作" NUM="5" where="WCMDOCUMENT.ATTACHPIC=1">
+            <div class="item">
+              <TRS_APPENDIX INDEX="0" MODE="PIC" WIDTH="700" HEIGHT="391" autolink="true" TARGET="_blank" />
+              <div class="carousel-caption">
+                <p>
+                  <TRS_DOCUMENT FIELD="DOCTITLE" NUM="50" />
+                </p>
+              </div>
+            </div>
+          </TRS_DOCUMENTS>
+        </div>
+        <!--Controls-->
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"
+            aria-hidden="true"> </span> <span class="sr-only"> Previous </span> </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right"
+            aria-hidden="true"> </span> <span class="sr-only"> Next </span> </a>
+      </div>
+      <p class="imgPlayMore"> <a href="<TRS_CHANNEL ID='业务工作' FIELD='_RECURL'/>" target="_blank"> 更多 </a> </p>
+    </div>
+    <div class="Hotnew">
+      <div class="HotnewBt">
+        <a href="<TRS_CHANNEL ID='业务工作' FIELD='_RECURL'/>" target="_blank" style="float:left;"> <em></em> <span>业务工作</span>
+        </a>
+        <a href="<TRS_CHANNEL ID='业务工作' FIELD='_RECURL'/>" target="_blank"> 更多 </a>
+      </div>
+      <ul class="new03">
+        <TRS_DOCUMENTS ID="业务工作" NUM="1" STARTPOS="0" AUTOMORE="FALSE">
+          <li>
+            <TRS_DOCUMENT FIELD="DOCTITLE" NUM="50" AUTOLINK="TRUE" TARGET="_blank" /><span class="glyphicon glyphicon-fire">
+            </span>
+            <p> <span><i>
+                  <TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="dd" /></i><b>
+                  <TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="MM" />月</b> </span>
+              <font>
+                <TRS_DOCUMENT FIELD="DOCABSTRACT" AUTOFORMAT="TRUE">业务工作置顶第一条摘要信息</TRS_DOCUMENT>
+              </font>
+            </p>
+          </li>
+        </TRS_DOCUMENTS>
+      </ul>
+      <ul class="new02">
+        <TRS_DOCUMENTS ID="业务工作" NUM="6" STARTPOS="1" AUTOMORE="FALSE">
+          <li>
+            <TRS_DOCUMENT FIELD="DOCTITLE" NUM="28" AUTOLINK="TRUE" TARGET="_blank" />
+            <span>
+              <TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="MM-dd" /></span>
+          </li>
+        </TRS_DOCUMENTS>
+      </ul>
+    </div>
+    <div class="dypL">
+      <div class="GgBt XxKbt">
+        <!--CHNLIDS 参数 "14779,14784" 表示取栏目编号为“14779"的办事指南和“14784”资料下载栏目 -->
+        <TRS_CHANNELS CHNLIDS="14779">
+          <span> <a href="<TRS_CHANNEL FIELD='_RECURL'/>" target="_blank">
+              <TRS_CHANNEL FIELD='CHNLDESC' /> </a> </span>
+        </TRS_CHANNELS>
+      </div>
+      <TRS_CHANNELS CHNLIDS="14779">
+        <ul class="new02 XxKul">
+          <TRS_DOCUMENTS NUM="6" STARTPOS="0" AUTOMORE="FALSE">
+            <li>
+              <TRS_DOCUMENT FIELD="DOCTITLE" NUM="28" AUTOLINK="TRUE" TARGET="_blank" />
+              <span>
+                <TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="MM-dd" /></span>
+            </li>
+          </TRS_DOCUMENTS>
+        </ul>
+      </TRS_CHANNELS>
+
+    </div>
+    <div class="dypR">
+      <div class="GgBt XxKbt">
+        <!--ID 参数 “自定制栏目” 表示取栏目唯一标识为：“自定制栏目”的所有子级栏目 -->
+        <TRS_CHANNELS CHNLIDS="14784">
+          <span> <a href="<TRS_CHANNEL FIELD='_RECURL'/>" target="_blank">
+              <TRS_CHANNEL FIELD='CHNLDESC' /> </a> </span>
+        </TRS_CHANNELS>
+
+      </div>
+      <TRS_CHANNELS CHNLIDS="14784">
+        <ul class="new02 XxKul">
+          <TRS_DOCUMENTS NUM="6" STARTPOS="0" AUTOMORE="FALSE">
+            <li>
+              <TRS_DOCUMENT FIELD="DOCTITLE" NUM="28" AUTOLINK="TRUE" TARGET="_blank" />
+              <span>
+                <TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="MM-dd" /></span>
+            </li>
+          </TRS_DOCUMENTS>
+        </ul>
+      </TRS_CHANNELS>
+
+    </div>
+    <div class="HdFgx" style="display: none;">
+    </div>
+  </div>
+
+  <!-- 页面底部 -->
+  <TRS_TEMPLATE TEMPNAME="页脚位置模板">
+    页脚位置
+  </TRS_TEMPLATE>
+  <!-- 页面底部 -->
+</body>
+
+</html>

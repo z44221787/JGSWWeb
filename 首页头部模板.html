@@ -1,5 +1,47 @@
-  <!-- 头部 -->
-  <div class="head">
+<script language="JavaScript" type="text/javascript">
+  //文档预加载完成操作
+
+  function SetHome(obj, url) {
+    try {
+      obj.style.behavior = 'url(#default#homepage)';
+      obj.setHomePage(url);
+    } catch (e) {
+      if (window.netscape) {
+        try {
+          netscape.security.PrivilegeManager.enablePrivilege('UniversalXPConnect');
+        } catch (e) {
+          alert(
+            '抱歉，此操作被浏览器拒绝！\n\n请在浏览器地址栏输入“about:config”并回车\n\n然后将[signed.applets.codebase_principal_support]的值设置为true，双击即可。'
+          );
+        }
+        var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces
+          .nsIPrefBranch);
+        prefs.setCharPref('browser.startup.homepage', url);
+      } else {
+        alert('抱歉，您所使用的浏览器无法完成此操作。\n\n您需要手动将【' + url + '】设置为首页。');
+      }
+    }
+  };
+
+
+  function AddFavorite(sURL, sTitle) {
+    try { //IE
+      window.external.addFavorite(sURL, sTitle);
+    } catch (e) {
+      try { //Firefox
+        window.sidebar.addPanel(sTitle, sURL, "");
+      } catch (e) {
+        try { //Chrome无法自动收藏，用创建快应用程序的捷方式来替代。
+          createShortcut();
+        } catch (e) {
+          alert("您的浏览器不支持自动加入收藏，请使用浏览器菜单手动设置.");
+        }
+      }
+    }
+  };
+</script>
+<!-- 头部 -->
+<div class="head">
         <div class="top">
           <div class="topN">
             <ul>
