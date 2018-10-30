@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>云南省机关事务管理局</title>
+    <link rel="stylesheet" type="text/css" href="images/clear.css" />
+    <link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="images/style.css" />
+    <link rel="stylesheet" type="text/css" href="images/animate.min.css" />
+    <script type="text/javascript" src="images/idangerous.swiper.min.js"></script>
+
+    <script type="text/javascript" src="images/jquery-1.11.1.js"></script>
+    <script type="text/javascript" src="images/bootstrap.min.js"></script>
+    <script type="text/javascript" src="images/web.js"></script>
+
+    <script language="JavaScript" type="text/javascript">
+        //文档预加载完成操作
+        $(function () {
+          //查找奇数行
+            jQuery(".listR").find("div:even").each(function(i,e){
+                jQuery(e).css("float","left");
+            });
+            //查找奇数行
+           jQuery(".listR").find("div:odd").each(function(i,e){
+            jQuery(e).css("float","right");
+            });
+        });
+
+        function SetHome(obj, url) {
+          try {
+            obj.style.behavior = 'url(#default#homepage)';
+            obj.setHomePage(url);
+          } catch (e) {
+            if (window.netscape) {
+              try {
+                netscape.security.PrivilegeManager.enablePrivilege('UniversalXPConnect');
+              } catch (e) {
+                alert(
+                  '抱歉，此操作被浏览器拒绝！\n\n请在浏览器地址栏输入“about:config”并回车\n\n然后将[signed.applets.codebase_principal_support]的值设置为true，双击即可。'
+                );
+              }
+              var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces
+                .nsIPrefBranch);
+              prefs.setCharPref('browser.startup.homepage', url);
+            } else {
+              alert('抱歉，您所使用的浏览器无法完成此操作。\n\n您需要手动将【' + url + '】设置为首页。');
+            }
+          }
+        };
+    
+    
+        function AddFavorite(sURL, sTitle) {
+          try { //IE
+            window.external.addFavorite(sURL, sTitle);
+          } catch (e) {
+            try { //Firefox
+              window.sidebar.addPanel(sTitle, sURL, "");
+            } catch (e) {
+              try { //Chrome无法自动收藏，用创建快应用程序的捷方式来替代。
+                createShortcut();
+              } catch (e) {
+                alert("您的浏览器不支持自动加入收藏，请使用浏览器菜单手动设置.");
+              }
+            }
+          }
+        };
+     
+    </script>
+
+</head>
+
+<body>
+
+    <!-- 头部 -->
+    <TRS_TEMPLATE TEMPNAME="其他头部模板">
+        头部位置
+    </TRS_TEMPLATE>
+    <!-- 头部 -->
+
+
+    <div class="main">
+        <ol class="breadcrumb">
+            <TRS_Curpage VALUE="&nbsp;/&nbsp;" ONLY="false" AUTOLINK="true" TARGET="_blank" CurrChnlNoLink="true"
+                CurrChnlCls="active">
+                当前位置
+            </TRS_Curpage>
+        </ol>
+        <div class="listL">
+            <div class="ZxfwDiv S" style="width: 227px;">
+                <div class="GgBt">
+                    <span>政府信息公开</span>
+                </div>
+                <ul class="zwgklist">
+                    <li><a href="<TRS_CHANNEL ID='信息公开指南' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>信息公开指南</span></a></li>
+                    <li><a href="<TRS_CHANNEL ID='信息公开目录' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>信息公开目录</span></a></li>
+                    <li><a href="<TRS_CHANNEL ID='依申请公开' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>依申请公开</span></a></li>
+                    <li><a href="<TRS_CHANNEL ID='信息公开相关制度' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>信息公开相关制度</span></a></li>
+                    <li><a href="<TRS_CHANNEL ID='信息公开年报' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>信息公开年报</span></a></li>
+                </ul>
+            </div>
+            <div class="GgBt">
+                <span>政务公开</span>
+            </div>
+            <ul class="listS">
+                <trs_channels id="OWNER" startpos="0">
+                    <li><em class="glyphicon glyphicon-play"></em>
+                        <trs_channel id="OWNER" autolink="true">子级栏目名称</trs_channel>
+                    </li>
+                </trs_channels>
+            </ul>
+        </div>
+        <div class="listR">
+            <!-- 政策法规、政策解读、规范性文件、纪检监查、人事信息、预算决算 -->
+            <TRS_CHANNELS CHNLIDS="14738,14739,14740,14804,14741,14742">
+                <div style="width:49%;">
+                    <div class="NewBt">
+                        <em class="glyphicon glyphicon-list"></em>
+                        <span>
+                            <TRS_CHANNEL FIELD='CHNLDESC' /> </a> </span></span>
+                        <a href="<TRS_CHANNEL FIELD='_RECURL'/>" target="_blank" style="color:#036">More</a>
+                    </div>
+
+                    <ul class="new02" style="height:238px;">
+
+                        <TRS_Documents NUM="6" STARTPOS="0" AUTOMORE="FALSE">
+                            <li>
+                                <TRS_DOCUMENT FIELD="DOCTITLE" NUM="30" />
+                                <span>
+                                    <TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="MM-dd" />
+                                </span>
+                            </li>
+                        </TRS_Documents>
+                    </ul>
+                </div>
+            </TRS_CHANNELS>
+        </div>
+    </div>
+
+
+    <!-- 页面底部 -->
+    <TRS_TEMPLATE TEMPNAME="页脚位置模板">
+        页脚位置
+    </TRS_TEMPLATE>
+    <!-- 页面底部 -->
+
+</body>
+
+</html>
