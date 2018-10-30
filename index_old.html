@@ -5,6 +5,7 @@
   <meta charset="utf-8" />
   <title>云南省机关事务管理局</title>
   <link rel="stylesheet" type="text/css" href="images/clear.css">
+  <!-- <link rel="stylesheet" type="text/css" href="images/bootstrap.min.css" /> -->
   <link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="images/style.css" />
   <link rel="stylesheet" type="text/css" href="images/animate.min.css" />
@@ -17,19 +18,7 @@
   <script language="JavaScript" type="text/javascript">
     //文档预加载完成操作
     $(function () {
-      //首页滚动图片显示效果
       jQuery(".carousel-inner").find("div:first").addClass("active");
-      //判断当前图片文档有多少条，添加显示li标签
-      var DivContentLength = jQuery(".carousel-inner").find("div").length;
-      for (var i = 0; i < DivContentLength - 1; i++) {
-        if (i == 0) {
-          jQuery(".carousel-indicators").append('<li data-target="#carousel-example-generic" data-slide-to="' + i +
-            '" class="active"></li>')
-        } else {
-          jQuery(".carousel-indicators").append('<li data-target="#carousel-example-generic" data-slide-to="' + i +
-            '"></li>')
-        }
-      }
     });
 
     function SetHome(obj, url) {
@@ -73,9 +62,10 @@
 </head>
 
 <body>
+
   <!-- 头部 -->
   <TRS_TEMPLATE TEMPNAME="首页头部模板">
-    首页头部模板
+      首页头部模板
   </TRS_TEMPLATE>
   <!-- 头部 -->
 
@@ -84,20 +74,56 @@
       <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
-          <!-- 图片滚动部分 -->
+          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="4"></li>
         </ol>
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
-          <TRS_DOCUMENTS ID="图片新闻" NUM="5" where="WCMDOCUMENT.ATTACHPIC=1">
-            <div class="item">
-              <TRS_APPENDIX INDEX="0" MODE="PIC" WIDTH="700" HEIGHT="391" autolink="true" TARGET="_blank" />
-              <div class="carousel-caption">
-                <p>
-                  <TRS_DOCUMENT FIELD="DOCTITLE" NUM="50" />
-                </p>
-              </div>
+            <TRS_DOCUMENTS  ID="图片新闻" NUM="5" where="WCMDOCUMENT.ATTACHPIC=1">
+                <div class="item">
+                    <TRS_APPENDIX INDEX="0" MODE="PIC" WIDTH="700" HEIGHT="391" autolink="true" TARGET="_blank"/>
+                    <div class="carousel-caption">
+                      <p><TRS_DOCUMENT FIELD="DOCTITLE" NUM="50"/></p>
+                    </div>
+                  </div>
+            </TRS_DOCUMENTS>
+
+
+         <!-- 图片新闻源码位置 -->
+          <!-- <div class="item active">
+            <img src="images/img01.jpg" alt="图片标题名称01" />
+            <div class="carousel-caption">
+              <p>图片标题名称01</p>
             </div>
-          </TRS_DOCUMENTS>
+          </div>
+          <div class="item">
+            <img src="images/img02.jpg" alt="图片标题名称02" />
+            <div class="carousel-caption">
+              <p>图片标题名称02</p>
+            </div>
+          </div>
+          <div class="item">
+            <img src="images/img03.jpg" alt="图片标题名称03" />
+            <div class="carousel-caption">
+              <p>图片标题名称03</p>
+            </div>
+          </div>
+          <div class="item">
+            <img src="images/img01.jpg" alt="图片标题名称01" />
+            <div class="carousel-caption">
+              <p>图片标题名称01</p>
+            </div>
+          </div>
+          <div class="item">
+            <img src="images/img02.jpg" alt="图片标题名称02" />
+            <div class="carousel-caption">
+              <p>图片标题名称02</p>
+            </div>
+          </div> -->
+        <!-- 图片新闻源码位置 -->
         </div>
         <!-- Controls -->
         <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"
@@ -109,24 +135,37 @@
     </div>
     <div class="Yw_new">
       <div class="GgBt XxKbt">
-        <!-- 政务 、局属单位、市县要闻 -->
-        <TRS_CHANNELS CHNLIDS="14719,14720,14721">
-          <span> <a href="<TRS_CHANNEL FIELD='_RECURL'/>" target="_blank">
-              <TRS_CHANNEL FIELD='CHNLDESC' /></a></span>
-        </TRS_CHANNELS>
+          <span><a href="<TRS_CHANNEL ID='政务要闻' FIELD='_RECURL'/>" target="_blank">政务要闻</a></span>
+        <span><a href="<TRS_CHANNEL ID='部门要闻' FIELD='_RECURL'/>" target="_blank">部门要闻</a></span>
+        <span><a href="<TRS_CHANNEL ID='州县要闻' FIELD='_RECURL'/>" target="_blank">州县要闻</a></span>
       </div>
-      <!-- 政务 、局属单位、市县要闻 -->
-      <TRS_CHANNELS CHNLIDS="14719,14720,14721">
-        <ul class="new02 XxKul" style="height:266px">
-          <TRS_DOCUMENTS NUM="6" STARTPOS="0" AUTOMORE="FALSE">
-            <li>
-              <TRS_DOCUMENT FIELD="DOCTITLE" NUM="28" AUTOLINK="TRUE" TARGET="_blank" />
-              <span>
-                <TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="MM-dd" /></span>
-            </li>
-          </TRS_DOCUMENTS>
-        </ul>
-      </TRS_CHANNELS>
+      <ul class="new02 XxKul">
+          <TRS_DOCUMENTS  ID="政务要闻" NUM="7" STARTPOS="0" AUTOMORE="FALSE">
+              <li>
+                <TRS_DOCUMENT FIELD="DOCTITLE" NUM="35" AUTOLINK="TRUE"  TARGET="_blank"/>
+                <span><TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="MM-dd"/></span>
+              </li>
+       </TRS_DOCUMENTS>
+        <!-- 政务要闻、部门要闻、州县要闻 原始列表内容-->
+        <!-- <li><a href="#">新闻列表标题名称标题名称.0% </a><span>03-05</span></li> -->
+        <!-- 政务要闻 原始内容-->
+      </ul>
+      <ul class="new02 XxKul">
+          <TRS_DOCUMENTS  ID="部门要闻" NUM="7" STARTPOS="0" AUTOMORE="FALSE">
+              <li>
+                <TRS_DOCUMENT FIELD="DOCTITLE" NUM="35" AUTOLINK="TRUE" TARGET="_blank"/>
+                <span><TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="MM-dd"/></span>
+              </li>
+       </TRS_DOCUMENTS>
+      </ul>
+      <ul class="new02 XxKul">
+          <TRS_DOCUMENTS  ID="州县要闻" NUM="7" STARTPOS="0" AUTOMORE="FALSE">
+              <li>
+                <TRS_DOCUMENT FIELD="DOCTITLE" NUM="35" AUTOLINK="TRUE"  TARGET="_blank"/>
+                <span><TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="MM-dd"/></span>
+              </li>
+       </TRS_DOCUMENTS>
+      </ul>
     </div>
     <div class="Hotnew">
       <div class="HotnewBt">
@@ -135,28 +174,31 @@
         <a href="<TRS_CHANNEL ID='通知公告' FIELD='_RECURL'/>" target="_blank">更多</a>
       </div>
       <ul class="new03">
-        <li>
-          <TRS_DOCUMENTS ID="通知公告" NUM="1" STARTPOS="0" AUTOMORE="FALSE">
-            <TRS_DOCUMENT FIELD="DOCTITLE" NUM="32" AUTOLINK="TRUE" TARGET="_blank" />
-            <span class="glyphicon glyphicon-fire"></span>
-            <p> <span><i>
-                  <TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="dd" /></i><b>
-                  <TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="MM" />月</b></span>
-              <font>
-                <TRS_DOCUMENT FIELD="DOCCONTENT" AUTOFORMAT="TRUE" AUTOFORMATTYPE="innerText" NUM="60" AUTOFORMAT="TRUE">通知公告置顶第一条摘要信息</TRS_DOCUMENT>
-              </font>
-            </p>
-          </TRS_DOCUMENTS>
-        </li>
+          <li>
+              <TRS_DOCUMENTS  ID="通知公告" NUM="1" STARTPOS="0" AUTOMORE="FALSE">
+                  <TRS_DOCUMENT FIELD="DOCTITLE"  NUM="32" AUTOLINK="TRUE" TARGET="_blank"/>
+                  <span class="glyphicon glyphicon-fire"></span>
+                  <p> <span><i><TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="dd"/></i><b><TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="MM"/>月</b></span>
+                    <font><TRS_DOCUMENT FIELD="DOCABSTRACT" AUTOFORMAT="TRUE">通知公告置顶第一条摘要信息</TRS_DOCUMENT></font>
+                  </p>
+              </TRS_DOCUMENTS>
+          </li>
+
+        <!-- <li> 
+          <a href="#">中共云南省委十届五次全会在昆举行 </a> <span class="glyphicon glyphicon-fire"></span>
+          <p> <span><i>10</i><b>11月</b></span>
+            <font>全会以习近平新时代中国特色社会主义思想为指导，深入学习贯彻习近平总书记关于深化党和国家机构改革的重要论述，坚决贯彻执行党中央、国务院批准的 </font>
+          </p>
+        </li> -->
       </ul>
       <ul class="new02">
-        <TRS_DOCUMENTS ID="通知公告" NUM="4" STARTPOS="1" AUTOMORE="FALSE">
-          <li>
-            <TRS_DOCUMENT FIELD="DOCTITLE" NUM="28" AUTOLINK="TRUE" TARGET="_blank" />
-            <span>
-              <TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="MM-dd" /></span>
-          </li>
-        </TRS_DOCUMENTS>
+          <TRS_DOCUMENTS  ID="通知公告" NUM="4" STARTPOS="1" AUTOMORE="FALSE">
+            <li>
+                <TRS_DOCUMENT FIELD="DOCTITLE" NUM="28" AUTOLINK="TRUE"  TARGET="_blank"/>
+                <span><TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="MM-dd"/></span>
+            </li>
+          </TRS_DOCUMENTS>
+        <!-- <li><a href="#">云南省机关管理局关管理的公告 </a><span>03-05</span></li> -->
       </ul>
     </div>
     <!--国务院信息和省政府信息轮播广告-->
@@ -241,6 +283,43 @@
       var countryMsg = new Swiper('.notice-country-msg .swiper-container', noticeMsgConfig);
       var provincialMsg = new Swiper('.notice-provincial-msg .swiper-container', noticeMsgConfig);
     </script>
+    <div class="Wsbs">
+      <div class="NewBt">
+        <em class="glyphicon glyphicon-bookmark"></em>
+        <span><a href="<TRS_CHANNEL ID='事务管理' FIELD='_RECURL'/>" target="_blank">事务管理</a></span>
+      </div>
+      <div class="WsbsL">
+        <ul>
+          <li><a href="<TRS_CHANNEL ID='资产管理' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>资产管理</span></a></li>
+          <li><a href="<TRS_CHANNEL ID='公务用车' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>公务用车</span></a></li>
+          <li><a href="<TRS_CHANNEL ID='公共机构节能' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>公共机构节能</span></a></li>
+          <li><a href="<TRS_CHANNEL ID='机关杂志' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>机关杂志</span></a></li>
+          <li><a href="<TRS_CHANNEL ID='综合会务管理' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>综合会务管理</span></a></li>
+        </ul>
+      </div>
+      <div class="WsbsC">
+        <a href="#"><img src="images/bsdt.jpg" /></a>
+      </div>
+      <div class="WsbsR">
+        <ul>
+          <li><a href="<TRS_CHANNEL ID='云南省公共机构节能服务平台' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>云南省公共机构节能服务平台</span></a></li>
+          <li><a href="<TRS_CHANNEL ID='应用数据接口' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>应用数据接口</span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="Ztzl">
+      <div class="ZtzlBt">
+        <a href="#"><img src="images/ztzl.png" / title="专题集锦"></a>
+      </div>
+      <div class="threeK">
+        <ul>
+          <li><a href=""><img src="images/threeK01.png" /></a></li>
+          <li><a href=""><img src="images/threeK02.png" /></a></li>
+          <li><a href=""><img src="images/threeK03.png" /></a></li>
+          <li><a href=""><img src="images/threeK04.png" /></a></li>
+        </ul>
+      </div>
+    </div>
     <div class="Zwgk">
       <div class="zwgkL">
         <div class="NewBt">
@@ -251,57 +330,63 @@
           <div class="">
             <div class="xxgk-center">
               <h4 class="zzjg"><a href="<TRS_CHANNEL ID='人事信息' FIELD='_RECURL'/>" target="_blank">
+                  <!--span></span-->
                   <p style="width: 16px;padding: 0px 4px;">人事信息</p>
                 </a><em>展开</em></h4>
               <div>
                 <h5><a href="<TRS_CHANNEL ID='人事信息' FIELD='_RECURL'/>" target="_blank"><i></i>人事信息</a></h5>
                 <ul>
-                  <TRS_DOCUMENTS ID="人事信息" NUM="6" STARTPOS="0" AUTOMORE="FALSE">
-                    <li>
-                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="32" AUTOLINK="TRUE" LINKALTTEXT="DOCTITLE" />
-                    </li>
+                  <TRS_DOCUMENTS ID= "人事信息" NUM="6" STARTPOS="0" AUTOMORE="FALSE">
+                        <li>
+                          <TRS_DOCUMENT FIELD="DOCTITLE" NUM="32" AUTOLINK="TRUE" LINKALTTEXT="DOCTITLE"/>
+                        </li>
                   </TRS_DOCUMENTS>
+                  <!-- <li><a target="_blank" title="新闻列表新闻列表新闻列表新闻列表新闻列表" href="#">新闻列表新闻列表新闻列表新闻列表...</a></li> -->
                 </ul>
               </div>
               <h4 class="zcwj"><a href="<TRS_CHANNEL ID='政策法规' FIELD='_RECURL'/>" target="_blank">
+                  <!--span></span-->
                   <p style="width: 16px;padding: 0px 4px;">政策法规</p>
                 </a><em>展开</em></h4>
               <div>
                 <h5><a href="<TRS_CHANNEL ID='政策法规' FIELD='_RECURL'/>" target="_blank"><i></i>政策法规</a></h5>
                 <ul>
-                  <TRS_DOCUMENTS ID="政策法规" NUM="6" STARTPOS="0" AUTOMORE="FALSE">
-                    <li>
-                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="32" AUTOLINK="TRUE" LINKALTTEXT="DOCTITLE" />
-                    </li>
+                    <TRS_DOCUMENTS ID= "政策法规" NUM="6" STARTPOS="0" AUTOMORE="FALSE">
+                        <li>
+                          <TRS_DOCUMENT FIELD="DOCTITLE" NUM="32" AUTOLINK="TRUE" LINKALTTEXT="DOCTITLE"/>
+                        </li>
                   </TRS_DOCUMENTS>
+                  <!-- <li><a target="_blank" title="新闻列表新闻列表新闻列表新闻列表新闻列表" href="#">新闻列表新闻列表新闻列表新闻列表...</a></li> -->
                 </ul>
               </div>
               <h4 class="zcjd"><a href="<TRS_CHANNEL ID='政策解读' FIELD='_RECURL'/>" target="_blank">
-
+                  <!--span></span-->
                   <p style="width: 16px;padding: 0px 4px;">政策解读</p>
                 </a><em>展开</em></h4>
               <div>
                 <h5><a href="<TRS_CHANNEL ID='政策解读' FIELD='_RECURL'/>" target="_blank"><i></i>政策解读</a></h5>
                 <ul>
-                  <TRS_DOCUMENTS ID="政策解读" NUM="6" STARTPOS="0" AUTOMORE="FALSE">
-                    <li>
-                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="32" AUTOLINK="TRUE" LINKALTTEXT="DOCTITLE" />
-                    </li>
+                  <TRS_DOCUMENTS ID= "政策解读" NUM="6" STARTPOS="0" AUTOMORE="FALSE">
+                        <li>
+                          <TRS_DOCUMENT FIELD="DOCTITLE" NUM="32" AUTOLINK="TRUE" LINKALTTEXT="DOCTITLE"/>
+                        </li>
                   </TRS_DOCUMENTS>
+                  <!-- <li><a target="_blank" title="新闻列表新闻列表新闻列表新闻列表新闻列表" href="#">新闻列表新闻列表新闻列表新闻列表...</a></li> -->
                 </ul>
               </div>
-              <h4 class="rsxx"><a href="<TRS_CHANNEL ID='纪检监查' FIELD='_RECURL'/>" target="_blank">
+              <h4 class="rsxx"><a href="<TRS_CHANNEL ID='规范性文件' FIELD='_RECURL'/>" target="_blank">
                   <!--span></span-->
-                  <p style="width: 16px;padding: 0px 4px;">纪检监查</p>
+                  <p style="width: 16px;padding: 0px 4px;">规范性文件</p>
                 </a><em>展开</em></h4>
               <div>
-                <h5><a href="<TRS_CHANNEL ID='纪检监查' FIELD='_RECURL'/>" target="_blank"><i></i>纪检监查</a></h5>
+                <h5><a href="<TRS_CHANNEL ID='规范性文件' FIELD='_RECURL'/>" target="_blank"><i></i>规范性文件</a></h5>
                 <ul>
-                    <TRS_DOCUMENTS ID="纪检监查" NUM="6" STARTPOS="0" AUTOMORE="FALSE">
+                    <TRS_DOCUMENTS ID= "规范性文件" NUM="6" STARTPOS="0" AUTOMORE="FALSE">
                         <li>
-                          <TRS_DOCUMENT FIELD="DOCTITLE" NUM="32" AUTOLINK="TRUE" LINKALTTEXT="DOCTITLE" />
+                          <TRS_DOCUMENT FIELD="DOCTITLE" NUM="32" AUTOLINK="TRUE" LINKALTTEXT="DOCTITLE"/>
                         </li>
-                    </TRS_DOCUMENTS>
+                  </TRS_DOCUMENTS>
+                  <!-- <li><a target="_blank" title="新闻列表新闻列表新闻列表新闻列表新闻列表" href="#">新闻列表新闻列表新闻列表新闻列表...</a></li> -->
                 </ul>
               </div>
               <h4 class="djxx"><a href="<TRS_CHANNEL ID='预算决算' FIELD='_RECURL'/>" target="_blank">
@@ -311,11 +396,12 @@
               <div>
                 <h5><a href="<TRS_CHANNEL ID='预算决算' FIELD='_RECURL'/>" target="_blank"><i></i>预算决算</a></h5>
                 <ul>
-                    <TRS_DOCUMENTS ID="预算决算" NUM="6" STARTPOS="0" AUTOMORE="FALSE">
+                    <TRS_DOCUMENTS ID= "预算决算" NUM="6" STARTPOS="0" AUTOMORE="FALSE">
                         <li>
-                          <TRS_DOCUMENT FIELD="DOCTITLE" NUM="32" AUTOLINK="TRUE" LINKALTTEXT="DOCTITLE" />
+                          <TRS_DOCUMENT FIELD="DOCTITLE" NUM="32" AUTOLINK="TRUE" LINKALTTEXT="DOCTITLE"/>
                         </li>
-                    </TRS_DOCUMENTS>
+                  </TRS_DOCUMENTS>
+                  <!-- <li><a target="_blank" title="新闻列表新闻列表新闻列表新闻列表新闻列表" href="#">新闻列表新闻列表新闻列表新闻列表...</a></li> -->
                 </ul>
               </div>
             </div>
@@ -355,6 +441,7 @@
                           <TRS_DOCUMENT FIELD="DOCTITLE" NUM="32" AUTOLINK="TRUE" LINKALTTEXT="DOCTITLE"/>
                         </li>
                   </TRS_DOCUMENTS>
+                  <!-- <li><a target="_blank" title="新闻列表新闻列表新闻列表新闻列表新闻列表" href="#">新闻列表新闻列表新闻列表新闻列表新闻列表...</a></li> -->
                 </ul>
               </div>
               <h4 class="zcwj"><a href="<TRS_CHANNEL ID='学习园地' FIELD='_RECURL'/>" target="_blank">
@@ -369,6 +456,7 @@
                           <TRS_DOCUMENT FIELD="DOCTITLE" NUM="32" AUTOLINK="TRUE" LINKALTTEXT="DOCTITLE"/>
                         </li>
                   </TRS_DOCUMENTS>
+                  <!-- <li><a target="_blank" title="新闻列表新闻列表新闻列表新闻列表新闻列表" href="#">新闻列表新闻列闻列表新闻列表...</a></li> -->
                 </ul>
               </div>
               <h4 class="zcjd"><a href="<TRS_CHANNEL ID='扶贫工作' FIELD='_RECURL'/>" target="_blank">
@@ -383,6 +471,7 @@
                           <TRS_DOCUMENT FIELD="DOCTITLE" NUM="32" AUTOLINK="TRUE" LINKALTTEXT="DOCTITLE"/>
                         </li>
                   </TRS_DOCUMENTS>
+                  <!-- <li><a target="_blank" title="新闻列表新闻列表新闻列表新闻列表新闻列表" href="#">新闻列表新闻列表新闻列表新闻列表新闻列表...</a></li> -->
                 </ul>
               </div>
 
@@ -416,58 +505,66 @@
         </ul>
       </div>
     </div>
-
-    <div class="Wsbs">
-      <div class="NewBt">
-        <em class="glyphicon glyphicon-bookmark"></em>
-        <span><a href="<TRS_CHANNEL ID='事务管理' FIELD='_RECURL'/>" target="_blank">事务管理</a></span>
-      </div>
-      <div class="WsbsL">
-        <ul>
-          <li><a href="<TRS_CHANNEL ID='资产管理' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>资产管理</span></a></li>
-          <li><a href="<TRS_CHANNEL ID='公务用车' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>公务用车</span></a></li>
-          <li><a href="<TRS_CHANNEL ID='公共机构节能' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>公共机构节能</span></a></li>
-          <li><a href="<TRS_CHANNEL ID='能源管理' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>能源管理</span></a></li>
-          <li><a href="<TRS_CHANNEL ID='综合事务管理' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>综合事务管理</span></a></li>
-        </ul>
-      </div>
-      <div class="WsbsC">
-        <a href="#"><img src="images/bsdt.jpg" /></a>
-      </div>
-      <div class="WsbsR">
-        <ul>
-          <li><a href="<TRS_CHANNEL ID='云南省公共机构节能服务平台' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>云南省公共机构节能服务平台</span></a></li>
-          <li><a href="<TRS_CHANNEL ID='应用数据接口' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>应用数据接口</span></a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="Ztzl">
-      <div class="ZtzlBt">
-        <a href="#"><img src="images/ztzl.png" / title="专题集锦"></a>
-      </div>
-      <div class="threeK">
-        <ul>
-          <li><a href=""><img src="images/threeK01.png" /></a></li>
-          <li><a href=""><img src="images/threeK02.png" /></a></li>
-          <li><a href=""><img src="images/threeK03.png" /></a></li>
-          <li><a href=""><img src="images/threeK04.png" /></a></li>
-        </ul>
-      </div>
+    <div class="Yqlj">
+      <ul>
+        <li> 
+          <select onchange="s_click(this)">
+            <option>国务院部门网站</option>
+            <TRS_CHANNELS STARTPOS=0 ID="国务院部门网站">
+              <option value="<TRS_CHANNEL FIELD='_RECURL'/>"><TRS_CHANNEL FIELD=' CHNLDESC '/></option>
+            </TRS_CHANNELS> 
+          </select> 
+        </li>
+        <li>
+           <select onchange="s_click(this)">
+              <option>地方政府机关事务部门网站</option>
+            <TRS_CHANNELS STARTPOS=0 ID="地方政府机关事务部门网站">
+                <option value="<TRS_CHANNEL FIELD='_RECURL'/>"><TRS_CHANNEL FIELD=' CHNLDESC '/></option>
+            </TRS_CHANNELS> 
+          </select>
+         </li>
+        <li> 
+          <select onchange="s_click(this)">
+              <option>专项业务网站</option>
+            <TRS_CHANNELS STARTPOS=0 ID="专项业务网站">
+                <option value="<TRS_CHANNEL FIELD='_RECURL'/>"><TRS_CHANNEL FIELD=' CHNLDESC '/></option>
+            </TRS_CHANNELS> 
+          </select>
+        </li>
+        <li> 
+          <select onchange="s_click(this)"> 
+              <option>相关单位网站</option>
+              <TRS_CHANNELS STARTPOS=0 ID="相关单位网站">
+                  <option value="<TRS_CHANNEL FIELD='_RECURL'/>"><TRS_CHANNEL FIELD=' CHNLDESC '/></option>
+            </TRS_CHANNELS> 
+          </select>
+        </li>
+      </ul>
     </div>
 
-
-
-  <!-- 首页页脚链接位置模板 -->
-  <TRS_TEMPLATE TEMPNAME="首页页脚链接位置模板">
-      首页页脚链接位置模板
-  </TRS_TEMPLATE>
-  <!-- 首页页脚链接位置模板 -->
-
+    <script type="text/javascript">
+      //select跳页
+      function s_click(obj) {
+          var num = 0;
+          for (var i = 0; i < obj.options.length; i++) {
+              if (obj.options[i].selected == true) {
+                  num++;
+              }
+          }
+          if (num == 1) {
+              if(jQuery(obj.options).first().text()==obj.options[obj.selectedIndex].innerText){
+                return false;
+              }
+              var url = obj.options[obj.selectedIndex].value;
+              window.open(url); //这里修改打开连接方式
+          }
+      }
+    </script> 
   </div>
 
-  <!-- 页脚位置 -->
+ <!-- 页脚位置 -->
   <TRS_TEMPLATE TEMPNAME="页脚位置模板">
-    页脚位置模板
+      页脚位置模板
   </TRS_TEMPLATE>
   <!-- 页脚位置 -->
 </body>
