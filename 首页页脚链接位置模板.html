@@ -1,11 +1,34 @@
- <!--页脚 图片链接位置 -->
+<!-- 专题集锦位置 -->
+<div class="Ztzl">
+    <div class="ZtzlBt">
+      <a href="<TRS_CHANNEL ID='专题专栏' FIELD='_RECURL'/>" target="_blank"><img src="images/ztzl.png" / title="专题集锦"></a>
+    </div>
+    <div class="threeK">
+      <ul>
+          <TRS_DOCUMENTS ID="专题集锦" NUM="10" where="WCMDOCUMENT.ATTACHPIC=1">
+              <li>
+                  <a href="<TRS_document field='UNIT' autolink='false' />" target="_blank">
+                      <TRS_APPENDIX INDEX="0" MODE="PIC" autolink="false" />
+                  </a>
+              </li>
+          </TRS_DOCUMENTS>
+      </ul>
+    </div>
+  </div> 
+ <!-- 专题集锦位置 -->
+
+
+<!--页脚 图片链接位置 -->
  <div class="Yqlj">
         <ul>
-         
-          <li><a href="http://www.ggj.gov.cn/" target="_blank"><img src="images/lj1.jpg" /></a> </li>
-          <li><a href="http://www.yn.gov.cn/" target="_blank"><img src="images/lj2.jpg" /></a></li>
-          <li><a href="http://ecpi.ggj.gov.cn/" target="_blank"><img src="images/lj3.jpg" /></a></li>
-          <li><a href="http://www.ggj.gov.cn/qx/" target="_blank"><img src="images/lj4.jpg" /></a></li>
+            <TRS_DOCUMENTS ID="页脚图片链接" NUM="4" where="WCMDOCUMENT.ATTACHPIC=1">
+                <li>
+                    <a href="<TRS_document field='UNIT' autolink='false' />" target="_blank">
+                        <TRS_APPENDIX INDEX="0" MODE="PIC" autolink="false" />
+                    </a>
+                </li>
+            </TRS_DOCUMENTS>
+          <!-- <li><a href="http://www.ggj.gov.cn/" target="_blank"><img src="images/lj1.jpg" /></a> </li> -->
         </ul>
       </div>
    <!--页脚 图片链接位置 -->

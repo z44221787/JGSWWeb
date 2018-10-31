@@ -18,8 +18,58 @@
   <script language="JavaScript" type="text/javascript">
     //文档预加载完成操作
     $(function () {
-      jQuery(".carousel-inner").find("div:first").addClass("active");
+      //首页滚动图片显示效果
+      jQuery(".carousel-inner").children("div:first").addClass("active");
+      //判断当前图片文档有多少条，添加显示li标签
+      var DivContentLength = jQuery(".carousel-inner").children("div").length;
+      for (var i = 0; i <= DivContentLength - 1; i++) {
+        if (i == 0) {
+          jQuery(".carousel-indicators").append('<li data-target="#carousel-example-generic" data-slide-to="' + i +
+            '" class="active"></li>')
+        } else {
+          jQuery(".carousel-indicators").append('<li data-target="#carousel-example-generic" data-slide-to="' + i +
+            '"></li>')
+        }
+      }
     });
+
+    function SetHome(obj, url) {
+      try {
+        obj.style.behavior = 'url(#default#homepage)';
+        obj.setHomePage(url);
+      } catch (e) {
+        if (window.netscape) {
+          try {
+            netscape.security.PrivilegeManager.enablePrivilege('UniversalXPConnect');
+          } catch (e) {
+            alert(
+              '抱歉，此操作被浏览器拒绝！\n\n请在浏览器地址栏输入“about:config”并回车\n\n然后将[signed.applets.codebase_principal_support]的值设置为true，双击即可。'
+            );
+          }
+          var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch);
+          prefs.setCharPref('browser.startup.homepage', url);
+        } else {
+          alert('抱歉，您所使用的浏览器无法完成此操作。\n\n您需要手动将【' + url + '】设置为首页。');
+        }
+      }
+    };
+
+
+    function AddFavorite(sURL, sTitle) {
+      try { //IE
+        window.external.addFavorite(sURL, sTitle);
+      } catch (e) {
+        try { //Firefox
+          window.sidebar.addPanel(sTitle, sURL, "");
+        } catch (e) {
+          try { //Chrome无法自动收藏，用创建快应用程序的捷方式来替代。
+            createShortcut();
+          } catch (e) {
+            alert("您的浏览器不支持自动加入收藏，请使用浏览器菜单手动设置.");
+          }
+        }
+      }
+    };
   </script>
 
   <style>
@@ -354,15 +404,10 @@
       <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
         <!--Indicators-->
         <ol class="carousel-indicators">
-          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"> </li>
-          <li data-target="#carousel-example-generic" data-slide-to="1"> </li>
-          <li data-target="#carousel-example-generic" data-slide-to="2"> </li>
-          <li data-target="#carousel-example-generic" data-slide-to="3"> </li>
-          <li data-target="#carousel-example-generic" data-slide-to="4"> </li>
         </ol>
         <!--Wrapper for slides-->
         <div class="carousel-inner" role="listbox">
-          <TRS_DOCUMENTS ID="党建工作" NUM="5" where="WCMDOCUMENT.ATTACHPIC=1">
+          <TRS_DOCUMENTS ID="专题图片新闻" NUM="5" where="WCMDOCUMENT.ATTACHPIC=1">
             <div class="item">
               <TRS_APPENDIX INDEX="0" MODE="PIC" WIDTH="700" HEIGHT="391" autolink="true" TARGET="_blank" />
               <div class="carousel-caption">
@@ -379,7 +424,7 @@
         <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right"
             aria-hidden="true"> </span> <span class="sr-only"> Next </span> </a>
       </div>
-      <p class="imgPlayMore"> <a href="<TRS_CHANNEL ID='党建工作' FIELD='_RECURL'/>" target="_blank"> 更多 </a> </p>
+      <p class="imgPlayMore"> <a href="<TRS_CHANNEL ID='专题图片新闻' FIELD='_RECURL'/>" target="_blank"> 更多 </a> </p>
     </div>
     <!-- 滚动图片位置 -->
     <div class="Hotnew">
@@ -398,7 +443,7 @@
                   <TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="dd" /></i><b>
                   <TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="MM" />月</b> </span>
               <font>
-                <TRS_DOCUMENT FIELD="DOCABSTRACT" AUTOFORMAT="TRUE">党建工作置顶第一条摘要信息</TRS_DOCUMENT>
+                  <TRS_DOCUMENT FIELD="DOCCONTENT" AUTOFORMAT="TRUE" AUTOFORMATTYPE="innerText" NUM="120"/>
               </font>
             </p>
           </li>
@@ -416,13 +461,13 @@
     </div>
     <div class="dypL">
       <div class="GgBt XxKbt">
-        <!--CHNLIDS 参数 "14779,14784" 表示取栏目编号为“14779"的办事指南和“14784”资料下载栏目 -->
-        <TRS_CHANNELS CHNLIDS="14748">
+        <!--ID 参数 14749 扶贫工作-->
+        <TRS_CHANNELS CHNLIDS="14749">
           <span> <a href="<TRS_CHANNEL FIELD='_RECURL'/>" target="_blank">
               <TRS_CHANNEL FIELD='CHNLDESC' /> </a> </span>
         </TRS_CHANNELS>
       </div>
-      <TRS_CHANNELS CHNLIDS="14748">
+      <TRS_CHANNELS CHNLIDS="14749">
         <ul class="new02 XxKul">
           <TRS_DOCUMENTS NUM="6" STARTPOS="0" AUTOMORE="FALSE">
             <li>
@@ -436,14 +481,14 @@
     </div>
     <div class="dypR">
       <div class="GgBt XxKbt">
-        <!--ID 参数 “自定制栏目” 表示取栏目唯一标识为：“自定制栏目”的所有子级栏目 -->
-        <TRS_CHANNELS CHNLIDS="14749">
+        <!--ID 参数 14759,14748,14803 为：机关杂志、学习园地、精神文明 -->
+        <TRS_CHANNELS CHNLIDS="14759,14748,14803">
           <span> <a href="<TRS_CHANNEL FIELD='_RECURL'/>" target="_blank">
               <TRS_CHANNEL FIELD='CHNLDESC' /> </a> </span>
         </TRS_CHANNELS>
 
       </div>
-      <TRS_CHANNELS CHNLIDS="14749">
+      <TRS_CHANNELS CHNLIDS="14759,14748,14803">
         <ul class="new02 XxKul">
           <TRS_DOCUMENTS NUM="6" STARTPOS="0" AUTOMORE="FALSE">
             <li>

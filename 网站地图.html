@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>云南省机关事务管理局</title>
+  <link rel="stylesheet" type="text/css" href="images/clear.css" />
+  <link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="images/style.css" />
+  <link rel="stylesheet" type="text/css" href="images/animate.min.css" />
+  <script type="text/javascript" src="images/idangerous.swiper.min.js"></script>
+
+  <script type="text/javascript" src="images/jquery-1.11.1.js"></script>
+  <script type="text/javascript" src="images/bootstrap.min.js"></script>
+  <script type="text/javascript" src="images/web.js"></script>
+
+  <script language="JavaScript" type="text/javascript">
+    function SetHome(obj, url) {
+      try {
+        obj.style.behavior = 'url(#default#homepage)';
+        obj.setHomePage(url);
+      } catch (e) {
+        if (window.netscape) {
+          try {
+            netscape.security.PrivilegeManager.enablePrivilege('UniversalXPConnect');
+          } catch (e) {
+            alert(
+              '抱歉，此操作被浏览器拒绝！\n\n请在浏览器地址栏输入“about:config”并回车\n\n然后将[signed.applets.codebase_principal_support]的值设置为true，双击即可。'
+            );
+          }
+          var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch);
+          prefs.setCharPref('browser.startup.homepage', url);
+        } else {
+          alert('抱歉，您所使用的浏览器无法完成此操作。\n\n您需要手动将【' + url + '】设置为首页。');
+        }
+      }
+    };
+
+
+    function AddFavorite(sURL, sTitle) {
+      try { //IE
+        window.external.addFavorite(sURL, sTitle);
+      } catch (e) {
+        try { //Firefox
+          window.sidebar.addPanel(sTitle, sURL, "");
+        } catch (e) {
+          try { //Chrome无法自动收藏，用创建快应用程序的捷方式来替代。
+            createShortcut();
+          } catch (e) {
+            alert("您的浏览器不支持自动加入收藏，请使用浏览器菜单手动设置.");
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    .new02 {
+      color: #ccc;
+      padding-left: 20px;
+      clear: both;
+      background: url(images/nrbg.jpg);
+      background-size: 1200px 770px;
+      -moz-background-size: 1200px 770px;
+      /* 老版本的 Firefox */
+      background-repeat: no-repeat;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- 头部 -->
+  <TRS_TEMPLATE TEMPNAME="其他头部模板">
+    头部位置
+  </TRS_TEMPLATE>
+  <!-- 头部 -->
+
+  <div class="main">
+    <ol class="breadcrumb" style="font-size:18px; margin:0px;">
+      <TRS_Curpage VALUE="&nbsp;/&nbsp;" ONLY="false" AUTOLINK="true" TARGET="_blank" CurrChnlNoLink="true" CurrChnlCls="active">
+        当前位置
+      </TRS_Curpage>
+    </ol>
+    <div style=" margin:auto; width:96%">
+      <div class="NewBt">
+        <em class="glyphicon glyphicon-list"></em>
+        <span>
+          <TRS_CHANNEL ID='组织机构' AUTOLINK="true" TARGET="_blank" /></span>
+      </div>
+      <nav aria-label="Page navigation" style="font-size:16px;">
+        <ul class="pagination">
+          <TRS_CHANNELS ID='组织机构'>
+            <li>
+              <TRS_CHANNEL AUTOLINK="true" TARGET="_blank" />
+            </li>
+          </TRS_CHANNELS>
+        </ul>
+      </nav>
+    </div>
+
+    <div style=" margin:auto; width:96%">
+      <div class="NewBt">
+        <em class="glyphicon glyphicon-list"></em>
+        <span>
+          <TRS_CHANNEL ID='新闻资讯' AUTOLINK="true" TARGET="_blank" /></span>
+      </div>
+      <nav aria-label="Page navigation" style="font-size:16px;">
+        <ul class="pagination">
+          <TRS_CHANNELS ID='新闻资讯'>
+            <li>
+              <TRS_CHANNEL AUTOLINK="true" TARGET="_blank" />
+            </li>
+          </TRS_CHANNELS>
+        </ul>
+      </nav>
+    </div>
+
+    <div style=" margin:auto; width:96%">
+      <div class="NewBt">
+        <em class="glyphicon glyphicon-list"></em>
+        <span>
+          <TRS_CHANNEL ID='事务管理' AUTOLINK="true" TARGET="_blank" /></span>
+      </div>
+
+      <nav aria-label="Page navigation" style="font-size:16px;">
+        <ul class="pagination" style="background:#900;">
+          <li>
+            <TRS_CHANNEL ID="资产管理" AUTOLINK="true" TARGET="_blank" EXTRA='style="color:#900; font-weight:bold;"' />
+          </li>
+        </ul>
+        <ul class="pagination">
+          <TRS_CHANNELS ID='资产管理'>
+            <li>
+              <TRS_CHANNEL AUTOLINK="true" TARGET="_blank" />
+            </li>
+          </TRS_CHANNELS>
+        </ul>
+      </nav>
+
+      <nav aria-label="Page navigation" style="font-size:16px;">
+        <ul class="pagination" style="background:#900;">
+          <li>
+            <TRS_CHANNEL ID="公务用车" AUTOLINK="true" TARGET="_blank" EXTRA='style="color:#900; font-weight:bold;"' />
+          </li>
+        </ul>
+        <ul class="pagination">
+          <TRS_CHANNELS ID='公务用车'>
+            <li>
+              <TRS_CHANNEL AUTOLINK="true" TARGET="_blank" />
+            </li>
+          </TRS_CHANNELS>
+        </ul>
+      </nav>
+
+      <nav aria-label="Page navigation" style="font-size:16px;">
+        <ul class="pagination" style="background:#900;">
+          <li>
+            <TRS_CHANNEL ID="公共机构节能" AUTOLINK="true" TARGET="_blank" EXTRA='style="color:#900; font-weight:bold;"' />
+          </li>
+        </ul>
+        <ul class="pagination">
+          <TRS_CHANNELS ID='公共机构节能'>
+            <li>
+              <TRS_CHANNEL AUTOLINK="true" TARGET="_blank" />
+            </li>
+          </TRS_CHANNELS>
+        </ul>
+      </nav>
+
+
+      <nav aria-label="Page navigation" style="font-size:16px;">
+        <ul class="pagination" style="background:#900;">
+          <li>
+            <TRS_CHANNEL ID="能源管理" AUTOLINK="true" TARGET="_blank" EXTRA='style="color:#900; font-weight:bold;"' />
+          </li>
+        </ul>
+        <ul class="pagination">
+          <TRS_CHANNELS ID='能源管理'>
+            <li>
+              <TRS_CHANNEL AUTOLINK="true" TARGET="_blank" />
+            </li>
+          </TRS_CHANNELS>
+        </ul>
+      </nav>
+
+      <nav aria-label="Page navigation" style="font-size:16px;">
+        <ul class="pagination" style="background:#900;">
+          <li>
+            <TRS_CHANNEL ID="综合事务管理" AUTOLINK="true" TARGET="_blank" EXTRA='style="color:#900; font-weight:bold;"' />
+          </li>
+        </ul>
+        <ul class="pagination">
+          <TRS_CHANNELS ID='综合事务管理'>
+            <li>
+              <TRS_CHANNEL AUTOLINK="true" TARGET="_blank" />
+            </li>
+          </TRS_CHANNELS>
+        </ul>
+      </nav>
+
+    </div>
+
+    <div style=" margin:auto; width:96%">
+
+      <div class="NewBt">
+        <em class="glyphicon glyphicon-list"></em>
+        <span><a href="<TRS_CHANNEL ID='信息公开' FIELD='_RECURL'/>" target="_blank">政务公开</a></span>
+      </div>
+      <nav aria-label="Page navigation" style="font-size:16px;">
+        <ul class="pagination" style="background:#900;">
+          <li><a href="<TRS_CHANNEL ID='信息公开' FIELD='_RECURL'/>" target="_blank" style="color:#900; font-weight:bold;">政府信息公开</a></li>
+        </ul>
+        <ul class="pagination">
+          <TRS_CHANNELS ID='信息公开'>
+            <li>
+              <TRS_CHANNEL AUTOLINK="true" TARGET="_blank" />
+            </li>
+          </TRS_CHANNELS>
+        </ul>
+      </nav>
+      <nav aria-label="Page navigation" style="font-size:16px;">
+        <ul class="pagination">
+          <TRS_CHANNELS ID='信息公开目录'>
+            <li>
+              <TRS_CHANNEL AUTOLINK="true" TARGET="_blank" />
+            </li>
+          </TRS_CHANNELS>
+        </ul>
+      </nav>
+    </div>
+
+    <div style=" margin:auto; width:96%">
+      <div class="NewBt">
+        <em class="glyphicon glyphicon-list"></em>
+        <span><a href="<TRS_CHANNEL ID='信息公开' FIELD='_RECURL'/>" target="_blank">机关党建</a></span>
+      </div>
+      <nav aria-label="Page navigation" style="font-size:16px;">
+        <ul class="pagination">
+          <TRS_CHANNELS ID='机关党建'>
+            <li>
+              <TRS_CHANNEL AUTOLINK="true" TARGET="_blank" />
+            </li>
+          </TRS_CHANNELS>
+        </ul>
+      </nav>
+    </div>
+
+    <div style=" margin:auto; width:96%">
+      <div class="NewBt">
+        <em class="glyphicon glyphicon-list"></em>
+        <span><a href="<TRS_CHANNEL ID='互动交流' FIELD='_RECURL'/>" target="_blank">互动交流</a></span>
+      </div>
+      <nav aria-label="Page navigation" style="font-size:16px;">
+        <ul class="pagination">
+          <TRS_CHANNELS ID='互动交流'>
+            <li>
+              <TRS_CHANNEL AUTOLINK="true" TARGET="_blank" />
+            </li>
+          </TRS_CHANNELS>
+        </ul>
+      </nav>
+    </div>
+
+    <div style=" margin:auto; width:96%">
+      <div class="NewBt">
+        <em class="glyphicon glyphicon-list"></em>
+        <span><a href="<TRS_CHANNEL ID='专题专栏' FIELD='_RECURL'/>">专题专栏</a></span>
+      </div>
+      <nav aria-label="Page navigation" style="font-size:16px;">
+        <ul class="pagination">
+            <TRS_CHANNELS ID='专题专栏'>
+                <li>
+                  <TRS_CHANNEL AUTOLINK="true" TARGET="_blank" />
+                </li>
+              </TRS_CHANNELS>
+        </ul>
+      </nav>
+    </div>
+
+  </div>
+
+  <!-- 页面底部 -->
+  <TRS_TEMPLATE TEMPNAME="页脚位置模板">
+    页脚位置
+  </TRS_TEMPLATE>
+  <!-- 页面底部 -->
+
+</body>
+
+</html>

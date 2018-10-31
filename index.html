@@ -18,10 +18,10 @@
     //文档预加载完成操作
     $(function () {
       //首页滚动图片显示效果
-      jQuery(".carousel-inner").find("div:first").addClass("active");
+      jQuery(".carousel-inner").children("div:first").addClass("active");
       //判断当前图片文档有多少条，添加显示li标签
-      var DivContentLength = jQuery(".carousel-inner").find("div").length;
-      for (var i = 0; i < DivContentLength - 1; i++) {
+      var DivContentLength = jQuery(".carousel-inner").children("div").length;
+      for (var i = 0; i <= DivContentLength - 1; i++) {
         if (i == 0) {
           jQuery(".carousel-indicators").append('<li data-target="#carousel-example-generic" data-slide-to="' + i +
             '" class="active"></li>')
@@ -166,58 +166,59 @@
     <!--国务院信息和省政府信息轮播广告-->
     <div class="notice-msg-container">
       <ul style=" width:750px; float:left;">
-        <li> <a href="#">
+        <li> 
+          <a href="http://www.gov.cn/" target="_blank">
             <p class="f-l">国务院信息：</p>
           </a>
           <div class="notice-country-msg">
             <div class="swiper-container">
               <div class="swiper-wrapper" style="height: 30px; transition-duration: 3s; width: 64480px; transform: translate3d(-14560px, 0px, 0px);">
-                <div class="swiper-slide swiper-slide-duplicate" style="height: 30px; width: 1040px;">
-                  <a href="#">新闻列表标题名称标题名称新闻列表标题名称称标题名称新闻列表标题名标题名称&nbsp;&nbsp;2017-06-13</a>
+                <div id="govInfo" style="display:none">
+                    <script language="javascript" type="text/javascript" charset="utf-8" src="http://www.gov.cn/pushinfo/v150203/pushinfo.js "></script>
                 </div>
-                <div class="swiper-slide" style="height: 30px; width: 1040px;">
-                  <a href="#">新闻列表标题名称标题名称新闻列表标题名称标题名称1&nbsp;&nbsp;2017-06-21</a>
+                <div id="yngovInfo" style="display:none">
+                    <script language="javascript" type="text/javascript" charset="gb2312" src="http://www.yn.gov.cn/zfxx/index.js "></script>
                 </div>
-                <div class="swiper-slide" style="height: 30px; width: 1040px;">
-                  <a href="#">新闻列表标题名称标题名称新闻列表标题名称标题名称2&nbsp;&nbsp;2017-06-21</a>
-                </div>
-                <div class="swiper-slide" style="height: 30px; width: 1040px;">
-                  <a href="#">新闻列表标题名称标题名称新闻列表标题名称标题名称3&nbsp;&nbsp;2017-06-22</a>
-                </div>
-                <div class="swiper-slide" style="height: 30px; width: 1040px;">
-                  <a href="#">新闻列表标题名称标题名称新闻列表标题名称标题名称4&nbsp;&nbsp;2017-06-22</a>
-                </div>
-                <div class="swiper-slide" style="height: 30px; width: 1040px;">
-                  <a href="#">新闻列表标题名称标题名称新闻列表标题名称标题名称5&nbsp;&nbsp;2017-06-21</a>
-                </div>
+                <script type="text/javascript">
+                   jQuery("#govInfo").find("li").each(function(i,obj){
+                        var aText=jQuery(obj).children("a:first").text();
+                        var aUrl=jQuery(obj).children("a:first").attr("href");
+                        var time=jQuery(obj).children("span:first").text();
+                        if(i==0){
+                          document.write('<div class="swiper-slide swiper-slide-duplicate" style="height: 30px; width: 1040px;"><a href="'+aUrl+'" target="_blank">'+aText+'&nbsp;&nbsp;'+time+'</a></div>');
+                        }
+                        else{
+                          document.write('<div class="swiper-slide" style="height: 30px; width: 1040px;"><a href="'+aUrl+'" target="_blank">'+aText+'&nbsp;&nbsp;'+time+'</a></div>');
+                        }
+                   });
+                </script>
+
               </div>
             </div>
           </div>
         </li>
-        <li> <a href="#">
+        <li>
+           <a href="http://www.yn.gov.cn/" target="_blank">
             <p class="f-l">省政府信息：</p>
           </a>
           <div class="notice-provincial-msg">
             <div class="swiper-container">
               <div class="swiper-wrapper" style="height: 30px; transition-duration: 3s; width: 17680px;">
-                <div class="swiper-slide swiper-slide-duplicate" style="height: 30px; width: 1040px;">
-                  <a href="#">新闻列表标题名称标题名称新闻列表标题名称标题名称&nbsp;&nbsp;2017-06-09</a>
-                </div>
-                <div class="swiper-slide" style="height: 30px; width: 1040px;">
-                  <a href="#">新闻列表标题名称标题名称新闻列表标题名称标题名称1&nbsp;&nbsp;2017-06-21</a>
-                </div>
-                <div class="swiper-slide" style="height: 30px; width: 1040px;">
-                  <a href="#">新闻列表标题名称标题名称新闻列表标题名称标题名称2&nbsp;&nbsp;2017-06-21</a>
-                </div>
-                <div class="swiper-slide" style="height: 30px; width: 1040px;">
-                  <a href="#">新闻列表标题名称标题名称新闻列表标题名称标题名称3&nbsp;&nbsp;2017-06-16</a>
-                </div>
-                <div class="swiper-slide" style="height: 30px; width: 1040px;">
-                  <a href="#">新闻列表标题名称标题名称新闻列表标题名称标题名称4&nbsp;&nbsp;2017-06-16</a>
-                </div>
-                <div class="swiper-slide" style="height: 30px; width: 1040px;">
-                  <a href="#">新闻列表标题名称标题名称新闻列表标题名称标题名称5&nbsp;&nbsp;2017-06-16</a>
-                </div>
+
+                  <script type="text/javascript">
+                    jQuery("#yngovInfo").find("li").each(function(i,obj){
+                         var aText=jQuery(obj).children("a:first").text();
+                         var aUrl=jQuery(obj).children("a:first").attr("href");
+                         var time=jQuery(obj).children("span:first").text();
+                         if(i==0){
+                           document.write('<div class="swiper-slide swiper-slide-duplicate" style="height: 30px; width: 1040px;"><a href="'+aUrl+'"  target="_blank">'+aText+'&nbsp;&nbsp;'+time+'</a></div>');
+                         }
+                         else{
+                           document.write('<div class="swiper-slide" style="height: 30px; width: 1040px;"><a href="'+aUrl+'"  target="_blank">'+aText+'&nbsp;&nbsp;'+time+'</a></div>');
+                         }
+                    });
+                 </script>
+
               </div>
             </div>
           </div>
@@ -226,7 +227,7 @@
       <div class="f-r dzgg">
         <a href="#"><img src="images/yjyb2.jpg" width="438" height="60" /></a>
       </div>
-    </div>
+   </div>
 
     <script type="text/javascript">
       var noticeMsgConfig = {
@@ -444,20 +445,6 @@
         <ul>
           <li><a href="<TRS_CHANNEL ID='云南省公共机构节能服务平台' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>云南省公共机构节能服务平台</span></a></li>
           <li><a href="<TRS_CHANNEL ID='应用数据接口' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>应用数据接口</span></a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="Ztzl">
-      <div class="ZtzlBt">
-        <a href="#"><img src="images/ztzl.png" / title="专题集锦"></a>
-      </div>
-      <div class="threeK">
-        <ul>
-          <li><a href=""><img src="images/threeK01.png" /></a></li>
-          <li><a href=""><img src="images/threeK02.png" /></a></li>
-          <li><a href=""><img src="images/threeK03.png" /></a></li>
-          <li><a href=""><img src="images/threeK04.png" /></a></li>
         </ul>
       </div>
     </div>

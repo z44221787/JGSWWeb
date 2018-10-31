@@ -19,10 +19,10 @@
     //文档预加载完成操作
     $(function () {
       //首页滚动图片显示效果
-      jQuery(".carousel-inner").find("div:first").addClass("active");
+      jQuery(".carousel-inner").children("div:first").addClass("active");
       //判断当前图片文档有多少条，添加显示li标签
-      var DivContentLength = jQuery(".carousel-inner").find("div").length;
-      for (var i = 0; i < DivContentLength - 1; i++) {
+      var DivContentLength = jQuery(".carousel-inner").children("div").length;
+      for (var i = 0; i <= DivContentLength - 1; i++) {
         if (i == 0) {
           jQuery(".carousel-indicators").append('<li data-target="#carousel-example-generic" data-slide-to="' + i +
             '" class="active"></li>')
