@@ -17,8 +17,45 @@
                 <a href="#"><img src="images/logo.png" class="animated bounceInLeft" /></a>
             </div>
             <div class="search">
-                <input type="text" name="" class="text form-control" placeholder="请输入您要搜索的内容" />
-                <input type="button" name="" value="搜索" class="button" />
+                <input type="hidden" id="siteid" name="siteid" value="21" />
+                <input type="hidden" id="startTime" name="starttime" class="inp" value="20160101" style="width: 140px;"
+                    onclick="WdatePicker({maxDate:'#F{$dp.$D(\'endTime\',{d:-1})}',dateFmt:'yyyyMMdd'})" />
+                <input type="hidden" id="endTime" name="endtime" class="inp" style="width: 140px;" onclick="WdatePicker({minDate:'#F{$dp.$D(\'startTime\',{d:1})}',dateFmt:'yyyyMMdd'})" />
+                <input type="text" id="orpro" name="" class="text form-control ssTxt" placeholder="请输入您要搜索的内容" />
+                <input type="button" name="" value="搜索" class="button" onclick="ssearch()" />
+
+                <!-- 检索js -->
+                <script>
+                    function check() {
+                        if (document.getElementById("orpro").value == "") {
+                            window.alert("请输入查询关键字！");
+                            return false;
+                        }
+                        return true;
+                    }
+
+                    function ssearch() {
+                        if (check()) {
+                            document.charset = 'UTF-8';
+                            globalSearch();
+                        }
+                    }
+
+                    function globalSearch() {
+                        var siteid = document.getElementById('siteid').value;
+                        var keyword = document.getElementById('orpro').value;
+                        var starttime = "";
+                        var endtime = "";
+                        var stype = "";
+                        window.open('http://192.168.4.152:8080/pub/yn_jgsw/zdjs/?siteid=' + encodeURI(encodeURI(siteid)) +
+                            '&starttime=' + encodeURI(encodeURI(
+                                starttime)) + '&endtime=' + encodeURI(encodeURI(endtime)) + '&stype=' + encodeURI(
+                                encodeURI(stype)) +
+                            '&keyword=' + encodeURI(encodeURI(keyword)));
+                    }
+                </script>
+                <!-- 检索js -->
+
             </div>
         </div>
     </div>
