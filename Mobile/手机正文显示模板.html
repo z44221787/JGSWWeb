@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<title>云南省机关事务管理局</title>
+	<meta content="" name="Keywords" />
+	<meta content="" name="Description" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="format-detection" content="telephone=no, email=no" />
+	<meta name="apple-mobile-web-app-title" content="云南省机关事务管理局 手机版" />
+	<meta name="HandheldFriendly" content="true" />
+	<meta name="author" content="DTOP" />
+	<script src="images/jquery1.42.min.js"></script>
+	<script src="images/tool.js"></script>
+	<script src="images/swipe1.0.min.js"></script>
+	<link rel="stylesheet" href="images/default.css" type="text/css" />
+	<link rel="stylesheet" href="images/page.css" type="text/css" />
+	<link rel="stylesheet" href="images/content.css" />
+</head>
+
+<body>
+
+	<header id="header">
+		<div class="logoBar">
+			<h1 class="logo"><a data-url="#"></a></h1>
+			<!-- <dl id="userLogin"> 
+     <dt showid="#J_t1"> 
+      <span></span> 
+     </dt> 
+     <dd hidebox="" id="J_t1"> 
+      <ul> 
+       <li class="t"><h3>用户登录</h3></li> 
+       <li> 
+        <div class="loginBox"> 
+         <div class="userInfo"> 
+          <p><span class="J_username"></span>，欢迎您回来！</p> 
+          <a href="javascript:void(0)" class="J_logout">退 出</a> 
+         </div> 
+         <div class="userLogin"> 
+          <p><span>用户名：</span><input type="text" tabindex="1" class="username" required /></p> 
+          <p><span>密&nbsp;&nbsp;&nbsp;&nbsp;码：</span><input type="password" tabindex="2" class="password" /></p> 
+          <input type="button" class="J_login" value="登 录" /> 
+         </div> 
+        </div> </li> 
+      </ul> 
+     </dd> 
+    </dl>  -->
+		</div>
+	</header>
+
+	<div class="searchBar">
+		<input type="hidden" id="siteid" name="siteid" value="21" />
+		<input type="hidden" id="startTime" name="starttime" class="inp" value="20160101" style="width: 140px;" onclick="WdatePicker({maxDate:'#F{$dp.$D(\'endTime\',{d:-1})}',dateFmt:'yyyyMMdd'})" />
+		<input type="hidden" id="endTime" name="endtime" class="inp" style="width: 140px;" onclick="WdatePicker({minDate:'#F{$dp.$D(\'startTime\',{d:1})}',dateFmt:'yyyyMMdd'})" />
+		<input type="search" id="topKeyWord" value="" placeholder="回车搜索..." />
+	</div>
+	<script>
+		document.getElementById("topKeyWord").onkeydown = function (e) {
+			e = e || window.event;
+			if (e.keyCode == 13) {
+				gSearch();
+			}
+		}
+
+		function gSearch() {
+			var keyword = document.getElementById('topKeyWord').value;
+			if (keyword == '' || keyword == "请输入搜索关键字") {
+				alert("请输入搜索关键字");
+			} else {
+				var siteid = document.getElementById('siteid').value;
+				var keyword = document.getElementById('topKeyWord').value;
+				var starttime = "";
+				var endtime = "";
+				var stype = "";
+				var URL = 'http://192.168.4.152:8080/pub/yn_jgsw/sjb/sjbzdjs/?siteid=' + encodeURI(encodeURI(siteid)) +
+					'&starttime=' + encodeURI(encodeURI(starttime)) + '&endtime=' + encodeURI(encodeURI(endtime)) + '&stype=' +
+					encodeURI(encodeURI(stype)) + '&topKeyWord=' + encodeURI(encodeURI(keyword));
+				window.location = URL;
+			}
+		}
+	</script>
+
+	<section class="pageContent postContent">
+		<h1 class="content_title">
+			<TRS_Document FIELD="DOCTITLE" AUTOLINK="false">文档标题</TRS_Document>
+		</h1>
+		<div class="content_info">
+			时间：
+			<span class="content_info_time"><time pubdate=""><a href="#" style="text-decoration: none; color: rgb(112, 116, 122); ">
+						<TRS_Document FIELD="DOCRELTIME" AUTOCOLOR="true" AUTOLINK="false" LINKALT="false" DATEFORMAT="yyyy-MM-dd HH:mm"
+						 AUTOFORMATTYPE="HTML">日期</TRS_Document>
+					</a></time></span>
+			<span class="content_info_comment"><a href="#">来源：<TRS_Document FIELD="DOCSOURCE" AUTOCOLOR="true" AUTOLINK="false"
+					 LINKALT="false" AUTOFORMATTYPE="HTML">来源</TRS_Document></a></span>
+		</div>
+		<article class="content_main">
+			<p>
+				<TRS_Document FIELD="DOCHTMLCON">文档详细信息</TRS_Document>
+			</p>
+			<p>&nbsp;</p>
+		</article>
+		<div class="infoBox">
+			<nav>
+				<h3>相关阅读</h3>
+			</nav>
+			<ul class="infoList">
+				<TRS_RELNEWS NUM="5" MODE="ALL">
+					<li class="noData">
+						<TRS_DOCUMENT FIELD="DOCTITLE">标题</TRS_DOCUMENT>
+					</li>
+				</TRS_RELNEWS>
+			</ul>
+		</div>
+		<div class="others">
+			<TRS_PreDocuments>
+				<div style="cursor: pointer;" class="prev" data-url="<TRS_Document Field='_RecURL'/>">
+					<span>上一篇：</span>
+					<TRS_Document Field='DocTitle' AutoLink='false' NUM="30" AUTOCOLOR='false' />
+				</div>
+			</TRS_PreDocuments>
+			<TRS_NextDocuments>
+				<div style="cursor: pointer;" class="next" data-url="<TRS_Document Field='_RecURL'/>">
+					<span>下一篇：</span>
+					<TRS_Document Field='DocTitle' AutoLink='false' NUM="30" AUTOCOLOR='false' />
+				</div>
+			</TRS_NextDocuments>
+
+		</div>
+	</section>
+	<!-- 尾部 -->
+	<footer id="footer">
+		<p>版权所有&copy;云南省机关事务管理局 主办：云南省机关事务管理局</p>
+	</footer>
+	<!-- 底部导航 -->
+	<nav id="nav">
+		<ul id="J_minNav" class="miniNav">
+			<li class="n0" data-url="#" onclick="history.go(-1)"><a>返回</a></li>
+			<li class="n1" data-url="<TRS_CHANNEL ID='手机版' FIELD='_RECURL'/>"><a>首页</a></li>
+			<li showid="#J_n5" class="n5" id="vShare"><a>分享</a></li>
+			<!-- <li showid="#J_n6" class="n6" id="vComment"><a>互动</a></li> 
+    <li showid="#J_n7" class="n7" id="vMore"><a>更多</a></li>  -->
+		</ul>
+
+		<!-- 分享资讯 S -->
+		<dl hidebox="" id="J_n5" class="navShare">
+			<dt>
+				<h3>分享资讯</h3>
+			</dt>
+			<dd>
+				<!-- Baidu Button BEGIN -->
+				<div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare">
+					<a class="bds_tsina" title="分享到新浪微博" href=""></a>
+					<a class="bds_qzone" title="分享到QQ空间" href=""></a>
+					<a class="bds_tqq" title="分享到腾讯微博" href=""></a>
+					<a class="bds_renren" title="分享到人人网" href=""></a>
+					<a class="bds_t163" title="分享到网易微博" href=""></a>
+					<a class="bds_tieba" title="分享到百度贴吧" href=""></a>
+					<a class="bds_douban" title="分享到豆瓣网" href=""></a>
+					<a class="bds_tqf" title="分享到腾讯朋友" href=""></a>
+					<a class="bds_taobao" title="分享到我的淘宝" href=""></a>
+					<a class="bds_ty" title="分享到天涯社区" href=""></a>
+					<span class="bds_more"></span>
+				</div>
+				<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=15351" src="http://bdimg.share.baidu.com/static/js/bds_s_v2.js?cdnversion=401647"></script>
+
+				<script type="text/javascript">
+					document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" +
+						Math.ceil(new Date() / 3600000)
+				</script>
+				<!-- Baidu Button END -->
+			</dd>
+		</dl>
+		<!-- 分享资讯 E -->
+
+		<!-- 快捷导航 S -->
+		<dl hidebox="" id="J_n7">
+			<dt>
+				<h3>快捷导航</h3>
+			</dt>
+			<dd class="fastNav">
+				<ul>
+					<li class="n939 L" data-url="list1.html">组织机构</li>
+					<li class="n940" data-url="list1.html">新闻资讯</li>
+					<li class="n944 R" data-url="list2.html">事务管理</li>
+				</ul>
+				<ul>
+					<li class="n942 L" data-url="list2.html">政务公开</li>
+					<li class="n941 " data-url="list1.html">互动交流</li>
+					<li class="n943 R" data-url="list2.html">机关党建</li>
+				</ul>
+			</dd>
+		</dl>
+		<!-- 快捷导航 E -->
+	</nav>
+	<!-- 遮罩层 -->
+	<div id="winMark"></div>
+	<script>
+		(function () {
+
+			//返回顶部
+			var goTop = $("#gotop");
+			var winH, winT;
+			var winFun = function () {
+				winH = $(window).height()
+				winT = $(document).scrollTop();
+				if (winT > winH * 1.5) {
+					goTop.fadeIn();
+				} else {
+					goTop.fadeOut();
+				}
+			}
+			goTop.click(function () {
+				$("html,body").animate({
+					scrollTop: 0
+				}, 0)
+			});
+			$(window).scroll(winFun)
+			$(window).resize(winFun);
+
+			//处理底部导航列表内容
+			var id = '9934';
+			var mNav = $("#J_minNav");
+			if (id == '-1') {
+				mNav.find(".n0,.n5,.n6").hide()
+			} else {
+				mNav.find(".n2,.n3,.n4").hide()
+			}
+
+			//底部导航 - 分享、评论、更多按钮
+			var showList = $("[showId]");
+			var hideBox = $("[hideBox]");
+			showList.click(function () {
+				showList.not($(this)).removeClass("on");
+				hideBox.not($(this).attr("showId")).hide();
+
+				if ($(this).hasClass("on")) {
+					$(this).removeClass("on");
+					$($(this).attr("showId")).hide();
+					$("#winMark").hide();
+				} else {
+					$(this).addClass("on");
+					$($(this).attr("showId")).show();
+					$("#winMark").show();
+				}
+			});
+			$("#winMark").click(function () {
+				showList.removeClass("on");
+				hideBox.hide();
+				$(this).hide();
+			});
+
+			//返回顶部
+			//$('#gotop').gotop({position:{bottom:60, right:10}});
+
+			//查看评论
+			$(".postComment .comment_view").click(function () {
+				location.href = "/ShowComment.aspx?id=" + id;
+			});
+
+			//提交评论
+			$(".postComment .comment_submit").click(function () {
+				var con = $.trim($(".postComment .comment_content").val()),
+					addReply = $(".postComment .addReply").val(),
+					CheckIsLogined = function () {
+						$.pe.ajax("logincheck", {
+							success: function (res) {
+								if ($(res).find("status") == 'ok') {
+									return "true";
+								} else {
+									return "false";
+								}
+							}
+						})
+					};
+				if (con == "") {
+					$.pe.tip.show({
+						text: "请输入评论内容"
+					})
+				} else {
+					if (addReply > 0) {
+						//回复
+						$.pe.ajax("AddCommentReply", {
+							url: "/ajax.aspx?HandlerName=MobileAjaxHandler",
+							params: {
+								commentid: $(".postComment .replyCommentId").val(),
+								content: con
+							},
+							success: function (res) {
+								res = $(res).find("root");
+								var status = res.find("status").text();
+								switch (status) {
+									case "ok":
+										$(".postComment .comment_content").val("");
+										$.pe.tip.show({
+											type: "suc",
+											text: "回复评论成功！"
+										}, function () {
+											console.log("xx");
+											window.location.reload();
+											//$(".cateBtn").trigger("click");
+										});
+										break;
+									case "repeat":
+										$.pe.tip.show({
+											type: "notice",
+											text: "同一IP无法重复评价！"
+										});
+										break;
+									default:
+										$.pe.tip.show({
+											type: "err",
+											text: "回复评论失败。"
+										});
+										break;
+								}
+							}
+						})
+					} else {
+						//引用与普通回复
+						$.pe.ajax("AddComment", {
+							url: "/ajax.aspx?HandlerName=MobileAjaxHandler",
+							params: {
+								gid: 9934,
+								content: con,
+								isguest: CheckIsLogined()
+							},
+							success: function (res) {
+								res = $(res).find("root");
+								var status = res.find("status").text();
+								switch (status) {
+									case "ok":
+										$(".postComment .comment_content").val("");
+										$.pe.tip.show({
+											type: "suc",
+											text: "发表评论成功！"
+										}, function () {
+											window.location.reload();
+										});
+										break;
+									case "check":
+										$(".postComment .comment_content").val("");
+										$.pe.tip.show({
+											type: "suc",
+											text: "发表评论成功，请等待管理员审核。"
+										});
+										break;
+									case "noTourists":
+										$.pe.tip.show({
+											type: "notice",
+											text: res.find("message").text()
+										});
+										break;
+									default:
+										$.pe.tip.show({
+											type: "err",
+											text: res.find("message").text()
+										});
+										break;
+								}
+							}
+						})
+					}
+				}
+			});
+
+		})();
+	</script>
+</body>
+
+</html>

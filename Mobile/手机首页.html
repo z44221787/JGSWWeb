@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>云南省机关事务管理局</title>
+  <meta content="" name="Keywords" />
+  <meta content="" name="Description" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-title" content="云南省机关事务管理局 手机版" />
+  <meta name="HandheldFriendly" content="true" />
+  <script src="images/jquery1.42.min.js"></script>
+  <script src="images/tool.js"></script>
+  <script src="images/swipe1.0.min.js"></script>
+  <link rel="stylesheet" href="images/default.css" type="text/css" />
+  <link rel="stylesheet" href="images/page.css" type="text/css" />
+  <link rel="stylesheet" href="images/index.css" type="text/css" />
+
+</head>
+
+<body>
+
+  <header id="header">
+    <div class="logoBar">
+      <h1 class="logo"><a data-url="#"></a></h1>
+      <!-- 用户登录 设置-->
+      <!-- <dl id="userLogin">
+        <dt showid="#J_t1">
+          <span></span>
+        </dt>
+        <dd hidebox="" id="J_t1">
+          <ul>
+            <li class="t">
+              <h3>用户登录</h3>
+            </li>
+            <li>
+              <div class="loginBox">
+                <div class="userInfo">
+                  <p><span class="J_username"></span>，欢迎您回来！</p>
+                  <a href="#" class="J_logout">退 出</a>
+                </div>
+                <div class="userLogin">
+                  <p><span>用户名：</span><input type="text" tabindex="1" class="username" required="" /></p>
+                  <p><span>密&nbsp;&nbsp;&nbsp;&nbsp;码：</span><input type="password" tabindex="2" class="password" /></p>
+                  <input type="button" class="J_login" value="登 录" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </dd>
+      </dl>
+      <dl id="userSetting">
+        <dt showid="#J_t2">
+          <span></span>
+        </dt>
+        <dd hidebox="" id="J_t2">
+          <ul>
+            <li class="t"><span>
+                <s class="check"></s>未订阅</span><span class="g">
+                <s class="check checked"></s>已订阅</span>
+              <h3>资讯订阅</h3>
+            </li>
+          </ul>
+        </dd>
+      </dl> -->
+      <!-- 用户登录 设置-->
+    </div>
+  </header>
+
+  <!-- 检索条位置 -->
+  <div class="searchBar">
+    <input type="hidden" id="siteid" name="siteid" value="21" />
+    <input type="hidden" id="startTime" name="starttime" class="inp" value="20160101" style="width: 140px;" onclick="WdatePicker({maxDate:'#F{$dp.$D(\'endTime\',{d:-1})}',dateFmt:'yyyyMMdd'})" />
+    <input type="hidden" id="endTime" name="endtime" class="inp" style="width: 140px;" onclick="WdatePicker({minDate:'#F{$dp.$D(\'startTime\',{d:1})}',dateFmt:'yyyyMMdd'})" />
+    <input type="search" id="topKeyWord" value="" placeholder="回车搜索..." />
+  </div>
+  <!-- 检索条位置 -->
+
+  <script>
+    $(function () {
+      //判断当前图片文档有多少条，添加显示li标签
+      var DivContentLength = jQuery(".bd").find("li").length;
+      for (var i = 0; i <= DivContentLength - 1; i++) {
+        if (i == 0) {
+          jQuery(".hdul").append('<li class="on"><span>' + i + '</span></li>')
+        } else {
+          jQuery(".hdul").append('<li class=""><span>' + i + '</span></li>')
+        }
+      }
+    });
+
+
+    document.getElementById("topKeyWord").onkeydown = function (e) {
+      e = e || window.event;
+      if (e.keyCode == 13) {
+        gSearch();
+      }
+    }
+
+    function gSearch() {
+      var keyword = document.getElementById('topKeyWord').value;
+      if (keyword == '' || keyword == "请输入搜索关键字") {
+        alert("请输入搜索关键字");
+      } else {
+        var siteid = document.getElementById('siteid').value;
+        var keyword = document.getElementById('topKeyWord').value;
+        var starttime = "";
+        var endtime = "";
+        var stype = "";
+        var URL = 'http://192.168.4.152:8080/pub/yn_jgsw/sjb/sjbzdjs/?siteid=' + encodeURI(encodeURI(siteid)) +
+          '&starttime=' + encodeURI(encodeURI(starttime)) + '&endtime=' + encodeURI(encodeURI(endtime)) + '&stype=' +
+          encodeURI(encodeURI(stype)) + '&topKeyWord=' + encodeURI(encodeURI(keyword));
+        window.location = URL;
+      }
+    }
+  </script>
+
+  <div id="content">
+
+    <!-- 焦点图 S -->
+    <div class="paddingLR">
+      <div id="focusNews" class="focusNews">
+        <div class="bd" style="overflow: hidden; visibility: visible; ">
+          <ul style="list-style: none; width: 1044px; -webkit-transition: 200ms; -webkit-transform: translate3d(-348px, 0px, 0px); ">
+            <TRS_DOCUMENTS ID="手机版图片新闻" NUM="3" where="WCMDOCUMENT.ATTACHPIC=1">
+              <li data-url="#" style="width: 348px; display: table-cell; vertical-align: top; ">
+                <div class="pic">
+                  <TRS_APPENDIX INDEX="0" MODE="PIC" autolink="true" />
+                </div>
+                <div class="title">
+                  <span>
+                    <TRS_DOCUMENT FIELD="DOCTITLE" NUM="18" /></span>
+                </div>
+              </li>
+            </TRS_DOCUMENTS>
+          </ul>
+        </div>
+        <div class="hd">
+          <ul class="hdul">
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      $("#focusNews .hd li").first().addClass("on"); //第一个导航元素高亮状态
+      var picSwipe = new Swipe($("#focusNews .bd")[0], {
+        startSlide: 0, //默认第几个开始
+        speed: 200, // 滑动速度
+
+        auto: 3000, // 滑动间隔
+        callback: function (event, index, element) { //回调函数
+          $("#focusNews .hd li").removeClass("on").eq(index).addClass("on") //当前导航元素高亮状态
+        }
+      });
+    </script>
+    <!-- 焦点图 E -->
+
+    <!-- 按钮导航 S -->
+
+    <!-- 按钮导航 E -->
+
+
+    <!-- 新闻动态等 S -->
+    <div id="xwdt" class="infoBox J_slideMod">
+      <nav>
+        <ul>
+          <li class="on"><a>政务要闻</a></li>
+          <li><a>局属单位信息</a></li>
+          <li><a>市县信息</a></li>
+        </ul>
+      </nav>
+      <div class="bd swipe" style="overflow: hidden; visibility: visible; ">
+        <ul class="listWrap" style="overflow: hidden; list-style: none; width: 1044px; -webkit-transition: 0ms; -webkit-transform: translate3d(0px, 0px, 0px); height: 424px; ">
+          <!-- 政务要闻 -->
+          <li style="width: 348px; display: table-cell; vertical-align: top; ">
+            <div class="swipeHeight">
+              <ul class="infoList">
+                <TRS_DOCUMENTS ID="手机版政务要闻" NUM="4" STARTPOS="0" AUTOMORE="FALSE" where="WCMDOCUMENT.ATTACHPIC=1">
+                  <li data-url="#" class="t hasPic">
+                    <h5 class="title">
+                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="20" AUTOLINK="TRUE" />
+                    </h5>
+                    <div class="pic">
+                      <TRS_APPENDIX INDEX="0" MODE="PIC" autolink="false" />
+                    </div>
+                    <div class="intro">
+                      <TRS_DOCUMENT FIELD="DOCCONTENT" AUTOFORMAT="TRUE" AUTOFORMATTYPE="innerText" NUM="80" />
+                    </div>
+                  </li>
+                </TRS_DOCUMENTS>
+              </ul>
+              <div data-url="<TRS_CHANNEL ID='手机版政务要闻' FIELD='_RECURL'/>" class="cateBtn">
+                进入政务要闻&gt;&gt;
+              </div>
+            </div>
+          </li>
+          <!-- 政务要闻 -->
+
+          <!-- 部门要闻 -->
+          <li style="width: 348px; display: table-cell; vertical-align: top; ">
+            <div class="swipeHeight">
+              <ul class="infoList">
+                <TRS_DOCUMENTS ID="手机版局属单位信息" NUM="4" STARTPOS="0" AUTOMORE="FALSE" where="WCMDOCUMENT.ATTACHPIC=1">
+                  <li data-url="#" class="t hasPic">
+                    <h5 class="title">
+                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="20" AUTOLINK="TRUE" />
+                    </h5>
+                    <div class="pic">
+                      <TRS_APPENDIX INDEX="0" MODE="PIC" autolink="false" />
+                    </div>
+                    <div class="intro">
+                      <TRS_DOCUMENT FIELD="DOCCONTENT" AUTOFORMAT="TRUE" AUTOFORMATTYPE="innerText" NUM="80" />
+                    </div>
+                  </li>
+                </TRS_DOCUMENTS>
+              </ul>
+              <div data-url="<TRS_CHANNEL ID='手机版局属单位信息' FIELD='_RECURL'/>" class="cateBtn">
+                进入局属单位信息&gt;&gt;
+              </div>
+            </div>
+          </li>
+          <!-- 部门要闻 -->
+
+          <!-- 市县要闻 -->
+          <li style="width: 348px; display: table-cell; vertical-align: top; ">
+            <div class="swipeHeight">
+              <ul class="infoList">
+                <TRS_DOCUMENTS ID="手机版市县信息" NUM="4" STARTPOS="0" AUTOMORE="FALSE" where="WCMDOCUMENT.ATTACHPIC=1">
+                  <li data-url="#" class="t hasPic">
+                    <h5 class="title">
+                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="20" AUTOLINK="TRUE" />
+                    </h5>
+                    <div class="pic">
+                      <TRS_APPENDIX INDEX="0" MODE="PIC" autolink="false" />
+                    </div>
+                    <div class="intro">
+                      <TRS_DOCUMENT FIELD="DOCCONTENT" AUTOFORMAT="TRUE" AUTOFORMATTYPE="innerText" NUM="80" />
+                    </div>
+                  </li>
+                </TRS_DOCUMENTS>
+              </ul>
+              <div data-url="<TRS_CHANNEL ID='手机版市县信息' FIELD='_RECURL'/>" class="cateBtn">
+                进入市县信息&gt;&gt;
+              </div>
+            </div>
+          </li>
+          <!-- 市县要闻 -->
+
+        </ul>
+      </div>
+    </div>
+    <!-- 新闻动态等 E -->
+
+
+    <!-- 政务动态 S -->
+    <div id="zwdt" class="infoBox J_slideMod">
+      <nav>
+        <ul>
+          <li class="on"><a>通知公告</a></li>
+          <li><a>工作动态</a></li>
+          <li><a>政策法规</a></li>
+        </ul>
+      </nav>
+      <div class="bd swipe" style="overflow: hidden; visibility: visible; ">
+        <ul class="listWrap" style="overflow: hidden; list-style: none; width: 1044px; -webkit-transition: 0ms; -webkit-transform: translate3d(0px, 0px, 0px); height: 383px; ">
+          <!-- 通知公告 -->
+          <li style="width:100%; display: table-cell; vertical-align: top; ">
+            <div class="swipeHeight">
+              <ul class="infoList">
+                <TRS_DOCUMENTS ID="手机版通知公告" NUM="1" STARTPOS="0" AUTOMORE="FALSE">
+                  <li data-url="<TRS_DOCUMENT FIELD='_RECURL'/>" class="t">
+                    <h5 class="title">
+                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="20" AUTOLINK="false" />
+                    </h5>
+                    <div class="intro">
+                      <TRS_DOCUMENT FIELD="DOCCONTENT" AUTOFORMAT="TRUE" AUTOFORMATTYPE="innerText" NUM="80" />
+                    </div>
+                  </li>
+                </TRS_DOCUMENTS>
+
+                <TRS_DOCUMENTS ID="手机版通知公告" NUM="6" STARTPOS="1" AUTOMORE="FALSE">
+                  <li data-url="<TRS_DOCUMENT FIELD='_RECURL'/>" class="n">
+                    <TRS_DOCUMENT FIELD="DOCTITLE" NUM="20" AUTOLINK="false" />
+                  </li>
+                </TRS_DOCUMENTS>
+              </ul>
+              <div data-url="<TRS_CHANNEL ID='手机版通知公告' FIELD='_RECURL'/>" class="cateBtn">
+                进入通知公告&gt;&gt;
+              </div>
+            </div>
+          </li>
+          <!-- 通知公告 -->
+
+          <!-- 工作动态 -->
+          <li style="width: 348px; display: table-cell; vertical-align: top; ">
+            <div class="swipeHeight">
+              <ul class="infoList">
+                <TRS_DOCUMENTS ID="手机版工作动态" NUM="1" STARTPOS="0" AUTOMORE="FALSE">
+                  <li data-url="<TRS_DOCUMENT FIELD='_RECURL'/>" class="t">
+                    <h5 class="title">
+                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="20" AUTOLINK="false" />
+                    </h5>
+                    <div class="intro">
+                      <TRS_DOCUMENT FIELD="DOCCONTENT" AUTOFORMAT="TRUE" AUTOFORMATTYPE="innerText" NUM="80" />
+                    </div>
+                  </li>
+                </TRS_DOCUMENTS>
+
+                <TRS_DOCUMENTS ID="手机版工作动态" NUM="6" STARTPOS="1" AUTOMORE="FALSE">
+                  <li data-url="<TRS_DOCUMENT FIELD='_RECURL'/>" class="n">
+                    <TRS_DOCUMENT FIELD="DOCTITLE" NUM="20" AUTOLINK="false" />
+                  </li>
+                </TRS_DOCUMENTS>
+              </ul>
+              <div data-url="<TRS_CHANNEL ID='手机版工作动态' FIELD='_RECURL'/>" class="cateBtn">
+                进入工作动态&gt;&gt;
+              </div>
+            </div>
+          </li>
+          <!-- 工作动态 -->
+
+          <!-- 政策法规 -->
+          <li style="width: 348px; display: table-cell; vertical-align: top; ">
+            <div class="swipeHeight">
+              <ul class="infoList">
+                <TRS_DOCUMENTS ID="手机版政策法规" NUM="1" STARTPOS="0" AUTOMORE="FALSE">
+                  <li data-url="<TRS_DOCUMENT FIELD='_RECURL'/>" class="t">
+                    <h5 class="title">
+                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="20" AUTOLINK="false" />
+                    </h5>
+                    <div class="intro">
+                      <TRS_DOCUMENT FIELD="DOCCONTENT" AUTOFORMAT="TRUE" AUTOFORMATTYPE="innerText" NUM="80" />
+                    </div>
+                  </li>
+                </TRS_DOCUMENTS>
+
+                <TRS_DOCUMENTS ID="手机版政策法规" NUM="6" STARTPOS="1" AUTOMORE="FALSE">
+                  <li data-url="<TRS_DOCUMENT FIELD='_RECURL'/>" class="n">
+                    <TRS_DOCUMENT FIELD="DOCTITLE" NUM="20" AUTOLINK="false" />
+                  </li>
+                </TRS_DOCUMENTS>
+              </ul>
+              <div data-url="<TRS_CHANNEL ID='手机版政策法规' FIELD='_RECURL'/>" class="cateBtn">
+                进入政策法规&gt;&gt;
+              </div>
+            </div>
+          </li>
+          <!-- 政策法规 -->
+
+        </ul>
+      </div>
+    </div>
+    <!-- 政务动态 E -->
+
+    <!-- 常见问题解答  人事信息、预算决算S -->
+    <div id="cjwtjd" class="infoBox J_slideMod">
+      <nav>
+        <ul>
+          <li class="on"><a>人事信息</a></li>
+          <li><a>预算决算</a></li>
+          <li><a>常见问题解答</a></li>
+        </ul>
+      </nav>
+      <div class="bd swipe" style="overflow: hidden; visibility: visible; ">
+        <ul class="listWrap" style="overflow: hidden; list-style: none; width: 1044px; -webkit-transition: 0ms; -webkit-transform: translate3d(0px, 0px, 0px); height: 383px; ">
+          <!-- 人事信息 -->
+          <li style="width:100%; display: table-cell; vertical-align: top; ">
+            <div class="swipeHeight">
+              <ul class="infoList">
+                <TRS_DOCUMENTS ID="手机版人事信息" NUM="1" STARTPOS="0" AUTOMORE="FALSE">
+                  <li data-url="<TRS_DOCUMENT FIELD='_RECURL'/>" class="t">
+                    <h5 class="title">
+                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="20" AUTOLINK="false" />
+                    </h5>
+                    <div class="intro">
+                      <TRS_DOCUMENT FIELD="DOCCONTENT" AUTOFORMAT="TRUE" AUTOFORMATTYPE="innerText" NUM="80" />
+                    </div>
+                  </li>
+                </TRS_DOCUMENTS>
+
+                <TRS_DOCUMENTS ID="手机版人事信息" NUM="6" STARTPOS="1" AUTOMORE="FALSE">
+                  <li data-url="<TRS_DOCUMENT FIELD='_RECURL'/>" class="n">
+                    <TRS_DOCUMENT FIELD="DOCTITLE" NUM="20" AUTOLINK="false" />
+                  </li>
+                </TRS_DOCUMENTS>
+              </ul>
+              <div data-url="<TRS_CHANNEL ID='手机版人事信息' FIELD='_RECURL'/>" class="cateBtn">
+                进入人事信息&gt;&gt;
+              </div>
+            </div>
+          </li>
+          <!-- 人事信息 -->
+
+          <!-- 预算决算 -->
+          <li style="width: 348px; display: table-cell; vertical-align: top; ">
+            <div class="swipeHeight">
+              <ul class="infoList">
+                <TRS_DOCUMENTS ID="手机版预算决算" NUM="1" STARTPOS="0" AUTOMORE="FALSE">
+                  <li data-url="<TRS_DOCUMENT FIELD='_RECURL'/>" class="t">
+                    <h5 class="title">
+                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="20" AUTOLINK="false" />
+                    </h5>
+                    <div class="intro">
+                      <TRS_DOCUMENT FIELD="DOCCONTENT" AUTOFORMAT="TRUE" AUTOFORMATTYPE="innerText" NUM="80" />
+                    </div>
+                  </li>
+                </TRS_DOCUMENTS>
+
+                <TRS_DOCUMENTS ID="手机版预算决算" NUM="6" STARTPOS="1" AUTOMORE="FALSE">
+                  <li data-url="<TRS_DOCUMENT FIELD='_RECURL'/>" class="n">
+                    <TRS_DOCUMENT FIELD="DOCTITLE" NUM="20" AUTOLINK="false" />
+                  </li>
+                </TRS_DOCUMENTS>
+              </ul>
+              <div data-url="<TRS_CHANNEL ID='手机版预算决算' FIELD='_RECURL'/>" class="cateBtn">
+                进入预算决算&gt;&gt;
+              </div>
+            </div>
+          </li>
+          <!-- 预算决算 -->
+
+          <!-- 常见问题解答 -->
+          <li style="width: 348px; display: table-cell; vertical-align: top; ">
+            <div class="swipeHeight">
+              <ul class="infoList">
+                <TRS_DOCUMENTS ID="手机版常见问题解答" NUM="1" STARTPOS="0" AUTOMORE="FALSE">
+                  <li data-url="<TRS_DOCUMENT FIELD='_RECURL'/>" class="t">
+                    <h5 class="title">
+                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="20" AUTOLINK="false" />
+                    </h5>
+                    <div class="intro">
+                      <TRS_DOCUMENT FIELD="DOCCONTENT" AUTOFORMAT="TRUE" AUTOFORMATTYPE="innerText" NUM="80" />
+                    </div>
+                  </li>
+                </TRS_DOCUMENTS>
+
+                <TRS_DOCUMENTS ID="手机版常见问题解答" NUM="6" STARTPOS="1" AUTOMORE="FALSE">
+                  <li data-url="<TRS_DOCUMENT FIELD='_RECURL'/>" class="n">
+                    <TRS_DOCUMENT FIELD="DOCTITLE" NUM="20" AUTOLINK="false" />
+                  </li>
+                </TRS_DOCUMENTS>
+              </ul>
+              <div data-url="<TRS_CHANNEL ID='手机版常见问题解答' FIELD='_RECURL'/>" class="cateBtn">
+                进入常见问题解答&gt;&gt;
+              </div>
+            </div>
+          </li>
+          <!-- 常见问题解答 -->
+
+        </ul>
+      </div>
+    </div>
+    <!-- 常见问题解答  人事信息、预算决算E-->
+
+    <!-- 人事信息、预算决算 s -->
+
+    <!-- 人事信息、预算决算 E -->
+
+    <!-- 机关党建、学习园地、精神文明 s -->
+
+    <!-- 机关党建、学习园地、精神文明 e -->
+
+    <!-- 事务管理  S -->
+
+    <!-- 事务管理  E -->
+
+    <!-- 专题集锦  S -->
+
+    <!-- 专题集锦  E -->
+  </div>
+
+  <script>
+    //swipe切换
+    $(".J_slideMod").each(function () {
+      var swipe,
+        _tit = $(this).find("nav li"),
+        _swipeCon = $(this).find(".bd .listWrap").css({
+          "overflow": "hidden"
+        });
+      _tit.first().addClass("on");
+      swipe = new Swipe($(this).find(".bd").addClass("swipe")[0], {
+        speed: 200,
+        callback: function (obj, index, ele) {
+          _tit.removeClass("on").eq(index).addClass("on");
+          setSwipeHeight(_swipeCon, index);
+        }
+      });
+      _tit.each(function (i) {
+        $(this).click(function () {
+          swipe.slide(i, 200);
+        });
+      });
+      setSwipeHeight(_swipeCon, 0);
+    });
+  </script>
+
+  <!-- 尾部 -->
+  <footer id="footer">
+    <p>版权所有&copy;云南省机关事务管理局 主办：云南省机关事务管理局</p>
+  </footer>
+  <!-- 底部导航 -->
+  <nav id="nav">
+    <ul id="J_minNav" class="miniNav">
+      <li class="n1" data-url="<TRS_CHANNEL ID='手机版' FIELD='_RECURL'/>"><a>首页</a></li>
+      <li class="n2" data-url="#xwdt"><a>新闻动态</a></li>
+      <li class="n3" data-url="#zwdt"><a>政务动态</a></li>
+      <li class="n4" data-url="#cjwtjd"><a>常见问题</a></li>
+    </ul>
+  </nav>
+  <!-- 遮罩层 -->
+  <div id="winMark"></div>
+  <div id="gotop">
+    <div></div>
+  </div>
+  <script>
+    (function () {
+
+      //返回顶部
+      var goTop = $("#gotop");
+      var winH, winT;
+      var winFun = function () {
+        winH = $(window).height()
+        winT = $(document).scrollTop();
+        if (winT > winH * 1.5) {
+          goTop.fadeIn();
+        } else {
+          goTop.fadeOut();
+        }
+      }
+      goTop.click(function () {
+        $("html,body").animate({
+          scrollTop: 0
+        }, 0)
+      });
+      $(window).scroll(winFun)
+      $(window).resize(winFun);
+
+      //处理底部导航列表内容
+      var id = '-1';
+      var mNav = $("#J_minNav");
+      if (id == '-1') {
+        mNav.find(".n0,.n5,.n6").hide()
+      } else {
+        mNav.find(".n2,.n3,.n4").hide()
+      }
+
+
+    })();
+  </script>
+</body>
+
+</html>

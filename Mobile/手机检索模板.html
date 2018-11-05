@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>云南省机关事务管理局</title>
+    <meta content="" name="Keywords" />
+    <meta content="" name="Description" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-title" content="云南省机关事务管理局 手机版" />
+    <meta name="HandheldFriendly" content="true" />
+    <script src="images/jquery1.42.min.js"></script>
+    <script src="images/tool.js"></script>
+    <script src="images/swipe1.0.min.js"></script>
+    <link rel="stylesheet" href="images/default.css" type="text/css" />
+    <link rel="stylesheet" href="images/page.css" type="text/css" />
+    <link rel="stylesheet" href="images/index.css" type="text/css" />
+
+    <!-- 检索使用js -->
+    <script>
+        var dataurl = 'http://116.52.249.7:8081/search/search';
+        var replaceUrl='<TRS_WebSite field="RootDomain" />';
+        var sobj = '';
+    
+        $(function () {
+            sobj = {
+                keyword: decodeURI(decodeURI(getParameter('topKeyWord'))),
+                siteid: decodeURI(decodeURI(getParameter('siteid'))),
+                orderby: "date",
+                pageNum: 15,
+                range: "",
+                starttime: decodeURI(decodeURI(getParameter('starttime'))),
+                endtime: decodeURI(decodeURI(getParameter('endtime'))),
+                stype: decodeURI(decodeURI(getParameter('stype'))),
+                func: "basicSearch",
+                currentPage: 1,
+                dim: "",
+            }
+            drawTable();
+        });
+    
+        //检查
+        function check() {
+            if (document.getElementById("topKeyWord").value == "") {
+                window.alert("请输入查询关键字！");
+                return false;
+            }
+            return true;
+        }
+    
+        //按钮提交检索
+        function ssearch() {
+            if (check()) {
+                document.charset = 'UTF-8';
+                globalSearch();
+            }
+        }
+    
+        //检索方法
+        function globalSearch() {
+            var siteid = document.getElementById('siteid').value;
+            var keyword = document.getElementById('topKeyWord').value;
+            var starttime = "";
+            var endtime = "";
+            var stype = "";
+            sobj = {
+                keyword:jQuery("#topKeyWord").val(),
+                siteid:jQuery("#siteid").val(),
+                orderby: "date",
+                pageNum: 15,
+                range: "",
+                starttime:jQuery("#starttime").val(),
+                endtime:jQuery("#endtime").val(),
+                stype: stype,
+                func: "basicSearch",
+                currentPage: 1,
+                dim: "",
+            };
+            drawTable();
+        }
+    
+        //获取参数
+        function getParameter(n) {
+            var l = window.location.search;
+            if (l != '') {
+                l = l.substring(1);
+                if (l.indexOf('&') >= 0) {
+                    var kvs = l.split('&');
+                    for (var i = 0; i < kvs.length; i++) {
+                        var kv = kvs[i];
+                        if (kv.indexOf('=') >= 0) {
+                            var pvs = kv.split('=');
+                            if (pvs[0] == n) return pvs[1];
+                        }
+                    }
+                } else {
+                    if (l.indexOf('=') >= 0) {
+                        var kvs = l.split('=');
+                        if (kvs[0] == n) return kvs[1];
+                    }
+                }
+            }
+            return '';
+        }
+    
+        //查询函数
+        function drawTable() {
+            $.ajax({
+                url: dataurl,
+                data: sobj,
+                dataType: "jsonp",
+                jsonp: "callback",
+                jsonpCallback: "callback",
+                success: function (result) {
+                    $('#keyw').empty().append(result.keyword);
+                    $('#totalHits').empty().append(result.totalHits);
+                    var docHtml = [];
+                    var pageHtml = [];
+                    var labelsHtml = [];
+                    // if (result.totalHits < 1) {
+                    // 	return;
+                    // }
+                    //文档列表
+                    var dnum = result.list.length;
+                    if (dnum < 1) {
+                        $('#doclist').empty().html("");
+                    } else {
+                        for (var i = 0; i < dnum; i++) {
+                          var title=result.list[i].docTitle.replace(/<\/?.+?>/g,"").replace(/ /g,"");
+                          var docPubUrlS=result.list[i].docPubUrl.split("yn_jgsw");
+                          var docPubUrl="";
+                          if(docPubUrlS.length===2){
+                            docPubUrl=replaceUrl+docPubUrlS[1];
+                          }
+                          docHtml.push("<li><span><a href='" +docPubUrl +"'>"+ title+"</a></span></li>")
+                        }
+                        $('#doclist').empty().html(docHtml.join(''));
+                    }
+                    //栏目列表
+                    try {
+                        sobj.func = result.func;
+                        sobj.currentPage = parseInt(result.currentPage);
+                        sobj.pageNum = parseInt(result.pageNum);
+                        sobj.dim = result.dim;
+                        sobj.stype = result.stype;
+                    } catch (e) {}
+                    //分页参数
+                    //总页数
+                    var pageCount = Math.ceil(result.totalHits / result.pageNum);
+                    if (pageCount < 1) {
+                        $('#dpage').empty().html("");
+                    } else {
+                        $('#dpage').empty().html('共' + pageCount + '页&nbsp;&nbsp;共' + result.totalHits +
+                            '条&nbsp;&nbsp;<a href="javascript:void(0)" onclick="gotoPage(1)">首页</a>&nbsp;&nbsp;<a href="javascript:void(0)" onclick="goPrev()">上一页</a>&nbsp;&nbsp;第' +
+                            result.currentPage +
+                            '页&nbsp;&nbsp;<a href="javascript:void(0)" onclick="goNext(' + pageCount +
+                            ')">下一页</a>&nbsp;&nbsp;<a href="javascript:gotoPage(' + pageCount +
+                            ')">尾页</a>'
+                        );
+                    }
+                }
+            });
+    
+        }
+    
+        //调整页码
+        function gotoPage(p) {
+            sobj.currentPage = p;
+            drawTable();
+        }
+    
+        //前一页
+        function goPrev() {
+            if (sobj.currentPage > 1) {
+                gotoPage(sobj.currentPage - 1);
+            }
+        }
+    
+        //后一页
+        function goNext(pageCount) {
+            if (sobj.currentPage < pageCount) {
+                gotoPage(sobj.currentPage + 1);
+            }
+        }
+    
+        //排序
+        function docOrder(otype) {
+            sobj.orderby = otype;
+            drawTable();
+        }
+    
+        //按栏目查询
+        function chnlSer(chnlName) {
+            sobj.func = "drillDown";
+            sobj.dim = chnlName;
+            sobj.currentPage = 1;
+            drawTable();
+        }
+    
+        //日期过滤
+        function dateFilter(flag) {
+            sobj.range = flag;
+            drawTable();
+        }
+    
+        //提交页面判断
+        function submitpage(pageCount) {
+            var sv = document.getElementById('inputpage').value;
+            if (sv == null || sv == '') {
+                alert('请输入页面！');
+                return;
+            } else if (isNaN(sv)) {
+                alert('页码必须是数字！');
+                return;
+            } else if (parseInt(sv) < 1 || parseInt(sv) > pageCount) {
+                alert('输入的页码不存在！');
+                return;
+            }
+            gotoPage(parseInt(sv));
+        }
+    
+        //日期时间格式化
+        function formatDate(pubtime) {
+            return pubtime.substring(0, pubtime.indexOf(" "));
+        }
+    
+    
+    // 对Date的扩展，将 Date 转化为指定格式的String
+    // 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符， 
+    // 年(y)可以用 1-4 个占位符，毫秒(S)只能用 1 个占位符(是 1-3 位的数字) 
+    // 例子： 
+    // (new Date()).Format("yyyy-MM-dd hh:mm:ss.S") ==> 2006-07-02 08:09:04.423 
+    // (new Date()).Format("yyyy-M-d h:m:s.S")      ==> 2006-7-2 8:9:4.18 
+    Date.prototype.Format = function (fmt) { //author: meizz 
+        var o = {
+            "M+": this.getMonth() + 1, //月份 
+            "d+": this.getDate(), //日 
+            "h+": this.getHours(), //小时 
+            "m+": this.getMinutes(), //分 
+            "s+": this.getSeconds(), //秒 
+            "q+": Math.floor((this.getMonth() + 3) / 3), //季度 
+            "S": this.getMilliseconds() //毫秒 
+        };
+        if (/(y+)/.test(fmt)) {
+            fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+        }
+        for (var k in o)
+            if (new RegExp("(" + k + ")").test(fmt)) 
+                fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+        return fmt;
+        
+    };
+    
+  </script>
+    <!-- 检索使用js -->
+
+</head>
+
+<body>
+
+    <header id="header">
+        <div class="logoBar">
+            <h1 class="logo"><a data-url="#"></a></h1>
+            <dl id="userLogin">
+                <dt showid="#J_t1">
+                    <span></span>
+                </dt>
+                <dd hidebox="" id="J_t1">
+                    <ul>
+                        <li class="t">
+                            <h3>用户登录</h3>
+                        </li>
+                        <li>
+                            <div class="loginBox">
+                                <div class="userInfo">
+                                    <p><span class="J_username"></span>，欢迎您回来！</p>
+                                    <a href="javascript:void(0)" class="J_logout">退 出</a>
+                                </div>
+                                <div class="userLogin">
+                                    <p><span>用户名：</span><input type="text" tabindex="1" class="username" required="" /></p>
+                                    <p><span>密&nbsp;&nbsp;&nbsp;&nbsp;码：</span><input type="password" tabindex="2"
+                                            class="password" /></p>
+                                    <input type="button" class="J_login" value="登 录" />
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </dd>
+            </dl>
+            <dl id="userSetting">
+                <dt showid="#J_t2">
+                    <span></span>
+                </dt>
+                <dd hidebox="" id="J_t2">
+                    <ul>
+                        <li class="t"><span>
+                                <s class="check"></s>未订阅</span><span class="g">
+                                <s class="check checked"></s>已订阅</span>
+                            <h3>资讯订阅</h3>
+                        </li>
+                    </ul>
+                </dd>
+            </dl>
+        </div>
+    </header>
+
+    <div class="searchBar">
+        <input type="hidden" id="siteid" name="siteid" value="21" />
+        <input type="hidden" id="startTime" name="starttime" class="inp" value="20160101" style="width: 140px;" onclick="WdatePicker({maxDate:'#F{$dp.$D(\'endTime\',{d:-1})}',dateFmt:'yyyyMMdd'})" />
+        <input type="hidden" id="endTime" name="endtime" class="inp" style="width: 140px;" onclick="WdatePicker({minDate:'#F{$dp.$D(\'startTime\',{d:1})}',dateFmt:'yyyyMMdd'})" />
+        <input type="search" id="topKeyWord" value="" placeholder="回车搜索..." />
+    </div>
+
+    <script>
+        document.getElementById("topKeyWord").onkeydown = function (e) {
+            e = e || window.event;
+            if (e.keyCode == 13) {
+                gSearch();
+            }
+        }
+
+        function gSearch() {
+            var keyword = document.getElementById('topKeyWord').value;
+            if (keyword == '' || keyword == "请输入搜索关键字") {
+                alert("请输入搜索关键字");
+            } else {
+                var siteid = document.getElementById('siteid').value;
+                var keyword = document.getElementById('topKeyWord').value;
+                var starttime = "";
+                var endtime = "";
+                var stype = "";
+                var URL = 'http://192.168.4.152:8080/pub/yn_jgsw/sjb/sjbzdjs/?siteid=' + encodeURI(encodeURI(siteid)) +
+                    '&starttime=' + encodeURI(encodeURI(starttime)) + '&endtime=' + encodeURI(encodeURI(endtime)) +
+                    '&stype=' + encodeURI(encodeURI(stype)) + '&topKeyWord=' + encodeURI(encodeURI(keyword));
+                window.location = URL;
+            }
+        }
+    </script>
+    <div id="content">
+        <div class="swipeHeight">
+            <div class="infoBox">
+                <nav>
+                    <h3>
+                        <trs_channel id="OWNER" autolink="false">一级栏目</trs_channel>
+                    </h3>
+                </nav>
+                <ul class="infoList" id="doclist">
+
+                </ul>
+                <div class="cateBtnn" id="dpage" style="text-align: center;font-size: 14px;">
+                    <!-- 查看更多 -->
+                </div>
+            </div>
+        </div>
+
+        <script>
+            $(function () {
+                //查看更多
+                $(".cateBtn").click(function () {
+                    var _list = $(".infoList"),
+                        _this = $(this),
+                        nodeid = "954",
+                        startnum = _list.find("li").size(),
+                        pagesize = 10;
+
+                    _list.append("<li class='loading' />");
+                    $.pe.ajax('accessLabel', {
+                        labelName: '手机类_增量获取数据',
+                        params: {
+                            nodes: nodeid,
+                            startRowIndex: startnum,
+                            maxRowCount: pagesize,
+                            listOrderType: 3
+                        },
+                        success: function (res) {
+                            _list.find(".loading").remove();
+                            res = $(res).find("root");
+                            if (res.find("status").text() == 'ok') {
+                                var i,
+                                    list = res.find("body").text(),
+                                    total = res.find("total").text();
+                                if (list != "") {
+                                    list = JSON.parse(list);
+                                    for (i in list) {
+                                        _list.append("<li data-url='" + list[i].Url +
+                                            "'><span>" + list[i].Title + "</span></li>"
+                                        )
+                                    }
+                                    _list.find("li").jump();
+                                }
+                                if (pagesize > total) {
+                                    _this.addClass("getAll").unbind("click").html(
+                                        "已获取所有的信息");
+                                }
+                            }
+                        }
+                    })
+                })
+            });
+        </script>
+
+
+        <!-- 尾部 -->
+        <footer id="footer">
+            <p>版权所有&copy;云南省机关事务管理局 主办：云南省机关事务管理局</p>
+        </footer>
+        <!-- 底部导航 -->
+        <nav id="nav">
+            <ul id="J_minNav" class="miniNav">
+                <li class="n1" data-url="<TRS_CHANNEL ID='手机版' FIELD='_RECURL'/>"><a>首页</a></li>
+                <li class="n2" data-url="#xwdt"><a>新闻动态</a></li>
+                <li class="n3" data-url="#zwdt"><a>政务动态</a></li>
+                <li class="n4" data-url="#cjwtjd"><a>常见问题</a></li>
+            </ul>
+        </nav>
+        <!-- 遮罩层 -->
+        <div id="winMark"></div>
+        <script>
+            (function () {
+
+                //返回顶部
+                var goTop = $("#gotop");
+                var winH, winT;
+                var winFun = function () {
+                    winH = $(window).height()
+                    winT = $(document).scrollTop();
+                    if (winT > winH * 1.5) {
+                        goTop.fadeIn();
+                    } else {
+                        goTop.fadeOut();
+                    }
+                }
+                goTop.click(function () {
+                    $("html,body").animate({
+                        scrollTop: 0
+                    }, 0)
+                });
+                $(window).scroll(winFun)
+                $(window).resize(winFun);
+
+                //处理底部导航列表内容
+                var id = '-1';
+                var mNav = $("#J_minNav");
+                if (id == '-1') {
+                    mNav.find(".n0,.n5,.n6").hide()
+                } else {
+                    mNav.find(".n2,.n3,.n4").hide()
+                }
+
+
+            })();
+        </script>
+    </div>
+</body>
+
+</html>
