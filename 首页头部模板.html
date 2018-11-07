@@ -86,7 +86,7 @@
                                         target="_blank" style="display:initial; font-size:18px; color:015293;">局领导</a></span>
                             </div>
                             <ul class="lindao">
-                                <TRS_DOCUMENTS ID="领导简介" pagesize=7 AUTOMORE="FALSE">
+                                <TRS_DOCUMENTS ID="领导简介" pagesize="6" num="6" AUTOMORE="FALSE">
                                     <li style="height:48px;">
                                         <a href="<TRS_CHANNEL ID='领导简介' FIELD='_RECURL'/>" target="_blank">
                                             <dd style="line-height:48px">
@@ -107,7 +107,7 @@
                                 <span><a href="<TRS_CHANNEL ID='机关处室' FIELD='_RECURL'/>" target="_blank" style="display:initial; font-size:18px; color:015293;">机关处室</a></span>
                             </div>
                             <ul>
-                                <TRS_DOCUMENTS ID="机关处室" STARTPOS="0" AUTOMORE="FALSE">
+                                <TRS_DOCUMENTS ID="机关处室" STARTPOS="0" num="10" AUTOMORE="FALSE">
                                     <li style="height: 55px; line-height: 55px;"><a href="<TRS_DOCUMENT FIELD='_RECURL'/>"
                                             target="_blank" style="font-size:15px">
                                             <TRS_DOCUMENT FIELD='DOCTITLE' NUM="16" AUTOLINK="false" /></a></li>
@@ -121,7 +121,7 @@
                                 <span> <a href="<TRS_CHANNEL ID='所属单位' FIELD='_RECURL'/>" target="_blank" style="display:initial; font-size:18px; color:015293;">所属单位</a></span>
                             </div>
                             <ul class="tinshu">
-                                <TRS_DOCUMENTS ID="所属单位" STARTPOS="0" AUTOMORE="FALSE">
+                                <TRS_DOCUMENTS ID="所属单位" STARTPOS="0" num="7" AUTOMORE="FALSE">
                                     <li style="height: 37px; line-height: 37px;"><a href="<TRS_DOCUMENT FIELD='_RECURL'/>"
                                             target="_blank" style="font-size:15px">
                                             <TRS_DOCUMENT FIELD='DOCTITLE' NUM="26" AUTOLINK="false" /></a></li>
@@ -220,7 +220,7 @@
                                 <a href="<TRS_CHANNEL ID='图片新闻' FIELD='_RECURL'/>" target="_blank">更多</a>
                             </div>
                             <ul class="imglist">
-                                <TRS_DOCUMENTS ID="图片新闻" NUM="3" where="WCMDOCUMENT.ATTACHPIC=1">
+                                <TRS_DOCUMENTS ID="图片新闻" NUM="3">
                                     <li>
                                         <a href="<TRS_document field='_recurl' autolink='false' />" target="_blank">
                                             <TRS_APPENDIX INDEX="0" MODE="PIC" autolink="false" />
