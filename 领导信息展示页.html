@@ -75,7 +75,15 @@
     <div class="lead">
       <div class="leadL">
         <div class="leadImg">
-          <img src="images/lead.jpg" />
+          <!-- 展示领导头像 -->
+          <TRS_APPENDIX id="OWNER" INDEX="0" MODE="PIC" EXTRA="id='leadImg'" autolink="false" />
+          <img id="sourceLeadImg" src="images/lead.jpg"  style="display: none"/>
+          <script type="text/javascript">
+            //判断当前图片src是否有值，存在值则不做操作，不存在则添加默认值
+            if(jQuery("#leadImg").length<=0){
+              jQuery("#sourceLeadImg").css("display","");
+            }
+          </script>
         </div>
         <div class="leadUse">
             <trs_channel id="OWNER" autolink="false">当前栏目名称</trs_channel>
