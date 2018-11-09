@@ -94,18 +94,25 @@
 				</h3>
 				<div class="contentSpan">
 					<em>文章来源：</em>
-					<span><TRS_Document FIELD="DOCSOURCE" AUTOCOLOR="true" AUTOLINK="false" LINKALT="false" AUTOFORMATTYPE="HTML">来源</TRS_Document></span>
+					<span>
+						<TRS_Document FIELD="DOCSOURCE" AUTOCOLOR="true" AUTOLINK="false" LINKALT="false" AUTOFORMATTYPE="HTML">来源</TRS_Document>
+					</span>
 					<em>发布时间：</em>
-					<span><TRS_Document FIELD="DOCRELTIME" AUTOCOLOR="true" AUTOLINK="false" LINKALT="false" DATEFORMAT="yyyy-MM-dd HH:mm" AUTOFORMATTYPE="HTML">日期</TRS_Document></span>
+					<span>
+						<TRS_Document FIELD="DOCRELTIME" AUTOCOLOR="true" AUTOLINK="false" LINKALT="false" DATEFORMAT="yyyy-MM-dd HH:mm"
+						 AUTOFORMATTYPE="HTML">日期</TRS_Document>
+					</span>
 				</div>
 				<table width="90%" align="center" border="0" cellpadding="3" cellspacing="1" bgcolor="#C9C9C9" style=" font-size:15px; text-align:left; color:#F30; ">
 					<tbody>
 						<tr>
 							<td width="80" height="30" align="right" bgcolor="#FFFFFF"><strong>索 引 号：</strong></td>
-							<td width="275" bgcolor="#FFFFFF" style="padding-left: 5px;"><TRS_DOCUMENT FIELD="UNIT" /></td>
+							<td width="275" bgcolor="#FFFFFF" style="padding-left: 5px;">
+								<TRS_DOCUMENT FIELD="UNIT" />
+							</td>
 							<td width="80" align="right" bgcolor="#FFFFFF"><strong>信息分类：</strong></td>
 							<td bgcolor="#FFFFFF" style="padding-left: 5px;" class="xxfl-1">
-									<TRS_DOCUMENT FIELD="MSTYPE" />
+								<TRS_DOCUMENT FIELD="MSTYPE" />
 							</td>
 						</tr>
 						<tr>
@@ -129,7 +136,7 @@
 						<tr>
 							<td align="right" bgcolor="#FFFFFF" height="30"><strong>文　　号：</strong></td>
 							<td bgcolor="#FFFFFF" style="padding-left: 5px;">
-									<TRS_DOCUMENT FIELD="WH" />
+								<TRS_DOCUMENT FIELD="WH" />
 							</td>
 							<td align="right" bgcolor="#FFFFFF"><strong>是否有效：</strong></td>
 							<td bgcolor="#FFFFFF" style="padding-left: 5px;">
@@ -145,43 +152,43 @@
 					</tbody>
 				</table>
 				<TRS_Document FIELD="DOCHTMLCON">文档详细信息</TRS_Document>
-				      <!-- 附件列表 -->
-					  <div style="margin-top: 40px;line-height: 200%;font-size: 16px;text-align: left; margin-left: 20px;">
-							<script language="JavaScript">
-							  var content2 =
-								'<TRS_APPENDIX mode="file" field="_RECURL" index="-1" seperator=";" UPLOAD="true"></TRS_APPENDIX>';
-							  var appfilesname =
-								'<TRS_APPENDIX mode="file" field="APPDESC" index="-1" seperator=";" UPLOAD="true" autolink="false"></TRS_APPENDIX>';
-							  if (content2 != "") {
-								document.write('<b style="font-weight: bold;color:blue">附件列表：</b><br/>');
-								var myArray2 = content2.split(";");
-								var myappname = appfilesname.split(";");
-								for (var nn2 = 0; nn2 < myArray2.length; nn2++) {
-								  document.write('<a href="' + myArray2[nn2] + '" target="_blank" class="body2">' + myappname[nn2] +
+				<!-- 附件列表 -->
+				<div style="margin-top: 40px;line-height: 200%;font-size: 16px;text-align: left; margin-left: 20px;">
+					<script language="JavaScript">
+						var content2 =
+							'<TRS_APPENDIX mode="file" field="_RECURL" index="-1" seperator=";" UPLOAD="true"></TRS_APPENDIX>';
+						var appfilesname =
+							'<TRS_APPENDIX mode="file" field="APPDESC" index="-1" seperator=";" UPLOAD="true" autolink="false"></TRS_APPENDIX>';
+						if (content2 != "") {
+							document.write('<b style="font-weight: bold;color:blue">附件列表：</b><br/>');
+							var myArray2 = content2.split(";");
+							var myappname = appfilesname.split(";");
+							for (var nn2 = 0; nn2 < myArray2.length; nn2++) {
+								document.write('<a href="' + myArray2[nn2] + '" target="_blank" class="body2">' + myappname[nn2] +
 									'</a><br/>');
-								}
-							  }
-							</script>
-						  </div>
-						  <!-- 附件列表 -->
-					
-						  <!-- 上一篇 下一篇 -->
-						  <div style="margin-top:10px;line-height: 200%; font-size: 16px;">
-							<center>
-							  <TRS_PreDocuments>
-								<A href="<TRS_Document Field='_RecURL'/>" Title="<TRS_Document Field='DocTitle'
+							}
+						}
+					</script>
+				</div>
+				<!-- 附件列表 -->
+
+				<!-- 上一篇 下一篇 -->
+				<div style="margin-top:10px;line-height: 200%; font-size: 16px;">
+					<center>
+						<TRS_PreDocuments>
+							<A href="<TRS_Document Field='_RecURL'/>" Title="<TRS_Document Field='DocTitle'
 							  AutoLink='false' AUTOCOLOR='false'/>">上一篇：
-								  <TRS_Document Field='DocTitle' AutoLink='false' NUM="30" AUTOCOLOR='false' /></A>
-							  </TRS_PreDocuments>
-							  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							  <TRS_NextDocuments>
-								<A href="<TRS_Document Field='_RecURL' AUTOCOLOR='false'/>" Title="<TRS_Document
+								<TRS_Document Field='DocTitle' AutoLink='false' NUM="30" AUTOCOLOR='false' /></A>
+						</TRS_PreDocuments>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<TRS_NextDocuments>
+							<A href="<TRS_Document Field='_RecURL' AUTOCOLOR='false'/>" Title="<TRS_Document
 							  Field='DocTitle' AutoLink='false' AUTOCOLOR='false'/>">下一篇：
-								  <TRS_Document Field='DocTitle' AutoLink='false' NUM="30" AUTOCOLOR='false' /></A>
-							  </TRS_NextDocuments>
-							</center>
-						  </div>
-						  <!-- 上一篇 下一篇 -->
+								<TRS_Document Field='DocTitle' AutoLink='false' NUM="30" AUTOCOLOR='false' /></A>
+						</TRS_NextDocuments>
+					</center>
+				</div>
+				<!-- 上一篇 下一篇 -->
 			</div>
 		</div>
 
