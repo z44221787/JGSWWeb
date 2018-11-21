@@ -80,7 +80,7 @@
   <!-- 头部 -->
 
   <div class="main">
-    
+
     <div class="imgPlay">
       <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
@@ -89,13 +89,13 @@
         </ol>
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
-            <!-- where="WCMDOCUMENT.ATTACHPIC=1" -->
-          <TRS_DOCUMENTS ID="图片新闻" NUM="5" >
+          <!-- where="WCMDOCUMENT.ATTACHPIC=1" -->
+          <TRS_DOCUMENTS ID="图片新闻" NUM="5">
             <div class="item">
               <TRS_APPENDIX INDEX="0" MODE="PIC" WIDTH="700" HEIGHT="391" autolink="true" TARGET="_blank" />
               <div class="carousel-caption">
-                <p>
-                  <TRS_DOCUMENT FIELD="DOCTITLE" NUM="50" />
+                <p style='color: white;font-size: 16px; font-weight: bold'>
+                  <TRS_DOCUMENT FIELD="DOCTITLE" NUM="50" autolink="false" />
                 </p>
               </div>
             </div>
@@ -123,7 +123,7 @@
         <ul class="new02 XxKul" style="height:266px">
           <TRS_DOCUMENTS NUM="6" STARTPOS="0" AUTOMORE="FALSE">
             <li>
-              <TRS_DOCUMENT FIELD="DOCTITLE" NUM="28" AUTOLINK="TRUE" TARGET="_blank" />
+              <TRS_DOCUMENT FIELD="DOCTITLE" NUM="32" AUTOLINK="TRUE" TARGET="_blank" />
               <span>
                 <TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="MM-dd" /></span>
             </li>
@@ -135,7 +135,8 @@
     <div class="Hotnew">
       <div class="HotnewBt">
         <em></em>
-        <span><TRS_CHANNEL ID='通知公告' FIELD='CHNLDESC' AUTOLINK='false'/></span>
+        <span>
+          <TRS_CHANNEL ID='通知公告' FIELD='CHNLDESC' AUTOLINK='false' /></span>
         <a href="<TRS_CHANNEL ID='通知公告' FIELD='_RECURL'/>" target="_blank">更多</a>
       </div>
       <ul class="new03">
@@ -167,7 +168,7 @@
     <!--国务院信息和省政府信息轮播广告-->
     <div class="notice-msg-container">
       <ul style=" width:750px; float:left;">
-        <li> 
+        <li>
           <a href="http://www.gov.cn/" target="_blank">
             <p class="f-l">国务院信息：</p>
           </a>
@@ -175,23 +176,25 @@
             <div class="swiper-container">
               <div class="swiper-wrapper" style="height: 30px; transition-duration: 3s; width: 64480px; transform: translate3d(-14560px, 0px, 0px);">
                 <div id="govInfo" style="display:none">
-                    <script language="javascript" type="text/javascript" charset="utf-8" src="http://www.gov.cn/pushinfo/v150203/pushinfo.js "></script>
+                  <script language="javascript" type="text/javascript" charset="utf-8" src="http://www.gov.cn/pushinfo/v150203/pushinfo.js "></script>
                 </div>
                 <div id="yngovInfo" style="display:none">
-                    <script language="javascript" type="text/javascript" charset="gb2312" src="http://www.yn.gov.cn/zfxx/index.js "></script>
+                  <script language="javascript" type="text/javascript" charset="gb2312" src="http://www.yn.gov.cn/zfxx/index.js "></script>
                 </div>
                 <script type="text/javascript">
-                   jQuery("#govInfo").find("li").each(function(i,obj){
-                        var aText=jQuery(obj).children("a:first").text();
-                        var aUrl=jQuery(obj).children("a:first").attr("href");
-                        var time=jQuery(obj).children("span:first").text();
-                        if(i==0){
-                          document.write('<div class="swiper-slide swiper-slide-duplicate" style="height: 30px; width: 1040px;"><a href="'+aUrl+'" target="_blank">'+aText+'&nbsp;&nbsp;'+time+'</a></div>');
-                        }
-                        else{
-                          document.write('<div class="swiper-slide" style="height: 30px; width: 1040px;"><a href="'+aUrl+'" target="_blank">'+aText+'&nbsp;&nbsp;'+time+'</a></div>');
-                        }
-                   });
+                  jQuery("#govInfo").find("li").each(function (i, obj) {
+                    var aText = jQuery(obj).children("a:first").text();
+                    var aUrl = jQuery(obj).children("a:first").attr("href");
+                    var time = jQuery(obj).children("span:first").text();
+                    if (i == 0) {
+                      document.write(
+                        '<div class="swiper-slide swiper-slide-duplicate" style="height: 30px; width: 1040px;"><a href="' +
+                        aUrl + '" target="_blank">' + aText + '&nbsp;&nbsp;' + time + '</a></div>');
+                    } else {
+                      document.write('<div class="swiper-slide" style="height: 30px; width: 1040px;"><a href="' +
+                        aUrl + '" target="_blank">' + aText + '&nbsp;&nbsp;' + time + '</a></div>');
+                    }
+                  });
                 </script>
 
               </div>
@@ -199,26 +202,28 @@
           </div>
         </li>
         <li>
-           <a href="http://www.yn.gov.cn/" target="_blank">
+          <a href="http://www.yn.gov.cn/" target="_blank">
             <p class="f-l">省政府信息：</p>
           </a>
           <div class="notice-provincial-msg">
             <div class="swiper-container">
               <div class="swiper-wrapper" style="height: 30px; transition-duration: 3s; width: 17680px;">
 
-                  <script type="text/javascript">
-                    jQuery("#yngovInfo").find("li").each(function(i,obj){
-                         var aText=jQuery(obj).children("a:first").text();
-                         var aUrl=jQuery(obj).children("a:first").attr("href");
-                         var time=jQuery(obj).children("span:first").text();
-                         if(i==0){
-                           document.write('<div class="swiper-slide swiper-slide-duplicate" style="height: 30px; width: 1040px;"><a href="'+aUrl+'"  target="_blank">'+aText+'&nbsp;&nbsp;'+time+'</a></div>');
-                         }
-                         else{
-                           document.write('<div class="swiper-slide" style="height: 30px; width: 1040px;"><a href="'+aUrl+'"  target="_blank">'+aText+'&nbsp;&nbsp;'+time+'</a></div>');
-                         }
-                    });
-                 </script>
+                <script type="text/javascript">
+                  jQuery("#yngovInfo").find("li").each(function (i, obj) {
+                    var aText = jQuery(obj).children("a:first").text();
+                    var aUrl = jQuery(obj).children("a:first").attr("href");
+                    var time = jQuery(obj).children("span:first").text();
+                    if (i == 0) {
+                      document.write(
+                        '<div class="swiper-slide swiper-slide-duplicate" style="height: 30px; width: 1040px;"><a href="' +
+                        aUrl + '"  target="_blank">' + aText + '&nbsp;&nbsp;' + time + '</a></div>');
+                    } else {
+                      document.write('<div class="swiper-slide" style="height: 30px; width: 1040px;"><a href="' +
+                        aUrl + '"  target="_blank">' + aText + '&nbsp;&nbsp;' + time + '</a></div>');
+                    }
+                  });
+                </script>
 
               </div>
             </div>
@@ -226,9 +231,10 @@
         </li>
       </ul>
       <div class="f-r dzgg">
-        <a href="<TRS_CHANNEL ID='协同办公系统' FIELD='_RECURL'/>"  target="_blank"><img src="images/yjyb2.jpg" width="438" height="60" /></a>
+        <a href="<TRS_CHANNEL ID='协同办公系统' FIELD='_RECURL'/>" target="_blank"><img src="images/yjyb2.jpg" width="438"
+            height="60" /></a>
       </div>
-   </div>
+    </div>
 
     <script type="text/javascript">
       var noticeMsgConfig = {
@@ -253,77 +259,93 @@
       <div class="zwgkL">
         <div class="NewBt">
           <em class="glyphicon glyphicon-globe"></em>
-          <span><a href="<TRS_CHANNEL ID='信息公开' FIELD='_RECURL'/>" target="_blank"><TRS_CHANNEL ID='信息公开' FIELD='CHNLDESC' AUTOLINK='false'/></a></span>
+          <span><a href="<TRS_CHANNEL ID='信息公开' FIELD='_RECURL'/>" target="_blank">
+              <TRS_CHANNEL ID='信息公开' FIELD='CHNLDESC' AUTOLINK='false' /></a></span>
         </div>
         <div class="xxgk-shop" style="clear: both;">
           <div class="">
             <div class="xxgk-center">
               <h4 class="zzjg"><a href="<TRS_CHANNEL ID='人事信息' FIELD='_RECURL'/>" target="_blank">
-                  <p style="width: 16px;padding: 0px 4px;"><TRS_CHANNEL ID='人事信息' FIELD='CHNLDESC' AUTOLINK='false'/></p>
+                  <p style="width: 16px;padding: 0px 4px;">
+                    <TRS_CHANNEL ID='人事信息' FIELD='CHNLDESC' AUTOLINK='false' />
+                  </p>
                 </a><em>展开</em></h4>
               <div>
-                <h5><a href="<TRS_CHANNEL ID='人事信息' FIELD='_RECURL'/>" target="_blank"><i></i><TRS_CHANNEL ID='人事信息' FIELD='CHNLDESC' AUTOLINK='false'/></a></h5>
+                <h5><a href="<TRS_CHANNEL ID='人事信息' FIELD='_RECURL'/>" target="_blank"><i></i>
+                    <TRS_CHANNEL ID='人事信息' FIELD='CHNLDESC' AUTOLINK='false' /></a></h5>
                 <ul>
                   <TRS_DOCUMENTS ID="人事信息" NUM="6" STARTPOS="0" AUTOMORE="FALSE">
                     <li>
-                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="32" AUTOLINK="TRUE" LINKALTTEXT="DOCTITLE" />
+                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="40" AUTOLINK="TRUE" LINKALTTEXT="DOCTITLE" />
                     </li>
                   </TRS_DOCUMENTS>
                 </ul>
               </div>
               <h4 class="zcwj"><a href="<TRS_CHANNEL ID='政策法规' FIELD='_RECURL'/>" target="_blank">
-                  <p style="width: 16px;padding: 0px 4px;"><TRS_CHANNEL ID='政策法规' FIELD='CHNLDESC' AUTOLINK='false'/></p>
+                  <p style="width: 16px;padding: 0px 4px;">
+                    <TRS_CHANNEL ID='政策法规' FIELD='CHNLDESC' AUTOLINK='false' />
+                  </p>
                 </a><em>展开</em></h4>
               <div>
-                <h5><a href="<TRS_CHANNEL ID='政策法规' FIELD='_RECURL'/>" target="_blank"><i></i><TRS_CHANNEL ID='政策法规' FIELD='CHNLDESC' AUTOLINK='false'/></a></h5>
+                <h5><a href="<TRS_CHANNEL ID='政策法规' FIELD='_RECURL'/>" target="_blank"><i></i>
+                    <TRS_CHANNEL ID='政策法规' FIELD='CHNLDESC' AUTOLINK='false' /></a></h5>
                 <ul>
                   <TRS_DOCUMENTS ID="政策法规" NUM="6" STARTPOS="0" AUTOMORE="FALSE">
                     <li>
-                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="32" AUTOLINK="TRUE" LINKALTTEXT="DOCTITLE" />
+                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="40" AUTOLINK="TRUE" LINKALTTEXT="DOCTITLE" />
                     </li>
                   </TRS_DOCUMENTS>
                 </ul>
               </div>
               <h4 class="zcjd"><a href="<TRS_CHANNEL ID='政策解读' FIELD='_RECURL'/>" target="_blank">
 
-                  <p style="width: 16px;padding: 0px 4px;"><TRS_CHANNEL ID='政策解读' FIELD='CHNLDESC' AUTOLINK='false'/></p>
+                  <p style="width: 16px;padding: 0px 4px;">
+                    <TRS_CHANNEL ID='政策解读' FIELD='CHNLDESC' AUTOLINK='false' />
+                  </p>
                 </a><em>展开</em></h4>
               <div>
-                <h5><a href="<TRS_CHANNEL ID='政策解读' FIELD='_RECURL'/>" target="_blank"><i></i><TRS_CHANNEL ID='政策解读' FIELD='CHNLDESC' AUTOLINK='false'/></a></h5>
+                <h5><a href="<TRS_CHANNEL ID='政策解读' FIELD='_RECURL'/>" target="_blank"><i></i>
+                    <TRS_CHANNEL ID='政策解读' FIELD='CHNLDESC' AUTOLINK='false' /></a></h5>
                 <ul>
                   <TRS_DOCUMENTS ID="政策解读" NUM="6" STARTPOS="0" AUTOMORE="FALSE">
                     <li>
-                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="32" AUTOLINK="TRUE" LINKALTTEXT="DOCTITLE" />
+                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="40" AUTOLINK="TRUE" LINKALTTEXT="DOCTITLE" />
                     </li>
                   </TRS_DOCUMENTS>
                 </ul>
               </div>
               <h4 class="rsxx"><a href="<TRS_CHANNEL ID='纪检监察' FIELD='_RECURL'/>" target="_blank">
                   <!--span></span-->
-                  <p style="width: 16px;padding: 0px 4px;"><TRS_CHANNEL ID='纪检监察' FIELD='CHNLDESC' AUTOLINK='false'/></p>
+                  <p style="width: 16px;padding: 0px 4px;">
+                    <TRS_CHANNEL ID='纪检监察' FIELD='CHNLDESC' AUTOLINK='false' />
+                  </p>
                 </a><em>展开</em></h4>
               <div>
-                <h5><a href="<TRS_CHANNEL ID='纪检监察' FIELD='_RECURL'/>" target="_blank"><i></i><TRS_CHANNEL ID='纪检监察' FIELD='CHNLDESC' AUTOLINK='false'/></a></h5>
+                <h5><a href="<TRS_CHANNEL ID='纪检监察' FIELD='_RECURL'/>" target="_blank"><i></i>
+                    <TRS_CHANNEL ID='纪检监察' FIELD='CHNLDESC' AUTOLINK='false' /></a></h5>
                 <ul>
-                    <TRS_DOCUMENTS ID="纪检监察" NUM="6" STARTPOS="0" AUTOMORE="FALSE">
-                        <li>
-                          <TRS_DOCUMENT FIELD="DOCTITLE" NUM="32" AUTOLINK="TRUE" LINKALTTEXT="DOCTITLE" />
-                        </li>
-                    </TRS_DOCUMENTS>
+                  <TRS_DOCUMENTS ID="纪检监察" NUM="6" STARTPOS="0" AUTOMORE="FALSE">
+                    <li>
+                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="40" AUTOLINK="TRUE" LINKALTTEXT="DOCTITLE" />
+                    </li>
+                  </TRS_DOCUMENTS>
                 </ul>
               </div>
               <h4 class="djxx"><a href="<TRS_CHANNEL ID='预算决算' FIELD='_RECURL'/>" target="_blank">
                   <!--span></span-->
-                  <p style="width: 16px;padding: 0px 4px;"><TRS_CHANNEL ID='预算决算' FIELD='CHNLDESC' AUTOLINK='false'/></p>
+                  <p style="width: 16px;padding: 0px 4px;">
+                    <TRS_CHANNEL ID='预算决算' FIELD='CHNLDESC' AUTOLINK='false' />
+                  </p>
                 </a><em>展开</em></h4>
               <div>
-                <h5><a href="<TRS_CHANNEL ID='预算决算' FIELD='_RECURL'/>" target="_blank"><i></i><TRS_CHANNEL ID='预算决算' FIELD='CHNLDESC' AUTOLINK='false'/></a></h5>
+                <h5><a href="<TRS_CHANNEL ID='预算决算' FIELD='_RECURL'/>" target="_blank"><i></i>
+                    <TRS_CHANNEL ID='预算决算' FIELD='CHNLDESC' AUTOLINK='false' /></a></h5>
                 <ul>
-                    <TRS_DOCUMENTS ID="预算决算" NUM="6" STARTPOS="0" AUTOMORE="FALSE">
-                        <li>
-                          <TRS_DOCUMENT FIELD="DOCTITLE" NUM="32" AUTOLINK="TRUE" LINKALTTEXT="DOCTITLE" />
-                        </li>
-                    </TRS_DOCUMENTS>
+                  <TRS_DOCUMENTS ID="预算决算" NUM="6" STARTPOS="0" AUTOMORE="FALSE">
+                    <li>
+                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="40" AUTOLINK="TRUE" LINKALTTEXT="DOCTITLE" />
+                    </li>
+                  </TRS_DOCUMENTS>
                 </ul>
               </div>
             </div>
@@ -346,50 +368,76 @@
       <div class="zwgkC">
         <div class="NewBt">
           <em class="glyphicon glyphicon-star"></em>
-          <span><a href="<TRS_CHANNEL ID='机关党建' FIELD='_RECURL'/>" target="_blank"><TRS_CHANNEL ID='机关党建' FIELD='CHNLDESC' AUTOLINK='false'/></a></span>
+          <span><a href="<TRS_CHANNEL ID='机关党建' FIELD='_RECURL'/>" target="_blank">
+              <TRS_CHANNEL ID='机关党建' FIELD='CHNLDESC' AUTOLINK='false' /></a></span>
         </div>
         <div class="xxgk-shop" style="clear: both;">
           <div class="">
             <div class="xxgk-center">
+              <h4 class="zzjg"><a href="<TRS_CHANNEL ID='机关杂志' FIELD='_RECURL'/>">
+                  <p style="width: 16px;padding: 0px 4px;">
+                    <TRS_CHANNEL ID='机关杂志' FIELD='CHNLDESC' AUTOLINK='false' />
+                  </p>
+                </a><em>展开</em></h4>
+              <div style="width:364px;">
+                <h5><a href="<TRS_CHANNEL ID='机关杂志' FIELD='_RECURL'/>"><i></i>
+                    <TRS_CHANNEL ID='机关杂志' FIELD='CHNLDESC' AUTOLINK='false' /></a></h5>
+                <ul>
+                  <TRS_DOCUMENTS ID="机关杂志" NUM="6" STARTPOS="0" AUTOMORE="FALSE">
+                    <li>
+                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="42" AUTOLINK="TRUE" LINKALTTEXT="DOCTITLE" />
+                    </li>
+                  </TRS_DOCUMENTS>
+                </ul>
+              </div>
               <h4 class="zzjg"><a href="<TRS_CHANNEL ID='党建工作' FIELD='_RECURL'/>" target="_blank">
                   <!--span></span-->
-                  <p style="width: 16px;padding: 0px 4px;"><TRS_CHANNEL ID='党建工作' FIELD='CHNLDESC' AUTOLINK='false'/></p>
+                  <p style="width: 16px;padding: 0px 4px;">
+                    <TRS_CHANNEL ID='党建工作' FIELD='CHNLDESC' AUTOLINK='false' />
+                  </p>
                 </a><em>展开</em></h4>
-              <div style="width:400px;">
-                <h5><a href="<TRS_CHANNEL ID='党建工作' FIELD='_RECURL'/>" target="_blank"><i></i><TRS_CHANNEL ID='党建工作' FIELD='CHNLDESC' AUTOLINK='false'/></a></h5>
+              <div style="width:364px;">
+                <h5><a href="<TRS_CHANNEL ID='党建工作' FIELD='_RECURL'/>" target="_blank"><i></i>
+                    <TRS_CHANNEL ID='党建工作' FIELD='CHNLDESC' AUTOLINK='false' /></a></h5>
                 <ul>
-                    <TRS_DOCUMENTS ID= "党建工作" NUM="6" STARTPOS="0" AUTOMORE="FALSE">
-                        <li>
-                          <TRS_DOCUMENT FIELD="DOCTITLE" NUM="32" AUTOLINK="TRUE" LINKALTTEXT="DOCTITLE"/>
-                        </li>
+                  <TRS_DOCUMENTS ID="党建工作" NUM="6" STARTPOS="0" AUTOMORE="FALSE">
+                    <li>
+                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="42" AUTOLINK="TRUE" LINKALTTEXT="DOCTITLE" />
+                    </li>
                   </TRS_DOCUMENTS>
                 </ul>
               </div>
               <h4 class="zcwj"><a href="<TRS_CHANNEL ID='学习园地' FIELD='_RECURL'/>" target="_blank">
                   <!--span></span-->
-                  <p style="width: 16px;padding: 0px 4px;"><TRS_CHANNEL ID='学习园地' FIELD='CHNLDESC' AUTOLINK='false'/></p>
+                  <p style="width: 16px;padding: 0px 4px;">
+                    <TRS_CHANNEL ID='学习园地' FIELD='CHNLDESC' AUTOLINK='false' />
+                  </p>
                 </a><em>展开</em></h4>
-              <div style="width:400px;">
-                <h5><a href="<TRS_CHANNEL ID='学习园地' FIELD='_RECURL'/>" target="_blank"><i></i><TRS_CHANNEL ID='学习园地' FIELD='CHNLDESC' AUTOLINK='false'/></a></h5>
+              <div style="width:364px;">
+                <h5><a href="<TRS_CHANNEL ID='学习园地' FIELD='_RECURL'/>" target="_blank"><i></i>
+                    <TRS_CHANNEL ID='学习园地' FIELD='CHNLDESC' AUTOLINK='false' /></a></h5>
                 <ul>
-                    <TRS_DOCUMENTS ID= "学习园地" NUM="6" STARTPOS="0" AUTOMORE="FALSE">
-                        <li>
-                          <TRS_DOCUMENT FIELD="DOCTITLE" NUM="32" AUTOLINK="TRUE" LINKALTTEXT="DOCTITLE"/>
-                        </li>
+                  <TRS_DOCUMENTS ID="学习园地" NUM="6" STARTPOS="0" AUTOMORE="FALSE">
+                    <li>
+                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="42" AUTOLINK="TRUE" LINKALTTEXT="DOCTITLE" />
+                    </li>
                   </TRS_DOCUMENTS>
                 </ul>
               </div>
               <h4 class="zcjd"><a href="<TRS_CHANNEL ID='扶贫工作' FIELD='_RECURL'/>" target="_blank">
                   <!--span></span-->
-                  <p style="width: 16px;padding: 0px 4px;"><TRS_CHANNEL ID='扶贫工作' FIELD='CHNLDESC' AUTOLINK='false'/></p>
+                  <p style="width: 16px;padding: 0px 4px;">
+                    <TRS_CHANNEL ID='扶贫工作' FIELD='CHNLDESC' AUTOLINK='false' />
+                  </p>
                 </a><em>展开</em></h4>
-              <div style="width:400px;">
-                <h5><a href="<TRS_CHANNEL ID='扶贫工作' FIELD='_RECURL'/>" target="_blank"><i></i><TRS_CHANNEL ID='扶贫工作' FIELD='CHNLDESC' AUTOLINK='false'/></a></h5>
+              <div style="width:364px;">
+                <h5><a href="<TRS_CHANNEL ID='扶贫工作' FIELD='_RECURL'/>" target="_blank"><i></i>
+                    <TRS_CHANNEL ID='扶贫工作' FIELD='CHNLDESC' AUTOLINK='false' /></a></h5>
                 <ul>
-                    <TRS_DOCUMENTS ID= "扶贫工作" NUM="6" STARTPOS="0" AUTOMORE="FALSE">
-                        <li>
-                          <TRS_DOCUMENT FIELD="DOCTITLE" NUM="32" AUTOLINK="TRUE" LINKALTTEXT="DOCTITLE"/>
-                        </li>
+                  <TRS_DOCUMENTS ID="扶贫工作" NUM="6" STARTPOS="0" AUTOMORE="FALSE">
+                    <li>
+                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="42" AUTOLINK="TRUE" LINKALTTEXT="DOCTITLE" />
+                    </li>
                   </TRS_DOCUMENTS>
                 </ul>
               </div>
@@ -414,13 +462,18 @@
       <div class="zwgkR">
         <div class="NewBt">
           <em class="glyphicon glyphicon-list-alt"></em>
-          <span style="padding:0px 21px;;"><a href="<TRS_CHANNEL ID='互动交流' FIELD='_RECURL'/>" target="_blank"><TRS_CHANNEL ID='互动交流' FIELD='CHNLDESC' AUTOLINK='false'/></a></span>
+          <span style="padding:0px 21px;;"><a href="<TRS_CHANNEL ID='互动交流' FIELD='_RECURL'/>" target="_blank">
+              <TRS_CHANNEL ID='互动交流' FIELD='CHNLDESC' AUTOLINK='false' /></a></span>
         </div>
         <ul>
-          <li><a href="<TRS_CHANNEL ID='局长信箱' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span><TRS_CHANNEL ID='局长信箱' FIELD='CHNLDESC' AUTOLINK='false'/></span></a></li>
-          <li><a href="<TRS_CHANNEL ID='意见征集' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span><TRS_CHANNEL ID='意见征集' FIELD='CHNLDESC' AUTOLINK='false'/></span></a></li>
-          <li><a href="<TRS_CHANNEL ID='新闻访谈' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span><TRS_CHANNEL ID='新闻访谈' FIELD='CHNLDESC' AUTOLINK='false'/></span></a></li>
-          <li><a href="<TRS_CHANNEL ID='在线留言' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span><TRS_CHANNEL ID='在线留言' FIELD='CHNLDESC' AUTOLINK='false'/></span></a></li>
+          <li><a href="<TRS_CHANNEL ID='局长信箱' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>
+                <TRS_CHANNEL ID='局长信箱' FIELD='CHNLDESC' AUTOLINK='false' /></span></a></li>
+          <li><a href="<TRS_CHANNEL ID='意见征集' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>
+                <TRS_CHANNEL ID='意见征集' FIELD='CHNLDESC' AUTOLINK='false' /></span></a></li>
+          <li><a href="<TRS_CHANNEL ID='新闻访谈' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>
+                <TRS_CHANNEL ID='新闻访谈' FIELD='CHNLDESC' AUTOLINK='false' /></span></a></li>
+          <li><a href="<TRS_CHANNEL ID='在线留言' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>
+                <TRS_CHANNEL ID='在线留言' FIELD='CHNLDESC' AUTOLINK='false' /></span></a></li>
         </ul>
       </div>
     </div>
@@ -428,33 +481,46 @@
     <div class="Wsbs">
       <div class="NewBt">
         <em class="glyphicon glyphicon-bookmark"></em>
-        <span><a href="<TRS_CHANNEL ID='事务管理' FIELD='_RECURL'/>" target="_blank"><TRS_CHANNEL ID='事务管理' FIELD='CHNLDESC' AUTOLINK='false'/></a></span>
+        <span><a href="<TRS_CHANNEL ID='事务管理' FIELD='_RECURL'/>" target="_blank">
+            <TRS_CHANNEL ID='事务管理' FIELD='CHNLDESC' AUTOLINK='false' /></a></span>
       </div>
       <div class="WsbsL">
         <ul>
-          <li><a href="<TRS_CHANNEL ID='资产管理' FIELD='_RECURL'/>" target="_blank"><em><img src="images/sw1.png" width="40" height="40"></em><span><TRS_CHANNEL ID='资产管理' FIELD='CHNLDESC' AUTOLINK='false'/></span></a></li>
-          <li><a href="<TRS_CHANNEL ID='公务用车' FIELD='_RECURL'/>" target="_blank"><em><img src="images/sw2.png" width="40" height="40"></em><span><TRS_CHANNEL ID='公务用车' FIELD='CHNLDESC' AUTOLINK='false'/></span></a></li>
-          <li><a href="<TRS_CHANNEL ID='公共机构节能' FIELD='_RECURL'/>" target="_blank"><em><img src="images/sw3.png" width="40" height="40"></em><span><TRS_CHANNEL ID='公共机构节能' FIELD='CHNLDESC' AUTOLINK='false'/></span></a></li>
-          <li><a href="<TRS_CHANNEL ID='办公用房' FIELD='_RECURL'/>" target="_blank"><em><img src="images/sw4.png" width="40" height="40"></em><span><TRS_CHANNEL ID='办公用房' FIELD='CHNLDESC' AUTOLINK='false'/></span></a></li>
-          <li><a href="<TRS_CHANNEL ID='综合事务管理' FIELD='_RECURL'/>" target="_blank"><em><img src="images/sw5.png" width="40" height="40"></em><span><TRS_CHANNEL ID='综合事务管理' FIELD='CHNLDESC' AUTOLINK='false'/></span></a></li>
+          <li><a href="<TRS_CHANNEL ID='资产管理' FIELD='_RECURL'/>" target="_blank"><em><img src="images/sw1.png" width="40"
+                  height="40"></em><span>
+                <TRS_CHANNEL ID='资产管理' FIELD='CHNLDESC' AUTOLINK='false' /></span></a></li>
+          <li><a href="<TRS_CHANNEL ID='公务用车' FIELD='_RECURL'/>" target="_blank"><em><img src="images/sw2.png" width="40"
+                  height="40"></em><span>
+                <TRS_CHANNEL ID='公务用车' FIELD='CHNLDESC' AUTOLINK='false' /></span></a></li>
+          <li><a href="<TRS_CHANNEL ID='公共机构节能' FIELD='_RECURL'/>" target="_blank"><em><img src="images/sw3.png" width="40"
+                  height="40"></em><span>
+                <TRS_CHANNEL ID='公共机构节能' FIELD='CHNLDESC' AUTOLINK='false' /></span></a></li>
+          <li><a href="<TRS_CHANNEL ID='办公用房' FIELD='_RECURL'/>" target="_blank"><em><img src="images/sw4.png" width="40"
+                  height="40"></em><span>
+                <TRS_CHANNEL ID='办公用房' FIELD='CHNLDESC' AUTOLINK='false' /></span></a></li>
+          <li><a href="<TRS_CHANNEL ID='综合事务管理' FIELD='_RECURL'/>" target="_blank"><em><img src="images/sw5.png" width="40"
+                  height="40"></em><span>
+                <TRS_CHANNEL ID='综合事务管理' FIELD='CHNLDESC' AUTOLINK='false' /></span></a></li>
         </ul>
       </div>
       <div class="WsbsC">
-        <a href="<TRS_CHANNEL ID='云南省政务服务网上大厅' FIELD='_RECURL'/>"   target="_blank"><img src="images/bsdt.jpg" /></a>
+        <a href="<TRS_CHANNEL ID='云南省政务服务网上大厅' FIELD='_RECURL'/>" target="_blank"><img src="images/bsdt.jpg" /></a>
       </div>
       <div class="WsbsR">
         <ul>
-          <li><a href="<TRS_CHANNEL ID='云南省公共机构节能服务平台' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span><TRS_CHANNEL ID='云南省公共机构节能服务平台' FIELD='CHNLDESC' AUTOLINK='false'/></span></a></li>
-          <li><a href="<TRS_CHANNEL ID='应用接口' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span><TRS_CHANNEL ID='应用接口' FIELD='CHNLDESC' AUTOLINK='false'/></span></a></li>
+          <li><a href="<TRS_CHANNEL ID='云南省公共机构节能服务平台' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>
+                <TRS_CHANNEL ID='云南省公共机构节能服务平台' FIELD='CHNLDESC' AUTOLINK='false' /></span></a></li>
+          <li><a href="<TRS_CHANNEL ID='应用接口' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>
+                <TRS_CHANNEL ID='应用接口' FIELD='CHNLDESC' AUTOLINK='false' /></span></a></li>
         </ul>
       </div>
     </div>
 
-  <!-- 首页页脚链接位置模板 -->
-  <TRS_TEMPLATE TEMPNAME="首页页脚链接位置模板">
+    <!-- 首页页脚链接位置模板 -->
+    <TRS_TEMPLATE TEMPNAME="首页页脚链接位置模板">
       首页页脚链接位置模板
-  </TRS_TEMPLATE>
-  <!-- 首页页脚链接位置模板 -->
+    </TRS_TEMPLATE>
+    <!-- 首页页脚链接位置模板 -->
 
   </div>
 
@@ -463,6 +529,71 @@
     页脚位置模板
   </TRS_TEMPLATE>
   <!-- 页脚位置 -->
+
+  <!-- 右边浮动 -->
+  <div class="rightbar">
+      <div class="close-bar bar" onclick="this.parentNode.parentNode.removeChild(this.parentNode);return false;">X</div>
+      <TRS_DOCUMENTS ID="首页右浮动广告位" pagesize="100" where="WCMDOCUMENT.ATTACHPIC=1">
+        <div class="tb-bar"></div>
+        <div class="bar">
+            <TRS_APPENDIX INDEX="0" MODE="PIC" autolink="false" />
+          <p><TRS_DOCUMENT FIELD="DOCTITLE" NUM="25" AUTOLINK="false"/></p>
+        </div>
+      </TRS_DOCUMENTS>
+    </div>
+<!-- 右边浮动 -->
+
+
+    <!--广告位——【对联广告】——开始-->
+    <script type="text/javascript">
+
+     function heartBeat() {
+        var diffY;
+        if (document.documentElement && document.documentElement.scrollTop) {
+          diffY = document.documentElement.scrollTop;
+        } else if (document.body) {
+          diffY = document.body.scrollTop;
+        }
+        percent = .1 * (diffY - lastScrollY);
+        if (percent > 0) {
+          percent = Math.ceil(percent);
+        } else {
+          percent = Math.floor(percent);
+        }
+        document.getElementById("leftad").style.top = parseInt(document.getElementById("leftad").style.top) + percent +
+          "px";
+        //document.getElementById("rightad").style.top=parseInt(document.getElementById("rightad").style.top)+percent+"px";
+        lastScrollY = lastScrollY + percent;
+      }
+  
+      function closead(ad_id) {
+        document.getElementById(ad_id).style.display = "none";
+      }
+
+
+      var left_ad='';
+      var url='';
+      var img='';
+      <TRS_DOCUMENTS ID="首页左浮动广告位" STARTPOS="0" NUM="1" where="WCMDOCUMENT.ATTACHPIC=1">
+         url="<TRS_DOCUMENT field='UNIT' autolink='false' />";
+         img='<TRS_APPENDIX INDEX="0" MODE="PIC" autolink="false" EXTRA="width=140" />'
+      </TRS_DOCUMENTS>
+      if(img!=""){
+        url=url===""?"#":url;
+        left_ad = '<a href="'+url+'"  target="_blank">'+img+'</a>';
+
+         suspendcode12 = "<DIV id='leftad' style='left:15px;POSITION:absolute;TOP:284px;'>" + left_ad +
+        "<div onclick='closead(\"leftad\")' id='leftclose' style='width:140px;height:20px;background-color:#c0c0c0;color:#000;text-align: center; line-height: 20px;font-family: 微软雅黑;cursor: pointer;'>关闭</div></div>";
+        //suspendcode14="<DIV id='rightad' style='right:2px;POSITION:absolute;TOP:120px;'>"+right_ad+"<div onclick='closead(\"rightad\")' id='rightclose' style='width:105px;height:20px;background-color:#ccc;color:#fff;text-align: center; line-height: 20px;font-family: 微软雅黑;cursor: pointer;'>关闭</div></div>"
+        document.write(suspendcode12);
+        //document.write(suspendcode14); 
+        window.setInterval("heartBeat()", 1);
+        lastScrollY = 0;
+      }
+      //var right_ad = '<a href="#" target="_blank"><img src="images/ad3.jpg"  /></a>';
+  </script>
+    <!--广告位——【对联广告】——结束 -->
+
 </body>
 
 </html>

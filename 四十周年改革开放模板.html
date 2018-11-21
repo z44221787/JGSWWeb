@@ -73,6 +73,11 @@
   </script>
 
   <style>
+    body {
+      background: none;
+      background-color: #EAEAEA;
+    }
+
     .main {
       width: 1200px;
       margin: 2px auto;
@@ -201,7 +206,6 @@
       margin-right: 5px;
     }
 
-    .new03 {}
 
     .new03 li {
       line-height: 40px;
@@ -388,32 +392,46 @@
 </head>
 
 <body>
+  <div class="head">
+    <div class="top">
+      <div class="topN">
+          <ul>
+              <li><a><em><span>欢迎你光临云南省机关事务管理局网站！</span></a></li>
+          </ul>
+          <font> <a href="<TRS_CHANNEL ID='网站地图' FIELD='_RECURL'/>" target="_blank"> 网站地图 </a> </font>
+          <font> <a href="javascript:void(0)" onclick="AddFavorite(window.location,document.title)"> 收藏本站 </a> </font>
+          <font> <a href="javascript:void(0)" onclick="SetHome(this,window.location)"> 设为首页 </a> </font>
+      </div>
+    </div>
+    <!-- 获取专题集锦链接中上传的banner图片 815054：纪念改革开放40周年-->
+    <TRS_DOCUMENTS ID="专题集锦" where="docid=815054">
+      <div class="banner" style="height:400px; background-image:url(<TRS_APPENDIX INDEX='1'  UrlIsAbs='true' FIELD='_RECURL' MODE='PIC' autolink='false' />)">
+        <div class="bannerN"></div>
+      </div>
+    </TRS_DOCUMENTS>
 
-  <!-- 头部 -->
-  <TRS_TEMPLATE TEMPNAME="其他头部模板">
-    头部位置
-  </TRS_TEMPLATE>
-  <!-- 头部 -->
+    <!-- 头部 -->
+    <TRS_TEMPLATE TEMPNAME="通用专题头部模板">
+      头部导航位置
+    </TRS_TEMPLATE>
+    <!-- 头部 -->
+
+  </div>
 
   <div class="main" style="background:#FFF;">
-    <dd style="width:1200px; margin-bottom:8px;">
-      <img src="images/b-t.jpg" />
-    </dd>
-    <!-- 滚动图片位置 -->
     <div class="imgPlay">
       <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
         <!--Indicators-->
         <ol class="carousel-indicators">
-
         </ol>
         <!--Wrapper for slides-->
         <div class="carousel-inner" role="listbox">
-          <TRS_DOCUMENTS ID="专题图片新闻_14806" NUM="5">
+          <TRS_DOCUMENTS ID="四十周年图片新闻" NUM="5">
             <div class="item">
               <TRS_APPENDIX INDEX="0" MODE="PIC" WIDTH="700" HEIGHT="391" autolink="true" TARGET="_blank" />
               <div class="carousel-caption">
-                <p>
-                  <TRS_DOCUMENT FIELD="DOCTITLE" NUM="50" />
+                  <p style='color: white;font-size: 16px; font-weight: bold'>
+                  <TRS_DOCUMENT FIELD="DOCTITLE" NUM="50" autolink="false"/>
                 </p>
               </div>
             </div>
@@ -425,81 +443,91 @@
         <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right"
             aria-hidden="true"> </span> <span class="sr-only"> Next </span> </a>
       </div>
-      <p class="imgPlayMore"> <a href="<TRS_CHANNEL ID='专题图片新闻_14806' FIELD='_RECURL'/>" target="_blank"> 更多 </a> </p>
+      <p class="imgPlayMore"> <a href="<TRS_CHANNEL ID='四十周年图片新闻' FIELD='_RECURL'/>" target="_blank"> 更多 </a> </p>
     </div>
-    <!-- 滚动图片位置 -->
     <div class="Hotnew">
       <div class="HotnewBt">
-        <a href="<TRS_CHANNEL ID='业务工作' FIELD='_RECURL'/>" target="_blank" style="float:left;"> <em></em> <span><TRS_CHANNEL ID='业务工作' FIELD='CHNLDESC' AUTOLINK='false'/></span> </a>
-        <a href="<TRS_CHANNEL ID='业务工作' FIELD='_RECURL'/>" target="_blank"> 更多 </a>
+        <a href="<TRS_CHANNEL ID='单位形象和风采' FIELD='_RECURL'/>" target="_blank" style="float:left;"> <em></em> <span>
+            <TRS_CHANNEL ID='单位形象和风采' FIELD='CHNLDESC' AUTOLINK='false' /></span> </a>
+        <a href="<TRS_CHANNEL ID='单位形象和风采' FIELD='_RECURL'/>" target="_blank"> 更多 </a>
       </div>
       <ul class="new03">
-        <!-- 取业务工作的第一条新闻 -->
-        <TRS_DOCUMENTS  ID="业务工作" NUM="1" STARTPOS="0" AUTOMORE="FALSE">
-              <li><TRS_DOCUMENT FIELD="DOCTITLE"  NUM="50" AUTOLINK="TRUE" TARGET="_blank"/><span class="glyphicon glyphicon-fire"> </span>
-              <p> <span><i><TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="dd"/></i><b><TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="MM"/>月</b> </span>
-                <font> <TRS_DOCUMENT FIELD="DOCABSTRACT" AUTOFORMAT="TRUE">业务工作置顶第一条摘要信息</TRS_DOCUMENT></font>
-              </p>
-            </li>
+        <TRS_DOCUMENTS ID="单位形象和风采" NUM="1" STARTPOS="0" AUTOMORE="FALSE">
+          <li>
+            <TRS_DOCUMENT FIELD="DOCTITLE" NUM="50" AUTOLINK="TRUE" TARGET="_blank" /><span class="glyphicon glyphicon-fire">
+            </span>
+            <p> <span><i>
+                  <TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="dd" /></i><b>
+                  <TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="MM" />月</b> </span>
+              <font>
+                <TRS_DOCUMENT FIELD="DOCABSTRACT" AUTOFORMAT="TRUE">置顶第一条摘要信息</TRS_DOCUMENT>
+              </font>
+            </p>
+          </li>
         </TRS_DOCUMENTS>
       </ul>
-      <ul class="new02">
-        <TRS_DOCUMENTS  ID="业务工作" NUM="6" STARTPOS="1" AUTOMORE="FALSE">
-              <li>
-                  <TRS_DOCUMENT FIELD="DOCTITLE" NUM="28" AUTOLINK="TRUE"  TARGET="_blank"/>
-                  <span><TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="MM-dd"/></span>
-              </li>
+      <ul class="new02" style="height:224px;">
+        <TRS_DOCUMENTS ID="单位形象和风采" NUM="6" STARTPOS="1" AUTOMORE="FALSE">
+          <li>
+            <TRS_DOCUMENT FIELD="DOCTITLE" NUM="28" AUTOLINK="TRUE" TARGET="_blank" />
+            <span>
+              <TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="MM-dd" /></span>
+          </li>
         </TRS_DOCUMENTS>
       </ul>
     </div>
     <div class="dypL">
       <div class="GgBt XxKbt">
-        <!--CHNLIDS 参数 "14779,14784" 表示取栏目编号为“14779"的办事指南和“14784”资料下载栏目 -->
-        <TRS_CHANNELS CHNLIDS="14779,14784">
-            <span> <a href="<TRS_CHANNEL FIELD='_RECURL'/>" target="_blank"><TRS_CHANNEL FIELD='CHNLDESC'/> </a> </span>
+        <!--ID 参数 14935 重点改革成效 14936 法制建设成果 14937 其他工作-->
+        <TRS_CHANNELS CHNLIDS="14935,14936,14937">
+          <span> <a href="<TRS_CHANNEL FIELD='_RECURL'/>" target="_blank">
+              <TRS_CHANNEL FIELD='CHNLDESC' AUTOLINK="FALSE" /> </a> </span>
         </TRS_CHANNELS>
       </div>
-      <TRS_CHANNELS CHNLIDS="14779,14784">
-          <ul class="new02 XxKul">
-              <TRS_DOCUMENTS  NUM="6" STARTPOS="0" AUTOMORE="FALSE">
-                  <li>
-                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="28" AUTOLINK="TRUE"  TARGET="_blank"/>
-                      <span><TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="MM-dd"/></span>
-                  </li>
-            </TRS_DOCUMENTS>
-          </ul>
+      <TRS_CHANNELS CHNLIDS="14935,14936,14937">
+        <ul class="new02 XxKul">
+          <TRS_DOCUMENTS NUM="6" STARTPOS="0" AUTOMORE="FALSE">
+            <li>
+              <TRS_DOCUMENT FIELD="DOCTITLE" NUM="28" AUTOLINK="TRUE" TARGET="_blank" />
+              <span>
+                <TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="MM-dd" /></span>
+            </li>
+          </TRS_DOCUMENTS>
+        </ul>
       </TRS_CHANNELS>
     </div>
     <div class="dypR">
       <div class="GgBt XxKbt">
-           <!--ID 参数 “自定制栏目” 表示取栏目唯一标识为：“自定制栏目”的所有子级栏目 -->
-          <TRS_CHANNELS ID="自定制栏目">
-              <span> <a href="<TRS_CHANNEL FIELD='_RECURL'/>" target="_blank"><TRS_CHANNEL FIELD='CHNLDESC'/> </a> </span>
-          </TRS_CHANNELS>
-     
-      </div>
+        <!--ID 参数 14938,14939 为：基层单位风采、州市机关事务风采 -->
+        <TRS_CHANNELS CHNLIDS="14938,14939">
+          <span> <a href="<TRS_CHANNEL FIELD='_RECURL'/>" target="_blank">
+              <TRS_CHANNEL FIELD='CHNLDESC' AUTOLINK="FALSE" /> </a> </span>
+        </TRS_CHANNELS>
 
-      <TRS_CHANNELS ID="自定制栏目">
-          <ul class="new02 XxKul">
-              <TRS_DOCUMENTS  NUM="6" STARTPOS="0" AUTOMORE="FALSE">
-                  <li>
-                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="28" AUTOLINK="TRUE"  TARGET="_blank"/>
-                      <span><TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="MM-dd"/></span>
-                  </li>
-            </TRS_DOCUMENTS>
-          </ul>
+      </div>
+      <TRS_CHANNELS CHNLIDS="14938,14939">
+        <ul class="new02 XxKul">
+          <TRS_DOCUMENTS NUM="6" STARTPOS="0" AUTOMORE="FALSE">
+            <li>
+              <TRS_DOCUMENT FIELD="DOCTITLE" NUM="28" AUTOLINK="TRUE" TARGET="_blank" />
+              <span>
+                <TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="MM-dd" /></span>
+            </li>
+          </TRS_DOCUMENTS>
+        </ul>
       </TRS_CHANNELS>
     </div>
     <div class="HdFgx" style="display: none;">
     </div>
+
   </div>
+
 
   <!-- 页面底部 -->
   <TRS_TEMPLATE TEMPNAME="页脚位置模板">
     页脚位置
   </TRS_TEMPLATE>
   <!-- 页面底部 -->
-
 </body>
 
 </html>
