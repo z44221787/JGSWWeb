@@ -276,7 +276,7 @@
                 <ul>
                   <TRS_DOCUMENTS ID="人事信息" NUM="6" STARTPOS="0" AUTOMORE="FALSE">
                     <li>
-                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="40" AUTOLINK="TRUE" LINKALTTEXT="DOCTITLE" />
+                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="40" AUTOLINK="TRUE"  TARGET="_blank" LINKALTTEXT="DOCTITLE" />
                     </li>
                   </TRS_DOCUMENTS>
                 </ul>
@@ -292,7 +292,7 @@
                 <ul>
                   <TRS_DOCUMENTS ID="政策法规" NUM="6" STARTPOS="0" AUTOMORE="FALSE">
                     <li>
-                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="40" AUTOLINK="TRUE" LINKALTTEXT="DOCTITLE" />
+                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="40" AUTOLINK="TRUE" TARGET="_blank" LINKALTTEXT="DOCTITLE" />
                     </li>
                   </TRS_DOCUMENTS>
                 </ul>
@@ -309,7 +309,7 @@
                 <ul>
                   <TRS_DOCUMENTS ID="政策解读" NUM="6" STARTPOS="0" AUTOMORE="FALSE">
                     <li>
-                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="40" AUTOLINK="TRUE" LINKALTTEXT="DOCTITLE" />
+                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="40" AUTOLINK="TRUE" TARGET="_blank" LINKALTTEXT="DOCTITLE" />
                     </li>
                   </TRS_DOCUMENTS>
                 </ul>
@@ -326,7 +326,7 @@
                 <ul>
                   <TRS_DOCUMENTS ID="纪检监察" NUM="6" STARTPOS="0" AUTOMORE="FALSE">
                     <li>
-                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="40" AUTOLINK="TRUE" LINKALTTEXT="DOCTITLE" />
+                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="40" AUTOLINK="TRUE" TARGET="_blank" LINKALTTEXT="DOCTITLE" />
                     </li>
                   </TRS_DOCUMENTS>
                 </ul>
@@ -343,7 +343,7 @@
                 <ul>
                   <TRS_DOCUMENTS ID="预算决算" NUM="6" STARTPOS="0" AUTOMORE="FALSE">
                     <li>
-                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="40" AUTOLINK="TRUE" LINKALTTEXT="DOCTITLE" />
+                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="40" AUTOLINK="TRUE" TARGET="_blank" LINKALTTEXT="DOCTITLE" />
                     </li>
                   </TRS_DOCUMENTS>
                 </ul>
@@ -385,7 +385,7 @@
                 <ul>
                   <TRS_DOCUMENTS ID="机关杂志" NUM="6" STARTPOS="0" AUTOMORE="FALSE">
                     <li>
-                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="42" AUTOLINK="TRUE" LINKALTTEXT="DOCTITLE" />
+                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="42" AUTOLINK="TRUE" TARGET="_blank" LINKALTTEXT="DOCTITLE" />
                     </li>
                   </TRS_DOCUMENTS>
                 </ul>
@@ -402,7 +402,7 @@
                 <ul>
                   <TRS_DOCUMENTS ID="党建工作" NUM="6" STARTPOS="0" AUTOMORE="FALSE">
                     <li>
-                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="42" AUTOLINK="TRUE" LINKALTTEXT="DOCTITLE" />
+                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="42" AUTOLINK="TRUE" TARGET="_blank" LINKALTTEXT="DOCTITLE" />
                     </li>
                   </TRS_DOCUMENTS>
                 </ul>
@@ -419,7 +419,7 @@
                 <ul>
                   <TRS_DOCUMENTS ID="学习园地" NUM="6" STARTPOS="0" AUTOMORE="FALSE">
                     <li>
-                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="42" AUTOLINK="TRUE" LINKALTTEXT="DOCTITLE" />
+                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="42" AUTOLINK="TRUE" TARGET="_blank" LINKALTTEXT="DOCTITLE" />
                     </li>
                   </TRS_DOCUMENTS>
                 </ul>
@@ -436,7 +436,7 @@
                 <ul>
                   <TRS_DOCUMENTS ID="扶贫工作" NUM="6" STARTPOS="0" AUTOMORE="FALSE">
                     <li>
-                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="42" AUTOLINK="TRUE" LINKALTTEXT="DOCTITLE" />
+                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="42" AUTOLINK="TRUE" TARGET="_blank" LINKALTTEXT="DOCTITLE" />
                     </li>
                   </TRS_DOCUMENTS>
                 </ul>
@@ -534,14 +534,19 @@
   <div class="rightbar">
       <div class="close-bar bar" onclick="this.parentNode.parentNode.removeChild(this.parentNode);return false;">X</div>
       <TRS_DOCUMENTS ID="首页右浮动广告位" pagesize="100" where="WCMDOCUMENT.ATTACHPIC=1">
-        <div class="tb-bar"></div>
-        <div class="bar">
-            <TRS_APPENDIX INDEX="0" MODE="PIC" autolink="false" />
+        <div class="bar showBar" style="padding: 0 0 0 0">
+            <TRS_APPENDIX INDEX="0" MODE="PIC" autolink="false" EXTRA='style="height: 119px;width: 119px;"'/>
           <p><TRS_DOCUMENT FIELD="DOCTITLE" NUM="25" AUTOLINK="false"/></p>
         </div>
       </TRS_DOCUMENTS>
     </div>
 <!-- 右边浮动 -->
+
+<script type="text/javascript">
+   if(jQuery(".rightbar").children(".showBar").length<=0){
+      jQuery(".rightbar").remove();
+   }
+</script>
 
 
     <!--广告位——【对联广告】——开始-->

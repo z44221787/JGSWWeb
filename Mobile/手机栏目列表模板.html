@@ -131,7 +131,7 @@
         </div>
     </header>
 
-    <div class="searchBar">
+    <div class="searchBar" style="display: none">
         <input type="hidden" id="siteid" name="siteid" value="21" />
         <input type="hidden" id="startTime" name="starttime" class="inp" value="20160101" style="width: 140px;" onclick="WdatePicker({maxDate:'#F{$dp.$D(\'endTime\',{d:-1})}',dateFmt:'yyyyMMdd'})" />
         <input type="hidden" id="endTime" name="endtime" class="inp" style="width: 140px;" onclick="WdatePicker({minDate:'#F{$dp.$D(\'startTime\',{d:1})}',dateFmt:'yyyyMMdd'})" />
@@ -247,9 +247,9 @@
         <nav id="nav">
             <ul id="J_minNav" class="miniNav">
                 <li class="n1" data-url="<TRS_CHANNEL ID='手机版' FIELD='_RECURL'/>"><a>首页</a></li>
-                <li class="n2" data-url="#xwdt"><a>新闻动态</a></li>
+                <!-- <li class="n2" data-url="#xwdt"><a>新闻动态</a></li>
                 <li class="n3" data-url="#zwdt"><a>政务动态</a></li>
-                <li class="n4" data-url="#cjwtjd"><a>常见问题</a></li>
+                <li class="n4" data-url="#cjwtjd"><a>常见问题</a></li> -->
             </ul>
         </nav>
         <!-- 遮罩层 -->

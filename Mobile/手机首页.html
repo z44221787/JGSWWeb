@@ -68,7 +68,7 @@
   </header>
 
   <!-- 检索条位置 -->
-  <div class="searchBar">
+  <div class="searchBar" style="display: none">
     <input type="hidden" id="siteid" name="siteid" value="21" />
     <input type="hidden" id="startTime" name="starttime" class="inp" value="20160101" style="width: 140px;" onclick="WdatePicker({maxDate:'#F{$dp.$D(\'endTime\',{d:-1})}',dateFmt:'yyyyMMdd'})" />
     <input type="hidden" id="endTime" name="endtime" class="inp" style="width: 140px;" onclick="WdatePicker({minDate:'#F{$dp.$D(\'startTime\',{d:1})}',dateFmt:'yyyyMMdd'})" />
