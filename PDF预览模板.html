@@ -78,12 +78,12 @@
         }
         return '';
     }
-    var fileUrl = decodeURI(getParameter("fileUrl"));
+    var fileUrl = unescape(getParameter("fileUrl"));
     // PDFObject.supportsPDFs
     if (PDFObject.supportsPDFs==true) {
         PDFObject.embed(fileUrl, "#pdf_viewer");
     } else {
-        location.href='http://ygj.yn.gov.cn/pdfyl2?fileUrl='+fileUrl;
+        location.href='http://ygj.yn.gov.cn/pdfyl2?fileUrl='+escape(fileUrl);
     }
 </script>
 

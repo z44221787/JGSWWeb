@@ -405,15 +405,13 @@
     </div>
     <!-- 获取专题集锦链接中上传的banner图片 815054：纪念改革开放40周年-->
     <TRS_DOCUMENTS ID="专题集锦" where="docid=815054">
-      <div class="banner" style="height:400px; background-image:url(<TRS_APPENDIX INDEX='1'  UrlIsAbs='true' FIELD='_RECURL' MODE='PIC' autolink='false' />)">
+      <div class="banner" style="height:400px; background-image:url(<TRS_PHOTO index='2' FIELD='_RECURL' UrlIsAbs='true'/>)">
         <div class="bannerN"></div>
       </div>
     </TRS_DOCUMENTS>
 
-    <!-- 头部 -->
-    <TRS_TEMPLATE TEMPNAME="通用专题头部模板">
-      头部导航位置
-    </TRS_TEMPLATE>
+    <!-- 头部 导航位置-->
+  
     <!-- 头部 -->
 
   </div>
@@ -460,7 +458,7 @@
                   <TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="dd" /></i><b>
                   <TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="MM" />月</b> </span>
               <font>
-                <TRS_DOCUMENT FIELD="DOCABSTRACT" AUTOFORMAT="TRUE">置顶第一条摘要信息</TRS_DOCUMENT>
+                <TRS_DOCUMENT FIELD="DOCCONTENT" AUTOFORMAT="TRUE" AUTOFORMATTYPE="innerText"  NUM="116"/>
               </font>
             </p>
           </li>

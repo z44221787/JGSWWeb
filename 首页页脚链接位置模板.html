@@ -37,30 +37,31 @@
       <div class="Yqlj" style="font-size:15px;">
         <ul>
           <li>
-             <select style=" border:1px solid #ccc" onchange="s_click(this)">
-              <option>国务院部门网站</option>
-              <TRS_CHANNELS STARTPOS=0 ID="国务院部门网站">
+             <select style=" border:1px solid #ccc" onchange="if (this.options[this.selectedIndex].value!=''){window.open(this.options[this.selectedIndex].value)};">
+               <option>国家有关部委网站</option> 
+              <TRS_CHANNELS STARTPOS=0 ID="国家有关部委网站">
                   <option value="<TRS_CHANNEL FIELD='_RECURL'/>"><TRS_CHANNEL FIELD=' CHNLDESC '/></option>
                 </TRS_CHANNELS> 
             </select> </li>
-          <li> <select style=" border:1px solid #ccc" onchange="s_click(this)">
-              <option>地方政府机关事务部门网站</option>
-              <TRS_CHANNELS STARTPOS=0 ID="地方政府机关事务部门网站">
+          <li> <select style=" border:1px solid #ccc" onchange="if (this.options[this.selectedIndex].value!=''){window.open(this.options[this.selectedIndex].value)};">
+              <option>省级各部门网站</option>
+              <TRS_CHANNELS STARTPOS=0 ID="省级各部门网站">
                   <option value="<TRS_CHANNEL FIELD='_RECURL'/>"><TRS_CHANNEL FIELD=' CHNLDESC '/></option>
               </TRS_CHANNELS> 
             </select> </li>
-          <li> <select style=" border:1px solid #ccc" onchange="s_click(this)">
-              <option>专项业务网站</option>
-              <TRS_CHANNELS STARTPOS=0 ID="专项业务网站">
+          <li> <select style=" border:1px solid #ccc" onchange="if (this.options[this.selectedIndex].value!=''){window.open(this.options[this.selectedIndex].value)};">
+              <option>各省机关事务管理局网站</option>
+              <TRS_CHANNELS STARTPOS=0 ID="各省机关事务管理局网站">
                   <option value="<TRS_CHANNEL FIELD='_RECURL'/>"><TRS_CHANNEL FIELD=' CHNLDESC '/></option>
               </TRS_CHANNELS> 
             </select> </li>
-          <li> <select style=" border:1px solid #ccc" onchange="s_click(this)">
-              <option>相关单位网站</option>
-              <TRS_CHANNELS STARTPOS=0 ID="相关单位网站">
+          <li> <select style=" border:1px solid #ccc" onchange="if (this.options[this.selectedIndex].value!=''){window.open(this.options[this.selectedIndex].value)};">
+              <option>各专业网站</option>
+              <TRS_CHANNELS STARTPOS=0 ID="各专业网站">
                   <option value="<TRS_CHANNEL FIELD='_RECURL'/>"><TRS_CHANNEL FIELD=' CHNLDESC '/></option>
             </TRS_CHANNELS> 
             </select> </li>
         </ul>
       </div>
+
    <!-- 页脚 文字链接位置 -->

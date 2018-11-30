@@ -202,7 +202,7 @@
 								var suffix = linkName2[nn2].substring(index1 + 1, index2); //后缀名
 								if (suffix.toUpperCase() === "PDF") {
 									document.write('<a href="http://ygj.yn.gov.cn/pdfyl?fileName=' + encodeURI(linkName2[nn2]) + '&fileUrl=' +
-										encodeURI(locationHref + linkArray2[nn2].replace("./", "")) + '" target="_blank" class="body2">' + linkName2[
+									escape(linkArray2[nn2].replace("./", "")) + '" target="_blank" class="body2">' + linkName2[
 											nn2] + '</a><br/>');
 								} else {
 									document.write('<a href="' + linkArray2[nn2] + '" target="_blank" class="body2">' + linkName2[nn2] +

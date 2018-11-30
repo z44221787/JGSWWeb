@@ -75,10 +75,9 @@
 								}
 							}
 						}
-						var contentLink =
-							'<TRS_APPENDIX mode="LINK" field="_RECURL" index="-1" seperator=";" UPLOAD="true"></TRS_APPENDIX>';
-						var linkName =
-							'<TRS_APPENDIX mode="LINK" field="APPDESC" index="-1" seperator=";" UPLOAD="true" autolink="false"></TRS_APPENDIX>';
+
+						var contentLink ='<TRS_APPENDIX mode="LINK" field="_RECURL" index="-1" seperator=";" UPLOAD="true"></TRS_APPENDIX>';
+						var linkName ='<TRS_APPENDIX mode="LINK" field="APPDESC" index="-1" seperator=";" UPLOAD="true" autolink="false"></TRS_APPENDIX>';
 						if (content2 == "" && contentLink != "") {
 							document.write(uploadGroupTitle);
 						}
@@ -90,7 +89,7 @@
 								var index2 = linkName2[nn2].length;
 								var suffix = linkName2[nn2].substring(index1 + 1, index2); //后缀名
 								if (suffix.toUpperCase() === "PDF") {
-									document.write('<a href="http://ygj.yn.gov.cn/pdfyl?fileName='+encodeURI(linkName2[nn2])+'&fileUrl='+encodeURI(locationHref+linkArray2[nn2].replace("./",""))+'" target="_blank" class="body2">' + linkName2[nn2] + '</a><br/>');
+									document.write('<a href="http://ygj.yn.gov.cn/pdfyl?fileName='+encodeURI(linkName2[nn2])+'&fileUrl='+escape(linkArray2[nn2].replace("./",""))+'" target="_blank" class="body2">' + linkName2[nn2] + '</a><br/>');
 								} else {
 									document.write('<a href="' + linkArray2[nn2] + '" target="_blank" class="body2">' + linkName2[nn2] +'</a><br/>');
 								}

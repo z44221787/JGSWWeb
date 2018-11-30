@@ -43,7 +43,7 @@
 		}
 		return '';
 	}
-	var fileUrl = decodeURI(getParameter("fileUrl"));
+	var fileUrl = unescape(getParameter("fileUrl"));
         
 	PDFJS.getDocument(fileUrl).then(pdf=>{
 		var numPages = pdf.numPages;
@@ -61,18 +61,15 @@
       		// Prepare canvas using PDF page dimensions.
       		var canvas = document.createElement("canvas");
       		var context = canvas.getContext('2d');
-      		document.body.appendChild(canvas);
-      		
+      		document.body.appendChild(canvas);      		
       		canvas.height = viewport.height;
       		canvas.width = viewport.width;
-
       		// Render PDF page into canvas context.
       		var renderContext = {
         			canvasContext: context,
         			viewport: viewport
       		};
-      		page.render(renderContext);
-      		
+      		page.render(renderContext);      		
       		//next
       		if(current<=numPages)return renderPage(pdf, numPages, current);
 		});
@@ -83,7 +80,6 @@
 		for(let i=1; i<=numPages; i++){
 			// page
 			let page = await pdf.getPage(i);
-			
       		let scale = 1.5;
       		let viewport = page.getViewport(scale);
       		// Prepare canvas using PDF page dimensions.
@@ -101,8 +97,6 @@
       		};
       		page.render(renderContext);
 		}
-	}
-
-    
+	}   
     </script>
 </html>

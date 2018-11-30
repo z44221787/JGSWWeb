@@ -24,6 +24,8 @@
            jQuery(".listR").children("div:odd").each(function(i,e){
             jQuery(e).css("float","right");
             });
+
+            $('.listL').height($('.listR').height()) 
         });
 
         function SetHome(obj, url) {

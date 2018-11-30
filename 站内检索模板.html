@@ -173,7 +173,7 @@
                       if(docPubUrlS.length===2){
                         docPubUrl=replaceUrl+docPubUrlS[1];
                       }
-                      docHtml.push("<li><a target='_blank' href='" +docPubUrl +"'>"+ title+"</a><span>"+(new Date(result.list[i].docPubTime)).Format("MM-dd")+"</span></li>")
+                      docHtml.push("<li><a target='_blank' href='" +result.list[i].docPubUrl +"'>"+ title+"</a><span>"+(new Date(result.list[i].docPubTime)).Format("MM-dd")+"</span></li>")
                     }
                     $('#doclist').empty().html(docHtml.join(''));
                 }
