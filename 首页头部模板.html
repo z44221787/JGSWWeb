@@ -74,7 +74,7 @@
                                 <TRS_DOCUMENTS ID="云管局概况及职责" STARTPOS="0" NUM="1" AUTOMORE="FALSE" where="WCMDOCUMENT.ATTACHPIC=1">
                                     <TRS_APPENDIX INDEX="0" MODE="PIC" WIDTH="230" HEIGHT="100" autolink="false" />
                                     <p>
-                                        <TRS_DOCUMENT FIELD="DOCCONTENT" AUTOFORMAT="TRUE" AUTOFORMATTYPE="innerText"
+                                        <TRS_DOCUMENT FIELD="DOCCONTENT" AUTOFORMAT="TRUE" AUTOFORMATTYPE="HTML"
                                             NUM="342" />
                                     </p>
                                 </TRS_DOCUMENTS>
@@ -100,7 +100,7 @@
                                                 <TRS_DOCUMENT FIELD="DOCTITLE" NUM="20" AUTOLINK="false" />
                                             </dd>
                                             <span>
-                                                <TRS_DOCUMENT AUTOFORMAT="true" AUTOFORMATTYPE="HTML" FIELD="SUBDOCTITLE"
+                                                <TRS_DOCUMENT AUTOFORMAT="true" AUTOFORMATTYPE="innerText" FIELD="SUBDOCTITLE"
                                                     NUM="36" AUTOLINK="false" />
                                             </span>
                                         </a>
@@ -161,9 +161,6 @@
                                 <span>
                                     <TRS_CHANNEL ID='部门要闻' TARGET="_blank" autolink="TRUE">部门要闻</TRS_CHANNEL>
                                 </span>
-                                <span>
-                                    <TRS_CHANNEL ID='州县要闻' TARGET="_blank" autolink="TRUE">州县要闻</TRS_CHANNEL>
-                                </span>
                             </div>
                             <ul class="new02 XxKul" style="width:550px; height:140px;">
                                 <TRS_DOCUMENTS ID="政务要闻" NUM="4" STARTPOS="0" AUTOMORE="FALSE">
@@ -184,37 +181,16 @@
                                     </li>
                                 </TRS_DOCUMENTS>
                             </ul>
-                            <ul class="new02 XxKul" style="width:550px; height:140px;">
-                                <!-- 市县信息 -->
-                                <TRS_DOCUMENTS ID="州县要闻" NUM="4" STARTPOS="0" AUTOMORE="FALSE">
-                                    <li>
-                                        <TRS_DOCUMENT FIELD="DOCTITLE" NUM="55" AUTOLINK="TRUE" TARGET="_blank" />
-                                        <span>
-                                            <TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="MM-dd" /></span>
-                                    </li>
-                                </TRS_DOCUMENTS>
-                            </ul>
                         </div>
                         <div class="HyxxDiv un" style="width: 560px;" id="gzhy">
                             <div class="NewBt XxKbt">
                                 <span>
                                     <TRS_CHANNEL ID='通知公告' TARGET="_blank" autolink="TRUE">通知公告</TRS_CHANNEL>
                                 </span>
-                                <span>
-                                    <TRS_CHANNEL ID='工作动态' TARGET="_blank" autolink="TRUE">工作动态</TRS_CHANNEL>
-                                </span>
+                                <a href="<TRS_CHANNEL ID='通知公告' FIELD='_RECURL'/>" target="_blank">更多</a>
                             </div>
                             <ul class="new02 XxKul" style="width:550px; height:140px;">
                                 <TRS_DOCUMENTS ID="通知公告" NUM="4" STARTPOS="0" AUTOMORE="FALSE">
-                                    <li>
-                                        <TRS_DOCUMENT FIELD="DOCTITLE" NUM="55" AUTOLINK="TRUE" TARGET="_blank" />
-                                        <span>
-                                            <TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="MM-dd" /></span>
-                                    </li>
-                                </TRS_DOCUMENTS>
-                            </ul>
-                            <ul class="new02 XxKul" style="width:550px; height:140px;">
-                                <TRS_DOCUMENTS ID="工作动态" NUM="4" STARTPOS="0" AUTOMORE="FALSE">
                                     <li>
                                         <TRS_DOCUMENT FIELD="DOCTITLE" NUM="55" AUTOLINK="TRUE" TARGET="_blank" />
                                         <span>
@@ -248,8 +224,8 @@
                                     <TRS_CHANNEL ID='领导活动' FIELD='CHNLDESC' AUTOLINK='false' /></span>
                                 <a href="<TRS_CHANNEL ID='领导活动' FIELD='_RECURL'/>" target="_blank">更多</a>
                             </div>
-                            <ul class="new02" style="width:550px; height:135px;">
-                                <TRS_DOCUMENTS ID="领导活动" NUM="4" STARTPOS="0" AUTOMORE="FALSE">
+                            <ul class="new02" style="width:550px; height:110px;">
+                                <TRS_DOCUMENTS ID="领导活动" NUM="3" STARTPOS="0" AUTOMORE="FALSE">
                                     <li>
                                         <TRS_DOCUMENT FIELD="DOCTITLE" NUM="55" AUTOLINK="TRUE" TARGET="_blank" />
                                         <span>
@@ -262,7 +238,7 @@
                 </li>
                 <li> <a href="<TRS_CHANNEL ID='事务管理' FIELD='_RECURL'/>" target="_blank"><em style="margin-right:-5px" class="glyphicon glyphicon-bookmark"></em><span> <TRS_CHANNEL ID='事务管理' FIELD='CHNLDESC' AUTOLINK='false' /></span></a>
                     <div class="HyxxD Zdom">
-                        <div class="HyxxDiv" style="width: 600px;">
+                        <div class="HyxxDiv" style="width: 615px;">
                             <div class="NewBt">
                                 <span>
                                     <TRS_CHANNEL ID='管理入口' FIELD='CHNLDESC' AUTOLINK='false' /></span>
@@ -270,19 +246,21 @@
                             </div>
                             <div class="WsbsL" style="margin-bottom: 10px;">
                                 <ul>
+                                   <li><a href="<TRS_CHANNEL ID='经费管理' FIELD='_RECURL'/>" target="_blank"><em><img src="images/sw0R.png"
+                                            width="40" height="40"></em><span>
+                                        <TRS_CHANNEL ID='经费管理' FIELD='CHNLDESC' AUTOLINK='false' /></span></a></li>
                                     <li><a href="<TRS_CHANNEL ID='资产管理' FIELD='_RECURL'/>" target="_blank"><em><img src="images/sw1.png"
                                                     width="40" height="40"></em><span>
                                                 <TRS_CHANNEL ID='资产管理' FIELD='CHNLDESC' AUTOLINK='false' /></span></a></li>
-                                    <li><a href="<TRS_CHANNEL ID='公务用车' FIELD='_RECURL'/>" target="_blank"><em><img src="images/sw2.png"
+                                    <li  style="width: 110px;"><a href="<TRS_CHANNEL ID='公务用车' FIELD='_RECURL'/>" target="_blank"><em><img src="images/sw2.png"
                                                     width="40" height="40"></em><span>
                                                 <TRS_CHANNEL ID='公务用车' FIELD='CHNLDESC' AUTOLINK='false' /></span></a></li>
-                                    <li><a href="<TRS_CHANNEL ID='公共机构节能' FIELD='_RECURL'/>" target="_blank"><em><img
-                                                    src="images/sw3.png" width="40" height="40"></em><span>
+                                    <li style="width: 135px;"><a href="<TRS_CHANNEL ID='公共机构节能' FIELD='_RECURL'/>" target="_blank"><em><img src="images/sw3.png" width="40" height="40"></em><span>
                                                 <TRS_CHANNEL ID='公共机构节能' FIELD='CHNLDESC' AUTOLINK='false' /></span></a></li>
-                                    <li><a href="<TRS_CHANNEL ID='办公用房' FIELD='_RECURL'/>" target="_blank"><em><img src="images/sw4.png"
+                                    <li style="width: 100px;"><a href="<TRS_CHANNEL ID='办公用房' FIELD='_RECURL'/>" target="_blank"><em><img src="images/sw4.png"
                                                     width="40" height="40"></em><span>
                                                 <TRS_CHANNEL ID='办公用房' FIELD='CHNLDESC' AUTOLINK='false' /></span></a></li>
-                                    <li><a href="<TRS_CHANNEL ID='综合事务管理' FIELD='_RECURL'/>" target="_blank"><em><img
+                                    <li style="width: 110px"><a href="<TRS_CHANNEL ID='综合事务管理' FIELD='_RECURL'/>" target="_blank"><em><img
                                                     src="images/sw5.png" width="40" height="40"></em><span>
                                                 <TRS_CHANNEL ID='综合事务管理' FIELD='CHNLDESC' AUTOLINK='false' /></span></a></li>
                                 </ul>
@@ -294,7 +272,7 @@
                             </div>
                             <div class="WsbsR" style="width: 600px; ">
                                 <ul>
-                                    <TRS_CHANNELS STARTPOS=1 ID="应用接口">
+                                    <TRS_CHANNELS STARTPOS=0 NUM=6 ID="应用接口">
                                         <li><a href="<TRS_CHANNEL FIELD='_RECURL'/>"><em class="iconfont"></em><span
                                                     style="text-shadow:none;">
                                                     <TRS_CHANNEL AUTOLINK="false" FIELD='CHNLDESC' /></span></a></li>
@@ -434,72 +412,34 @@
                 <li> <a href="<TRS_CHANNEL ID='机关党建' FIELD='_RECURL'/>" target="_blank"><em class="glyphicon glyphicon-star"></em><span>
                             <TRS_CHANNEL ID='机关党建' FIELD='CHNLDESC' AUTOLINK='false' /></span></a>
                     <div class="HdjlD Zdom">
-                        <div class="ZxfwDiv" style="width:340px;">
+                        <div class="ZxfwDiv" style="width:565px;">
                             <div class="NewBt">
                                 <span>
                                     <TRS_CHANNEL ID='党建工作' FIELD='CHNLDESC' AUTOLINK='false' /></span>
                                 <a href="<TRS_CHANNEL ID='党建工作' FIELD='_RECURL'/>" target="_blank">更多</a>
                             </div>
-                            <ul class="new02" style=" height:304px;">
-                                <li style="list-style:none; height:128px; text-align:left;"><img src="images/dj1.jpg"
-                                        width="310" height="128"></li>
-                                <TRS_DOCUMENTS ID="党建工作" NUM="5" STARTPOS="0" AUTOMORE="FALSE">
+                            <img src="images/dj1.jpg" width="160" height="335" style="float:left">
+                            <ul class="new02" style="width: 400px;height:325px; float:right;clear:none">
+                                <TRS_DOCUMENTS ID="党建工作" NUM="9" STARTPOS="0" AUTOMORE="FALSE">
                                     <li>
-                                        <TRS_DOCUMENT FIELD="DOCTITLE" NUM="32" AUTOLINK="TRUE" TARGET="_blank" LINKALTTEXT="DOCTITLE" />
+                                        <TRS_DOCUMENT FIELD="DOCTITLE" NUM="38" AUTOLINK="TRUE" TARGET="_blank" LINKALTTEXT="DOCTITLE" />
                                         <span>
                                             <TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="MM-dd" /></span>
                                     </li>
                                 </TRS_DOCUMENTS>
                             </ul>
                         </div>
-                        <div class="ZxfwDiv" style="width:340px;">
+                        <div class="ZxfwDiv" style="width:565px;">
                             <div class="NewBt">
                                 <span>
                                     <TRS_CHANNEL ID='扶贫工作' FIELD='CHNLDESC' AUTOLINK='false' /></span>
                                 <a href="<TRS_CHANNEL ID='扶贫工作' FIELD='_RECURL'/>" target="_blank">更多</a>
                             </div>
-                            <ul class="new02" style=" height:304px;">
-                                <li style="list-style:none; height:128px; text-align:left;"><img src="images/dj3.jpg"
-                                        width="310" height="128"></li>
-                                <TRS_DOCUMENTS ID="扶贫工作" NUM="5" STARTPOS="0" AUTOMORE="FALSE">
+                            <img src="images/dj3.jpg"  width="160" height="335" style="float:left">
+                            <ul class="new02" style="width: 400px;height:325px;float:right;clear:none">
+                                <TRS_DOCUMENTS ID="扶贫工作" NUM="9" STARTPOS="0" AUTOMORE="FALSE">
                                     <li>
-                                        <TRS_DOCUMENT FIELD="DOCTITLE" NUM="32" AUTOLINK="TRUE" TARGET="_blank" LINKALTTEXT="DOCTITLE" />
-                                        <span>
-                                            <TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="MM-dd" /></span>
-                                    </li>
-                                </TRS_DOCUMENTS>
-                            </ul>
-                        </div>
-                        <div class="HyxxDiv un" style="width: 420px;" id="jgdj">
-                            <div class="NewBt XxKbt">
-                                <!-- <span><a href="<TRS_CHANNEL ID='机关杂志' FIELD='_RECURL'/>" target="_blank">机关杂志</a></span> -->
-                                <span><a href="<TRS_CHANNEL ID='学习园地' FIELD='_RECURL'/>" target="_blank">
-                                        <TRS_CHANNEL ID='学习园地' FIELD='CHNLDESC' AUTOLINK='false' /></a></span>
-                                <span><a href="<TRS_CHANNEL ID='精神文明' FIELD='_RECURL'/>" target="_blank">
-                                        <TRS_CHANNEL ID='精神文明' FIELD='CHNLDESC' AUTOLINK='false' /></a></span>
-                            </div>
-                            <!-- <ul class="new02 XxKul" style="width:410px; height:312px;">
-                                <TRS_DOCUMENTS ID="机关杂志" NUM="9" STARTPOS="0" AUTOMORE="FALSE">
-                                    <li>
-                                        <TRS_DOCUMENT FIELD="DOCTITLE" NUM="32" AUTOLINK="TRUE" LINKALTTEXT="DOCTITLE" />
-                                        <span>
-                                            <TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="MM-dd" /></span>
-                                    </li>
-                                </TRS_DOCUMENTS>
-                            </ul> -->
-                            <ul class="new02 XxKul" style="width:410px; height:312px;">
-                                <TRS_DOCUMENTS ID="学习园地" NUM="9" STARTPOS="0" AUTOMORE="FALSE">
-                                    <li>
-                                        <TRS_DOCUMENT FIELD="DOCTITLE" NUM="41" AUTOLINK="TRUE" TARGET="_blank" LINKALTTEXT="DOCTITLE" />
-                                        <span>
-                                            <TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="MM-dd" /></span>
-                                    </li>
-                                </TRS_DOCUMENTS>
-                            </ul>
-                            <ul class="new02 XxKul" style="width:410px; height:312px;">
-                                <TRS_DOCUMENTS ID="精神文明" NUM="9" STARTPOS="0" AUTOMORE="FALSE">
-                                    <li>
-                                        <TRS_DOCUMENT FIELD="DOCTITLE" NUM="41" AUTOLINK="TRUE" TARGET="_blank" LINKALTTEXT="DOCTITLE" />
+                                        <TRS_DOCUMENT FIELD="DOCTITLE" NUM="38" AUTOLINK="TRUE" TARGET="_blank" LINKALTTEXT="DOCTITLE" />
                                         <span>
                                             <TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="MM-dd" /></span>
                                     </li>
@@ -509,54 +449,8 @@
                     </div>
                 </li>
 
-                <li> <a href="<TRS_CHANNEL ID='互动交流' FIELD='_RECURL'/>" target="_blank"><em class="glyphicon glyphicon-list-alt"></em><span>
-                            <TRS_CHANNEL ID='互动交流' FIELD='CHNLDESC' AUTOLINK='false' /></span></a>
-                    <div class="HdjlD Zdom">
-                        <div class="ZxfwDiv" style="width: 460px;">
-                            <div class="NewBt">
-                                <span>
-                                    <TRS_CHANNEL ID='常见问题解答' FIELD='CHNLDESC' AUTOLINK='false' /></span>
-                                <a href="<TRS_CHANNEL ID='常见问题解答' FIELD='_RECURL'/>" target="_blank">更多</a>
-                            </div>
-                            <ul class="new02" style="height:253px;">
-                                <TRS_DOCUMENTS ID="常见问题解答" NUM="7" STARTPOS="0" AUTOMORE="FALSE">
-                                    <li>
-                                        <TRS_DOCUMENT FIELD="DOCTITLE" NUM="46" AUTOLINK="TRUE" LINKALTTEXT="DOCTITLE" />
-                                        <span>
-                                            <TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="MM-dd" /></span>
-                                    </li>
-                                </TRS_DOCUMENTS>
-                            </ul>
-                            <div class="xinx">
-                                <ul>
-                                    <li><a href="<TRS_CHANNEL ID='局长信箱' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>
-                                                <TRS_CHANNEL ID='局长信箱' FIELD='CHNLDESC' AUTOLINK='false' /></span></a></li>
-                                    <li><a href="<TRS_CHANNEL ID='意见征集' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>
-                                                <TRS_CHANNEL ID='意见征集' FIELD='CHNLDESC' AUTOLINK='false' /></span></a></li>
-                                    <li><a href="<TRS_CHANNEL ID='在线留言' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>
-                                                <TRS_CHANNEL ID='在线留言' FIELD='CHNLDESC' AUTOLINK='false' /></span></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="HdjlDR">
-                            <div class="ZzjgDivBt">
-                                <em class="glyphicon glyphicon-bookmark"></em>
-                                <a href="<TRS_CHANNEL ID='新闻访谈' FIELD='_RECURL'/>" target="_blank">
-                                    <TRS_CHANNEL ID='新闻访谈' FIELD='CHNLDESC' AUTOLINK='false' /></a>
-                            </div>
-                            <TRS_DOCUMENTS ID="新闻访谈" NUM="2" STARTPOS="0" AUTOMORE="FALSE">
-                                <div class="HyxxDivIT">
-                                    <TRS_APPENDIX INDEX="0" MODE="PIC" />
-                                    <h4>
-                                        <TRS_DOCUMENT FIELD="DOCTITLE" NUM="28" AUTOLINK="TRUE" TARGET="_blank" />
-                                    </h4>
-                                    <p>
-                                        <TRS_DOCUMENT FIELD="DOCABSTRACT" AUTOFORMAT="TRUE">新闻访谈摘要信息</TRS_DOCUMENT>
-                                    </p>
-                                </div>
-                            </TRS_DOCUMENTS>
-                        </div>
-                    </div>
+                <li> <a href="<TRS_CHANNEL ID='学习园地' FIELD='_RECURL'/>" target="_blank"><em class="glyphicon glyphicon-list-alt"></em><span>
+                            <TRS_CHANNEL ID='学习园地' FIELD='CHNLDESC' AUTOLINK='false' /></span></a>
                 </li>
 
             </ul>

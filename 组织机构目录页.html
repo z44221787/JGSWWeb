@@ -101,7 +101,7 @@
               <a href='<TRS_DOCUMENT FIELD="_RECURL"/>' target="_blank">
               <TRS_DOCUMENT FIELD="DOCTITLE" NUM="12" AUTOLINK="false" TARGET="_blank" />
               &nbsp;
-              <TRS_DOCUMENT FIELD="SUBDOCTITLE" AUTOFORMAT="true" AUTOFORMATTYPE="innerText" NUM="30"/>
+              <TRS_DOCUMENT FIELD="SUBDOCTITLE" AUTOFORMAT="true" AUTOFORMATTYPE="HTML" NUM="30"/>
              </a>
             </li>
           </TRS_DOCUMENTS>
@@ -112,7 +112,7 @@
       <div style="float: left; width:64%; height:329px;">
         <div class="NewBt">
           <em class="glyphicon glyphicon-list"></em>
-          <span>云管局概况及职责</span>
+          <span><TRS_CHANNEL ID='云管局概况及职责' FIELD='CHNLDESC' AUTOLINK='false' /></span>
           <TRS_DOCUMENTS  ID="云管局概况及职责"  STARTPOS="0"  NUM="1" AUTOMORE="FALSE" where="WCMDOCUMENT.ATTACHPIC=1">
               <a href='<TRS_DOCUMENT FIELD="_RECURL"/>' target="_blank" style="color:#036">More</a>
           </TRS_DOCUMENTS>
@@ -122,7 +122,7 @@
                 <TRS_APPENDIX INDEX="0" MODE="PIC" WIDTH="278" HEIGHT="242" autolink="true"/>
           </dt>
           <dt style=" font-size:16px; line-height:28px; padding:10px; float:right; width:310px; height:260px; font-weight:100; text-indent:24px; overflow:hidden;">
-                <TRS_DOCUMENT FIELD="DOCCONTENT" AUTOFORMAT="TRUE" AUTOFORMATTYPE="innerText" NUM="342"/>
+                <TRS_DOCUMENT FIELD="DOCCONTENT" AUTOFORMAT="TRUE" AUTOFORMATTYPE="HTML" NUM="342"/>
           </dt>
          </TRS_DOCUMENTS> 
       </div>
@@ -130,7 +130,7 @@
       <div style="float:left; width:33%; height:380px;">
         <div class="NewBt">
           <em class="glyphicon glyphicon-list"></em>
-          <span>机关处室</span>
+          <span><TRS_CHANNEL ID='机关处室' FIELD='CHNLDESC' AUTOLINK='false' /></span>
           <a href='<trs_channel id="机关处室" FIELD="_RECURL"/>' target="_blank" style="color:#036">More</a>
         </div>
         <ul class="new02">
@@ -145,7 +145,7 @@
       <div style="float:left; width:33%; height:380px; margin-left:5px;">
         <div class="NewBt">
           <em class="glyphicon glyphicon-list"></em>
-          <span>所属单位</span>
+          <span><TRS_CHANNEL ID='所属单位' FIELD='CHNLDESC' AUTOLINK='false' /></span>
           <a href='<trs_channel id="所属单位" FIELD="_RECURL"/>' target="_blank" style="color:#036">More</a>
         </div>
         <ul class="new02">
@@ -160,7 +160,7 @@
       <div style="float:right; width:33%; height:380px;">
         <div class="NewBt">
           <em class="glyphicon glyphicon-list"></em>
-          <span>下属集团</span>
+          <span><TRS_CHANNEL ID='管理局下属' FIELD='CHNLDESC' AUTOLINK='false' /></span>
           <a href='<trs_channel id="管理局下属" FIELD="_RECURL"/>' target="_blank" style="color:#036">More</a>
         </div>
         <ul class="new02" style="padding-top:14px;">
@@ -169,17 +169,17 @@
                 <TRS_APPENDIX INDEX="1" MODE="PIC" WIDTH="287" HEIGHT="120" autolink="false"/>
               </li>
               <li>
-                  <TRS_DOCUMENT FIELD="DOCTITLE" NUM="28" AUTOLINK="TRUE" TARGET="_blank" />
+                  <TRS_DOCUMENT FIELD="DOCTITLE" NUM="32" AUTOLINK="TRUE" TARGET="_blank" />
               </li>
             </TRS_DOCUMENTS>
         </ul>
       </div>
 
-      <div style="float:left; width:100%; margin-top:20px;">
+      <div style="float:left; width:100%; margin-top:20px;display: none">
           <TRS_DOCUMENTS  ID="云管局历史沿革"  STARTPOS="0"  NUM="1" AUTOMORE="FALSE">
               <div class="NewBt">
                   <em class="glyphicon glyphicon-list"></em>
-                  <span>云管局历史沿革</span>
+                  <span><TRS_CHANNEL ID='云管局历史沿革' FIELD='CHNLDESC' AUTOLINK='false' /></span>
                   <a href='<TRS_DOCUMENT FIELD="_RECURL"/>' target="_blank" style="color:#036">More</a>
               </div> 
               <dd style=" font-size:16px;line-height:28px; padding:10px; font-weight:100; text-indent:24px; overflow:hidden;">
