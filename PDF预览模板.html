@@ -80,11 +80,18 @@
     }
     var fileUrl = unescape(getParameter("fileUrl"));
     // PDFObject.supportsPDFs
-    if (PDFObject.supportsPDFs==true) {
+    if (PDFObject.supportsPDFs == true) {
         PDFObject.embed(fileUrl, "#pdf_viewer");
     } else {
-        location.href='http://ygj.yn.gov.cn/pdfyl2?fileUrl='+escape(fileUrl);
+        location.href = 'http://ygj.yn.gov.cn/pdfyl2?fileUrl=' + escape(fileUrl);
     }
+
+    function onReadyChange(obj) {
+        if (obj.readyState == 4) { //也有可能是2，没试过，LZ自己试下
+            alert("加载完成！");
+        }
+    }
+
 </script>
 
 </html>

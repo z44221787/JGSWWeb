@@ -87,6 +87,18 @@
           jQuery(".hdul").append('<li class=""><span>' + i + '</span></li>')
         }
       }
+
+
+      //分享到朋友圈
+      WeixinJSBridge.invoke('shareTimeline', {
+        "img_url": "",
+        //"img_width":"640",
+        //"img_height":"640",
+        "link": "http://ygj.yn.gov.cn/sjb/",
+        "desc": "",
+        "title": ""
+      });
+
     });
 
 
@@ -122,14 +134,14 @@
       <div id="focusNews" class="focusNews">
         <div class="bd" style="overflow: hidden; visibility: visible; ">
           <ul style="list-style: none; width: 1044px; -webkit-transition: 200ms; -webkit-transform: translate3d(-348px, 0px, 0px); ">
-            <TRS_DOCUMENTS ID="手机版图片新闻" NUM="3">
+            <TRS_DOCUMENTS ID="手机版图片新闻" NUM="5">
               <li data-url="#" style="width: 348px; display: table-cell; vertical-align: top; ">
                 <div class="pic">
                   <TRS_APPENDIX INDEX="0" MODE="PIC" autolink="true" />
                 </div>
                 <div class="title">
-                  <span>
-                    <TRS_DOCUMENT FIELD="DOCTITLE" NUM="18" /></span>
+                  <span style='color: white;font-weight: bold'>
+                    <TRS_DOCUMENT FIELD="DOCTITLE" NUM="36" EXTRA="style='color: white;font-weight: bold'" /></span>
                 </div>
               </li>
             </TRS_DOCUMENTS>
@@ -165,8 +177,7 @@
       <nav>
         <ul>
           <li class="on"><a>政务要闻</a></li>
-          <li><a>局属单位信息</a></li>
-          <li><a>市县信息</a></li>
+          <li><a>机关事务工作动态</a></li>
         </ul>
       </nav>
       <div class="bd swipe" style="overflow: hidden; visibility: visible; ">
@@ -175,16 +186,16 @@
           <li style="width: 348px; display: table-cell; vertical-align: top; ">
             <div class="swipeHeight">
               <ul class="infoList">
-                <TRS_DOCUMENTS ID="手机版政务要闻" NUM="4" STARTPOS="0" AUTOMORE="FALSE">
+                <TRS_DOCUMENTS ID="手机版政务要闻" NUM="4" STARTPOS="0" AUTOMORE="FALSE" where="wcmchnldoc.attachpic in(1,3)">
                   <li data-url="#" class="t hasPic">
                     <h5 class="title">
-                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="20" AUTOLINK="TRUE" />
+                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="30" AUTOLINK="TRUE" />
                     </h5>
                     <div class="pic">
-                      <TRS_APPENDIX INDEX="0" MODE="PIC" autolink="false" />
+                      <TRS_APPENDIX INDEX="0" MODE="PIC" autolink="TRUE" />
                     </div>
                     <div class="intro">
-                      <TRS_DOCUMENT FIELD="DOCCONTENT" AUTOFORMAT="TRUE" AUTOFORMATTYPE="innerText" NUM="80" />
+                      <TRS_DOCUMENT FIELD="DOCCONTENT" AUTOLINK="TRUE" AUTOFORMAT="TRUE" AUTOFORMATTYPE="innerText" NUM="100" />
                     </div>
                   </li>
                 </TRS_DOCUMENTS>
@@ -200,51 +211,26 @@
           <li style="width: 348px; display: table-cell; vertical-align: top; ">
             <div class="swipeHeight">
               <ul class="infoList">
-                <TRS_DOCUMENTS ID="手机版局属单位信息" NUM="4" STARTPOS="0" AUTOMORE="FALSE">
+                <TRS_DOCUMENTS ID="手机版局属单位信息" NUM="4" STARTPOS="0" AUTOMORE="FALSE" where="wcmchnldoc.attachpic in(1,3)">
                   <li data-url="#" class="t hasPic">
                     <h5 class="title">
-                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="20" AUTOLINK="TRUE" />
+                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="30" AUTOLINK="TRUE" />
                     </h5>
                     <div class="pic">
-                      <TRS_APPENDIX INDEX="0" MODE="PIC" autolink="false" />
+                      <TRS_APPENDIX INDEX="0" MODE="PIC" AUTOLINK="TRUE" />
                     </div>
                     <div class="intro">
-                      <TRS_DOCUMENT FIELD="DOCCONTENT" AUTOFORMAT="TRUE" AUTOFORMATTYPE="innerText" NUM="80" />
+                      <TRS_DOCUMENT FIELD="DOCCONTENT" AUTOLINK="TRUE" AUTOFORMAT="TRUE" AUTOFORMATTYPE="innerText" NUM="100" />
                     </div>
                   </li>
                 </TRS_DOCUMENTS>
               </ul>
               <div data-url="<TRS_CHANNEL ID='手机版局属单位信息' FIELD='_RECURL'/>" class="cateBtn">
-                进入局属单位信息&gt;&gt;
+                进入机关事务工作动态&gt;&gt;
               </div>
             </div>
           </li>
           <!-- 部门要闻 -->
-
-          <!-- 市县要闻 -->
-          <li style="width: 348px; display: table-cell; vertical-align: top; ">
-            <div class="swipeHeight">
-              <ul class="infoList">
-                <TRS_DOCUMENTS ID="手机版市县信息" NUM="4" STARTPOS="0" AUTOMORE="FALSE">
-                  <li data-url="#" class="t hasPic">
-                    <h5 class="title">
-                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="20" AUTOLINK="TRUE" />
-                    </h5>
-                    <div class="pic">
-                      <TRS_APPENDIX INDEX="0" MODE="PIC" autolink="false" />
-                    </div>
-                    <div class="intro">
-                      <TRS_DOCUMENT FIELD="DOCCONTENT" AUTOFORMAT="TRUE" AUTOFORMATTYPE="innerText" NUM="80" />
-                    </div>
-                  </li>
-                </TRS_DOCUMENTS>
-              </ul>
-              <div data-url="<TRS_CHANNEL ID='手机版市县信息' FIELD='_RECURL'/>" class="cateBtn">
-                进入市县信息&gt;&gt;
-              </div>
-            </div>
-          </li>
-          <!-- 市县要闻 -->
 
         </ul>
       </div>
@@ -257,7 +243,6 @@
       <nav>
         <ul>
           <li class="on"><a>通知公告</a></li>
-          <li><a>工作动态</a></li>
           <li><a>政策法规</a></li>
         </ul>
       </nav>
@@ -270,17 +255,17 @@
                 <TRS_DOCUMENTS ID="手机版通知公告" NUM="1" STARTPOS="0" AUTOMORE="FALSE">
                   <li data-url="<TRS_DOCUMENT FIELD='_RECURL'/>" class="t">
                     <h5 class="title">
-                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="20" AUTOLINK="false" />
+                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="40" AUTOLINK="false" />
                     </h5>
                     <div class="intro">
-                      <TRS_DOCUMENT FIELD="DOCCONTENT" AUTOFORMAT="TRUE" AUTOFORMATTYPE="innerText" NUM="80" />
+                      <TRS_DOCUMENT FIELD="DOCCONTENT" AUTOFORMAT="TRUE" AUTOFORMATTYPE="innerText" NUM="90" />
                     </div>
                   </li>
                 </TRS_DOCUMENTS>
 
                 <TRS_DOCUMENTS ID="手机版通知公告" NUM="6" STARTPOS="1" AUTOMORE="FALSE">
                   <li data-url="<TRS_DOCUMENT FIELD='_RECURL'/>" class="n">
-                    <TRS_DOCUMENT FIELD="DOCTITLE" NUM="20" AUTOLINK="false" />
+                    <TRS_DOCUMENT FIELD="DOCTITLE" NUM="40" AUTOLINK="false" />
                   </li>
                 </TRS_DOCUMENTS>
               </ul>
@@ -292,31 +277,6 @@
           <!-- 通知公告 -->
 
           <!-- 工作动态 -->
-          <li style="width: 348px; display: table-cell; vertical-align: top; ">
-            <div class="swipeHeight">
-              <ul class="infoList">
-                <TRS_DOCUMENTS ID="手机版工作动态" NUM="1" STARTPOS="0" AUTOMORE="FALSE">
-                  <li data-url="<TRS_DOCUMENT FIELD='_RECURL'/>" class="t">
-                    <h5 class="title">
-                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="20" AUTOLINK="false" />
-                    </h5>
-                    <div class="intro">
-                      <TRS_DOCUMENT FIELD="DOCCONTENT" AUTOFORMAT="TRUE" AUTOFORMATTYPE="innerText" NUM="80" />
-                    </div>
-                  </li>
-                </TRS_DOCUMENTS>
-
-                <TRS_DOCUMENTS ID="手机版工作动态" NUM="6" STARTPOS="1" AUTOMORE="FALSE">
-                  <li data-url="<TRS_DOCUMENT FIELD='_RECURL'/>" class="n">
-                    <TRS_DOCUMENT FIELD="DOCTITLE" NUM="20" AUTOLINK="false" />
-                  </li>
-                </TRS_DOCUMENTS>
-              </ul>
-              <div data-url="<TRS_CHANNEL ID='手机版工作动态' FIELD='_RECURL'/>" class="cateBtn">
-                进入工作动态&gt;&gt;
-              </div>
-            </div>
-          </li>
           <!-- 工作动态 -->
 
           <!-- 政策法规 -->
@@ -326,17 +286,17 @@
                 <TRS_DOCUMENTS ID="手机版政策法规" NUM="1" STARTPOS="0" AUTOMORE="FALSE">
                   <li data-url="<TRS_DOCUMENT FIELD='_RECURL'/>" class="t">
                     <h5 class="title">
-                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="20" AUTOLINK="false" />
+                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="40" AUTOLINK="false" />
                     </h5>
                     <div class="intro">
-                      <TRS_DOCUMENT FIELD="DOCCONTENT" AUTOFORMAT="TRUE" AUTOFORMATTYPE="innerText" NUM="80" />
+                      <TRS_DOCUMENT FIELD="DOCCONTENT" AUTOFORMAT="TRUE" AUTOFORMATTYPE="innerText" NUM="90" />
                     </div>
                   </li>
                 </TRS_DOCUMENTS>
 
                 <TRS_DOCUMENTS ID="手机版政策法规" NUM="6" STARTPOS="1" AUTOMORE="FALSE">
                   <li data-url="<TRS_DOCUMENT FIELD='_RECURL'/>" class="n">
-                    <TRS_DOCUMENT FIELD="DOCTITLE" NUM="20" AUTOLINK="false" />
+                    <TRS_DOCUMENT FIELD="DOCTITLE" NUM="40" AUTOLINK="false" />
                   </li>
                 </TRS_DOCUMENTS>
               </ul>
@@ -358,7 +318,7 @@
         <ul>
           <li class="on"><a>人事信息</a></li>
           <li><a>预算决算</a></li>
-          <li><a>常见问题解答</a></li>
+          <!-- <li><a>常见问题解答</a></li> -->
         </ul>
       </nav>
       <div class="bd swipe" style="overflow: hidden; visibility: visible; ">
@@ -370,17 +330,17 @@
                 <TRS_DOCUMENTS ID="手机版人事信息" NUM="1" STARTPOS="0" AUTOMORE="FALSE">
                   <li data-url="<TRS_DOCUMENT FIELD='_RECURL'/>" class="t">
                     <h5 class="title">
-                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="20" AUTOLINK="false" />
+                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="40" AUTOLINK="false" />
                     </h5>
                     <div class="intro">
-                      <TRS_DOCUMENT FIELD="DOCCONTENT" AUTOFORMAT="TRUE" AUTOFORMATTYPE="innerText" NUM="80" />
+                      <TRS_DOCUMENT FIELD="DOCCONTENT" AUTOFORMAT="TRUE" AUTOFORMATTYPE="innerText" NUM="90" />
                     </div>
                   </li>
                 </TRS_DOCUMENTS>
 
                 <TRS_DOCUMENTS ID="手机版人事信息" NUM="6" STARTPOS="1" AUTOMORE="FALSE">
                   <li data-url="<TRS_DOCUMENT FIELD='_RECURL'/>" class="n">
-                    <TRS_DOCUMENT FIELD="DOCTITLE" NUM="20" AUTOLINK="false" />
+                    <TRS_DOCUMENT FIELD="DOCTITLE" NUM="40" AUTOLINK="false" />
                   </li>
                 </TRS_DOCUMENTS>
               </ul>
@@ -398,17 +358,17 @@
                 <TRS_DOCUMENTS ID="手机版预算决算" NUM="1" STARTPOS="0" AUTOMORE="FALSE">
                   <li data-url="<TRS_DOCUMENT FIELD='_RECURL'/>" class="t">
                     <h5 class="title">
-                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="20" AUTOLINK="false" />
+                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="40" AUTOLINK="false" />
                     </h5>
                     <div class="intro">
-                      <TRS_DOCUMENT FIELD="DOCCONTENT" AUTOFORMAT="TRUE" AUTOFORMATTYPE="innerText" NUM="80" />
+                      <TRS_DOCUMENT FIELD="DOCCONTENT" AUTOFORMAT="TRUE" AUTOFORMATTYPE="innerText" NUM="90" />
                     </div>
                   </li>
                 </TRS_DOCUMENTS>
 
                 <TRS_DOCUMENTS ID="手机版预算决算" NUM="6" STARTPOS="1" AUTOMORE="FALSE">
                   <li data-url="<TRS_DOCUMENT FIELD='_RECURL'/>" class="n">
-                    <TRS_DOCUMENT FIELD="DOCTITLE" NUM="20" AUTOLINK="false" />
+                    <TRS_DOCUMENT FIELD="DOCTITLE" NUM="40" AUTOLINK="false" />
                   </li>
                 </TRS_DOCUMENTS>
               </ul>
@@ -420,23 +380,23 @@
           <!-- 预算决算 -->
 
           <!-- 常见问题解答 -->
-          <li style="width: 348px; display: table-cell; vertical-align: top; ">
+          <!-- <li style="width: 348px; display: table-cell; vertical-align: top; ">
             <div class="swipeHeight">
               <ul class="infoList">
                 <TRS_DOCUMENTS ID="手机版常见问题解答" NUM="1" STARTPOS="0" AUTOMORE="FALSE">
                   <li data-url="<TRS_DOCUMENT FIELD='_RECURL'/>" class="t">
                     <h5 class="title">
-                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="20" AUTOLINK="false" />
+                      <TRS_DOCUMENT FIELD="DOCTITLE" NUM="40" AUTOLINK="false" />
                     </h5>
                     <div class="intro">
-                      <TRS_DOCUMENT FIELD="DOCCONTENT" AUTOFORMAT="TRUE" AUTOFORMATTYPE="innerText" NUM="80" />
+                      <TRS_DOCUMENT FIELD="DOCCONTENT" AUTOFORMAT="TRUE" AUTOFORMATTYPE="innerText" NUM="90" />
                     </div>
                   </li>
                 </TRS_DOCUMENTS>
 
                 <TRS_DOCUMENTS ID="手机版常见问题解答" NUM="6" STARTPOS="1" AUTOMORE="FALSE">
                   <li data-url="<TRS_DOCUMENT FIELD='_RECURL'/>" class="n">
-                    <TRS_DOCUMENT FIELD="DOCTITLE" NUM="20" AUTOLINK="false" />
+                    <TRS_DOCUMENT FIELD="DOCTITLE" NUM="40" AUTOLINK="false" />
                   </li>
                 </TRS_DOCUMENTS>
               </ul>
@@ -444,7 +404,7 @@
                 进入常见问题解答&gt;&gt;
               </div>
             </div>
-          </li>
+          </li> -->
           <!-- 常见问题解答 -->
 
         </ul>
@@ -504,7 +464,7 @@
       <li class="n1" data-url="<TRS_CHANNEL ID='手机版' FIELD='_RECURL'/>"><a>首页</a></li>
       <li class="n2" data-url="#xwdt"><a>新闻动态</a></li>
       <li class="n3" data-url="#zwdt"><a>政务动态</a></li>
-      <li class="n4" data-url="#cjwtjd"><a>常见问题</a></li>
+      <!-- <li class="n4" data-url="#cjwtjd"><a></a></li> -->
     </ul>
   </nav>
   <!-- 遮罩层 -->

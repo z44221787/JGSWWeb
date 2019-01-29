@@ -74,7 +74,7 @@
 
 <body>
   <!-- 头部 -->
-  <TRS_TEMPLATE TEMPNAME="首页头部模板">
+  <TRS_TEMPLATE TEMPNAME="其他头部模板">
     首页头部模板
   </TRS_TEMPLATE>
   <!-- 头部 -->
@@ -95,7 +95,7 @@
               <TRS_APPENDIX INDEX="0" MODE="PIC" WIDTH="700" HEIGHT="391" autolink="true" TARGET="_blank" />
               <div class="carousel-caption">
                 <p style='color: white;font-size: 16px; font-weight: bold'>
-                  <TRS_DOCUMENT FIELD="DOCTITLE" NUM="50" autolink="false" />
+                  <TRS_DOCUMENT FIELD="DOCTITLE" NUM="40" autolink="false" />
                 </p>
               </div>
             </div>
@@ -384,17 +384,17 @@
       <div class="zwgkR">
         <div class="NewBt">
           <em class="glyphicon glyphicon-list-alt"></em>
-          <span style="padding:0px 21px;;"><a href="<TRS_CHANNEL ID='互动交流' FIELD='_RECURL'/>" target="_blank">
-              <TRS_CHANNEL ID='互动交流' FIELD='CHNLDESC' AUTOLINK='false' /></a></span>
+          <span style="padding:0px 21px;;">
+              <TRS_CHANNEL ID='互动交流' FIELD='CHNLDESC' AUTOLINK='false' /></span>
         </div>
         <ul>
-          <li><a href="<TRS_CHANNEL ID='局长信箱' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>
+          <li style="height: 75px;"><a href="<TRS_CHANNEL ID='局长信箱' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>
                 <TRS_CHANNEL ID='局长信箱' FIELD='CHNLDESC' AUTOLINK='false' /></span></a></li>
-          <li><a href="<TRS_CHANNEL ID='意见征集' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>
+          <li style="height: 75px;"><a href="<TRS_CHANNEL ID='意见征集' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>
                 <TRS_CHANNEL ID='意见征集' FIELD='CHNLDESC' AUTOLINK='false' /></span></a></li>
-          <li><a href="<TRS_CHANNEL ID='新闻访谈' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>
-                <TRS_CHANNEL ID='新闻访谈' FIELD='CHNLDESC' AUTOLINK='false' /></span></a></li>
-          <li><a href="<TRS_CHANNEL ID='在线留言' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>
+          <!-- <li><a href="<TRS_CHANNEL ID='新闻访谈' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>
+                <TRS_CHANNEL ID='新闻访谈' FIELD='CHNLDESC' AUTOLINK='false' /></span></a></li> -->
+          <li style="height: 75px;"><a href="<TRS_CHANNEL ID='在线留言' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>
                 <TRS_CHANNEL ID='在线留言' FIELD='CHNLDESC' AUTOLINK='false' /></span></a></li>
         </ul>
       </div>
@@ -471,7 +471,7 @@
 
    <TRS_DOCUMENTS ID="首页左浮动广告位" STARTPOS="0" NUM="1" where="WCMDOCUMENT.ATTACHPIC=1">
    <div class="dlgg" style="position: fixed; left: 0px; top: 50%; margin-top: -200px;">
-      <a href="<TRS_DOCUMENT field='UNIT' autolink='false' />"><TRS_APPENDIX INDEX="0" MODE="PIC" autolink="false" EXTRA="width=140" /></a>
+      <a href="<TRS_DOCUMENT field='UNIT' autolink='false' />" target="_blank"><TRS_APPENDIX INDEX="0" MODE="PIC" autolink="false" EXTRA="width=140" /></a>
       <span style="display: block; width: 100%; height: 35px; line-height: 35px; color: #555; background: #eee;" id="gbdlgg">关闭</span>
       </div>
     </TRS_DOCUMENTS>

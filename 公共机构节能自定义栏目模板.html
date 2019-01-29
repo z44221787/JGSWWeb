@@ -412,8 +412,8 @@
             <div class="item">
               <TRS_APPENDIX INDEX="0" MODE="PIC" WIDTH="700" HEIGHT="391" autolink="true" TARGET="_blank" />
               <div class="carousel-caption">
-                <p>
-                  <TRS_DOCUMENT FIELD="DOCTITLE" NUM="50" />
+                  <p style='color: white;font-size: 16px; font-weight: bold'>
+                  <TRS_DOCUMENT FIELD="DOCTITLE" NUM="50"  autolink="false"/>
                 </p>
               </div>
             </div>
@@ -438,7 +438,9 @@
         <TRS_DOCUMENTS  ID="业务工作" NUM="1" STARTPOS="0" AUTOMORE="FALSE">
               <li><TRS_DOCUMENT FIELD="DOCTITLE"  NUM="50" AUTOLINK="TRUE" TARGET="_blank"/><span class="glyphicon glyphicon-fire"> </span>
               <p> <span><i><TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="dd"/></i><b><TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="MM"/>月</b> </span>
-                <font> <TRS_DOCUMENT FIELD="DOCABSTRACT" AUTOFORMAT="TRUE">业务工作置顶第一条摘要信息</TRS_DOCUMENT></font>
+                <font>
+                    <TRS_DOCUMENT FIELD="DOCCONTENT" AUTOFORMAT="TRUE" AUTOFORMATTYPE="innerText" NUM="120" AUTOFORMAT="TRUE">业务工作置顶第一条摘要信息</TRS_DOCUMENT>
+                  </font>
               </p>
             </li>
         </TRS_DOCUMENTS>
