@@ -111,13 +111,21 @@
     </div>
 
     <div class="Yw_new">
-      <div class="GgBt XxKbt">
-        <!-- 政务要闻14719 、部门要闻14720、市县要闻 -->
+      <!-- <div class="GgBt XxKbt">
         <TRS_CHANNELS CHNLIDS="14719">
           <span> <a href="<TRS_CHANNEL FIELD='_RECURL'/>" target="_blank">
               <TRS_CHANNEL FIELD='CHNLDESC' /></a></span>
         </TRS_CHANNELS>
+      </div> -->
+      <!-- 政务要闻14719 、部门要闻14720、市县要闻 -->
+      <div class="HotnewBt">
+        <em></em>
+        <TRS_CHANNELS CHNLIDS="14719">
+          <span><TRS_CHANNEL FIELD='CHNLDESC' AUTOLINK='FALSE'/></span>
+          <a href="<TRS_CHANNEL FIELD='_RECURL'/>" target="_blank">更多</a>
+        </TRS_CHANNELS>
       </div>
+
       <!-- 政务要闻14719、部门要闻14720、市县要闻 -->
       <TRS_CHANNELS CHNLIDS="14719">
         <ul class="new02 XxKul" style="height:266px">
