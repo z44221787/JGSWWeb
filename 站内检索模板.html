@@ -50,7 +50,7 @@
                     try { //Chrome无法自动收藏，用创建快应用程序的捷方式来替代。
                         createShortcut();
                     } catch (e) {
-                        alert("您的浏览器不支持自动加入收藏，请使用浏览器菜单手动设置.");
+                        alert("您的浏览器不支持自动加入收藏，请使用快捷键 CTRL + D");
                     }
                 }
             }
@@ -159,6 +159,16 @@
                 var docHtml = [];
                 var pageHtml = [];
                 var labelsHtml = [];
+                
+                //过滤列表
+                var WebList=[];
+                for(var i=0;i<result.list.length;i++){
+                    if(result.list[i].docPubUrl.indexOf("/sjb/")<0){
+                        WebList.push(result.list[i]);
+                    }
+                }
+                result.list=WebList;
+
                 // if (result.totalHits < 1) {
                 // 	return;
                 // }
@@ -193,7 +203,8 @@
                 } else {
                     for (var ci = 0; ci < cnum; ci++) {
                         //添加按栏目过滤内容
-                        labelsHtml.push("<li><em class='glyphicon glyphicon-play'></em><a href='javascript:;' onclick='chnlSer(\"" + result.labels[ci].label + "\")'>" + result.labels[ci].label + "(" + result.labels[ci].value + ")</a></li>");
+                        // "(" + result.labels[ci].value +  暂时隐藏数量
+                        labelsHtml.push("<li><em class='glyphicon glyphicon-play'></em><a href='javascript:;' onclick='chnlSer(\"" + result.labels[ci].label + "\")'>" + result.labels[ci].label +"</a></li>");
                     }
                     $('#dlabel').empty().html(labelsHtml.join(''));
                 }
@@ -210,8 +221,8 @@
                 if (pageCount < 1) {
                     $('#dpage').empty().html("");
                 } else {
-                    $('#dpage').empty().html('共' + pageCount + '页&nbsp;&nbsp;共' + result.totalHits +
-                        '条&nbsp;&nbsp;<a href="javascript:void(0)" onclick="gotoPage(1)">首页</a>&nbsp;&nbsp;<a href="javascript:void(0)" onclick="goPrev()">上一页</a>&nbsp;&nbsp;第' +
+                    $('#dpage').empty().html('共' + pageCount + '页&nbsp;&nbsp;共'+
+                        '&nbsp;&nbsp;<a href="javascript:void(0)" onclick="gotoPage(1)">首页</a>&nbsp;&nbsp;<a href="javascript:void(0)" onclick="goPrev()">上一页</a>&nbsp;&nbsp;第' +
                         result.currentPage +
                         '页&nbsp;&nbsp;<a href="javascript:void(0)" onclick="goNext(' + pageCount +
                         ')">下一页</a>&nbsp;&nbsp;<a href="javascript:gotoPage(' + pageCount +
@@ -333,7 +344,7 @@ Date.prototype.Format = function (fmt) { //author: meizz
                 <font> <a href="<TRS_CHANNEL ID='网站地图' FIELD='_RECURL'/>" target="_blank"> 网站地图 </a> </font>
                 <font> <a href="javascript:void(0)" onclick="AddFavorite(window.location,document.title)"> 收藏本站 </a>
                 </font>
-                <font> <a href="javascript:void(0)" onclick="SetHome(this,window.location)"> 设为首页 </a> </font>
+                <!-- <font> <a href="javascript:void(0)" onclick="SetHome(this,window.location)"> 设为首页 </a> </font> -->
             </div>
         </div>
         <div class="banner">
@@ -412,9 +423,11 @@ Date.prototype.Format = function (fmt) { //author: meizz
             </div>
             <div class="NewBt" style="margin-top:100px;">
                 <em class="glyphicon glyphicon-list"></em>
-                <span>检索关键词:<font color="red" id="keyw"></font> 共命中<dt style="color:#FF9; display:inline; padding:0 10px;">
+                <span>检索关键词:<font color="red" id="keyw"></font> 
+                    <!-- 共命中<dt style="color:#FF9; display:inline; padding:0 10px;">
                         <font color="red" id="totalHits"></font>
-                    </dt>条记录</span>
+                    </dt>条记录 -->
+                </span>
             </div>
             <ul class="new02" id="doclist">
                 <!-- 新闻信息列表位置 -->

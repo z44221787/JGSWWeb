@@ -1,3 +1,44 @@
+
+<script>
+        function SetHome(obj, url) {
+        try {
+          obj.style.behavior = 'url(#default#homepage)';
+          obj.setHomePage(url);
+        } catch (e) {
+          if (window.netscape) {
+            try {
+              netscape.security.PrivilegeManager.enablePrivilege('UniversalXPConnect');
+            } catch (e) {
+              alert(
+                '抱歉，此操作被浏览器拒绝！\n\n请在浏览器地址栏输入“about:config”并回车\n\n然后将[signed.applets.codebase_principal_support]的值设置为true，双击即可。'
+              );
+            }
+            var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch);
+            prefs.setCharPref('browser.startup.homepage', url);
+          } else {
+            alert('抱歉，您所使用的浏览器无法完成此操作。\n\n您需要手动将【' + url + '】设置为首页。');
+          }
+        }
+      };
+  
+  
+      function AddFavorite(sURL, sTitle) {
+        try { //IE
+          window.external.addFavorite(sURL, sTitle);
+        } catch (e) {
+          try { //Firefox
+            window.sidebar.addPanel(sTitle, sURL, "");
+          } catch (e) {
+            try { //Chrome无法自动收藏，用创建快应用程序的捷方式来替代。
+              createShortcut();
+            } catch (e) {
+              alert("您的浏览器不支持自动加入收藏，请使用快捷键 CTRL + D");
+            }
+          }
+        }
+      };
+    
+  </script>
 <div class="head">
     <div class="top">
         <div class="topN">
@@ -6,7 +47,7 @@
             </ul>
             <font> <a href="<TRS_CHANNEL ID='网站地图' FIELD='_RECURL'/>" target="_blank"> 网站地图 </a> </font>
             <font> <a href="javascript:void(0)" onclick="AddFavorite(window.location,document.title)"> 收藏本站 </a> </font>
-            <font> <a href="javascript:void(0)" onclick="SetHome(this,window.location)"> 设为首页 </a> </font>
+            <!-- <font> <a href="javascript:void(0)" onclick="SetHome(this,window.location)"> 设为首页 </a> </font> -->
         </div>
     </div>
     <div class="banner">
