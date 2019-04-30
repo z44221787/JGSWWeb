@@ -45,7 +45,8 @@
               '抱歉，此操作被浏览器拒绝！\n\n请在浏览器地址栏输入“about:config”并回车\n\n然后将[signed.applets.codebase_principal_support]的值设置为true，双击即可。'
             );
           }
-          var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch);
+          var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces
+            .nsIPrefBranch);
           prefs.setCharPref('browser.startup.homepage', url);
         } else {
           alert('抱歉，您所使用的浏览器无法完成此操作。\n\n您需要手动将【' + url + '】设置为首页。');
@@ -69,7 +70,6 @@
         }
       }
     };
-  
   </script>
 </head>
 
@@ -103,10 +103,11 @@
           </TRS_DOCUMENTS>
         </div>
         <!-- Controls -->
-        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"
-            aria-hidden="true"></span> <span class="sr-only">Previous</span> </a>
-        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right"
-            aria-hidden="true"></span> <span class="sr-only">Next</span> </a>
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev"> <span
+            class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next"> <span
+            class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span> </a>
       </div>
       <p class="imgPlayMore"><a href="<TRS_CHANNEL ID='图片新闻' FIELD='_RECURL'/>" target="_blank">更多</a></p>
     </div>
@@ -122,7 +123,8 @@
       <div class="HotnewBt">
         <em></em>
         <TRS_CHANNELS CHNLIDS="14719">
-          <span><TRS_CHANNEL FIELD='CHNLDESC' AUTOLINK='FALSE'/></span>
+          <span>
+            <TRS_CHANNEL FIELD='CHNLDESC' AUTOLINK='FALSE' /></span>
           <a href="<TRS_CHANNEL FIELD='_RECURL'/>" target="_blank">更多</a>
         </TRS_CHANNELS>
       </div>
@@ -157,7 +159,8 @@
                   <TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="dd" /></i><b>
                   <TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="MM" />月</b></span>
               <font>
-                <TRS_DOCUMENT FIELD="DOCCONTENT" AUTOFORMAT="TRUE" AUTOFORMATTYPE="innerText" NUM="60" AUTOFORMAT="TRUE">部门要闻置顶第一条摘要信息</TRS_DOCUMENT>
+                <TRS_DOCUMENT FIELD="DOCCONTENT" AUTOFORMAT="TRUE" AUTOFORMATTYPE="innerText" NUM="60"
+                  AUTOFORMAT="TRUE">部门要闻置顶第一条摘要信息</TRS_DOCUMENT>
               </font>
             </p>
           </TRS_DOCUMENTS>
@@ -183,12 +186,15 @@
           </a>
           <div class="notice-country-msg">
             <div class="swiper-container">
-              <div class="swiper-wrapper" style="height: 30px; transition-duration: 3s; width: 64480px; transform: translate3d(-14560px, 0px, 0px);">
+              <div class="swiper-wrapper"
+                style="height: 30px; transition-duration: 3s; width: 64480px; transform: translate3d(-14560px, 0px, 0px);">
                 <div id="govInfo" style="display:none">
-                  <script language="javascript" type="text/javascript" charset="utf-8" src="http://www.gov.cn/pushinfo/v150203/pushinfo.js "></script>
+                  <script language="javascript" type="text/javascript" charset="utf-8"
+                    src="http://www.gov.cn/pushinfo/v150203/pushinfo.js "></script>
                 </div>
                 <div id="yngovInfo" style="display:none">
-                  <script language="javascript" type="text/javascript" charset="gb2312" src="http://www.yn.gov.cn/zfxx/index.js "></script>
+                  <script language="javascript" type="text/javascript" charset="gb2312"
+                    src="http://www.yn.gov.cn/zfxx/index.js "></script>
                 </div>
                 <script type="text/javascript">
                   jQuery("#govInfo").find("li").each(function (i, obj) {
@@ -269,7 +275,8 @@
         <div class="NewBt">
           <em class="glyphicon glyphicon-globe"></em>
           <span><a href="<TRS_CHANNEL ID='信息公开' FIELD='_RECURL'/>" target="_blank">
-              <TRS_CHANNEL ID='信息公开' FIELD='CHNLDESC' AUTOLINK='false' /></a></span><a class="more" href="<TRS_CHANNEL ID='信息公开' FIELD='_RECURL'/>" target="_blank">更多</a>
+              <TRS_CHANNEL ID='信息公开' FIELD='CHNLDESC' AUTOLINK='false' /></a></span><a class="more"
+            href="<TRS_CHANNEL ID='信息公开' FIELD='_RECURL'/>" target="_blank">更多</a>
         </div>
         <div class="xxgk-shop" style="clear: both;">
           <div class="">
@@ -378,7 +385,8 @@
         <div class="NewBt">
           <em class="glyphicon glyphicon-book"></em>
           <span><a href="<TRS_CHANNEL ID='机关杂志' FIELD='_RECURL'/>" target="_blank">
-              <TRS_CHANNEL ID='机关杂志' FIELD='CHNLDESC' AUTOLINK='false' /></a></span><a class="more" href="<TRS_CHANNEL ID='机关杂志' FIELD='_RECURL'/>" target="_blank">更多</a>
+              <TRS_CHANNEL ID='机关杂志' FIELD='CHNLDESC' AUTOLINK='false' /></a></span><a class="more"
+            href="<TRS_CHANNEL ID='机关杂志' FIELD='_RECURL'/>" target="_blank">更多</a>
         </div>
         <div class="xxgk-shop" style="clear: both;">
           <ul class="new02">
@@ -394,16 +402,19 @@
         <div class="NewBt">
           <em class="glyphicon glyphicon-list-alt"></em>
           <span style="padding:0px 21px;;">
-              <TRS_CHANNEL ID='互动交流' FIELD='CHNLDESC' AUTOLINK='false' /></span>
+            <TRS_CHANNEL ID='互动交流' FIELD='CHNLDESC' AUTOLINK='false' /></span>
         </div>
         <ul>
-          <li style="height: 75px;"><a href="<TRS_CHANNEL ID='局长信箱' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>
+          <li style="height: 75px;"><a href="<TRS_CHANNEL ID='局长信箱' FIELD='_RECURL'/>" target="_blank"><em
+                class="iconfont"></em><span>
                 <TRS_CHANNEL ID='局长信箱' FIELD='CHNLDESC' AUTOLINK='false' /></span></a></li>
-          <li style="height: 75px;"><a href="<TRS_CHANNEL ID='意见征集' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>
+          <li style="height: 75px;"><a href="<TRS_CHANNEL ID='意见征集' FIELD='_RECURL'/>" target="_blank"><em
+                class="iconfont"></em><span>
                 <TRS_CHANNEL ID='意见征集' FIELD='CHNLDESC' AUTOLINK='false' /></span></a></li>
           <!-- <li><a href="<TRS_CHANNEL ID='新闻访谈' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>
                 <TRS_CHANNEL ID='新闻访谈' FIELD='CHNLDESC' AUTOLINK='false' /></span></a></li> -->
-          <li style="height: 75px;"><a href="<TRS_CHANNEL ID='在线留言' FIELD='_RECURL'/>" target="_blank"><em class="iconfont"></em><span>
+          <li style="height: 75px;"><a href="<TRS_CHANNEL ID='在线留言' FIELD='_RECURL'/>" target="_blank"><em
+                class="iconfont"></em><span>
                 <TRS_CHANNEL ID='在线留言' FIELD='CHNLDESC' AUTOLINK='false' /></span></a></li>
         </ul>
       </div>
@@ -417,31 +428,34 @@
       </div>
       <div class="WsbsL xm">
         <ul>
-            <li><a href="<TRS_CHANNEL ID='经费管理' FIELD='_RECURL'/>" target="_blank"><em><img src="images/sw0R.png"
-              width="40" height="40"></em><span>
-          <TRS_CHANNEL ID='经费管理' FIELD='CHNLDESC' AUTOLINK='false' /></span></a></li>
-          <li><a href="<TRS_CHANNEL ID='资产管理' FIELD='_RECURL'/>" target="_blank"><em><img src="images/sw1.png" width="40"
-                  height="40"></em><span>
+          <li><a href="<TRS_CHANNEL ID='经费管理' FIELD='_RECURL'/>" target="_blank"><em><img src="images/sw0R.png"
+                  width="40" height="40"></em><span>
+                <TRS_CHANNEL ID='经费管理' FIELD='CHNLDESC' AUTOLINK='false' /></span></a></li>
+          <li><a href="<TRS_CHANNEL ID='资产管理' FIELD='_RECURL'/>" target="_blank"><em><img src="images/sw1.png"
+                  width="40" height="40"></em><span>
                 <TRS_CHANNEL ID='资产管理' FIELD='CHNLDESC' AUTOLINK='false' /></span></a></li>
-          <li><a href="<TRS_CHANNEL ID='公务用车' FIELD='_RECURL'/>" target="_blank"><em><img src="images/sw2.png" width="40"
-                  height="40"></em><span>
+          <li><a href="<TRS_CHANNEL ID='公务用车' FIELD='_RECURL'/>" target="_blank"><em><img src="images/sw2.png"
+                  width="40" height="40"></em><span>
                 <TRS_CHANNEL ID='公务用车' FIELD='CHNLDESC' AUTOLINK='false' /></span></a></li>
-          <li style="width: 140px;"><a href="<TRS_CHANNEL ID='公共机构节能' FIELD='_RECURL'/>" target="_blank"><em><img src="images/sw3.png" width="40"
-                  height="40"></em><span>
+          <li style="width: 140px;"><a href="<TRS_CHANNEL ID='公共机构节能' FIELD='_RECURL'/>" target="_blank"><em><img
+                  src="images/sw3.png" width="40" height="40"></em><span>
                 <TRS_CHANNEL ID='公共机构节能' FIELD='CHNLDESC' AUTOLINK='false' /></span></a></li>
-          <li><a href="<TRS_CHANNEL ID='办公用房' FIELD='_RECURL'/>" target="_blank"><em><img src="images/sw4.png" width="40"
-                  height="40"></em><span>
+          <li><a href="<TRS_CHANNEL ID='办公用房' FIELD='_RECURL'/>" target="_blank"><em><img src="images/sw4.png"
+                  width="40" height="40"></em><span>
                 <TRS_CHANNEL ID='办公用房' FIELD='CHNLDESC' AUTOLINK='false' /></span></a></li>
-          <li style="width: 120px"><a href="<TRS_CHANNEL ID='综合事务管理' FIELD='_RECURL'/>" target="_blank"><em><img src="images/sw5.png" width="40"
-                  height="40"></em><span>
+          <li style="width: 120px"><a href="<TRS_CHANNEL ID='综合事务管理' FIELD='_RECURL'/>" target="_blank"><em><img
+                  src="images/sw5.png" width="40" height="40"></em><span>
                 <TRS_CHANNEL ID='综合事务管理' FIELD='CHNLDESC' AUTOLINK='false' /></span></a></li>
         </ul>
       </div>
-      <div class="WsbsC">
-        <a href="<TRS_CHANNEL ID='云南省政务服务网上大厅' FIELD='_RECURL'/>" target="_blank"><img src="images/bsdt.jpg" /></a>
+      <div class="WsbsC" style="width:168px; margin-left:6px;">
+        <a href="<TRS_CHANNEL ID='云南省政务服务网上大厅' FIELD='_RECURL'/>" target="_blank"><img src="images/bsdt0.jpg" /></a>
       </div>
-      <div class="WsbsR">
-        <a href="<TRS_CHANNEL ID='应用接口' FIELD='_RECURL'/>"><img src="images/yysjjk.png"></a>
+      <div class="WsbsC" style="width:168px; margin-left:6px;"> 
+        <a href=" https://www.ynggzyxx.gov.cn/yncgggfwpt-home-web/ " target=" _blank"><img src="images/bsdt1.jpg"></a>
+      </div>
+      <div class="WsbsR" style="width:100px;">
+        <a href="<TRS_CHANNEL ID='应用接口' FIELD='_RECURL'/>"><img src="images/bsdt2.jpg"></a>
       </div>
     </div>
 
@@ -464,8 +478,10 @@
     <div class="close-bar bar" onclick="this.parentNode.parentNode.removeChild(this.parentNode);return false;">X</div>
     <TRS_DOCUMENTS ID="首页右浮动广告位" pagesize="100" where="WCMDOCUMENT.ATTACHPIC=1">
       <div class="bar showBar" style="padding: 0 0 0 0">
-          <TRS_APPENDIX INDEX="0" MODE="PIC" autolink="false" EXTRA='style="height: 119px;width: 119px;"'/>
-          <p><TRS_DOCUMENT FIELD="DOCTITLE" NUM="25" AUTOLINK="false"/></p>
+        <TRS_APPENDIX INDEX="0" MODE="PIC" autolink="false" EXTRA='style="height: 119px;width: 119px;"' />
+        <p>
+          <TRS_DOCUMENT FIELD="DOCTITLE" NUM="25" AUTOLINK="false" />
+        </p>
       </div>
     </TRS_DOCUMENTS>
   </div>
@@ -478,20 +494,22 @@
   </script>
 
 
-   <TRS_DOCUMENTS ID="首页左浮动广告位" STARTPOS="0" NUM="1" where="WCMDOCUMENT.ATTACHPIC=1">
-   <div class="dlgg" style="position: fixed; left: 0px; top: 50%; margin-top: -200px;">
-      <a href="<TRS_DOCUMENT field='UNIT' autolink='false' />" target="_blank"><TRS_APPENDIX INDEX="0" MODE="PIC" autolink="false" EXTRA="width=140" /></a>
-      <span style="display: block; width: 100%; height: 35px; line-height: 35px; color: #555; background: #eee;" id="gbdlgg">关闭</span>
-      </div>
-    </TRS_DOCUMENTS>
+  <TRS_DOCUMENTS ID="首页左浮动广告位" STARTPOS="0" NUM="1" where="WCMDOCUMENT.ATTACHPIC=1">
+    <div class="dlgg" style="position: fixed; left: 0px; top: 50%; margin-top: -200px;">
+      <a href="<TRS_DOCUMENT field='UNIT' autolink='false' />" target="_blank">
+        <TRS_APPENDIX INDEX="0" MODE="PIC" autolink="false" EXTRA="width=140" /></a>
+      <span style="display: block; width: 100%; height: 35px; line-height: 35px; color: #555; background: #eee;"
+        id="gbdlgg">关闭</span>
+    </div>
+  </TRS_DOCUMENTS>
 
-      <script type="text/javascript">
-    $(function(){
-      $('#gbdlgg').click(function(){
+  <script type="text/javascript">
+    $(function () {
+      $('#gbdlgg').click(function () {
         $('.dlgg').hide();
       })
     })
-      </script>
+  </script>
 
 
 
