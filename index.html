@@ -269,7 +269,20 @@
       var countryMsg = new Swiper('.notice-country-msg .swiper-container', noticeMsgConfig);
       var provincialMsg = new Swiper('.notice-provincial-msg .swiper-container', noticeMsgConfig);
     </script>
-
+ <div class="ZxfwDiv S" style="width:1200px; margin:10px 0px;"> 
+  <div class="NewBt"> 
+   <span>政府信息公开</span> 
+  <table>
+  <tr>
+  <td style="padding-left:12px;"><a href="/xxgk/xxgkzn/"><img src="../site21/xxgk1.png" width="187" height="37" /></a></td>
+  <td style="padding-left:5px;"><a href="/xxgk/xxgkml/"><img src="../site21/xxgk2.png" width="187" height="37" /></a></td>
+  <td style="padding-left:5px;"><a href="/xxgk/ysqgk/"><img src="../site21/xxgk3.png" width="187" height="37" /></a></td>
+  <td style="padding-left:5px;"><a href="/xxgk/xxgkxgzd/"><img src="../site21/xxgk4.png" width="187" height="37" /></a></td>
+  <td style="padding-left:5px;"><a href="/xxgk/zfxxgknb/"><img src="../site21/xxgk5.png" width="187" height="37" /></a></td>
+  </tr>
+  </table>     
+</div>    
+</div>
     <div class="Zwgk">
       <div class="zwgkL">
         <div class="NewBt">
@@ -474,11 +487,12 @@
   <!-- 页脚位置 -->
 
   <!-- 右边浮动 -->
-  <div class="rightbar">
+  <div class="rightbar" style="top:200px">
     <div class="close-bar bar" onclick="this.parentNode.parentNode.removeChild(this.parentNode);return false;">X</div>
     <TRS_DOCUMENTS ID="首页右浮动广告位" pagesize="100" where="WCMDOCUMENT.ATTACHPIC=1">
       <div class="bar showBar" style="padding: 0 0 0 0">
-        <TRS_APPENDIX INDEX="0" MODE="PIC" autolink="false" EXTRA='style="height: 119px;width: 119px;"' />
+        <a href="<TRS_DOCUMENT field='UNIT' autolink='false' />" target="_blank">
+        <TRS_APPENDIX INDEX="0" MODE="PIC" autolink="false" EXTRA='style="height: 119px;width: 119px;"' /></a>
         <p>
           <TRS_DOCUMENT FIELD="DOCTITLE" NUM="25" AUTOLINK="false" />
         </p>
