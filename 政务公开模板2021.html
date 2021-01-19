@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>云南省机关事务管理局</title>
+    <link rel="stylesheet" type="text/css" href="images/clear.css" />
+    <link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="images/style.css" />
+    <link rel="stylesheet" type="text/css" href="images/animate.min.css" />
+
+    <script type="text/javascript" src="images/jquery-1.11.1.js"></script>
+    <script type="text/javascript" src="images/bootstrap.min.js"></script>
+    <script type="text/javascript" src="images/web.js"></script>
+
+    <script language="JavaScript" type="text/javascript">
+        //文档预加载完成操作
+
+        function SetHome(obj, url) {
+            try {
+                obj.style.behavior = 'url(#default#homepage)';
+                obj.setHomePage(url);
+            } catch (e) {
+                if (window.netscape) {
+                    try {
+                        netscape.security.PrivilegeManager.enablePrivilege('UniversalXPConnect');
+                    } catch (e) {
+                        alert(
+                            '抱歉，此操作被浏览器拒绝！\n\n请在浏览器地址栏输入“about:config”并回车\n\n然后将[signed.applets.codebase_principal_support]的值设置为true，双击即可。'
+                        );
+                    }
+                    var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch);
+                    prefs.setCharPref('browser.startup.homepage', url);
+                } else {
+                    alert('抱歉，您所使用的浏览器无法完成此操作。\n\n您需要手动将【' + url + '】设置为首页。');
+                }
+            }
+        };
+
+
+        function AddFavorite(sURL, sTitle) {
+            try { //IE
+                window.external.addFavorite(sURL, sTitle);
+            } catch (e) {
+                try { //Firefox
+                    window.sidebar.addPanel(sTitle, sURL, "");
+                } catch (e) {
+                    try { //Chrome无法自动收藏，用创建快应用程序的捷方式来替代。
+                        createShortcut();
+                    } catch (e) {
+                        alert("您的浏览器不支持自动加入收藏，请使用浏览器菜单手动设置.");
+                    }
+                }
+            }
+        };
+    </script>
+
+</head>
+
+<body>
+    <!-- 头部 -->
+    <TRS_TEMPLATE TEMPNAME="其他头部模板">
+        头部位置
+    </TRS_TEMPLATE>
+    <!-- 头部 -->
+
+    <div class="main">
+        <ol class="breadcrumb">
+            <li><a href="#">首页</a></li>
+            <li><a href="#">信息列表</a></li>
+            <li class="active">综合新闻</li>
+        </ol>
+
+        <style>
+            .ohd {
+                overflow: hidden;
+            }
+
+            .clearfix {
+                *zoom: 1
+            }
+
+            .fl {
+                float: left;
+            }
+
+            .fivegk {
+                width: 1200px;
+                margin: 0px auto 20px;
+            }
+
+            .fivegk .ca {
+                border: 1px solid #234eaa;
+                border-radius: 10px;
+                margin-left: 23px;
+                cursor: pointer;
+            }
+
+            .fivegk .ca:nth-of-type(1) {
+                margin-left: 0
+            }
+
+            .fivegk .ca:last-of-type {
+                margin: 0;
+                float: right;
+            }
+
+            .fivegk .bnt {
+                width: 145px;
+                height: 105px;
+                background-image: linear-gradient(to right, #577de4, #375fcc);
+                padding: 15px 0 0;
+                border-radius: 10px;
+                text-align: center;
+            }
+
+            .fivegk span {
+                display: block;
+                color: #fff;
+                margin-top: 10px;
+                font-size: 20px;
+                text-align: center;
+                text-shadow: 1px 1px 1px #000;
+            }
+
+            .fivegk ul {
+                width: 360px;
+                display: none;
+            }
+
+            .fivegk .ca.cur ul {
+                display: block;
+            }
+
+            .fivegk li {
+                float: left;
+                font-size: 16px;
+                margin: 8px 0 0 30px;
+            }
+
+            .fivegk .ca:nth-of-type(4) li {
+                margin-top: 10px;
+                margin-left: 20px;
+            }
+
+            .fivegk .ca li.sp {
+                margin-left: 65px;
+            }
+
+            @media screen and (max-width: 768px) {
+                .fivegk {
+                    width: 100%;
+                    margin: 20px 0 0;
+                    padding: 0 10px;
+                }
+
+                .fivegk ul {
+                    width: auto;
+                    float: none;
+                    display: block;
+                }
+
+                .fivegk .ca {
+                    width: 100%;
+                    margin: 10px 0 0;
+                }
+
+                .fivegk li {
+                    font-size: 14px;
+                    margin: 10px 0 0 10px;
+                }
+
+                .fivegk .ca:nth-of-type(4) li {
+                    margin-top: 5px;
+                }
+
+                .fivegk .ca li.sp {
+                    margin-left: 20px;
+                }
+
+                .fivegk .ca:last-of-type {
+                    margin-top: 10px;
+                }
+            }
+        </style>
+        <div class="fivegk ohd clearfix">
+            <div class="ca fl cur" style="margin-left:7px">
+                <div class="bnt ht fl">
+                    <i><img src="images/zwgk_a5.png" alt="" /></i>
+                    <span>
+                        决策公开
+                    </span>
+                </div>
+                <ul class="fl">
+                    <li>
+                        <!-- <a href="./zcwj/zxwj/">
+                            通知公告
+                        </a> -->
+                        <a href="<TRS_CHANNEL ID='通知公告(信息公开)' FIELD='_RECURL'/>" target="_blank">
+                            <TRS_CHANNEL ID='通知公告(信息公开)' FIELD='CHNLDESC' AUTOLINK='false' /></a>
+
+                    </li>
+                    <li>
+                        <!-- <a href="../ywdt/hyxx/">
+                            规范性文件
+                        </a> -->
+                        <a href="<TRS_CHANNEL ID='规范性文件' FIELD='_RECURL'/>" target="_blank">
+                        <TRS_CHANNEL ID='规范性文件' FIELD='CHNLDESC' AUTOLINK='false' /></a>
+                    </li>
+                    <li>
+                        <!-- <a href="#">
+                            规划计划
+                        </a> -->
+                    
+                        <a href="<TRS_CHANNEL ID='公开目录规划计划' FIELD='_RECURL'/>" target="_blank">
+                        <TRS_CHANNEL ID='公开目录规划计划' FIELD='CHNLDESC' AUTOLINK='false' /></a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="ca fl">
+                <div class="bnt ht fl">
+                    <i><img src="images/zwgk_a4.png" alt="" /></i>
+                    <span>
+                        执行公开
+                    </span>
+                </div>
+                <ul class="fl">
+                    <li>
+                        <!-- <a href="./zfxxgkpt/fdzdgknr/ysjs/">
+                            预算决算
+                        </a> -->
+
+                        <a href="<TRS_CHANNEL ID='预算决算' FIELD='_RECURL'/>" target="_blank">
+                        <TRS_CHANNEL ID='预算决算' FIELD='CHNLDESC' AUTOLINK='false' /></a>
+                    </li>
+                    <li>
+                        <!-- <a href="#">
+                            纪检监察
+                        </a> -->
+
+                        <a href="<TRS_CHANNEL ID='纪检监察' FIELD='_RECURL'/>" target="_blank">
+                        <TRS_CHANNEL ID='纪检监察' FIELD='CHNLDESC' AUTOLINK='false' /></a>
+                    </li>
+                    <li>
+                        <!-- <a href="#">
+                            公共资源配置
+                        </a> -->
+
+                        <a href="<TRS_CHANNEL ID='公共资源配置' FIELD='_RECURL'/>" target="_blank">
+                        <TRS_CHANNEL ID='公共资源配置' FIELD='CHNLDESC' AUTOLINK='false' /></a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="ca fl">
+                <div class="bnt ht fl">
+                    <i><img src="images/zwgk_a3.png" alt="" /></i>
+                    <span>
+                        管理公开
+                    </span>
+                </div>
+                <ul class="fl">
+                    <li>
+                        <!-- <a href="#">
+                            经费管理
+                        </a> -->
+                        <a href="<TRS_CHANNEL ID='经费管理' FIELD='_RECURL'/>" target="_blank">
+                        <TRS_CHANNEL ID='经费管理' FIELD='CHNLDESC' AUTOLINK='false' /></a>
+                    </li>
+                    <li>
+                        <!-- <a href="#">
+                            资产管理
+                        </a> -->
+
+                        <a href="<TRS_CHANNEL ID='资产管理' FIELD='_RECURL'/>" target="_blank">
+                        <TRS_CHANNEL ID='资产管理' FIELD='CHNLDESC' AUTOLINK='false' /></a>
+                    </li>
+                    <li>
+                        <!-- <a href="#">
+                            公务用车管理
+                        </a> -->
+
+                        <a href="<TRS_CHANNEL ID='公务用车' FIELD='_RECURL'/>" target="_blank">
+                        <TRS_CHANNEL ID='公务用车' FIELD='CHNLDESC' AUTOLINK='false' /></a>
+                    </li>
+                    <li>
+                        <!-- <a href="./rsrm/">
+                            公共机构节能管理
+                        </a> -->
+
+                        <a href="<TRS_CHANNEL ID='公共机构节能' FIELD='_RECURL'/>" target="_blank">
+                        <TRS_CHANNEL ID='公共机构节能' FIELD='CHNLDESC' AUTOLINK='false' /></a>
+                    </li>
+
+                    <li>
+                        <!-- <a href="#">
+                            房地产管理
+                        </a> -->
+
+                        <a href="<TRS_CHANNEL ID='办公用房' FIELD='_RECURL'/>" target="_blank">
+                        <TRS_CHANNEL ID='办公用房' FIELD='CHNLDESC' AUTOLINK='false' /></a>
+                    </li>
+
+                    <li>
+                        <!-- <a href="#">
+                            后勤服务管理
+                        </a> -->
+
+                        <a href="<TRS_CHANNEL ID='综合事务管理' FIELD='_RECURL'/>" target="_blank">
+                        <TRS_CHANNEL ID='综合事务管理' FIELD='CHNLDESC' AUTOLINK='false' /></a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="ca fl">
+                <div class="bnt ht fl">
+                    <i><img src="images/zwgk_a2.png" alt="" /></i>
+                    <span>
+                        服务公开
+                    </span>
+                </div>
+                <ul class="fl">
+                    <li>
+                        <!-- <a href="#">
+                            业务工作
+                        </a> -->
+
+                        <a href="<TRS_CHANNEL ID='业务工作_14807' FIELD='_RECURL'/>" target="_blank">
+                        <TRS_CHANNEL ID='业务工作_14807' FIELD='CHNLDESC' AUTOLINK='false' /></a>
+                    </li>
+                    <li>
+                        <!-- <a href="#">
+                            办事指南
+                        </a> -->
+                        <a href="<TRS_CHANNEL ID='办事指南' FIELD='_RECURL'/>" target="_blank">
+                        <TRS_CHANNEL ID='办事指南' FIELD='CHNLDESC' AUTOLINK='false' /></a>
+                    </li>
+                    <li>
+                        <!-- <a href="#">
+                            资料下载
+                        </a> -->
+                        <a href="<TRS_CHANNEL ID='资料下载' FIELD='_RECURL'/>" target="_blank">
+                        <TRS_CHANNEL ID='资料下载' FIELD='CHNLDESC' AUTOLINK='false' /></a>
+
+                </ul>
+            </div>
+
+            <div class="ca fl" style="margin-right:10px;">
+                <div class="bnt ht fl">
+                    <i><img src="images/zwgk_a1.png" alt="" /></i>
+                    <span>
+                        结果公开
+                    </span>
+                </div>
+                <ul class="fl">
+                    <li>
+                        <a href="#">
+                            建议提案
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            政府采购
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            公示信息
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+
+
+        </div>
+
+        <script>
+            $('.fivegk .ca').click(function () {
+                $(this).addClass('cur').siblings().removeClass('cur');
+            })
+        </script>
+
+        <div class="listL">
+            <div class="ZxfwDiv S" style="width: 227px;">
+                <div class="GgBt">
+                    <span>政府信息公开</span>
+                </div>
+                <ul class="zwgklist">
+                    <li><a href="#"><em class="iconfont"></em><span>政府信息公开指南</span></a></li>
+                    <li><a href="list-x.html"><em class="iconfont"></em><span>政府信息公开制度</span></a></li>
+                    <li><a href="#"><em class="iconfont"></em><span>法定主动公开内容</span></a></li>
+                    <li><a href="#"><em class="iconfont"></em><span>政府信息公开年报</span></a></li>
+                </ul>
+            </div>
+            <div class="GgBt">
+                <span>政府信息公开目录</span>
+            </div>
+            <ul class="listS">
+                <li><em class="glyphicon glyphicon-play"></em><a href="#">领导信息</a></li>
+                <li><em class="glyphicon glyphicon-play"></em><a href="#">内设机构</a></li>
+                <li><em class="glyphicon glyphicon-play"></em><a href="#">直属单位</a></li>
+                <li><em class="glyphicon glyphicon-play"></em><a href="#">监管单位</a></li>
+
+
+                <li><em class="glyphicon glyphicon-play"></em><a href="#">组织机构</a></li>
+                <li><em class="glyphicon glyphicon-play"></em><a href="#">通知公告</a></li>
+                <li><em class="glyphicon glyphicon-play"></em><a href="#">人事信息</a></li>
+                <li><em class="glyphicon glyphicon-play"></em><a href="#">政策法规</a></li>
+                <li><em class="glyphicon glyphicon-play"></em><a href="#">预算决算</a></li>
+                <li><em class="glyphicon glyphicon-play"></em><a href="#">纪检监察</a></li>
+                <li><em class="glyphicon glyphicon-play"></em><a href="#">建议提案</a></li>
+                <li><em class="glyphicon glyphicon-play"></em><a href="#">规划计划</a></li>
+                <li><em class="glyphicon glyphicon-play"></em><a href="#">政府采购</a></li>
+
+            </ul>
+        </div>
+        <div class="listR">
+            <div style="float:left; width:100%;">
+                <div class="NewBt">
+                    <em class="glyphicon glyphicon-list"></em>
+                    <span>最新文件库</span>
+                    <a href="list-x.html" style="color:#036">More</a>
+                </div>
+                <ul class="new02" style="height:238px;">
+                    <li><a href="#">新闻列表标题名称标题名称.1% </a><span>03-05</span></li>
+                    <li><a href="#">新闻列表标题名称标题名称</a><span>03-05</span></li>
+                    <li><a href="#">新闻列表标题名称标题名称 提升水</a><span>03-05</span></li>
+                    <li><a href="#">新闻列表标题名称标题名称</a><span>03-05</span></li>
+                    <li><a href="#">新闻列表标题名称标题名称.1% </a><span>03-05</span></li>
+                    <li><a href="#">新闻列表标题名称标题名称.1% </a><span>03-05</span></li>
+                </ul>
+            </div>
+
+            <div style="float:right; width:100%;">
+                <div class="NewBt">
+                    <em class="glyphicon glyphicon-list"></em>
+                    <span>政策解读</span>
+                    <a href="list-x.html" style="color:#036">More</a>
+                </div>
+                <ul class="new02" style="height:238px;">
+                    <li><a href="#">新闻列表标题名称标题名称.1% </a><span>03-05</span></li>
+                    <li><a href="#">新闻列表标题名称标题名称</a><span>03-05</span></li>
+                    <li><a href="#">新闻列表标题名称标题名称 提升水</a><span>03-05</span></li>
+                    <li><a href="#">新闻列表标题名称标题名称</a><span>03-05</span></li>
+                    <li><a href="#">新闻列表标题名称标题名称.1% </a><span>03-05</span></li>
+                    <li><a href="#">新闻列表标题名称标题名称.1% </a><span>03-05</span></li>
+                </ul>
+            </div>
+
+            <div style="float:left; width:49%;">
+                <div class="NewBt">
+                    <em class="glyphicon glyphicon-list"></em>
+                    <span>公示公告</span>
+                    <a href="list-x.html" style="color:#036">More</a>
+                </div>
+                <ul class="new02" style="height:238px;">
+                    <li><a href="#">新闻列表标题名称标题名称.1% </a><span>03-05</span></li>
+                    <li><a href="#">新闻列表标题名称标题名称</a><span>03-05</span></li>
+                    <li><a href="#">新闻列表标题名称标题名称 提升水</a><span>03-05</span></li>
+                    <li><a href="#">新闻列表标题名称标题名称</a><span>03-05</span></li>
+                    <li><a href="#">新闻列表标题名称标题名称.1% </a><span>03-05</span></li>
+                    <li><a href="#">新闻列表标题名称标题名称.1% </a><span>03-05</span></li>
+                </ul>
+            </div>
+
+            <div style="float:right; width:49%;">
+                <div class="NewBt">
+                    <em class="glyphicon glyphicon-list"></em>
+                    <span>人事信息</span>
+                    <a href="list-x.html" style="color:#036">More</a>
+                </div>
+                <ul class="new02" style="height:238px;">
+                    <li><a href="#">新闻列表标题名称标题名称.1% </a><span>03-05</span></li>
+                    <li><a href="#">新闻列表标题名称标题名称</a><span>03-05</span></li>
+                    <li><a href="#">新闻列表标题名称标题名称 提升水</a><span>03-05</span></li>
+                    <li><a href="#">新闻列表标题名称标题名称</a><span>03-05</span></li>
+                    <li><a href="#">新闻列表标题名称标题名称.1% </a><span>03-05</span></li>
+                    <li><a href="#">新闻列表标题名称标题名称.1% </a><span>03-05</span></li>
+                </ul>
+            </div>
+
+            <div style="float:left; width:49%;">
+                <div class="NewBt">
+                    <em class="glyphicon glyphicon-list"></em>
+                    <span>预算决算</span>
+                    <a href="list-x.html" style="color:#036">More</a>
+                </div>
+                <ul class="new02" style="height:238px;">
+                    <li><a href="#">新闻列表标题名称标题名称.1% </a><span>03-05</span></li>
+                    <li><a href="#">新闻列表标题名称标题名称</a><span>03-05</span></li>
+                    <li><a href="#">新闻列表标题名称标题名称 提升水</a><span>03-05</span></li>
+                    <li><a href="#">新闻列表标题名称标题名称</a><span>03-05</span></li>
+                    <li><a href="#">新闻列表标题名称标题名称.1% </a><span>03-05</span></li>
+                    <li><a href="#">新闻列表标题名称标题名称.1% </a><span>03-05</span></li>
+                </ul>
+            </div>
+
+            <div style="float:right; width:49%;">
+                <div class="NewBt">
+                    <em class="glyphicon glyphicon-list"></em>
+                    <span>建议献策</span>
+                    <a href="list-x.html" style="color:#036">More</a>
+                </div>
+                <ul class="new02" style="height:238px;">
+                    <li><a href="#">新闻列表标题名称标题名称.1% </a><span>03-05</span></li>
+                    <li><a href="#">新闻列表标题名称标题名称</a><span>03-05</span></li>
+                    <li><a href="#">新闻列表标题名称标题名称 提升水</a><span>03-05</span></li>
+                    <li><a href="#">新闻列表标题名称标题名称</a><span>03-05</span></li>
+                    <li><a href="#">新闻列表标题名称标题名称.1% </a><span>03-05</span></li>
+                    <li><a href="#">新闻列表标题名称标题名称.1% </a><span>03-05</span></li>
+                </ul>
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <!-- 页面底部 -->
+    <TRS_TEMPLATE TEMPNAME="页脚位置模板">
+        页脚位置
+    </TRS_TEMPLATE>
+    <!-- 页面底部 -->
+
+</body>
+
+</html>
