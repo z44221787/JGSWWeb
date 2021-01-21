@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>云南省机关事务局-政府信息公开平台</title>
+    <link rel="stylesheet" type="text/css" href="images/clear.css">
+    <link rel="stylesheet" type="text/css" href="images/zfgkstyle.css">
+    <script type="text/javascript" src="images/jquery-1.11.1.js"></script>
+    <script type="text/javascript" src="images/xxgkpt_web.js"></script>
+
+    <script language="JavaScript" type="text/javascript">
+        //文档预加载完成操作
+
+        function SetHome(obj, url) {
+            try {
+                obj.style.behavior = 'url(#default#homepage)';
+                obj.setHomePage(url);
+            } catch (e) {
+                if (window.netscape) {
+                    try {
+                        netscape.security.PrivilegeManager.enablePrivilege('UniversalXPConnect');
+                    } catch (e) {
+                        alert(
+                            '抱歉，此操作被浏览器拒绝！\n\n请在浏览器地址栏输入“about:config”并回车\n\n然后将[signed.applets.codebase_principal_support]的值设置为true，双击即可。'
+                        );
+                    }
+                    var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch);
+                    prefs.setCharPref('browser.startup.homepage', url);
+                } else {
+                    alert('抱歉，您所使用的浏览器无法完成此操作。\n\n您需要手动将【' + url + '】设置为首页。');
+                }
+            }
+        };
+
+
+        function AddFavorite(sURL, sTitle) {
+            try { //IE
+                window.external.addFavorite(sURL, sTitle);
+            } catch (e) {
+                try { //Firefox
+                    window.sidebar.addPanel(sTitle, sURL, "");
+                } catch (e) {
+                    try { //Chrome无法自动收藏，用创建快应用程序的捷方式来替代。
+                        createShortcut();
+                    } catch (e) {
+                        alert("您的浏览器不支持自动加入收藏，请使用浏览器菜单手动设置.");
+                    }
+                }
+            }
+        };
+    </script>
+
+    <!-- 检索js -->
+    <script>
+        function check() {
+            if (document.getElementById("orpro").value == "") {
+                window.alert("请输入查询关键字！");
+                return false;
+            }
+            return true;
+        }
+
+        function ssearch() {
+            if (check()) {
+                document.charset = 'UTF-8';
+                globalSearch();
+            }
+        }
+
+        function globalSearch() {
+            var siteid = document.getElementById('siteid').value;
+            var keyword = document.getElementById('orpro').value;
+            var starttime = "";
+            var endtime = "";
+            var stype = "";
+            window.open('http://ygj.yn.gov.cn/zdjs/?siteid=' + encodeURI(encodeURI(siteid)) +
+                '&starttime=' + encodeURI(encodeURI(
+                    starttime)) + '&endtime=' + encodeURI(encodeURI(endtime)) + '&stype=' + encodeURI(
+                    encodeURI(stype)) +
+                '&keyword=' + encodeURI(encodeURI(keyword)));
+        }
+    </script>
+    <!-- 检索js -->
+
+    <!-- 分页js -->
+    <script language="JavaScript">
+        function createPageHTML(_nPageCount, _nCurrIndex, _sPageName, _sPageExt) {
+            var pagefanye = _nCurrIndex / 10;
+            if (_nPageCount == null || _nPageCount <= 1) {
+                return;
+            }
+            var nCurrIndex = _nCurrIndex || 0;
+            var wenzis = "<font style='font-size:12px'>"; //文字样式
+            var shuzisc = "<font style='font-size:16px' color='red'>"; //数字颜色样式
+            var shuzis = "<font style='font-size:14px'>"; //数字样式
+            var ends = "</font>"; //文字样式
+            if (nCurrIndex == 0) {
+                document.write("&nbsp;" + wenzis + "首页" + ends + "&nbsp;");
+                document.write(wenzis + "上一页" + ends + "&nbsp;");
+                if (pagefanye < 1) {
+                    document.write(shuzisc + "1" + ends + "&nbsp;");
+                }
+            } else {
+                document.write("&nbsp;<a href=\"" + _sPageName + "." + _sPageExt + "\" >" + wenzis + "首页" + ends +
+                    "</a>&nbsp;");
+                if (nCurrIndex == 1) {
+                    document.write("<a href=\"" + _sPageName + "." + _sPageExt + "\" >" + wenzis + "上一页" + ends +
+                        "</a>&nbsp;");
+                } else {
+                    document.write("<a href=\"" + _sPageName + "_" + (nCurrIndex - 1) + "." + _sPageExt + "\" >" + wenzis +
+                        "上一页" + ends + "</a>&nbsp;");
+                }
+                if (pagefanye < 1) {
+                    document.write("<a href=\"" + _sPageName + "." + _sPageExt + "\" >" + shuzis + "1" + ends +
+                        "</a>&nbsp;");
+                }
+            }
+            var j;
+            var h;
+            if (pagefanye < 1) {
+                j = 1;
+                h = 10;
+            } else {
+                j = Math.floor(pagefanye) * 10;
+                h = j + 10;
+            }
+            for (var i = j; i < (_nPageCount - h < 0 ? _nPageCount : h); i++) {
+                if (nCurrIndex == i) {
+                    document.write(shuzisc + (i + 1) + ends + "&nbsp;");
+                } else {
+                    document.write("<a href=\"" + _sPageName + "_" + i + "." + _sPageExt + "\">" + shuzis + (i + 1) + ends +
+                        "</a>&nbsp;");
+                }
+            }
+            if (nCurrIndex == (_nPageCount - 1)) {
+                document.write(wenzis + "下一页" + ends + "&nbsp;");
+                document.write(wenzis + "尾页" + ends + "&nbsp;");
+                document.write(wenzis + "&nbsp;共" + ends + shuzisc + _nPageCount + ends + wenzis + "页" + ends + "&nbsp;");
+            } else {
+                document.write("<a href=\"" + _sPageName + "_" + (nCurrIndex + 1) + "." + _sPageExt + "\" >" + wenzis +
+                    "下一页" + ends + "</a>&nbsp;");
+                document.write("<a href=\"" + _sPageName + "_" + (_nPageCount - 1) + "." + _sPageExt + "\" >" + wenzis +
+                    "尾页" + ends + "</a>&nbsp;");
+                document.write(wenzis + "&nbsp;共" + ends + shuzisc + _nPageCount + ends + wenzis + "页" + ends + "&nbsp;");
+            }
+        }
+    </script>
+    <!-- 分页js -->
+
+    <style>
+        .listNav {
+            clear: both;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 头部 -->
+    <TRS_TEMPLATE TEMPNAME="信息公开平台页头模板2021">
+        头部位置
+    </TRS_TEMPLATE>
+    <!-- 头部 -->
+    <div class="main">
+        <div class="sousuo">
+            <input type="hidden" id="siteid" name="siteid" value="21" />
+            <input type="hidden" id="startTime" name="starttime" class="inp" value="20160101" style="width: 140px;" onclick="WdatePicker({maxDate:'#F{$dp.$D(\'endTime\',{d:-1})}',dateFmt:'yyyyMMdd'})" />
+            <input type="hidden" id="endTime" name="endtime" class="inp" style="width: 140px;" onclick="WdatePicker({minDate:'#F{$dp.$D(\'startTime\',{d:1})}',dateFmt:'yyyyMMdd'})" />
+            <input type="text" id="orpro" name="" />
+            <button type="button" onclick="ssearch()"><img src="images/sousuoicon.png"></button>
+            <!-- <input type="text">
+            <button><img src="images/sousuoicon.png"></button> -->
+        </div>
+        <div class="mainN">
+            <!-- 左侧目录 -->
+            <TRS_TEMPLATE TEMPNAME="信息公开平台左侧目录模板2021">
+                信息公开平台左侧目录模板2021
+            </TRS_TEMPLATE>
+            <!-- 左侧目录 -->
+            <div class="mainR">
+
+                <!-- 显示当前栏目的子级栏目信息-->
+                <trs_channels id="OWNER" startpos="0">
+                    <TRS_ExistsData>
+                        <!-- 存在下级子栏目 -->
+                        <trs_channels id="OWNER" startpos="0">
+                            <TRS_Documents>
+                                <!-- 如果 Documents 存在数据则加载新闻列表 -->
+                                <TRS_ExistsData>
+                                    <TRS_CONDITION CONDITION="@DOCCHANNEL" REFERENCE="14733" NOT="TRUE">
+                                        <!-- 多栏目列表展示，不能为信息公开指南 -->
+                                        <div class="zfxxgkb <TRS_CHANNEL ID='OWNER' FIELD='CHANNELID'/>">
+                                            <span>
+                                                <trs_channel id="OWNER" autolink="false">栏目名称</trs_channel>
+                                            </span>
+                                        </div>
+
+                                        <ul id="<TRS_CHANNEL ID='OWNER' FIELD='CHANNELID'/>" class="zfxxgnewlist <TRS_CHANNEL ID='OWNER' FIELD='CHANNELID'/>">
+                                            <TRS_Documents id="owner" NUM="7">
+                                                <li>
+                                                    <TRS_DOCUMENT FIELD="DOCTITLE" NUM="110" AUTOLINK="true" TARGET="_blank" />
+                                                    <span>
+                                                        <TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="yyyy-MM-dd" />
+                                                    </span>
+                                                </li>
+                                            </TRS_Documents>
+
+                                            <!-- <li><a href="#">国务院办公厅政府信息与政务公开办公室关于规范政府信息公开平台有关事项的通知</a><span>2019-12-03</span></li>
+                                    <li><a href="#">国务院办公厅政府信息与政务公开办公室关于规范政府信息公开平台有关事项的通知</a><span>2019-12-03</span></li>
+                                    <li><a href="#">国务院办公厅政府信息与政务公开办公室关于规范政府信息公开平台有关事项的通知</a><span>2019-12-03</span></li>
+                                    <li><a href="#">国务院办公厅政府信息与政务公开办公室关于规范政府信息公开平台有关事项的通知</a><span>2019-12-03</span></li>
+                                    <li><a href="#">国务院办公厅政府信息与政务公开办公室关于规范政府信息公开平台有关事项的通知</a><span>2019-12-03</span></li>
+                                    <li><a href="#">国务院办公厅政府信息与政务公开办公室关于规范政府信息公开平台有关事项的通知</a><span>2019-12-03</span></li>
+                                    <li><a href="#">国务院办公厅政府信息与政务公开办公室关于规范政府信息公开平台有关事项的通知</a><span>2019-12-03</span></li> -->
+                                        </ul>
+                                        <div class="zfxxgnewlistMore"><a href="<TRS_CHANNEL ID='OWNER' FIELD='_RECURL'/>#<TRS_CHANNEL ID='OWNER' FIELD='CHANNELID'/>">更多</a></div>
+                                    </TRS_CONDITION>
+                                </TRS_ExistsData>
+                            </TRS_Documents>
+                        </trs_channels>
+                    </TRS_ExistsData>
+
+
+                    <TRS_NotExistsData>
+                        <!-- 不存在新闻则添加一个变量_selfInfo 用于判断显示当前新闻信息 -->
+                        <TRS_VARIABLE NAME="显示当前栏目新闻" TYPE="S" DEFAULT="_selfInfo`当前栏目信息">
+                        </TRS_VARIABLE>
+                    </TRS_NotExistsData>
+                </trs_channels>
+
+                <TRS_CONDITION CONDITION="${显示当前栏目新闻}" REFERENCE="_selfInfo">
+                    <ul class="zfxxgnewlist">
+                        <!-- 不存在下级子栏目,查询当前栏目新闻并分页 -->
+                        <TRS_DOCUMENTS ID="OWNER" PAGESIZE="18" AUTOMORE="FALSE">
+                            <TRS_CONDITION CONDITION="@DOCCHANNEL" REFERENCE="14733" NOT="TRUE">
+                                <li>
+                                    <TRS_DOCUMENT FIELD="DOCTITLE" NUM="110" AUTOLINK="true" TARGET="_blank" />
+                                    <span>
+                                        <TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="yyyy-MM-dd" /></span>
+                                </li>
+                            </TRS_CONDITION>
+                        </TRS_DOCUMENTS>
+                    </ul>
+                    <nav aria-label="Page navigation" class="listNav">
+                        <script language="JavaScript">
+                                createPageHTML(${PAGE_COUNT},${PAGE_INDEX},"${PAGE_NAME}","${PAGE_EXT}");
+                        </script>
+                    </nav>
+                </TRS_CONDITION>
+
+                <TRS_DOCUMENTS ID="OWNER" NUM="1" STARTPOS="0" AUTOMORE="FALSE">
+                    <TRS_CONDITION CONDITION="@DOCCHANNEL" REFERENCE="14733">
+                        <!-- 如果是栏目信息公开指南则默认显示最新一条文章信息 -->
+                        <div class="zfxxgkcontent">
+                            <h3>政府信息公开指南</h3>
+                            <!-- 读取信息公开指南信息 只读取第一条-->
+                            <TRS_DOCUMENT FIELD="DOCHTMLCON" />
+                        </div>
+                    </TRS_CONDITION>
+                </TRS_DOCUMENTS>
+            </div>
+        </div>
+    </div>
+    <!-- 页脚 -->
+    <TRS_TEMPLATE TEMPNAME="信息公开平台页脚模板2021">
+        页脚位置
+    </TRS_TEMPLATE>
+    <!-- 页脚 -->
+</body>
+
+</html>
