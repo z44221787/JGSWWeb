@@ -182,7 +182,30 @@
             <!-- 左侧目录 -->
             <div class="mainR">
 
-                <!-- 显示当前栏目的子级栏目信息-->
+                <!-- 显示当前栏目存在的新闻信息-->
+                <TRS_DOCUMENTS ID="OWNER">
+                    <TRS_ExistsData>
+                        <TRS_CONDITION CONDITION="@DOCCHANNEL" OPERATOR="contain" REFERENCE="14733~14717" NOT="TRUE">
+                            <div class="zfxxgkb <TRS_CHANNEL ID='OWNER' FIELD='CHANNELID'/> selfClassInfo">
+                                <span>
+                                    <trs_channel id="OWNER" autolink="false">栏目名称</trs_channel>
+                                </span>
+                            </div>
+                            <ul id="<TRS_CHANNEL ID='OWNER' FIELD='CHANNELID'/>" class="zfxxgnewlist <TRS_CHANNEL ID='OWNER' FIELD='CHANNELID'/> selfClassInfo">
+                                <TRS_DOCUMENTS ID="OWNER" NUM="7" AUTOMORE="FALSE">
+                                    <li>
+                                        <TRS_DOCUMENT FIELD="DOCTITLE" NUM="70" AUTOLINK="true" TARGET="_blank" />
+                                        <span>
+                                            <TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="yyyy-MM-dd" />
+                                        </span>
+                                    </li>
+                                </TRS_DOCUMENTS>
+                            </ul>
+                        </TRS_CONDITION>
+                    </TRS_ExistsData>
+                </TRS_DOCUMENTS>
+
+                <!-- 显示当前栏目子栏目存在的新闻信息-->
                 <trs_channels id="OWNER" startpos="0">
                     <TRS_ExistsData>
                         <!-- 存在下级子栏目 -->
@@ -190,9 +213,9 @@
                             <TRS_Documents>
                                 <!-- 如果 Documents 存在数据则加载新闻列表 -->
                                 <TRS_ExistsData>
-                                    <TRS_CONDITION CONDITION="@DOCCHANNEL" REFERENCE="14733" NOT="TRUE">
+                                    <TRS_CONDITION CONDITION="@DOCCHANNEL" OPERATOR="contain" REFERENCE="14733~14717" NOT="TRUE">
                                         <!-- 多栏目列表展示，不能为信息公开指南 -->
-                                        <div class="zfxxgkb <TRS_CHANNEL ID='OWNER' FIELD='CHANNELID'/>">
+                                        <div class="zfxxgkb <TRS_CHANNEL ID='OWNER' FIELD='CHANNELID'/> hasKidClass">
                                             <span>
                                                 <trs_channel id="OWNER" autolink="false">栏目名称</trs_channel>
                                             </span>
@@ -201,7 +224,7 @@
                                         <ul id="<TRS_CHANNEL ID='OWNER' FIELD='CHANNELID'/>" class="zfxxgnewlist <TRS_CHANNEL ID='OWNER' FIELD='CHANNELID'/>">
                                             <TRS_Documents id="owner" NUM="7">
                                                 <li>
-                                                    <TRS_DOCUMENT FIELD="DOCTITLE" NUM="110" AUTOLINK="true" TARGET="_blank" />
+                                                    <TRS_DOCUMENT FIELD="DOCTITLE" NUM="70" AUTOLINK="true" TARGET="_blank" />
                                                     <span>
                                                         <TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="yyyy-MM-dd" />
                                                     </span>
@@ -222,40 +245,45 @@
                             </TRS_Documents>
                         </trs_channels>
                     </TRS_ExistsData>
-
-
-                    <TRS_NotExistsData>
-                        <!-- 不存在新闻则添加一个变量_selfInfo 用于判断显示当前新闻信息 -->
-                        <TRS_VARIABLE NAME="显示当前栏目新闻" TYPE="S" DEFAULT="_selfInfo`当前栏目信息">
-                        </TRS_VARIABLE>
-                    </TRS_NotExistsData>
                 </trs_channels>
 
-                <TRS_CONDITION CONDITION="${显示当前栏目新闻}" REFERENCE="_selfInfo">
-                    <ul class="zfxxgnewlist">
-                        <!-- 不存在下级子栏目,查询当前栏目新闻并分页 -->
-                        <TRS_DOCUMENTS ID="OWNER" PAGESIZE="18" AUTOMORE="FALSE">
-                            <TRS_CONDITION CONDITION="@DOCCHANNEL" REFERENCE="14733" NOT="TRUE">
-                                <li>
-                                    <TRS_DOCUMENT FIELD="DOCTITLE" NUM="110" AUTOLINK="true" TARGET="_blank" />
-                                    <span>
-                                        <TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="yyyy-MM-dd" /></span>
-                                </li>
-                            </TRS_CONDITION>
-                        </TRS_DOCUMENTS>
-                    </ul>
-                    <nav aria-label="Page navigation" class="listNav">
-                        <script language="JavaScript">
-                                createPageHTML(${PAGE_COUNT},${PAGE_INDEX},"${PAGE_NAME}","${PAGE_EXT}");
-                        </script>
-                    </nav>
-                </TRS_CONDITION>
+                <!-- 显示当前栏目分页新闻信息-->
+                <ul class="zfxxgnewlist selfPageInfo">
+                    <!-- 不存在下级子栏目,查询当前栏目新闻并分页 -->
+                    <TRS_DOCUMENTS ID="OWNER" PAGESIZE="18" AUTOMORE="FALSE">
+                        <TRS_CONDITION CONDITION="@DOCCHANNEL" OPERATOR="contain" REFERENCE="14733~14717" NOT="TRUE">
+                            <li>
+                                <TRS_DOCUMENT FIELD="DOCTITLE" NUM="70" AUTOLINK="true" TARGET="_blank" />
+                                <span>
+                                    <TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="yyyy-MM-dd" /></span>
+                            </li>
+                        </TRS_CONDITION>
+                    </TRS_DOCUMENTS>
+                </ul>
+                <nav aria-label="Page navigation" class="listNav selfPageInfo">
+                    <script language="JavaScript">
+                        createPageHTML(${PAGE_COUNT},${PAGE_INDEX},"${PAGE_NAME}","${PAGE_EXT}");
+                    </script>
+                </nav>
+
 
                 <TRS_DOCUMENTS ID="OWNER" NUM="1" STARTPOS="0" AUTOMORE="FALSE">
                     <TRS_CONDITION CONDITION="@DOCCHANNEL" REFERENCE="14733">
                         <!-- 如果是栏目信息公开指南则默认显示最新一条文章信息 -->
-                        <div class="zfxxgkcontent">
+                        <div class="zfxxgkcontent" style="height:840px;overflow-y:auto;">
                             <h3>政府信息公开指南</h3>
+                            <!-- 读取信息公开指南信息 只读取第一条-->
+                            <TRS_DOCUMENT FIELD="DOCHTMLCON" />
+                        </div>
+                    </TRS_CONDITION>
+                </TRS_DOCUMENTS>
+
+
+                <TRS_DOCUMENTS ID="OWNER" NUM="1" STARTPOS="0" AUTOMORE="FALSE">
+                    <TRS_CONDITION CONDITION="@DOCCHANNEL" REFERENCE="14717">
+                        <!-- 如果是栏目信息公开指南则默认显示最新一条文章信息 -->
+                        <div class="zfxxgkcontent" style="height:840px;overflow-y:auto;">
+                            <h3>云南省机关事务管理局主要职责</h3>
                             <!-- 读取信息公开指南信息 只读取第一条-->
                             <TRS_DOCUMENT FIELD="DOCHTMLCON" />
                         </div>
@@ -264,6 +292,7 @@
             </div>
         </div>
     </div>
+
     <!-- 页脚 -->
     <TRS_TEMPLATE TEMPNAME="信息公开平台页脚模板2021">
         页脚位置

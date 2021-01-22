@@ -87,13 +87,6 @@
 </head>
 
 <body>
-    <ul>
-        <TRS_RollDocuments PARENTCHANNELID="信息公开" TIMERANGE="30" CHILDLEVEL=6>
-            <li>
-                <TRS_DOCUMENT FIELD="DOCTITLE" NUM="40" AUTOLINK="TRUE" TARGET="_blank" LINKALTTEXT="DOCTITLE" />
-            </li>
-        </TRS_RollDocuments>
-    </ul>
     <!-- 头部 -->
     <TRS_TEMPLATE TEMPNAME="信息公开平台页头模板2021">
         头部位置
@@ -116,7 +109,7 @@
             </TRS_TEMPLATE>
             <!-- 左侧目录 -->
             <div class="mainR">
-                <div class="zfxxgkcontent">
+                <div class="zfxxgkcontent" style="height:840px;overflow-y:auto;">
                     <h3>政府信息公开指南</h3>
                     <!-- 读取信息公开指南信息 只读取第一条-->
                     <TRS_DOCUMENTS ID="信息公开指南" NUM="1" STARTPOS="0" AUTOMORE="FALSE">

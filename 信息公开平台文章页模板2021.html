@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云南省机关事务局-政府信息公开平台</title>
+    <link rel="stylesheet" type="text/css" href="css/clear.css">
+    <link rel="stylesheet" type="text/css" href="css/zfgkstyle.css">
+    <script type="text/javascript" src="js/jquery-1.8.0.js"></script>
+    <script type="text/javascript" src="js/web.js"></script>
+    <link rel="stylesheet" type="text/css" href="images/clear.css">
+    <link rel="stylesheet" type="text/css" href="images/zfgkstyle.css">
+    <script type="text/javascript" src="images/jquery-1.11.1.js"></script>
+    <script type="text/javascript" src="images/xxgkpt_web.js"></script>
+
+    <script language="JavaScript" type="text/javascript">
+        //文档预加载完成操作
+
+        function SetHome(obj, url) {
+            try {
+                obj.style.behavior = 'url(#default#homepage)';
+                obj.setHomePage(url);
+            } catch (e) {
+                if (window.netscape) {
+                    try {
+                        netscape.security.PrivilegeManager.enablePrivilege('UniversalXPConnect');
+                    } catch (e) {
+                        alert(
+                            '抱歉，此操作被浏览器拒绝！\n\n请在浏览器地址栏输入“about:config”并回车\n\n然后将[signed.applets.codebase_principal_support]的值设置为true，双击即可。'
+                        );
+                    }
+                    var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch);
+                    prefs.setCharPref('browser.startup.homepage', url);
+                } else {
+                    alert('抱歉，您所使用的浏览器无法完成此操作。\n\n您需要手动将【' + url + '】设置为首页。');
+                }
+            }
+        };
+
+
+        function AddFavorite(sURL, sTitle) {
+            try { //IE
+                window.external.addFavorite(sURL, sTitle);
+            } catch (e) {
+                try { //Firefox
+                    window.sidebar.addPanel(sTitle, sURL, "");
+                } catch (e) {
+                    try { //Chrome无法自动收藏，用创建快应用程序的捷方式来替代。
+                        createShortcut();
+                    } catch (e) {
+                        alert("您的浏览器不支持自动加入收藏，请使用浏览器菜单手动设置.");
+                    }
+                }
+            }
+        };
+    </script>
+
+    <!-- 检索js -->
+    <script>
+        function check() {
+            if (document.getElementById("orpro").value == "") {
+                window.alert("请输入查询关键字！");
+                return false;
+            }
+            return true;
+        }
+
+        function ssearch() {
+            if (check()) {
+                document.charset = 'UTF-8';
+                globalSearch();
+            }
+        }
+
+        function globalSearch() {
+            var siteid = document.getElementById('siteid').value;
+            var keyword = document.getElementById('orpro').value;
+            var starttime = "";
+            var endtime = "";
+            var stype = "";
+            window.open('http://ygj.yn.gov.cn/zdjs/?siteid=' + encodeURI(encodeURI(siteid)) +
+                '&starttime=' + encodeURI(encodeURI(
+                    starttime)) + '&endtime=' + encodeURI(encodeURI(endtime)) + '&stype=' + encodeURI(
+                    encodeURI(stype)) +
+                '&keyword=' + encodeURI(encodeURI(keyword)));
+        }
+    </script>
+    <!-- 检索js -->
+
+</head>
+
+<body>
+    <!-- 头部 -->
+    <TRS_TEMPLATE TEMPNAME="信息公开平台页头模板2021">
+        头部位置
+    </TRS_TEMPLATE>
+    <!-- 头部 -->
+    <div class="main">
+        <div class="zfxxgkb" style="margin-top: 15pt;">
+            <span style="background: none; color: #2d66a5; font-weight: bold; border-left: 5px solid #2d66a5;">
+                <TRS_Curpage VALUE="&nbsp;/&nbsp;" ONLY="true" AUTOLINK="true" TARGET="_blank" CurrChnlNoLink="true" CurrChnlCls="active">
+                    当前位置
+                </TRS_Curpage>
+            </span>
+        </div>
+        <div class="contentwzspan">
+            <ul>
+                <li><span>索引号</span>
+                    <em>
+                        <TRS_DOCUMENT FIELD="UNIT" />
+                    </em>
+                </li>
+                <li><span>文号</span>
+                    <em>
+                        <TRS_DOCUMENT FIELD="WH" />
+                    </em>
+                </li>
+                <li><span>来源</span>
+                    <em>
+                        <TRS_Document FIELD="DOCSOURCE" AUTOCOLOR="true" AUTOLINK="false" LINKALT="false" AUTOFORMATTYPE="HTML">来源</TRS_Document>
+                    </em>
+                </li>
+                <li><span>公开日期</span>
+                    <em>
+                        <TRS_Document FIELD="DOCRELTIME" AUTOCOLOR="true" AUTOLINK="false" LINKALT="false" DATEFORMAT="yyyy-MM-dd HH:mm" AUTOFORMATTYPE="HTML">日期</TRS_Document>
+                    </em>
+                </li>
+            </ul>
+        </div>
+
+        <div class="wzbt">
+            <h3>
+                <TRS_Document FIELD="DOCTITLE" AUTOLINK="false" TARGET="_blank">文档标题</TRS_Document>
+            </h3>
+        </div>
+
+        <div class="contentN">
+            <TRS_Document FIELD="DOCHTMLCON">文档详细信息</TRS_Document>
+        </div>
+        <!-- 附件列表 -->
+        <div style="margin-top: 40px;line-height: 200%;font-size: 16px;text-align: left; margin-left: 20px;">
+            <script language="JavaScript">
+                var content2 = '<TRS_APPENDIX mode="file" field="_RECURL" index="-1" seperator=";" UPLOAD="true"></TRS_APPENDIX>';
+                var appfilesname = '<TRS_APPENDIX mode="file" field="APPDESC" index="-1" seperator=";" UPLOAD="true" autolink="false"></TRS_APPENDIX>';
+                var uploadGroupTitle = '<b style="font-weight: bold;color:blue">附件列表：</b><br/>';
+                var locationPathName = location.pathname.substring(0, location.pathname.lastIndexOf("/") + 1);
+                var locationHref = location.href.substring(0, location.href.lastIndexOf("/") + 1);
+                if (content2 != "") {
+                    document.write(uploadGroupTitle);
+                    var myArray2 = content2.split(";");
+                    var myappname = appfilesname.split(";");
+                    for (var nn2 = 0; nn2 < myArray2.length; nn2++) {
+                        var index1 = myappname[nn2].lastIndexOf(".");
+                        var index2 = myappname[nn2].length;
+                        var suffix = myappname[nn2].substring(index1 + 1, index2); //后缀名
+                        if (suffix.toUpperCase() === "PDF") {
+                            // http://ygj.yn.gov.cn/xwzx/
+                            document.write('<a href="http://ygj.yn.gov.cn/pdfyl?fileName=' + encodeURI(myappname[nn2]) + '&fileUrl=' + encodeURI(locationHref + myArray2[nn2].replace("./", "")) + '" target="_blank" class="body2">' + myappname[nn2] + '</a><br/>');
+                        } else {
+                            document.write('<a href="' + myArray2[nn2] + '" target="_blank" class="body2">' + myappname[nn2] + '</a><br/>');
+                        }
+                    }
+                }
+
+                var contentLink = '<TRS_APPENDIX mode="LINK" field="_RECURL" index="-1" seperator=";" UPLOAD="true"></TRS_APPENDIX>';
+                var linkName = '<TRS_APPENDIX mode="LINK" field="APPDESC" index="-1" seperator=";" UPLOAD="true" autolink="false"></TRS_APPENDIX>';
+                if (content2 == "" && contentLink != "") {
+                    document.write(uploadGroupTitle);
+                }
+                if (contentLink != "") {
+                    var linkArray2 = contentLink.split(";");
+                    var linkName2 = linkName.split(";");
+                    for (var nn2 = 0; nn2 < linkArray2.length; nn2++) {
+                        var index1 = linkName2[nn2].lastIndexOf(".");
+                        var index2 = linkName2[nn2].length;
+                        var suffix = linkName2[nn2].substring(index1 + 1, index2); //后缀名
+                        if (suffix.toUpperCase() === "PDF") {
+                            document.write('<a href="http://ygj.yn.gov.cn/pdfyl?fileName=' + encodeURI(linkName2[nn2]) + '&fileUrl=' + escape(linkArray2[nn2].replace("./", "")) + '" target="_blank" class="body2">' + linkName2[nn2] + '</a><br/>');
+                        } else {
+                            document.write('<a href="' + linkArray2[nn2] + '" target="_blank" class="body2">' + linkName2[nn2] + '</a><br/>');
+                        }
+                    }
+                }
+            </script>
+        </div>
+        <!-- 附件列表 -->
+
+        <!-- 上一篇 下一篇 -->
+        <div style="margin-top:10px;line-height: 200%; font-size: 16px;">
+            <center>
+                <TRS_PreDocuments>
+                    <A href="<TRS_Document Field='_RecURL'/>" Title="<TRS_Document Field='DocTitle' AutoLink='false' AUTOCOLOR='false'/>">上一篇：
+                        <TRS_Document Field='DocTitle' AutoLink='false' NUM="30" AUTOCOLOR='false' /></A>
+                </TRS_PreDocuments>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <TRS_NextDocuments>
+                    <A href="<TRS_Document Field='_RecURL' AUTOCOLOR='false'/>" Title="<TRS_Document Field='DocTitle' AutoLink='false' AUTOCOLOR='false'/>">下一篇：
+                        <TRS_Document Field='DocTitle' AutoLink='false' NUM="30" AUTOCOLOR='false' /></A>
+                </TRS_NextDocuments>
+            </center>
+        </div>
+        <!-- 上一篇 下一篇 -->
+
+
+
+        <!-- 演示时使用的样式，实际应用中删除，以免影响编辑器编辑之后的样式 -->
+        <!-- <style type="text/css">
+            .contentN {
+                text-align: center;
+            }
+
+            .contentN p {
+                line-height: 200%;
+                font-size: 16pt;
+                color: #555;
+                text-align: justify;
+                text-indent: 2em;
+                margin: 15px auto;
+                text-align: left;
+                width: 90%;
+                position: relative;
+            }
+
+            .contentN img {
+                max-width: 90%;
+            }
+        </style> -->
+        <!-- 演示时使用的样式，实际应用中删除，以免影响编辑器编辑之后的样式 -->
+    </div>
+    <!-- 页脚 -->
+    <TRS_TEMPLATE TEMPNAME="信息公开平台页脚模板2021">
+        页脚位置
+    </TRS_TEMPLATE>
+    <!-- 页脚 -->
+</body>
+
+</html>

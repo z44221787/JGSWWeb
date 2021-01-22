@@ -4,10 +4,15 @@
         <li id="<TRS_CHANNEL ID='信息公开相关制度' FIELD='CHANNELID'/>"><a href="<TRS_CHANNEL ID='信息公开相关制度' FIELD='_RECURL'/>#<TRS_CHANNEL ID='信息公开相关制度' FIELD='CHANNELID'/>" target="_blank"><i class="iconfont">&#xe620;</i><span>政府信息<br />公开制度</span></a></li>
         <li class="li_<TRS_CHANNEL ID='公开目录政策文件' FIELD='CHANNELID'/>_li"><a href="javascript:"><i class="iconfont">&#xe695;</i><span>政策文件</span><em>+</em></a></li>
         <ul class="li_<TRS_CHANNEL ID='公开目录政策文件' FIELD='CHANNELID'/>">
-            <li id="<TRS_CHANNEL ID='公开目录政策文件' FIELD='CHANNELID'/>"><a href="<TRS_CHANNEL ID='公开目录政策文件' FIELD='_RECURL'/>#<TRS_CHANNEL ID='公开目录政策文件' FIELD='CHANNELID'/>" target="_blank">最新文件</a></li>
-            <li id="<TRS_CHANNEL ID='政策文件省政府令' FIELD='CHANNELID'/>"><a href="<TRS_CHANNEL ID='政策文件省政府令' FIELD='_RECURL'/>#<TRS_CHANNEL ID='政策文件省政府令' FIELD='CHANNELID'/>" target="_blank">省政府令</a></li>
-            <li id="<TRS_CHANNEL ID='政策文件云政发' FIELD='CHANNELID'/>"><a href="<TRS_CHANNEL ID='政策文件云政发' FIELD='_RECURL'/>#<TRS_CHANNEL ID='政策文件云政发' FIELD='CHANNELID'/>" target="_blank">云政发</a></li>
-            <li id="<TRS_CHANNEL ID='政策文件云管局发' FIELD='CHANNELID'/>"><a href="<TRS_CHANNEL ID='政策文件云管局发' FIELD='_RECURL'/>#<TRS_CHANNEL ID='政策文件云管局发' FIELD='CHANNELID'/>" target="_blank">云管局发</a></li>
+            <!-- <li id="<TRS_CHANNEL ID='公开目录政策文件' FIELD='CHANNELID'/>"><a href="<TRS_CHANNEL ID='公开目录政策文件' FIELD='_RECURL'/>#<TRS_CHANNEL ID='公开目录政策文件' FIELD='CHANNELID'/>" target="_blank">最新文件</a></li> -->
+            <!-- 动态加载政策文件下级的栏目 -->
+            <trs_channels id="公开目录政策文件" startpos="0">
+                <li id="<TRS_CHANNEL ID='OWNER' FIELD='CHANNELID'/>">
+                    <a href="<TRS_CHANNEL ID='OWNER' FIELD='_RECURL'/>#<TRS_CHANNEL ID='OWNER' FIELD='CHANNELID'/>" target="_blank">
+                        <trs_channel id="OWNER" FIELD='CHNLDESC' AUTOLINK="FALSE">子级栏目名称</trs_channel>
+                    </a>
+                </li>
+            </trs_channels>
         </ul>
         <li class="li_<TRS_CHANNEL ID='信息公开目录' FIELD='CHANNELID'/>_li"><a href="javascript:"><i class="iconfont">&#xe606;</i><span>法定主动<br />公开内容</span><em>-</em></a></li>
         <ul class="li_<TRS_CHANNEL ID='信息公开目录' FIELD='CHANNELID'/>">
@@ -15,9 +20,16 @@
             <li><a href="#">机关简介</a></li>
             <li><a href="#">规划信息</a></li>
             <li><a href="#">统计信息</a></li> -->
+            <li id="<TRS_CHANNEL ID='云管局概况及职责' FIELD='CHANNELID'/>">
+                <a href="<TRS_CHANNEL ID='云管局概况及职责' FIELD='_RECURL'/>#<TRS_CHANNEL ID='云管局概况及职责' FIELD='CHANNELID'/>" target="_blank">
+                    机关简介
+                </a>
+            </li>
             <trs_channels id="信息公开目录" startpos="0">
                 <li id="<TRS_CHANNEL ID='OWNER' FIELD='CHANNELID'/>">
-                    <a href="<TRS_CHANNEL ID='OWNER' FIELD='_RECURL'/>#<TRS_CHANNEL ID='OWNER' FIELD='CHANNELID'/>" target="_blank"><trs_channel id="OWNER" FIELD='CHNLDESC' AUTOLINK="FALSE">子级栏目名称</trs_channel></a>
+                    <a href="<TRS_CHANNEL ID='OWNER' FIELD='_RECURL'/>#<TRS_CHANNEL ID='OWNER' FIELD='CHANNELID'/>" target="_blank">
+                        <trs_channel id="OWNER" FIELD='CHNLDESC' AUTOLINK="FALSE">子级栏目名称</trs_channel>
+                    </a>
                 </li>
             </trs_channels>
         </ul>
@@ -27,8 +39,10 @@
             <li><a href="#">2017年</a></li>
             <li><a href="#">2016年</a></li> -->
             <trs_channels id="政府信息公开年报" startpos="0">
-                <li  id="<TRS_CHANNEL ID='OWNER' FIELD='CHANNELID'/>">
-                <a href="<TRS_CHANNEL ID='OWNER' FIELD='_RECURL'/>#<TRS_CHANNEL ID='OWNER' FIELD='CHANNELID'/>" target="_blank"> <trs_channel id="OWNER" FIELD='CHNLDESC'  AUTOLINK="FALSE">子级栏目名称</trs_channel></a>
+                <li id="<TRS_CHANNEL ID='OWNER' FIELD='CHANNELID'/>">
+                    <a href="<TRS_CHANNEL ID='OWNER' FIELD='_RECURL'/>#<TRS_CHANNEL ID='OWNER' FIELD='CHANNELID'/>" target="_blank">
+                        <trs_channel id="OWNER" FIELD='CHNLDESC' AUTOLINK="FALSE">子级栏目名称</trs_channel>
+                    </a>
                 </li>
             </trs_channels>
         </ul>
@@ -42,13 +56,30 @@
         // 查找上级ul是否为class
         var ul = activeLiDom.parent("ul");
         if (ul) {
-            $(ul).css('display','block');
+            $(ul).css('display', 'block');
             var cs = ul.attr('class');
-            $('.' + (cs+'_li')).removeClass('active');
-            $('.' + (cs+'_li')).addClass('active');
+            $('.' + (cs + '_li')).removeClass('active');
+            $('.' + (cs + '_li')).addClass('active');
         }
         $('#' + activeId).removeClass('active');
         $('#' + activeId).addClass('active');
 
+        // 如果找到的是带有子节点的根节点，则如此操作
+        var rootLi = $('.' + ('li_' + activeId + '_li'));
+        if (rootLi.length > 0) {
+            $('.' + ('li_' + activeId)).css('display', 'block');
+
+            $('.' + ('li_' + activeId + '_li')).removeClass('active');
+            $('.' + ('li_' + activeId + '_li')).addClass('active');
+        }
+
+
+        var kidNode = $('.hasKidClass');
+        if (kidNode.length > 0) {
+            // 移除本身栏目分页列表
+            $('.selfPageInfo').remove();
+        } else {
+            $('.selfClassInfo').remove();
+        }
     }
 </script>
