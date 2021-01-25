@@ -88,11 +88,13 @@
     <!-- 分页js -->
     <script language="JavaScript">
         function createPageHTML(_nPageCount, _nCurrIndex, _sPageName, _sPageExt) {
+            var currentClassId = "#<TRS_CHANNEL ID='OWNER' FIELD='CHANNELID'/>";
             var pagefanye = _nCurrIndex / 10;
             if (_nPageCount == null || _nPageCount <= 1) {
                 return;
             }
             var nCurrIndex = _nCurrIndex || 0;
+            
             var wenzis = "<font style='font-size:12px'>"; //文字样式
             var shuzisc = "<font style='font-size:16px' color='red'>"; //数字颜色样式
             var shuzis = "<font style='font-size:14px'>"; //数字样式
@@ -104,17 +106,17 @@
                     document.write(shuzisc + "1" + ends + "&nbsp;");
                 }
             } else {
-                document.write("&nbsp;<a href=\"" + _sPageName + "." + _sPageExt + "\" >" + wenzis + "首页" + ends +
+                document.write("&nbsp;<a href=\"" + _sPageName + "." + _sPageExt +currentClassId+ "\">" + wenzis + "首页" + ends +
                     "</a>&nbsp;");
                 if (nCurrIndex == 1) {
-                    document.write("<a href=\"" + _sPageName + "." + _sPageExt + "\" >" + wenzis + "上一页" + ends +
+                    document.write("<a href=\"" + _sPageName + "." + _sPageExt +currentClassId+ "\" >" + wenzis + "上一页" + ends +
                         "</a>&nbsp;");
                 } else {
-                    document.write("<a href=\"" + _sPageName + "_" + (nCurrIndex - 1) + "." + _sPageExt + "\" >" + wenzis +
+                    document.write("<a href=\"" + _sPageName + "_" + (nCurrIndex - 1) + "." + _sPageExt +currentClassId+ "\" >" + wenzis +
                         "上一页" + ends + "</a>&nbsp;");
                 }
                 if (pagefanye < 1) {
-                    document.write("<a href=\"" + _sPageName + "." + _sPageExt + "\" >" + shuzis + "1" + ends +
+                    document.write("<a href=\"" + _sPageName + "." + _sPageExt +currentClassId+ "\" >" + shuzis + "1" + ends +
                         "</a>&nbsp;");
                 }
             }
@@ -131,7 +133,7 @@
                 if (nCurrIndex == i) {
                     document.write(shuzisc + (i + 1) + ends + "&nbsp;");
                 } else {
-                    document.write("<a href=\"" + _sPageName + "_" + i + "." + _sPageExt + "\">" + shuzis + (i + 1) + ends +
+                    document.write("<a href=\"" + _sPageName + "_" + i + "." + _sPageExt +currentClassId+ "\">" + shuzis + (i + 1) + ends +
                         "</a>&nbsp;");
                 }
             }
@@ -140,9 +142,9 @@
                 document.write(wenzis + "尾页" + ends + "&nbsp;");
                 document.write(wenzis + "&nbsp;共" + ends + shuzisc + _nPageCount + ends + wenzis + "页" + ends + "&nbsp;");
             } else {
-                document.write("<a href=\"" + _sPageName + "_" + (nCurrIndex + 1) + "." + _sPageExt + "\" >" + wenzis +
+                document.write("<a href=\"" + _sPageName + "_" + (nCurrIndex + 1) + "." + _sPageExt +currentClassId+ "\" >" + wenzis +
                     "下一页" + ends + "</a>&nbsp;");
-                document.write("<a href=\"" + _sPageName + "_" + (_nPageCount - 1) + "." + _sPageExt + "\" >" + wenzis +
+                document.write("<a href=\"" + _sPageName + "_" + (_nPageCount - 1) + "." + _sPageExt +currentClassId+ "\" >" + wenzis +
                     "尾页" + ends + "</a>&nbsp;");
                 document.write(wenzis + "&nbsp;共" + ends + shuzisc + _nPageCount + ends + wenzis + "页" + ends + "&nbsp;");
             }
