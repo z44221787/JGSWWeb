@@ -391,7 +391,7 @@
             })
         </script>
 
-        <div class="listL" style="height: auto !important;">
+        <div class="listL" >
             <div class="ZxfwDiv S" style="width: 227px;">
                 <div class="GgBt">
                     <span>政府信息公开</span>
@@ -449,6 +449,30 @@
         </div>
         <div class="listR">
             <div style="float:left; width:100%;">
+                <div class="NewBt">
+                    <em class="glyphicon glyphicon-list"></em>
+                    <span>最新文件库</span>
+                    <a href="<TRS_CHANNEL ID='公开目录政策文件' FIELD='_RECURL'/>#<TRS_CHANNEL ID='公开目录政策文件' FIELD='CHANNELID'/>" style="color:#036">More</a>
+                </div>
+                <ul class="new02" style="height:238px;">
+                    <TRS_RollDocuments PARENTCHANNELID="公开目录政策文件" INCLUDEPARENT="TRUE" NUM="6" STARTPOS="0" TIMERANGE="360" CHILDLEVEL=4>
+                        <li>
+                            <TRS_DOCUMENT FIELD="DOCTITLE" NUM="100" AUTOLINK="TRUE" TARGET="_blank" LINKALTTEXT="DOCTITLE" />
+                            <span>
+                                <TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="MM-dd" />
+                            </span>
+                        </li>
+                    </TRS_RollDocuments>
+                    <!-- <li><a href="#">新闻列表标题名称标题名称.1% </a><span>03-05</span></li>
+                    <li><a href="#">新闻列表标题名称标题名称</a><span>03-05</span></li>
+                    <li><a href="#">新闻列表标题名称标题名称 提升水</a><span>03-05</span></li>
+                    <li><a href="#">新闻列表标题名称标题名称</a><span>03-05</span></li>
+                    <li><a href="#">新闻列表标题名称标题名称.1% </a><span>03-05</span></li>
+                    <li><a href="#">新闻列表标题名称标题名称.1% </a><span>03-05</span></li> -->
+                </ul>
+            </div>
+
+            <div style="float:right; width:100%;">
                 <div class="NewBt">
                     <em class="glyphicon glyphicon-list"></em>
                     <span>政策解读</span>

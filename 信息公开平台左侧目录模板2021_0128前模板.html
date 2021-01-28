@@ -1,11 +1,14 @@
 <div class="mainL">
     <ul class="zfxxgklist">
-        <li id="<TRS_CHANNEL ID='信息公开指南' FIELD='CHANNELID'/>"><a href="<TRS_CHANNEL ID='信息公开指南' FIELD='_RECURL'/>#<TRS_CHANNEL ID='信息公开指南' FIELD='CHANNELID'/>"><i class="iconfont">&#xe6f0;</i><span>政府信息<br />公开指南</span></a></li>
-        <li class="li_<TRS_CHANNEL ID='信息公开相关制度' FIELD='CHANNELID'/>_li"><a href="javascript:"><i class="iconfont">&#xe620;</i><span>政府信息<br />公开制度</span><em>-</em></a></li>
-        <ul class="li_<TRS_CHANNEL ID='信息公开相关制度' FIELD='CHANNELID'/>">
-            <trs_channels id="信息公开相关制度" startpos="0">
+        <li id="<TRS_CHANNEL ID='信息公开指南' FIELD='CHANNELID'/>"><a href="<TRS_CHANNEL ID='信息公开指南' FIELD='_RECURL'/>#<TRS_CHANNEL ID='信息公开指南' FIELD='CHANNELID'/>" target="_blank"><i class="iconfont">&#xe6f0;</i><span>政府信息<br />公开指南</span></a></li>
+        <li id="<TRS_CHANNEL ID='信息公开相关制度' FIELD='CHANNELID'/>"><a href="<TRS_CHANNEL ID='信息公开相关制度' FIELD='_RECURL'/>#<TRS_CHANNEL ID='信息公开相关制度' FIELD='CHANNELID'/>" target="_blank"><i class="iconfont">&#xe620;</i><span>政府信息<br />公开制度</span></a></li>
+        <li class="li_<TRS_CHANNEL ID='公开目录政策文件' FIELD='CHANNELID'/>_li"><a href="javascript:"><i class="iconfont">&#xe695;</i><span>政策文件</span><em>+</em></a></li>
+        <ul class="li_<TRS_CHANNEL ID='公开目录政策文件' FIELD='CHANNELID'/>">
+            <!-- <li id="<TRS_CHANNEL ID='公开目录政策文件' FIELD='CHANNELID'/>"><a href="<TRS_CHANNEL ID='公开目录政策文件' FIELD='_RECURL'/>#<TRS_CHANNEL ID='公开目录政策文件' FIELD='CHANNELID'/>" target="_blank">最新文件</a></li> -->
+            <!-- 动态加载政策文件下级的栏目 -->
+            <trs_channels id="公开目录政策文件" startpos="0">
                 <li id="<TRS_CHANNEL ID='OWNER' FIELD='CHANNELID'/>">
-                    <a href="<TRS_CHANNEL ID='OWNER' FIELD='_RECURL'/>#<TRS_CHANNEL ID='OWNER' FIELD='CHANNELID'/>">
+                    <a href="<TRS_CHANNEL ID='OWNER' FIELD='_RECURL'/>#<TRS_CHANNEL ID='OWNER' FIELD='CHANNELID'/>" target="_blank">
                         <trs_channel id="OWNER" FIELD='CHNLDESC' AUTOLINK="FALSE">子级栏目名称</trs_channel>
                     </a>
                 </li>
@@ -18,26 +21,16 @@
             <li><a href="#">规划信息</a></li>
             <li><a href="#">统计信息</a></li> -->
             <li id="<TRS_CHANNEL ID='云管局概况及职责' FIELD='CHANNELID'/>">
-                <a href="<TRS_CHANNEL ID='云管局概况及职责' FIELD='_RECURL'/>#<TRS_CHANNEL ID='云管局概况及职责' FIELD='CHANNELID'/>">
+                <a href="<TRS_CHANNEL ID='云管局概况及职责' FIELD='_RECURL'/>#<TRS_CHANNEL ID='云管局概况及职责' FIELD='CHANNELID'/>" target="_blank">
                     机关简介
                 </a>
             </li>
             <trs_channels id="信息公开目录" startpos="0">
-                <TRS_CONDITION REFERENCE="政府采购" CONDITION="@CHNLNAME" OPERATOR="==">
-                    <li id="<TRS_CHANNEL ID='OWNER' FIELD='CHANNELID'/>">
-                        <a href="<TRS_CHANNEL ID='OWNER' FIELD='_RECURL'/>#<TRS_CHANNEL ID='OWNER' FIELD='CHANNELID'/>" target="_blank">
-                            <trs_channel id="OWNER" FIELD='CHNLDESC' AUTOLINK="FALSE">子级栏目名称</trs_channel>
-                        </a>
-                    </li>
-                </TRS_CONDITION>
-                <TRS_CONDITION REFERENCE="政府采购" CONDITION="@CHNLNAME" OPERATOR="==" NOT="TRUE">
-                    <li id="<TRS_CHANNEL ID='OWNER' FIELD='CHANNELID'/>">
-                        <a href="<TRS_CHANNEL ID='OWNER' FIELD='_RECURL'/>#<TRS_CHANNEL ID='OWNER' FIELD='CHANNELID'/>">
-                            <trs_channel id="OWNER" FIELD='CHNLDESC' AUTOLINK="FALSE">子级栏目名称</trs_channel>
-                        </a>
-                    </li>
-                </TRS_CONDITION>
-
+                <li id="<TRS_CHANNEL ID='OWNER' FIELD='CHANNELID'/>">
+                    <a href="<TRS_CHANNEL ID='OWNER' FIELD='_RECURL'/>#<TRS_CHANNEL ID='OWNER' FIELD='CHANNELID'/>" target="_blank">
+                        <trs_channel id="OWNER" FIELD='CHNLDESC' AUTOLINK="FALSE">子级栏目名称</trs_channel>
+                    </a>
+                </li>
             </trs_channels>
         </ul>
         <li class="li_<TRS_CHANNEL ID='政府信息公开年报' FIELD='CHANNELID'/>_li"><a href="javascript:"><i class="iconfont">&#xe695;</i><span>政府信息<br />公开年报</span><em>+</em></a></li>
@@ -47,7 +40,7 @@
             <li><a href="#">2016年</a></li> -->
             <trs_channels id="政府信息公开年报" startpos="0">
                 <li id="<TRS_CHANNEL ID='OWNER' FIELD='CHANNELID'/>">
-                    <a href="<TRS_CHANNEL ID='OWNER' FIELD='_RECURL'/>#<TRS_CHANNEL ID='OWNER' FIELD='CHANNELID'/>">
+                    <a href="<TRS_CHANNEL ID='OWNER' FIELD='_RECURL'/>#<TRS_CHANNEL ID='OWNER' FIELD='CHANNELID'/>" target="_blank">
                         <trs_channel id="OWNER" FIELD='CHNLDESC' AUTOLINK="FALSE">子级栏目名称</trs_channel>
                     </a>
                 </li>
