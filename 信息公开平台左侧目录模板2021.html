@@ -1,7 +1,7 @@
 <div class="mainL">
     <ul class="zfxxgklist">
         <li id="<TRS_CHANNEL ID='信息公开指南' FIELD='CHANNELID'/>"><a href="<TRS_CHANNEL ID='信息公开指南' FIELD='_RECURL'/>#<TRS_CHANNEL ID='信息公开指南' FIELD='CHANNELID'/>"><i class="iconfont">&#xe6f0;</i><span>政府信息<br />公开指南</span></a></li>
-        <li class="li_<TRS_CHANNEL ID='信息公开相关制度' FIELD='CHANNELID'/>_li"><a href="javascript:"><i class="iconfont">&#xe620;</i><span>政府信息<br />公开制度</span><em>-</em></a></li>
+        <li class="li_<TRS_CHANNEL ID='信息公开相关制度' FIELD='CHANNELID'/>_li"><a href="<TRS_CHANNEL ID='信息公开相关制度' CHILDINDEX='0'  FIELD='_RECURL'/>#<TRS_CHANNEL ID='信息公开相关制度' CHILDINDEX='0' FIELD='CHANNELID'/>"><i class="iconfont">&#xe620;</i><span>政府信息<br />公开制度</span><em>-</em></a></li>
         <ul class="li_<TRS_CHANNEL ID='信息公开相关制度' FIELD='CHANNELID'/>">
             <trs_channels id="信息公开相关制度" startpos="0">
                 <li id="<TRS_CHANNEL ID='OWNER' FIELD='CHANNELID'/>">
@@ -11,7 +11,7 @@
                 </li>
             </trs_channels>
         </ul>
-        <li class="li_<TRS_CHANNEL ID='信息公开目录' FIELD='CHANNELID'/>_li"><a href="javascript:"><i class="iconfont">&#xe606;</i><span>法定主动<br />公开内容</span><em>-</em></a></li>
+        <li class="li_<TRS_CHANNEL ID='信息公开目录' FIELD='CHANNELID'/>_li"><a href="<TRS_CHANNEL ID='云管局概况及职责' FIELD='_RECURL'/>#<TRS_CHANNEL ID='云管局概况及职责' FIELD='CHANNELID'/>"><i class="iconfont">&#xe606;</i><span>法定主动<br />公开内容</span><em>-</em></a></li>
         <ul class="li_<TRS_CHANNEL ID='信息公开目录' FIELD='CHANNELID'/>">
             <!-- <li class="active"><a href="#">履职依据</a></li>
             <li><a href="#">机关简介</a></li>
@@ -40,7 +40,7 @@
 
             </trs_channels>
         </ul>
-        <li class="li_<TRS_CHANNEL ID='政府信息公开年报' FIELD='CHANNELID'/>_li"><a href="javascript:"><i class="iconfont">&#xe695;</i><span>政府信息<br />公开年报</span><em>+</em></a></li>
+        <li class="li_<TRS_CHANNEL ID='政府信息公开年报' FIELD='CHANNELID'/>_li"><a href="<TRS_CHANNEL ID='政府信息公开年报' CHILDINDEX='0'  FIELD='_RECURL'/>#<TRS_CHANNEL ID='政府信息公开年报' CHILDINDEX='0' FIELD='CHANNELID'/>"><i class="iconfont">&#xe695;</i><span>政府信息<br />公开年报</span><em>+</em></a></li>
         <ul class="li_<TRS_CHANNEL ID='政府信息公开年报' FIELD='CHANNELID'/>">
             <!-- <li class="active"><a href="#">2018年</a></li>
             <li><a href="#">2017年</a></li>
@@ -67,6 +67,8 @@
             var cs = ul.attr('class');
             $('.' + (cs + '_li')).removeClass('active');
             $('.' + (cs + '_li')).addClass('active');
+            // 修改+号为-号
+            $('.' + (cs + '_li>a>em')).html('-');
         }
         $('#' + activeId).removeClass('active');
         $('#' + activeId).addClass('active');
@@ -78,6 +80,8 @@
 
             $('.' + ('li_' + activeId + '_li')).removeClass('active');
             $('.' + ('li_' + activeId + '_li')).addClass('active');
+               // 修改+号为-号
+            $('.' + ('li_' + activeId + '_li>a>em')).html('-');
         }
 
 

@@ -276,6 +276,61 @@
                             <h3>政府信息公开指南</h3>
                             <!-- 读取信息公开指南信息 只读取第一条-->
                             <TRS_DOCUMENT FIELD="DOCHTMLCON" />
+                            				<!-- 附件列表 -->
+				<div style="margin-top: 40px;line-height: 200%;font-size: 16px;text-align: left; margin-left: 20px;">
+					<script language="JavaScript">
+						var content2 = '<TRS_APPENDIX mode="file" field="_RECURL" index="-1" seperator=";" UPLOAD="true"></TRS_APPENDIX>';
+						var appfilesname =
+							'<TRS_APPENDIX mode="file" field="APPDESC" index="-1" seperator=";" UPLOAD="true" autolink="false"></TRS_APPENDIX>';
+						var uploadGroupTitle = '<b style="font-weight: bold;color:blue">附件列表：</b><br/>';
+						var locationPathName = location.pathname.substring(0, location.pathname.lastIndexOf("/") + 1);
+						var locationHref = location.href.substring(0, location.href.lastIndexOf("/") + 1);
+						if (content2 != "") {
+							document.write(uploadGroupTitle);
+							var myArray2 = content2.split(";");
+							var myappname = appfilesname.split(";");
+							for (var nn2 = 0; nn2 < myArray2.length; nn2++) {
+								var index1 = myappname[nn2].lastIndexOf(".");
+								var index2 = myappname[nn2].length;
+								var suffix = myappname[nn2].substring(index1 + 1, index2); //后缀名
+								if (suffix.toUpperCase() === "PDF") {
+									// http://ygj.yn.gov.cn/xwzx/
+									document.write('<a href="http://ygj.yn.gov.cn/pdfyl?fileName=' + encodeURI(myappname[nn2]) + '&fileUrl=' +
+										encodeURI(locationHref + myArray2[nn2].replace("./", "")) + '" target="_blank" class="body2">' + myappname[
+											nn2] + '</a><br/>');
+								} else {
+									document.write('<a href="' + myArray2[nn2] + '" target="_blank" class="body2">' + myappname[nn2] + '</a><br/>');
+								}
+							}
+						}
+						var contentLink =
+							'<TRS_APPENDIX mode="LINK" field="_RECURL" index="-1" seperator=";" UPLOAD="true"></TRS_APPENDIX>';
+						var linkName =
+							'<TRS_APPENDIX mode="LINK" field="APPDESC" index="-1" seperator=";" UPLOAD="true" autolink="false"></TRS_APPENDIX>';
+						if (content2 == "" && contentLink != "") {
+							document.write(uploadGroupTitle);
+						}
+						if (contentLink != "") {
+							var linkArray2 = contentLink.split(";");
+							var linkName2 = linkName.split(";");
+							for (var nn2 = 0; nn2 < linkArray2.length; nn2++) {
+								var index1 = linkName2[nn2].lastIndexOf(".");
+								var index2 = linkName2[nn2].length;
+								var suffix = linkName2[nn2].substring(index1 + 1, index2); //后缀名
+								if (suffix.toUpperCase() === "PDF") {
+									document.write('<a href="http://ygj.yn.gov.cn/pdfyl?fileName=' + encodeURI(linkName2[nn2]) + '&fileUrl=' +
+
+									escape(linkArray2[nn2].replace("./", "")) + '" target="_blank" class="body2">' + linkName2[
+											nn2] + '</a><br/>');
+								} else {
+									document.write('<a href="' + linkArray2[nn2] + '" target="_blank" class="body2">' + linkName2[nn2] +
+										'</a><br/>');
+								}
+							}
+						}
+					</script>
+				</div>
+				<!-- 附件列表 -->
                         </div>
                     </TRS_CONDITION>
                 </TRS_DOCUMENTS>
@@ -288,6 +343,61 @@
                             <h3>云南省机关事务管理局主要职责</h3>
                             <!-- 读取信息公开指南信息 只读取第一条-->
                             <TRS_DOCUMENT FIELD="DOCHTMLCON" />
+                            				<!-- 附件列表 -->
+				<div style="margin-top: 40px;line-height: 200%;font-size: 16px;text-align: left; margin-left: 20px;">
+					<script language="JavaScript">
+						var content2 = '<TRS_APPENDIX mode="file" field="_RECURL" index="-1" seperator=";" UPLOAD="true"></TRS_APPENDIX>';
+						var appfilesname =
+							'<TRS_APPENDIX mode="file" field="APPDESC" index="-1" seperator=";" UPLOAD="true" autolink="false"></TRS_APPENDIX>';
+						var uploadGroupTitle = '<b style="font-weight: bold;color:blue">附件列表：</b><br/>';
+						var locationPathName = location.pathname.substring(0, location.pathname.lastIndexOf("/") + 1);
+						var locationHref = location.href.substring(0, location.href.lastIndexOf("/") + 1);
+						if (content2 != "") {
+							document.write(uploadGroupTitle);
+							var myArray2 = content2.split(";");
+							var myappname = appfilesname.split(";");
+							for (var nn2 = 0; nn2 < myArray2.length; nn2++) {
+								var index1 = myappname[nn2].lastIndexOf(".");
+								var index2 = myappname[nn2].length;
+								var suffix = myappname[nn2].substring(index1 + 1, index2); //后缀名
+								if (suffix.toUpperCase() === "PDF") {
+									// http://ygj.yn.gov.cn/xwzx/
+									document.write('<a href="http://ygj.yn.gov.cn/pdfyl?fileName=' + encodeURI(myappname[nn2]) + '&fileUrl=' +
+										encodeURI(locationHref + myArray2[nn2].replace("./", "")) + '" target="_blank" class="body2">' + myappname[
+											nn2] + '</a><br/>');
+								} else {
+									document.write('<a href="' + myArray2[nn2] + '" target="_blank" class="body2">' + myappname[nn2] + '</a><br/>');
+								}
+							}
+						}
+						var contentLink =
+							'<TRS_APPENDIX mode="LINK" field="_RECURL" index="-1" seperator=";" UPLOAD="true"></TRS_APPENDIX>';
+						var linkName =
+							'<TRS_APPENDIX mode="LINK" field="APPDESC" index="-1" seperator=";" UPLOAD="true" autolink="false"></TRS_APPENDIX>';
+						if (content2 == "" && contentLink != "") {
+							document.write(uploadGroupTitle);
+						}
+						if (contentLink != "") {
+							var linkArray2 = contentLink.split(";");
+							var linkName2 = linkName.split(";");
+							for (var nn2 = 0; nn2 < linkArray2.length; nn2++) {
+								var index1 = linkName2[nn2].lastIndexOf(".");
+								var index2 = linkName2[nn2].length;
+								var suffix = linkName2[nn2].substring(index1 + 1, index2); //后缀名
+								if (suffix.toUpperCase() === "PDF") {
+									document.write('<a href="http://ygj.yn.gov.cn/pdfyl?fileName=' + encodeURI(linkName2[nn2]) + '&fileUrl=' +
+
+									escape(linkArray2[nn2].replace("./", "")) + '" target="_blank" class="body2">' + linkName2[
+											nn2] + '</a><br/>');
+								} else {
+									document.write('<a href="' + linkArray2[nn2] + '" target="_blank" class="body2">' + linkName2[nn2] +
+										'</a><br/>');
+								}
+							}
+						}
+					</script>
+				</div>
+				<!-- 附件列表 -->
                         </div>
                     </TRS_CONDITION>
                 </TRS_DOCUMENTS>
